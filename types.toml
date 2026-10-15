@@ -204,6 +204,7 @@ schema = 1
 "func_8009F5BC" = { evidence = "authored", signature = "void * func_8009F5BC(void * arg0, void * arg1)" }
 "func_8009FBE4" = { evidence = "authored", signature = "s32 func_8009FBE4()" }
 "func_800A03B8" = { evidence = "authored", signature = "void *func_800A03B8()" }
+"func_800A04F0" = { evidence = "landed", signature = "void func_800A04F0(Obj80137A3C *arg0, s32 *arg1)" }
 "func_800A27D0" = { evidence = "authored", signature = "s32 func_800A27D0()" }
 "func_800A2A44" = { evidence = "authored", signature = "s32 func_800A2A44()" }
 "func_800A2C38" = { evidence = "authored", signature = "s32 func_800A2C38()" }
