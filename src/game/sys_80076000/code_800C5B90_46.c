@@ -8,3 +8,6 @@ s32 func_800EB360(s32 arg0) {
     return -1;
 }
 
+void func_800EB394(s32 arg0) {
+    func_800EA93C(arg0, &D_auto_80136480);
+}
