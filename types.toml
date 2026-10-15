@@ -503,7 +503,10 @@ schema = 1
 "func_800EAD4C" = { evidence = "landed", signature = "void func_800EAD4C(s32 arg0)" }
 "func_800EAD74" = { evidence = "landed", signature = "void func_800EAD74(s32 arg0)" }
 "func_800EAFC4" = { evidence = "landed", signature = "s32 func_800EAFC4(s32 arg0)" }
+"func_800EAFE4" = { evidence = "landed", signature = "void func_800EAFE4(s32 arg0)" }
 "func_800EB00C" = { evidence = "landed", signature = "s32 func_800EB00C(s32 arg0)" }
+"func_800EB02C" = { evidence = "landed", signature = "void func_800EB02C(s32 arg0)" }
+"func_800EB054" = { evidence = "landed", signature = "void func_800EB054(s32 arg0)" }
 "func_800EB110" = { evidence = "landed", signature = "s32 func_800EB110(s32 arg0)" }
 "func_800EB158" = { evidence = "landed", signature = "s32 func_800EB158(s32 arg0)" }
 "func_800EB1A0" = { evidence = "landed", signature = "s32 func_800EB1A0(s32 arg0)" }
@@ -1066,6 +1069,9 @@ schema = 1
 "D_auto_80135DDC" = { declaration = "extern s32 D_auto_80135DDC;", evidence = "authored" }
 "D_auto_80135E64" = { declaration = "extern s32 D_auto_80135E64;", evidence = "authored" }
 "D_auto_80135F84" = { declaration = "extern s32 D_auto_80135F84;", evidence = "authored" }
+"D_auto_80136078" = { declaration = "extern s32 D_auto_80136078;", evidence = "authored" }
+"D_auto_801360E8" = { declaration = "extern s32 D_auto_801360E8;", evidence = "authored" }
+"D_auto_80136164" = { declaration = "extern s32 D_auto_80136164;", evidence = "authored" }
 "D_auto_80136774" = { declaration = "extern s32 D_auto_80136774;", evidence = "authored" }
 "D_auto_80137888" = { declaration = "extern struct CallbackDescriptor *D_auto_80137888[0x1E];", evidence = "authored" }
 "D_auto_80137900" = { declaration = "extern s32 D_auto_80137900;", evidence = "authored" }
