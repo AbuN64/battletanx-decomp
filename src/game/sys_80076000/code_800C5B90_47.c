@@ -11,3 +11,7 @@ s32 func_800EB3BC(s32 arg0) {
 void func_800EB3F0(s32 arg0) {
     func_800EA93C(arg0, &D_auto_801364E8);
 }
+
+void func_800EB418(s32 arg0) {
+    func_800EA93C(arg0, &D_auto_8013652C);
+}
