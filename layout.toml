@@ -1412,9 +1412,8 @@ omit = []
 path = "src/game/sys_80076000/code_80076000_12.c"
 kind = "c"
 group = "code_80076000"
-members = ["func_80079A5C", "func_80079AB4"]
+members = ["func_80079A5C", "func_80079AB4", "func_80079B08"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -1938,6 +1937,17 @@ add = []
 omit = []
 
 [[unit]]
+path = "src/game/sys_80076000/code_80076000_56.c"
+kind = "c"
+group = "code_80076000"
+members = ["func_80076E34"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
 path = "src/game/sys_80076000/code_80076000_6.c"
 kind = "c"
 group = "code_80076000"
@@ -2008,6 +2018,17 @@ path = "src/game/sys_80076000/code_8009FB8C.c"
 kind = "c"
 group = "code_8009FB8C"
 members = ["func_800A2EA4"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_8009FB8C_2.c"
+kind = "c"
+group = "code_8009FB8C"
+members = ["func_800A04F0"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -2128,9 +2149,8 @@ omit = []
 path = "src/game/sys_80076000/code_800A6798_2.c"
 kind = "c"
 group = "code_800A6798"
-members = ["func_800A68E0"]
+members = ["func_800A68E0", "func_800A6900"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2423,10 +2443,153 @@ add = []
 omit = []
 
 [[unit]]
+path = "src/game/sys_80076000/code_800C5B90_100.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB0E8"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_101.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB2A4"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_102.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB310", "func_800EB338"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_103.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB640"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_104.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB818"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_105.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB888"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_106.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB8F8"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_107.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EB9D8"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_108.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EBA48"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_109.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EBAB8"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
 path = "src/game/sys_80076000/code_800C5B90_11.c"
 kind = "c"
 group = "code_800C5B90"
 members = ["func_800DEC04"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_110.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EBB58"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_111.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EBF28"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_112.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800EBFA4", "func_800EBFCC"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -2756,9 +2919,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_39.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EAD2C"]
+members = ["func_800EAD2C", "func_800EAD4C", "func_800EAD74"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2779,9 +2941,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_40.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EAFC4"]
+members = ["func_800EAFC4", "func_800EAFE4"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2791,9 +2952,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_41.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB00C"]
+members = ["func_800EB00C", "func_800EB02C", "func_800EB054"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2803,9 +2963,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_42.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB110"]
+members = ["func_800EB110", "func_800EB130"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2815,9 +2974,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_43.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB158"]
+members = ["func_800EB158", "func_800EB178"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2827,9 +2985,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_44.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB1A0"]
+members = ["func_800EB1A0", "func_800EB1C0"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2850,9 +3007,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_46.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB360"]
+members = ["func_800EB360", "func_800EB394"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2862,9 +3018,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_47.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB3BC"]
+members = ["func_800EB3BC", "func_800EB3F0", "func_800EB418"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2874,9 +3029,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_48.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB440"]
+members = ["func_800EB440", "func_800EB47C"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2908,9 +3062,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_50.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB5A0"]
+members = ["func_800EB5A0", "func_800EB5C0"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2931,9 +3084,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_52.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB920"]
+members = ["func_800EB920", "func_800EB968"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2954,9 +3106,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_54.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBBFC"]
+members = ["func_800EBBFC", "func_800EBC1C", "func_800EBC44", "func_800EBC6C", "func_800EBC94", "func_800EBCBC"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2966,9 +3117,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_55.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBCE4"]
+members = ["func_800EBCE4", "func_800EBD04"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2978,9 +3128,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_56.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBD2C"]
+members = ["func_800EBD2C", "func_800EBD4C"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2990,9 +3139,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_57.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBD74"]
+members = ["func_800EBD74", "func_800EBDB4"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3002,9 +3150,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_58.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBDDC"]
+members = ["func_800EBDDC", "func_800EBDFC"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3014,9 +3161,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_59.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBE24"]
+members = ["func_800EBE24", "func_800EBE44"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3037,9 +3183,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_60.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBE6C"]
+members = ["func_800EBE6C", "func_800EBEAC"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3049,9 +3194,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_61.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EBFF4"]
+members = ["func_800EBFF4", "func_800EC014"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3061,9 +3205,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_62.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EC03C"]
+members = ["func_800EC03C", "func_800EC05C"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3238,9 +3381,8 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_77.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800D1874"]
+members = ["func_800D1874", "func_800D18C4"]
 toolchain = "gcc-2.7.2-kmc"
-withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3493,6 +3635,17 @@ path = "src/game/sys_80076000/code_800C5B90_98.c"
 kind = "c"
 group = "code_800C5B90"
 members = ["func_800E1098"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_99.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800E9880"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
