@@ -534,4 +534,10 @@ s32 func_8010CB4C(s32, s32);
 s32 func_80084CC4(s32, s32, s32, s32, s32, s32, s32, f32);
 extern f32 D_auto_80071E90;
 
+extern s32 D_auto_80135E64;
+
+extern s32 D_auto_80135F84;
+
+extern s32 D_auto_80136078;
+
 #endif
