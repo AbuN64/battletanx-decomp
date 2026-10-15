@@ -346,6 +346,7 @@ schema = 1
 "func_800D17D4" = { evidence = "landed", signature = "void func_800D17D4(void)" }
 "func_800D1824" = { evidence = "landed", signature = "void func_800D1824(void)" }
 "func_800D1874" = { evidence = "landed", signature = "void func_800D1874(void)" }
+"func_800D18C4" = { evidence = "landed", signature = "void func_800D18C4(s32 arg0, void *arg1)" }
 "func_800D1F20" = { evidence = "authored", signature = "int func_800D1F20(int arg0, int arg1, int arg2, int arg3, int arg4, void * arg5, void * arg6)" }
 "func_800D3A7C" = { evidence = "landed", signature = "void func_800D3A7C(s32 arg0, s32 arg1)" }
 "func_800D3CD4" = { evidence = "landed", signature = "void func_800D3CD4(void)" }
