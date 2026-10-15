@@ -1,0 +1,9 @@
+#include "shared/bt_span_1000_code_80091A60.h"
+/* func_80093F34 -- does nothing.
+ *
+ * Two words: the return and an empty delay slot. The cartridge keeps the entry point, so
+ * something calls it; what it was meant to do, if anything, is not in the image.
+ */
+
+void func_80093F34(void) {
+}

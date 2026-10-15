@@ -1,0 +1,195 @@
+#include "shared/bt_span_1000_code_801153B0.h"
+#include "shared/bt_types.h"
+#include "sdk/libultra.h"
+
+struct Ctx;
+
+struct Header;
+
+
+
+
+
+
+/* Sizes a memory card by writing a marked, inverted page pattern to page after page
+ * and reading it back, stops at the first page that does not read back or that
+ * aliases page 0, then fills in the caller's header from the template, writes it to
+ * four pages and verifies the first 0x20 bytes of the readback.
+ * lbu/sb fix 0x65 of the context, 0x1A and 0x1B of the header and both temporary
+ * buffers as unsigned bytes; lhu/sh with the andi 0xFFFE mask fixes 0x18 as an
+ * unsigned short; every other field is a word. */
+
+
+
+
+
+
+int func_80115474(Ctx *ctx, Header *src, Header *dst) {
+    int ret;
+    unsigned char work[0x20];
+    unsigned char read[0x20];
+    char flag;
+    int i;
+    int page;
+    unsigned short cmds[4];
+
+    ret = 0;
+    flag = 0;
+    if (ctx->unk_65 != 0) {
+        ctx->unk_65 = 0;
+        ret = func_8011609C(ctx);
+        if (ret != 0) {
+            return ret;
+        }
+    }
+    dst->unk_0 = -1;
+    dst->unk_4 = func_80112130();
+    dst->unk_8 = src->unk_8;
+    dst->unk_10 = src->unk_10;
+    page = 0;
+    do {
+        ctx->unk_65 = page;
+        ret = func_8011609C(ctx);
+        if (ret != 0) {
+            return ret;
+        }
+        ret = func_80114190(ctx->unk_4, ctx->unk_8, 0, work);
+        if (ret != 0) {
+            return ret;
+        }
+        work[0] = page | 0x80;
+        for (i = 1; i < 0x20; i++) {
+            work[i] = ~work[i];
+        }
+        ret = func_80113E10(ctx->unk_4, ctx->unk_8, 0, work, 0);
+        if (ret != 0) {
+            return ret;
+        }
+        ret = func_80114190(ctx->unk_4, ctx->unk_8, 0, read);
+        if (ret != 0) {
+            return ret;
+        }
+        for (i = 0; i < 0x20; i++) {
+            if (read[i] != work[i]) {
+                break;
+            }
+        }
+        if (i != 0x20) {
+            break;
+        }
+        if (page > 0) {
+            ctx->unk_65 = 0;
+            ret = func_8011609C(ctx);
+            if (ret != 0) {
+                return ret;
+            }
+            ret = func_80114190(ctx->unk_4, ctx->unk_8, 0, work);
+            if (ret != 0) {
+                return ret;
+            }
+            if (work[0] != 0x80) {
+                break;
+            }
+        }
+        page++;
+    } while (page < 0x3E);
+    ctx->unk_65 = 0;
+    ret = func_8011609C(ctx);
+    if (ret != 0) {
+        return ret;
+    }
+    if (page > 0) {
+        flag = 1;
+    } else {
+        flag = 0;
+    }
+    dst->unk_18 = (src->unk_18 & 0xFFFE) | flag;
+    dst->unk_1A = page;
+    dst->unk_1B = src->unk_1B;
+    func_8011540C(dst, &dst->unk_1C, &dst->unk_1E);
+    cmds[0] = 1;
+    cmds[1] = 3;
+    cmds[2] = 4;
+    cmds[3] = 6;
+    for (i = 0; i < 4; i++) {
+        ret = func_80113E10(ctx->unk_4, ctx->unk_8, cmds[i], dst, 1);
+        if (ret != 0) {
+            return ret;
+        }
+    }
+    ret = func_80114190(ctx->unk_4, ctx->unk_8, 1, work);
+    if (ret != 0) {
+        return ret;
+    }
+    for (i = 0; i < 0x20; i++) {
+        if (work[i] != ((unsigned char *) dst)[i]) {
+            return 0xA;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+/* NOTE: byte-identical only when compiled at -O1.
+ *
+ * func_8011588C -- reprobes a display device: it first flushes any pending change, then walks the
+ * mode list {1,3,4,6} from index 1 asking func_80114190 to set each mode until func_8011540C
+ * reports the target's own width and height back, returning 10 if no mode fits, and finally asks
+ * func_80113E10 to tear down every mode it tried except the one that stuck. The lhu loads fix the
+ * mode list and the two readback values as unsigned halfwords and the lbu/sb at 0x65 fixes the
+ * dirty flag as one byte.
+ */
+
+
+
+
+
+int func_8011588C(Ctx *obj, Header *target) {
+    unsigned short modes[4];
+    int result;
+    unsigned short h1;
+    unsigned short h2;
+    int i;
+    int j;
+
+    result = 0;
+    if (obj->unk_65 != 0) {
+        obj->unk_65 = 0;
+        result = func_8011609C(obj);
+        if (result != 0) {
+            return result;
+        }
+    }
+    modes[0] = 1;
+    modes[1] = 3;
+    modes[2] = 4;
+    modes[3] = 6;
+    for (i = 1; i < 4; i++) {
+        result = func_80114190(obj->unk_4, obj->unk_8, modes[i], target);
+        if (result != 0) {
+            return result;
+        }
+        func_8011540C(target, &h1, &h2);
+        if (target->unk_1C == h1 && target->unk_1E == h2) {
+            break;
+        }
+    }
+    if (i == 4) {
+        return 10;
+    }
+    for (j = 0; j < 4; j++) {
+        if (j != i) {
+            result = func_80113E10(obj->unk_4, obj->unk_8, modes[j], target, 1);
+            if (result != 0) {
+                return result;
+            }
+        }
+    }
+    return 0;
+}

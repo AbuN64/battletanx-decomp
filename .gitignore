@@ -1,0 +1,9 @@
+/asm/
+/build/
+/roms/
+/tools/
+/.unbake/
+/local.mk
+*.z64
+*.n64
+*.v64

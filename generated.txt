@@ -1,0 +1,9 @@
+.github/workflows/ci.yml
+.gitignore
+.gitlab-ci.yml
+Makefile
+README.md
+generated.txt
+versions/stamp.json
+versions/us/report.json
+versions/us/symbols.ld

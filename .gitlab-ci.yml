@@ -1,0 +1,22 @@
+audit:
+  image: python:3.13-slim@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f
+  variables:
+    GIT_DEPTH: "0"
+  script:
+    - pip install https://github.com/AbuN64/cake-unbake-64/releases/download/v0.3.1/unbake-0.3.1-py3-none-any.whl
+    - BASE="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-$CI_COMMIT_BEFORE_SHA}"
+    - case "$BASE" in ""|*0000000000000000000000000000000000000000) BASE=4b825dc642cb6eb9a060e54bf8d69288fbee4904;; esac
+    - apt-get update && apt-get install -y --no-install-recommends git
+    - git cat-file -e "$BASE^{commit}" 2>/dev/null || BASE=HEAD
+    - unbake audit --against "$BASE"
+
+check:
+  image: python:3.11-slim@sha256:0dd364ba7e10242f07755449e3a3d0e35f9efd987952737b90def6709ab0c5ce
+  before_script:
+    - apt-get update
+    - apt-get install -y --no-install-recommends make
+  script:
+    - make check CHECK=tree
+  artifacts:
+    paths:
+      - versions/*/report.json
