@@ -4,7 +4,9 @@
 typedef struct S S;
 struct S {
     u32 unk0;
-    char pad4[0x200];
+    s32 unk4;
+    s32 unk8;
+    char padC[0x1F8];
     int unk204;
 };
 extern S *D_auto_801B4ABC;
