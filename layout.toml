@@ -1414,6 +1414,7 @@ kind = "c"
 group = "code_80076000"
 members = ["func_80079A5C", "func_80079AB4"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2129,6 +2130,7 @@ kind = "c"
 group = "code_800A6798"
 members = ["func_800A68E0"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2756,6 +2758,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EAD2C"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2778,6 +2781,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EAFC4"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2789,6 +2793,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB00C"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2800,6 +2805,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB110"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2811,6 +2817,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB158"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2822,6 +2829,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB1A0"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2844,6 +2852,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB360"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2855,6 +2864,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB3BC"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2866,6 +2876,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB440"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2899,6 +2910,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB5A0"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2921,6 +2933,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EB920"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2943,6 +2956,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBBFC"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2954,6 +2968,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBCE4"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2965,6 +2980,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBD2C"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2976,6 +2992,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBD74"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2987,6 +3004,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBDDC"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -2998,6 +3016,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBE24"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3020,6 +3039,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBE6C"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3031,6 +3051,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EBFF4"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3042,6 +3063,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800EC03C"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []
@@ -3218,6 +3240,7 @@ kind = "c"
 group = "code_800C5B90"
 members = ["func_800D1874"]
 toolchain = "gcc-2.7.2-kmc"
+withheld = ["us"]
 
 [unit.options]
 add = []

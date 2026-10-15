@@ -34,12 +34,11 @@ jobs:
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.13"
-      - run: pip install https://github.com/AbuN64/cake-unbake-64/releases/download/v0.3.1/unbake-0.3.1-py3-none-any.whl
+      - run: pip install https://github.com/AbuN64/cake-unbake-64/releases/download/v0.2.0/unbake-0.2.0-py3-none-any.whl
       - env:
           BEFORE: ${{ github.event.before }}
           BASE_REF: ${{ github.base_ref }}
         run: |
           if [ "$GITHUB_EVENT_NAME" = pull_request ]; then BASE="origin/$BASE_REF"; else BASE="$BEFORE"; fi
           case "$BASE" in *0000000000000000000000000000000000000000) BASE=4b825dc642cb6eb9a060e54bf8d69288fbee4904;; esac
-          git cat-file -e "$BASE^{commit}" 2>/dev/null || BASE=HEAD
           unbake audit --against "$BASE"
