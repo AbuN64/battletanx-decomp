@@ -631,4 +631,206 @@ extern s32 D_auto_8012576C;
 extern s32 D_auto_80125770;
 extern s32 D_auto_80152A38;
 
+extern void func_800C80E0(void);
+extern s32 D_auto_80134010[];
+extern u8 D_auto_80135773;
+extern s32 D_auto_80327EE8;
+extern s32 D_auto_80327EF0;
+
+extern void func_800ABF1C(void);
+extern void func_800ABF40(void);
+extern void func_800ABF70(void);
+extern void func_800DCA7C(void);
+extern u8 D_auto_80135680[];
+extern u8 D_auto_8013568C[];
+extern s32 D_auto_80327614;
+extern s32 D_auto_80328420;
+extern s32 D_auto_80328424;
+extern s32 D_auto_80328428;
+extern u8 D_auto_8032842F[];
+extern u8 D_auto_80328430[];
+extern u8 D_auto_80328439;
+extern u8 D_auto_8032843A;
+extern s32 D_auto_80328440;
+s32 func_800DCCC0(void);
+
+extern s32 D_auto_80125790;
+extern s32 D_auto_80134E60;
+extern u8 D_auto_80134E64;
+extern u8 D_auto_80134E65;
+extern u8 D_auto_80134E66;
+extern u8 D_auto_80134E67;
+extern u8 D_auto_80134E69;
+s32 func_800CE214(void);
+
+const char *func_800863F4(u32 level);
+
+extern void func_80106010(void *context, u8 ch);
+extern u8 *D_803AAD98;
+extern s32 D_803B75A0;
+void func_80105D90(void *context, u8 *text, s32 lineCount, s32 lineHeight, s32 left, s32 right);
+
+extern void func_801053B0(s32 font);
+extern s32 func_800F4F60(u32 sourceSize, u8 *source, u32 destinationSize, u8 *destination);
+extern s8 D_auto_80132EF0;
+extern u8 *D_auto_803275F4;
+extern u64 D_auto_80327E58;
+extern s32 D_auto_80327E60;
+extern u8 D_auto_80327EB1;
+extern u8 D_auto_80327EB2;
+extern u8 D_auto_803DA800[];
+extern u8 D_auto_B0596EA0[];
+extern u8 D_auto_B05A1110[];
+void func_800C3F00(void);
+
+extern f32 func_8011BE10(f32);
+extern f32 func_801113A0(f32);
+extern f32 D_auto_80126700;
+void func_800A7964(f32 m[4][4], f32 *angles);
+
+extern f32 D_auto_800730BC;
+extern f32 D_auto_80126704;
+void func_800A7ABC(f32 m[4][4], f32 x, f32 y, f32 z, f32 degrees);
+
+extern u8 D_803B75A8;
+void func_80105C68(void *context, u8 *text, s32 lineCount, s32 lineHeight, s32 maxChars);
+
+extern f32 D_auto_800749E0;
+extern f32 D_auto_800749E4;
+extern s32 D_auto_8033B5F4;
+extern s32 D_auto_8033B600;
+extern u8 *D_auto_8033B618;
+extern f32 (*D_auto_8033B61C)[3];
+void func_800EC7A8(f32 out[4][4], s32 offset);
+
+extern u8 D_auto_801260A0[4];
+extern u8 D_auto_801260A4[4];
+void func_800A30A8(void);
+
+extern u8 D_auto_801352B0[];
+extern s32 D_auto_8013566C;
+extern s32 D_auto_80135674;
+extern s32 D_auto_80328410;
+s32 func_800DAC4C(void);
+
+extern u16 D_auto_80132298;
+extern s32 D_auto_8013229C[];
+extern u16 D_auto_801322BC;
+extern s32 D_auto_801322C0[];
+extern u16 D_auto_801322CC;
+extern s32 D_auto_801322D0[];
+extern u16 D_auto_801322F0;
+extern s32 D_auto_801322F4[];
+s32 func_800AB520(u32 table, u16 index);
+
+extern void func_800F195C(f32 *origin, f32 *position, s32 arg2, s32 arg3, u8 byte0, u8 byte1, u8 byte2);
+extern f32 D_auto_80074DE0;
+extern f32 D_auto_80074DE4;
+void func_800F1BB4(f32 *origin, u8 byte0, u8 byte1, u8 byte2);
+
+extern u8 D_auto_80134E68;
+s32 func_80088590(s32 kind);
+
+extern s32 func_8011CC84(char *out, const char *format, ...);
+extern void func_80105750(void **displayList, char *text);
+extern char D_auto_80073D14[];
+extern char D_auto_80073D18[];
+void func_800D1A00(s32 ticks);
+
+void func_800D1AD0(s32 ticks);
+
+extern void func_80077110(void);
+extern void func_80076068(u32 addr, s32 value);
+extern u32 D_auto_80000318;
+extern u32 D_auto_80125558;
+extern u32 D_auto_80125568;
+extern u8 D_auto_80147370;
+extern u8 D_auto_80147372;
+void func_800768E4(void);
+
+s32 func_80076F60(s32 port, u32 source, u32 length);
+
+extern void func_800824E4(u8 *level, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 index);
+void func_800849B0(u8 *level, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 mask);
+
+extern s32 D_auto_802DF580[];
+extern s32 D_auto_802DF590[];
+extern s32 D_auto_802DF5A0[];
+
+extern void func_800949D8(s32 value0, s32 value1, s32 value2, s32 value3, s32 arg4, s32 arg5, s32 key);
+void func_8009531C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 key);
+
+extern void func_8011CC10(void *sound);
+extern s16 D_auto_801B4A58[];
+
+extern s32 func_80095CDC(s32 value0, s32 value1, s32 value2, s32 value3, s32 arg4, s32 key);
+s32 func_80095EAC(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 key);
+
+void func_80076390(u32 address, u8 value);
+
+void func_80079948(void);
+
+extern s16 D_auto_802D5A36;
+s32 func_8008CED0(void);
+
+void func_800A7ECC(f32 src[4][4], f32 dst[4][4], f32 scale);
+
+void func_800E4A38(void);
+
+extern f32 D_auto_800710F0;
+void func_8007ACC4(void);
+
+extern s32 D_auto_80134FC0[];
+s32 func_800D3AC4(s32 value, s32 arg1, s32 arg2, s32 *exact, s32 *offset);
+
+u16 func_800E0E1C(u16 index);
+
+void func_800D1EBC(u32 kind);
+
+extern char D_auto_80073D9C[];
+void func_800D3C84(s32 value);
+
+s32 func_80081A78(s32 size);
+
+extern f32 D_auto_80074478;
+extern f32 D_auto_8007447C;
+void func_800E10D0(f32 *source, f32 *target);
+
+extern u8 D_auto_80150398;
+extern u8 D_auto_80152F80;
+extern s32 D_auto_80152F84;
+extern u8 *D_auto_80152F88;
+extern void func_8007A7E0(void);
+void *func_8007A79C(u8 **state);
+
+s32 func_800E289C(s32 from, s32 to);
+
+s32 func_800EC390(void);
+
+s32 func_800796B4(s16 value);
+
+s32 func_800E27E4(u16 angle, u16 reference);
+
+extern u8 D_auto_80135820;
+u32 func_800DDB94(void);
+
+f32 *func_800EC700(s32 index);
+
+void func_800DEC28(u8 *workspace, u16 index, s32 arg2, u16 increment);
+
+extern u8 D_auto_802DF5D0[];
+void func_800A8E9C(void);
+
+extern void *D_auto_8033B610[];
+void *func_800ECB68(s32 index);
+
+extern s16 D_auto_801B4A96[];
+void func_8007968C(void);
+
+extern u8 D_auto_80125D50[];
+void *func_80096768(s32 index);
+
+extern u8 D_auto_801262D8[];
+void *func_800A68C0(s32 index);
+
 #endif

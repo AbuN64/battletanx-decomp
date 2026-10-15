@@ -37,3 +37,13 @@ s32 func_800EC6BC(s32 arg0, s32 arg1) {
         return 0;
     }
 }
+
+f32 *func_800EC700(s32 index) {
+    f32 *result;
+    if (D_auto_80137900 != 0) {
+        result = D_auto_8033B61C[index + 4];
+    } else {
+        result = 0;
+    }
+    return result;
+}

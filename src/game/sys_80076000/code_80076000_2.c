@@ -1,4 +1,6 @@
 #include "shared/bt_span_1000_code_80076068.h"
+#include "shared/bt_types.h"
+#include "game/sys_80076000.h"
 /* func_8007627C -- copies n bytes between two byte-addressed spaces, a byte at a time until the source is word-aligned, then a word at a time split into four byte stores, then the tail. */
 
 
@@ -23,4 +25,11 @@ void func_8007627C(unsigned int src, unsigned int dst, unsigned int n) {
         func_80076240(dst++, func_80076124(src++));
         n--;
     }
+}
+
+void func_80076390(u32 address, u8 value)
+{
+    s32 shift = (~address & 3) * 8;
+    address &= ~3;
+    func_80076068(address, (func_800760A0(address) & ~(0xFF << shift)) | ((u32)value << shift));
 }

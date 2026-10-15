@@ -13,3 +13,8 @@ void func_800A6888(s32 arg0) {
 u8 func_800A68AC(s32 arg0) {
     return D_auto_802DF344[arg0];
 }
+
+void *func_800A68C0(s32 index)
+{
+    return D_auto_801262D8 + index * 72;
+}

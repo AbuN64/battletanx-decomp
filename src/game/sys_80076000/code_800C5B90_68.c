@@ -9,3 +9,13 @@ void func_800ECB34(void) {
     }
 }
 
+void *func_800ECB68(s32 index)
+{
+    void *result;
+    if (D_auto_80137900 != 0) {
+        result = D_auto_8033B610[index];
+    } else {
+        result = 0;
+    }
+    return result;
+}

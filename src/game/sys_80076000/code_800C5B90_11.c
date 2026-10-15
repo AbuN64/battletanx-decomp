@@ -15,3 +15,11 @@ void func_800DEC04(void) {
     } while (var_v1 >= 0);
 }
 
+void func_800DEC28(u8 *workspace, u16 index, s32 arg2, u16 increment)
+{
+    if (increment == 0) {
+        workspace[index] = 0;
+    } else {
+        workspace[index]++;
+    }
+}

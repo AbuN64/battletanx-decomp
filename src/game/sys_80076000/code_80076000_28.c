@@ -17,3 +17,16 @@ int func_80081A50(void) {
     D_auto_801C918C = &D_auto_801C9190;
     D_auto_801C9188 = 0xF8240;
 }
+
+s32 func_80081A78(s32 size)
+{
+    s32 result;
+    size = (size + 7) & ~7;
+    if (D_auto_801C9188 < size) {
+        return 0;
+    }
+    result = D_auto_801C918C;
+    D_auto_801C9188 -= size;
+    D_auto_801C918C = result + size;
+    return result;
+}
