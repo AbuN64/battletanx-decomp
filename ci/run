@@ -5,7 +5,7 @@
 #   board NAME   publish the progress reports to one external board (REPO owner/name, COMMIT sha)
 set -eu
 cd "$(dirname "$0")/.."
-WHEEL=https://github.com/AbuN64/cake-unbake-64/releases/download/v0.4.0/unbake-0.4.0-py3-none-any.whl
+WHEEL=https://github.com/AbuN64/cake-unbake-64/releases/download/v0.4.1/unbake-0.4.1-py3-none-any.whl
 VERSIONS="us"
 
 base() {
