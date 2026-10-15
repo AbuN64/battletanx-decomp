@@ -12,3 +12,6 @@ s32 func_800EB920(s32 arg0) {
     return -1;
 }
 
+void func_800EB968(s32 arg0) {
+    func_800EA93C(arg0, &D_auto_80136C18);
+}
