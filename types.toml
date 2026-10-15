@@ -21,6 +21,7 @@ schema = 1
 "func_80076CC8" = { evidence = "landed", signature = "int func_80076CC8(void)" }
 "func_80076D14" = { evidence = "authored", signature = "int func_80076D14(void * arg0, int arg1)" }
 "func_80076DA4" = { evidence = "authored", signature = "int func_80076DA4(void * arg0, int arg1)" }
+"func_80076E34" = { evidence = "landed", signature = "s32 func_80076E34(s32 arg0)" }
 "func_80077028" = { evidence = "landed", signature = "int func_80077028(s32 arg0, s32 arg1, s32 arg2)" }
 "func_80077110" = { evidence = "authored", signature = "void func_80077110()" }
 "func_800771BC" = { evidence = "authored", signature = "void func_800771BC(void)" }
