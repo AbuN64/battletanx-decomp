@@ -7,11 +7,11 @@ A matching decompilation of *BattleTanx* for the Nintendo 64.
 ## Progress
 
 <!-- progress -->
-<pre><code>all  [██░░░░░░░░░░░░░░░░░░]  11.55% (~12.89%)  101,276 of 876,608 bytes</code><br><code>us   [██░░░░░░░░░░░░░░░░░░]  11.55% (~12.89%)  101,276 of 876,608 bytes</code></pre>
+<pre><code>all  [██░░░░░░░░░░░░░░░░░░]  11.56% (~12.90%)  101,356 of 876,608 bytes</code><br><code>us   [██░░░░░░░░░░░░░░░░░░]  11.56% (~12.90%)  101,356 of 876,608 bytes</code></pre>
 
 | us (NUS-NBXE-0, North America). NTSC release. SHA256 `c5b7cf3523de025e3f18e2c8df2deb0eced5613e7c46cb8c6c5a4f22644ead3f` |
 |---|
-| <pre><code>code      [█░░░░░░░░░░░░░░░░░░░]   7.45% (~9.11%)  52,608 of 705,956</code><br><code>data      [█████░░░░░░░░░░░░░░░]  28.51%  48,668 of 170,652</code><br><code>functions [███▒▒░░░░░░░░░░░░░░░]  19.04% (~26.67%)  327 of 1,717</code></pre> |
+| <pre><code>code      [█░░░░░░░░░░░░░░░░░░░]   7.46% (~9.12%)  52,688 of 705,956</code><br><code>data      [█████░░░░░░░░░░░░░░░]  28.51%  48,668 of 170,652</code><br><code>functions [███▒▒░░░░░░░░░░░░░░░]  19.16% (~26.79%)  329 of 1,717</code></pre> |
 <!-- /progress -->
 
 ## Development & Contributions
