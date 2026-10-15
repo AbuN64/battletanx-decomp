@@ -1,5 +1,6 @@
 /asm/
 /build/
+/.boards/
 /roms/
 /tools/
 /.unbake/

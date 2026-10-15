@@ -48,6 +48,9 @@ all: check
 ifeq ($(CHECK),tree)
 check:
 	$(Q)test -s versions/us/report.json
+	$(Q)test -s progress.json
+	$(Q)test -s docs/memory-map-us.svg
+	$(Q)test -s versions/us/symbols.json
 else ifeq ($(CHECK),rom)
 check: build/us/BattleTanx.z64
 	$(Q)test "$$(sha1sum < build/us/BattleTanx.z64 | cut -d' ' -f1)" = 535860d941738ac1210c20a9b80114fea0e0ff17
