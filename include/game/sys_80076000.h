@@ -620,4 +620,15 @@ extern s32 D_auto_80137670;
 
 int func_800A70BC(N *arg0);
 
+int func_8007A004();
+int func_8007A26C(void);
+int func_8007A36C();
+s32 func_80079DC8();
+s32 func_80079FA4();
+s32 func_8007A178();
+extern s32 D_auto_80125768;
+extern s32 D_auto_8012576C;
+extern s32 D_auto_80125770;
+extern s32 D_auto_80152A38;
+
 #endif
