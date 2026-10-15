@@ -6,7 +6,7 @@
 extern void func_8007627C(unsigned int src, unsigned int dst, unsigned int n);
 
 
-extern int func_80076124(unsigned int a);
+extern u8 func_80076124(u32 address);
 
 
 extern int func_800771F4(void);

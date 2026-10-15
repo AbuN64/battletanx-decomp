@@ -3,7 +3,7 @@
 #include "shared/bt_span_1000_code_80091A60.h"
 #pragma once
 
-extern s16 D_auto_80125774;
+extern u16 D_auto_80125774;
 
 extern int D_auto_80150380;
 extern void func_8011CB90(int, short);

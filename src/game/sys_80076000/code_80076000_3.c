@@ -49,3 +49,21 @@ void func_80076634(u32 mode) {
         src += n;
     }
 }
+
+void func_800767E4(void)
+{
+    u32 source;
+    u32 size;
+    u32 i;
+    source = func_800760A0(0xB1FFFFF4) & 0xB1FFFFFC;
+    size = func_800760A0(0xB1FFFFF8) & 0x01FFFFFC;
+    func_80076068(0xB1FFFFFC, 0);
+    while (func_800760A0(0xB0000010) == 0) {
+        func_800760DC(500);
+    }
+    for (i = 0; i < size / 4; i++) {
+        func_80076068((source & 0xB07FFFFF) + i * 4, func_800760A0(source + i * 4));
+    }
+    func_800760DC(2000);
+    func_80076068(0xB1FFFFF4, 0);
+}

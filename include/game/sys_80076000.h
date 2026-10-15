@@ -10,12 +10,12 @@ extern s32 func_8007A3D8(s32);
 
 extern s32 func_80079C20(s32);
 
-extern void func_8011B9A0(s32, s32);
+extern void func_8011B9A0(void *seqp, s16 volume);
 
 extern s32 func_80119B50(s32);
 
 extern s32 func_8007AB04(void);
-extern s32 func_8007AC20(s32);
+extern void func_8007AC20(u16 state);
 
 extern f32 D_auto_800710FC;
 
@@ -45,15 +45,15 @@ extern char D_auto_8F147050[];
 extern void func_800765C0(unsigned int a, unsigned int b, unsigned int n);
 extern void func_80076408(unsigned int a, unsigned int b, unsigned int n);
 extern void func_80076164(unsigned int a, unsigned int b, unsigned int n);
-extern void func_800764F4(unsigned int a, unsigned int b, unsigned int n);
+extern void func_800764F4(u32 address, u8 value, u32 length);
 
 extern u64 D_80145DA0;
 extern u64 D_auto_801257A8;
 extern s32 D_auto_801257B4;
 extern s32 D_auto_80125788;
 extern s32 func_8007C6D8(void);
-extern s32 func_800862E8(void);
-extern s32 func_800862B4(void);
+extern void func_800862E8(void);
+extern void func_800862B4(void);
 extern s32 D_auto_8012578C;
 extern u64 D_auto_801257A0;
 extern f32 D_auto_801257B0;
@@ -82,7 +82,7 @@ extern s32 D_auto_8013227C[];
 
 extern void func_80122130(s32);
 
-extern s32 func_800799D0(s32, s32);
+extern void func_800799D0(s32 id, s16 volume);
 
 extern u8 D_auto_80327B50;
 extern u8 D_auto_80327C0F;
@@ -112,7 +112,7 @@ extern s32 func_800E6C80(struct ResetState *);
 
 extern s32 func_800E6FD8(void);
 
-extern s32 func_800E9A00(s32, s32);
+extern void func_800E9A00(void *, f32);
 extern s32 func_800E7064(s32);
 
 extern s32 func_800E70C4(s32);
@@ -134,7 +134,7 @@ extern s32 D_auto_80137908;
 extern s32 func_80079AB4(s32, s32);
 extern s32 func_800796F0(s32, s32);
 
-extern s32 func_80079064(void);
+extern void func_80079064(void);
 extern u8 D_auto_80134E75;
 extern s32 func_800CEE2C(void);
 
@@ -171,7 +171,7 @@ extern u8 D_auto_80328159;
 extern s32 D_auto_80328150;
 
 extern s32 D_auto_8013790C[];
-extern s32 D_auto_80137904;
+extern u32 D_auto_80137904;
 
 extern s32 D_auto_8033B608;
 extern s32 D_auto_8033B604;
@@ -188,7 +188,7 @@ extern s32 func_800E72FC(struct ResetState *);
 
 extern u8 D_auto_80135778[];
 
-extern s32 func_800E95A8(s32);
+extern f32 func_800E95A8(s32 startTime);
 
 extern s32 D_auto_8033B628;
 extern s32 D_auto_8033B62C;
@@ -398,7 +398,7 @@ extern u8 D_auto_8033B631;
 extern u8 D_auto_8033B630;
 
 
-extern s32 D_auto_80139610;
+extern u32 D_auto_80139610;
 
 extern s32 D_auto_801416F0;
 
@@ -832,5 +832,66 @@ void *func_80096768(s32 index);
 
 extern u8 D_auto_801262D8[];
 void *func_800A68C0(s32 index);
+
+extern s32 D_auto_80126714;
+extern s32 D_auto_80134E54;
+extern s32 D_auto_80134E58;
+extern u8 D_auto_80134E74;
+s32 func_800CC1A8(void);
+
+extern void func_800767E4(void);
+extern u32 D_auto_801471C8;
+void func_800769B0(void);
+
+extern void func_800B9C80(void);
+extern void func_800BD1F0(void);
+extern void func_800C0880(void);
+extern void func_800C3EF0(void);
+extern s32 func_8007B590(s32 mode);
+extern s8 D_auto_801B4AE0;
+extern s32 D_auto_80327B4C;
+s32 func_8007C58C(s32 state);
+
+void func_8007D2A0(u32 id);
+
+extern void func_800790EC(void *scheduler);
+extern void func_800792C8(void *scheduler);
+extern void func_80079474(void *scheduler);
+void func_80078F70(void *scheduler);
+
+void func_800A90E0(void);
+void func_8007968C(void);
+void func_8007D998(void);
+void func_800A8EE0(void);
+void func_800760DC(s32 count);
+void func_8007902C(u8 *record);
+void func_80076390(u32 address, u8 value);
+void func_80079948(void);
+s32 func_8007C344(s32 mode);
+void func_800E6C14(void *);
+
+extern s8 D_auto_8012579D;
+
+extern void func_8011CBB0(void *sound, s16 volume);
+
+extern s32 D_auto_801C9174;
+
+extern s16 func_80086AE8(void);
+
+u16 func_800E2820(f32 *from, f32 *to);
+
+extern f32 D_auto_8007488C;
+extern f32 D_auto_80074890;
+
+s32 func_800EB4A4(void *context);
+
+void func_800ECBA8(void);
+
+f32 func_800F3940(void);
+
+extern f32 D_auto_80074F50;
+extern f32 D_auto_80139620[];
+
+extern f32 D_auto_80074F54;
 
 #endif

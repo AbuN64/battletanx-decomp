@@ -1401,7 +1401,7 @@ omit = []
 path = "src/game/sys_80076000/code_80076000_11.c"
 kind = "c"
 group = "code_80076000"
-members = ["func_800799C0"]
+members = ["func_800799C0", "func_800799D0"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -1621,7 +1621,7 @@ omit = []
 path = "src/game/sys_80076000/code_80076000_3.c"
 kind = "c"
 group = "code_80076000"
-members = ["func_80076634"]
+members = ["func_80076634", "func_800767E4"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -1973,7 +1973,7 @@ omit = []
 path = "src/game/sys_80076000/code_80076000_59.c"
 kind = "c"
 group = "code_80076000"
-members = ["func_800768E4"]
+members = ["func_800768E4", "func_800769B0", "rodata/code_80076000_69/80071040"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -1984,7 +1984,7 @@ omit = []
 path = "src/game/sys_80076000/code_80076000_6.c"
 kind = "c"
 group = "code_80076000"
-members = ["func_80078F60"]
+members = ["func_80078F60", "func_80078F70", "rodata/code_80076000_71/800710C0"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -2091,10 +2091,65 @@ add = []
 omit = []
 
 [[unit]]
+path = "src/game/sys_80076000/code_80076000_69.c"
+kind = "c"
+group = "code_80076000"
+members = ["func_8007C58C", "rodata/code_80076000_69/800711C8"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
 path = "src/game/sys_80076000/code_80076000_7.c"
 kind = "c"
 group = "code_80076000"
 members = ["func_800793D0"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_80076000_70.c"
+kind = "c"
+group = "code_80076000"
+members = ["func_8007D2A0", "rodata/code_80076000_70/80071378"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_80076000_71.c"
+kind = "c"
+group = "code_80076000"
+members = ["func_8007AC20"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_80076000_72.c"
+kind = "c"
+group = "code_80076000"
+members = ["func_800764F4", "func_800765C0"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_80076000_73.c"
+kind = "c"
+group = "code_80076000"
+members = ["func_800862B4", "func_800862E8"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -2491,6 +2546,17 @@ path = "src/game/sys_80076000/code_800A8940_16.c"
 kind = "c"
 group = "code_800A8940"
 members = ["func_800A8E9C"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800A8940_17.c"
+kind = "c"
+group = "code_800A8940"
+members = ["func_800B9C0C"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -2930,7 +2996,7 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_123.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800E27E4"]
+members = ["func_800E27E4", "func_800E2820"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -2942,6 +3008,28 @@ path = "src/game/sys_80076000/code_800C5B90_124.c"
 kind = "c"
 group = "code_800C5B90"
 members = ["func_800DDB94"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_125.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800CC1A8"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
+path = "src/game/sys_80076000/code_800C5B90_126.c"
+kind = "c"
+group = "code_800C5B90"
+members = ["func_800E95A8"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -3370,7 +3458,7 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_48.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800EB440", "func_800EB47C"]
+members = ["func_800EB440", "func_800EB47C", "func_800EB4A4"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -3623,7 +3711,7 @@ omit = []
 path = "src/game/sys_80076000/code_800C5B90_69.c"
 kind = "c"
 group = "code_800C5B90"
-members = ["func_800ECB98"]
+members = ["func_800ECB98", "func_800ECBA8"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -4214,10 +4302,21 @@ add = []
 omit = []
 
 [[unit]]
+path = "src/game/sys_80076000/code_800F01D0_26.c"
+kind = "c"
+group = "code_800F01D0"
+members = ["func_800F3AE0", "func_800F3B40"]
+toolchain = "gcc-2.7.2-kmc"
+
+[unit.options]
+add = []
+omit = []
+
+[[unit]]
 path = "src/game/sys_80076000/code_800F01D0_3.c"
 kind = "c"
 group = "code_800F01D0"
-members = ["func_800F3880", "func_800F38F4"]
+members = ["func_800F3880", "func_800F38F4", "func_800F3940", "rodata/code_800F01D0_26/80074F20"]
 toolchain = "gcc-2.7.2-kmc"
 
 [unit.options]
@@ -14948,223 +15047,181 @@ name = "func_801254A0"
 member = "func_800760DC"
 path = "src/fuzzy/func_800760DC.c"
 scores = {us = 0.3888888888888889}
-key = {us = "ff7dac98bdb6a03eafd3f437e4d5b87ba4fe204e45d7409a1f2ba357efd76afa"}
-
-[[fuzzy]]
-member = "func_800764F4"
-path = "src/fuzzy/func_800764F4.c"
-scores = {us = 0.0}
-key = {us = "9006640edf888ec1b0918ff4a8bacd2a42e2073a3d596d39639d3f58a76cc70d"}
-
-[[fuzzy]]
-member = "func_800767E4"
-path = "src/fuzzy/func_800767E4.c"
-scores = {us = 0.578125}
-key = {us = "f45b44970fbcf06e36e1e87b28009a2de1e4ce7150fd6dc61b2dd8b73651cf9b"}
+key = {us = "d8cc78677539504610a1af16dbda94697b285cc146ea1b278e3c915589437c5e"}
 
 [[fuzzy]]
 member = "func_80076CA8"
 path = "src/fuzzy/func_80076CA8.c"
 scores = {us = 0.625}
-key = {us = "94f8b59e9370ce9d8e469020114abd47af4df2a14bfe16591da9ad731d09b05f"}
+key = {us = "0e5f474aef644ec922f496791fa3a9093b9c11fd4cc353ac2b71813c3fc83d9c"}
 
 [[fuzzy]]
 member = "func_80076E9C"
 path = "src/fuzzy/func_80076E9C.c"
 scores = {us = 0.6938775510204082}
-key = {us = "b47b9b3dd7787d912238e6da904f935794cf0d24497e79198dd4e3c20e6eee35"}
+key = {us = "7c39ad3029dfa99dcaa18589de85e4830fbf53f28b37863e86fdadfcf1f5895b"}
 
 [[fuzzy]]
 member = "func_8007A178"
 path = "src/fuzzy/func_8007A178.c"
 scores = {us = 0.5901639344262295}
-key = {us = "24d10b29a12844ce1f983470750e5397dbca1cd9ab1028f9ba18dd816ae3e96c"}
+key = {us = "33880e369509b827567c4a898d9be2fac0547f8dbb26702395b857c31517b77b"}
 
 [[fuzzy]]
 member = "func_8007A3D8"
 path = "src/fuzzy/func_8007A3D8.c"
-scores = {us = 0.631578947368421}
-key = {us = "19116f47a1490ae754e3547292dea10de75ec60387c0ab0323aa5d3d4c8d49e7"}
+scores = {us = 0.0}
+key = {us = "46a527c0482723101f133d6c20b413430ea51c5559ee502c222aaa2558ef1278"}
 
 [[fuzzy]]
 member = "func_8007A758"
 path = "src/fuzzy/func_8007A758.c"
 scores = {us = 0.9411764705882353}
-key = {us = "6eda08c73c8a82ccb6be7b8214687d17f10872ee6f64bd347a19577fe0adb4af"}
-
-[[fuzzy]]
-member = "func_8007AC20"
-path = "src/fuzzy/func_8007AC20.c"
-scores = {us = 0.36585365853658536}
-key = {us = "838f96ff00ab3d1bb6dda43546d4ab91232abadf6e4a13209a72f6e35b4f8e03"}
+key = {us = "c4c7ee7db61192d0793b1ee40385551c2c7f6465e72db5d3fa5f6c76acde7dfc"}
 
 [[fuzzy]]
 member = "func_8007B268"
 path = "src/fuzzy/func_8007B268.c"
 scores = {us = 0.5}
-key = {us = "75749330f599c181834f2ff60ba9cd72be216a8d76e8eeadb37ba44c3cccc23c"}
-
-[[fuzzy]]
-member = "func_8007C58C"
-path = "src/fuzzy/func_8007C58C.c"
-scores = {us = 0.6779661016949152}
-key = {us = "242a96a2b1aa8a4ef035659ae1ee0d65b3b8ab5b6f44cd58011c273f2ce42e70"}
+key = {us = "916a15fb67faa232d45c2424451f543c8a6f49de34f8c817aa75d12c44ac633e"}
 
 [[fuzzy]]
 member = "func_8007C6D8"
 path = "src/fuzzy/func_8007C6D8.c"
 scores = {us = 0.5}
-key = {us = "5734a477cf2b6e9f20c3c4177afa685a9fa32f9f101e06d6c82afae47798b020"}
+key = {us = "78c4db67be3ba1ff42275a15e7dc4fb85dc2ca78bff6986ed0a0aadee0982891"}
 
 [[fuzzy]]
 member = "func_8007C700"
 path = "src/fuzzy/func_8007C700.c"
 scores = {us = 0.5}
-key = {us = "fcbc1d676daa4d2f758e796c4e22c91dfdddc99467bbbce351a8f9538734fa5e"}
+key = {us = "2029281668f44e0e434802127fdf8de02df9758c8adbdf1f7c9441195a132a4d"}
 
 [[fuzzy]]
 member = "func_8007C728"
 path = "src/fuzzy/func_8007C728.c"
 scores = {us = 0.3888888888888889}
-key = {us = "430cba11d0f003a08efd9b81ef48e3199769314afc600d9d4906f0b0f4852fd9"}
-
-[[fuzzy]]
-member = "func_8007D2A0"
-path = "src/fuzzy/func_8007D2A0.c"
-scores = {us = 0.631578947368421}
-key = {us = "bbcc43474fd48db96341e96ac36283a3411a8b7786bfbc258cfb1c46608f5632"}
+key = {us = "36a73cc08a3e6e60ab7726b124814eccf2f35dacc10d750a8aef7cc260a75e2b"}
 
 [[fuzzy]]
 member = "func_8007D430"
 path = "src/fuzzy/func_8007D430.c"
 scores = {us = 0.2608695652173913}
-key = {us = "8b1c340992622aafef8bdf000d698df8e25384eb9ce8d7aa5b4f29b07b09b1b8"}
+key = {us = "74fb35a147a6ada5b7aa6f099f0bf892d8f464d646de84d3d915429e86ce7dc6"}
 
 [[fuzzy]]
 member = "func_8007D48C"
 path = "src/fuzzy/func_8007D48C.c"
 scores = {us = 0.043478260869565216}
-key = {us = "113fd52fb276fde4fc18634a50b0826b75f83fc80687a8255aec980c213da21a"}
+key = {us = "0d49ee0904d07d1f4832a07df4ac90584dd8db2eb45f89dc822809408bd39644"}
 
 [[fuzzy]]
 member = "func_800805DC"
 path = "src/fuzzy/func_800805DC.c"
 scores = {us = 0.8}
-key = {us = "9db729f0e87b8f296544e7a99fb50b1c93e55b3c49cbb0ad9c7cf78782ad3a7b"}
+key = {us = "863f16afac4fcf42f921560b311fb20a8d93cb199d6ff015eeac566b61f9d2f7"}
 
 [[fuzzy]]
 member = "func_8008067C"
 path = "src/fuzzy/func_8008067C.c"
 scores = {us = 0.627906976744186}
-key = {us = "224425331c18df03b92b605bc5800a07c9556c94635a7c3fe3a89edb7864c4e5"}
-
-[[fuzzy]]
-member = "func_800862B4"
-path = "src/fuzzy/func_800862B4.c"
-scores = {us = 0.15384615384615385}
-key = {us = "3db26f6e1d52d64bed3b21baa22ef1c5c954c6bf73e40b03233be5e58c3903c0"}
-
-[[fuzzy]]
-member = "func_800862E8"
-path = "src/fuzzy/func_800862E8.c"
-scores = {us = 0.38095238095238093}
-key = {us = "348e9f9842f9482c258f3c0efb5bf66c30d985705c60bae9ab838f48308dfcff"}
+key = {us = "2b6d14cffdf9890ad09d30fbc6a16968e12d8817c00a064b065616d6bf30f3d0"}
 
 [[fuzzy]]
 member = "func_80086C84"
 path = "src/fuzzy/func_80086C84.c"
 scores = {us = 0.25316455696202533}
-key = {us = "8e348e5f7c395ff8782b8dfeba12dee09169382123cf40b5fd3cfbe87632d1ea"}
+key = {us = "7b75c0e7be5b0d277b32ef58f4c82decd6a8bded4c513a19e9e612c8f731d6ba"}
 
 [[fuzzy]]
 member = "func_80086F3C"
 path = "src/fuzzy/func_80086F3C.c"
 scores = {us = 0.34285714285714286}
-key = {us = "69c9ef13c35cacf6c328b44e2920ae02e763d6844bc9afb112ee3a85405d1f63"}
+key = {us = "49a381976c5d6bd1f0d4f49934b59bd6c5909c7a8532569dc81b459c38ae4a1e"}
 
 [[fuzzy]]
 member = "func_80087054"
 path = "src/fuzzy/func_80087054.c"
 scores = {us = 0.34285714285714286}
-key = {us = "26ae76e969509faba5fd16f54a66ce4275cc78ec47ac469041848c5af3ce2794"}
+key = {us = "103786386e52036a53d7a7ac7642e9ecc30d270e70bbe2f2214e58bff2808c4c"}
 
 [[fuzzy]]
 member = "func_8008B080"
 path = "src/fuzzy/func_8008B080.c"
 scores = {us = 0.11956521739130435}
-key = {us = "6f5b3a0023865d76585f75e904f48c5f89fd0eccb6af4056e9aad06fbbbd60bc"}
+key = {us = "411abf963438fddb60478d9fdd74bcb59cf069e8d3d5658ec3dac65407b55ed1"}
 
 [[fuzzy]]
 member = "func_8008B1F0"
 path = "src/fuzzy/func_8008B1F0.c"
 scores = {us = 0.3148148148148148}
-key = {us = "26fe21f4623fda3ec57b7129a0db5a1281c6fc52aad0b27235b4d7242a5a2c2b"}
+key = {us = "4fc138fc4f30b465d1a23bc9e521b9fc58e47648646a61a13bb7690d4823c8c0"}
 
 [[fuzzy]]
 member = "func_800902BC"
 path = "src/fuzzy/func_800902BC.c"
 scores = {us = 0.7802197802197802}
-key = {us = "aac8972f5f7032d1665549d306c92cd0a37af9646451dc57fe3f078a91ee9851"}
+key = {us = "cb5e0db8489bf07d9b152b5de01e511ce16ea82f464cd0bf4cfc360b84b594bb"}
 
 [[fuzzy]]
 member = "func_80091A60"
 path = "src/fuzzy/func_80091A60.c"
 scores = {us = 0.0}
-key = {us = "9f9d63293da0ad7671410aceda43dce9ee658198e102747f45bd5f62c0d0d3ab"}
+key = {us = "d3dcad52a7faa93275cc99769e8f37ab5e8f2ab4f959f363fd6f1608ae91d90c"}
 
 [[fuzzy]]
 member = "func_800942A8"
 path = "src/fuzzy/func_800942A8.c"
 scores = {us = 0.0}
-key = {us = "b07c3742d939a0c605a53be39814255f872e2ad57955d08dcec0a8b0f1eca84e"}
+key = {us = "e6119790bea23e3919057bbc234f85f513e78ca1afa15280d748bcf623f06905"}
 
 [[fuzzy]]
 member = "func_8009491C"
 path = "src/fuzzy/func_8009491C.c"
 scores = {us = 0.5384615384615384}
-key = {us = "9e6b98668196e5873e4c613fbe23312126adebcc2db79639e61020572ae0830c"}
+key = {us = "e90fba9ee1847b80833fb6f973f7e8d6d3ee8a8753a386c06c96b43fbeab9d89"}
 
 [[fuzzy]]
 member = "func_80095C1C"
 path = "src/fuzzy/func_80095C1C.c"
 scores = {us = 0.2708333333333333}
-key = {us = "28189c548618f8b419aba03ea56484093a70b9483caebfd941676114c023f400"}
+key = {us = "35eecdcba15bb23f4d24f417d09bc53390fa31107b39e6044a507ebd0ac7161a"}
 
 [[fuzzy]]
 member = "func_80095F30"
 path = "src/fuzzy/func_80095F30.c"
 scores = {us = 0.0}
-key = {us = "a3ec8b1ed70e2687550cd5232a0b2957a95663a499622cd11f885e3c1bd715ed"}
+key = {us = "5bf318a4dbe7b9091ec68b5f043bdbd2c190fd4412ac0bde3f0fd14a4e929dce"}
 
 [[fuzzy]]
 member = "func_80096E80"
 path = "src/fuzzy/func_80096E80.c"
 scores = {us = 0.14634146341463414}
-key = {us = "486b1100181c8c2276116e085f9dbd63b1c8f2ead3fda3e66b03e18fd8ce918e"}
+key = {us = "53a693f1745655c1aeb44b067741c34ab1499f02b5fd3071f029da519c55a6c2"}
 
 [[fuzzy]]
 member = "func_800983E0"
 path = "src/fuzzy/func_800983E0.c"
 scores = {us = 0.0}
-key = {us = "365c589353c1b0f9379f1051af4478e480d453ba87347329e7a40ba7c1791eac"}
+key = {us = "2110624efa6ca3af457b482a268e8fa87a784393bade940e97550c682d8a320f"}
 
 [[fuzzy]]
 member = "func_80099CD8"
 path = "src/fuzzy/func_80099CD8.c"
 scores = {us = 0.0}
-key = {us = "1d58dfd2fc544aff15a5d18e23cf34f9847d510f5601af0864e7ef9ab67e63ad"}
+key = {us = "f821771c8cd9e77f1706dca81e743f1ae3ee20b12f3a8f2f3ed809064e7a3f59"}
 
 [[fuzzy]]
 member = "func_8009A22C"
 path = "src/fuzzy/func_8009A22C.c"
 scores = {us = 0.05405405405405406}
-key = {us = "44ec03100d798fe71590e7eb8ccdbcb2f0814348aa42859eca24059c16e5b270"}
+key = {us = "712fd09dff277c75e1bcce70c422cf967c42198f4e5b44cf9e7b7d81bbb4d91e"}
 
 [[fuzzy]]
 member = "func_800A51E8"
 path = "src/fuzzy/func_800A51E8.c"
 scores = {us = 0.0}
-key = {us = "fb620eebf31b91cca1af1a832109805cf707ca82d1a796a8009a3e3fe2e66aa7"}
+key = {us = "51f6624905b22932e2b8485218fc39f57068e65e56d1d9960bf689ea50567417"}
 
 [[fuzzy]]
 member = "func_800A6900"
@@ -15175,104 +15232,104 @@ key = {us = "aa2c2ec4e3c2a9f2f1a737f607d21569f6cbe81312c877d6dafbb3a1914c19d5"}
 [[fuzzy]]
 member = "func_800A93C8"
 path = "src/fuzzy/func_800A93C8.c"
-scores = {us = 0.2}
-key = {us = "e66ab5102722d3b8ba2dac27091b3d7ff67cc17bfbac5a82361a14f86ae4a4c2"}
+scores = {us = 0.0}
+key = {us = "83822ca700c387c3773ccfaa05b489d4ebc34b185a958badb24d9a5c9166918a"}
 
 [[fuzzy]]
 member = "func_800A942C"
 path = "src/fuzzy/func_800A942C.c"
 scores = {us = 0.2727272727272727}
-key = {us = "c5ae6059476d892371d14cbe00e2febc437ce2845e2713ba27c164f40156fe36"}
+key = {us = "2341cb5adb6b1c832b900e498e6ac0fed08f50c84b16965280d6c27c5586b548"}
 
 [[fuzzy]]
 member = "func_800A9B44"
 path = "src/fuzzy/func_800A9B44.c"
 scores = {us = 0.19230769230769232}
-key = {us = "7a440d11052140c446829d07a75f05272c89f851294af156ce57ec3d34fa96a6"}
+key = {us = "378fc2cef25a40b81517dcdbc51fb2df831c936342d52cadaf55c171b87c2c25"}
 
 [[fuzzy]]
 member = "func_800AACCC"
 path = "src/fuzzy/func_800AACCC.c"
 scores = {us = 0.0}
-key = {us = "49c87e71ca442f114f5abbd694f3f63aaf7a2b116ed8bed10054c664161c3c4b"}
+key = {us = "180baeb952653be5ac5fd2c7f792721d7336118477b032aa1f710ea9ee48693d"}
 
 [[fuzzy]]
 member = "func_800AB9FC"
 path = "src/fuzzy/func_800AB9FC.c"
 scores = {us = 0.0}
-key = {us = "6d67c60eddd781dab134b9578cbb67873d309f719909f0ad6a3ee2c525507390"}
+key = {us = "5dce9b94168d1cf9782dcc4c1508b46f9063c336eee353e29fd67734c325c515"}
 
 [[fuzzy]]
 member = "func_800C36E8"
 path = "src/fuzzy/func_800C36E8.c"
 scores = {us = 0.8888888888888888}
-key = {us = "55a25cd6191e1fe58096a6b5ef34cda67da000abad26d473f50a7bf2e8edad99"}
+key = {us = "15cce8830b0ceecfbb2b16c1324703a25332eb1eeddd6e1c38e5186277c0773e"}
 
 [[fuzzy]]
 member = "func_800C4DFC"
 path = "src/fuzzy/func_800C4DFC.c"
 scores = {us = 0.8888888888888888}
-key = {us = "cc9eba48bc1e46686450987ae5129080cf028b85cbe271967830f265c67f5421"}
+key = {us = "ed15f9aa9194805823a043e02f614e52097a453bcc4813a19cd235e1a15f328a"}
 
 [[fuzzy]]
 member = "func_800CA5BC"
 path = "src/fuzzy/func_800CA5BC.c"
 scores = {us = 0.0}
-key = {us = "4badc2bc14f54a47a4e6fe93965e39dd483411dad0a7e67a32ca694cec661f4a"}
+key = {us = "634464e0047ffc877c8689015ce3dcd50289088a2cc18290da23fbb2e1253354"}
 
 [[fuzzy]]
 member = "func_800CF454"
 path = "src/fuzzy/func_800CF454.c"
 scores = {us = 0.48148148148148145}
-key = {us = "385ad970ad37b1935e943aad182827c6b0c34134fd35b28ef00d0681a5b2cf74"}
+key = {us = "df693fea7f9e65853a3f1c53696210051b5ce70306a93f79a80c33af145d4ab9"}
 
 [[fuzzy]]
 member = "func_800D1BA0"
 path = "src/fuzzy/func_800D1BA0.c"
 scores = {us = 0.45226130653266333}
-key = {us = "82aee65137f213aff281ae055fdf5f5d119ca7b32465b6bf815f70f5e19b1638"}
+key = {us = "98fb17357317d132c726ca421c6d419ae41e62e1fe093075277d7cc164c97d65"}
 
 [[fuzzy]]
 member = "func_800D39A4"
 path = "src/fuzzy/func_800D39A4.c"
 scores = {us = 0.0}
-key = {us = "98c20f921649f91c4886080ca6097145ac874157426374a5d1f90c008e0f941a"}
+key = {us = "fdaddc68edb7599d3f5bf8a82adc3b51f7cc3ab29fb33665fead71437c41fe9b"}
 
 [[fuzzy]]
 member = "func_800D3D10"
 path = "src/fuzzy/func_800D3D10.c"
 scores = {us = 0.0}
-key = {us = "302badebf8e83965303cabc4a467b80506c8f5822691646ebd1361ddc3fa5bd7"}
+key = {us = "6e7d2e3060d15140aec6b9deb3ddca2b6c3a9720250f16ebc0e12fabd6a1f9e5"}
 
 [[fuzzy]]
 member = "func_800D4410"
 path = "src/fuzzy/func_800D4410.c"
 scores = {us = 0.2127659574468085}
-key = {us = "f8f29920153392977722a3ab60a19cad2883bf809dfd856618226f9c7955dda3"}
+key = {us = "20c3f12297721e7c471c22bbbc31de652a96948151cb5866b1f3776a2c0ad80a"}
 
 [[fuzzy]]
 member = "func_800D9024"
 path = "src/fuzzy/func_800D9024.c"
 scores = {us = 0.55}
-key = {us = "9a7d08b0bd031402cc4f2e13e850acce1737557ca59e9ccf93fcb656941b3afc"}
+key = {us = "75cc5fa84983f7e6cd27a5842410fb70f1716562731c71d46f175b90a0f9bb63"}
 
 [[fuzzy]]
 member = "func_800E1118"
 path = "src/fuzzy/func_800E1118.c"
 scores = {us = 0.0}
-key = {us = "4b2ef1c51116a859db233feb20a75a2fb6f6e735ecc270f11adfd8374d72f713"}
+key = {us = "c5cf83ef685b25b709faca4500b4b98d82a022c8d39df0f0f49f88d0d8b94753"}
 
 [[fuzzy]]
 member = "func_800E2640"
 path = "src/fuzzy/func_800E2640.c"
 scores = {us = 0.3333333333333333}
-key = {us = "428158694684a8b8050d69b91b53c1191d4fd61314ff5b10ee1e2433db80cb3b"}
+key = {us = "3b0cf97cf260ead56f132417639e9b22afd6f6b034d3ab2ab6842c4cbdf97105"}
 
 [[fuzzy]]
 member = "func_800E4094"
 path = "src/fuzzy/func_800E4094.c"
 scores = {us = 0.42857142857142855}
-key = {us = "9f606e02be692290010ec563c0dcd04a3f467b34b824e2757cf07460baf3102b"}
+key = {us = "ad08a2e948b7a303521fe487faa963991e1a34f7d553d7629bf668e5964cc5c0"}
 
 [[fuzzy]]
 member = "func_800E9880"
@@ -15283,233 +15340,221 @@ key = {us = "220ade600875be954a1356544110d46c64213749d71e760f1a37f074a5e51302"}
 [[fuzzy]]
 member = "func_800EABFC"
 path = "src/fuzzy/func_800EABFC.c"
-scores = {us = 0.8421052631578947}
-key = {us = "6e22919050893724d64dbbf65e4719349dd10d2e729827f98a86c76451e85d18"}
+scores = {us = 0.8947368421052632}
+key = {us = "4ef8ac5a927943a31afcb3ec35e412b31e9dafdd065e907677d33066530ea38e"}
 
 [[fuzzy]]
 member = "func_800EB990"
 path = "src/fuzzy/func_800EB990.c"
-scores = {us = 0.9444444444444444}
-key = {us = "2d028857b6a6778b476e54d9c7c7a750d4cdfd10acd9ce285a4efa4e91eec2bd"}
+scores = {us = 0.8333333333333334}
+key = {us = "4a90bea0e1002566ec996d91b6792e7e89554c2974f31c436a6f1e6d2abc75fe"}
 
 [[fuzzy]]
 member = "func_800EBA00"
 path = "src/fuzzy/func_800EBA00.c"
-scores = {us = 0.9444444444444444}
-key = {us = "554fd487e1f976b59c7a0659d4b717fb7008cf3cda356708044256b2c7ed4e6e"}
+scores = {us = 0.8333333333333334}
+key = {us = "79144663c5fd1f903394f290ee7cc36a9934cedbdc60577f3234c0da0159eba5"}
 
 [[fuzzy]]
 member = "func_800EBA70"
 path = "src/fuzzy/func_800EBA70.c"
-scores = {us = 0.9444444444444444}
-key = {us = "49cb0262049abbb123f0fc0c7ed381654ed1694ce82b267848618dc971662085"}
+scores = {us = 0.8333333333333334}
+key = {us = "552a5ef2ca0a73fdd3b5f550a4838c7891564546f206ddc50331a21428692760"}
 
 [[fuzzy]]
 member = "func_800EC3D0"
 path = "src/fuzzy/func_800EC3D0.c"
 scores = {us = 0.375}
-key = {us = "bf8072032877b78275b92fd94333aca898657be1414a101704d02caab08c3b91"}
-
-[[fuzzy]]
-member = "func_800ECBA8"
-path = "src/fuzzy/func_800ECBA8.c"
-scores = {us = 0.391304347826087}
-key = {us = "73fcbdc8b0dba8db308dc1e4b531a50933aa949e096089a1b7cd49a6a8f94c20"}
-
-[[fuzzy]]
-member = "func_800F3940"
-path = "src/fuzzy/func_800F3940.c"
-scores = {us = 0.7735849056603774}
-key = {us = "0857fae9c08050c3989d23f3b658ceb1a3ef96e83c5cc82d5a9be2367c621016"}
+key = {us = "6932547bb1062339790c5b12e2da0893a5952a7534d85b491a97777778b0f052"}
 
 [[fuzzy]]
 member = "func_800F3BA8"
 path = "src/fuzzy/func_800F3BA8.c"
 scores = {us = 0.6}
-key = {us = "da00c25ec9a184f3537ba74354ce3461273eb355eddfa5398134a0ebfe910f28"}
+key = {us = "fc5ffae4ecccf1a85a5281f4b269f0be2d2f79a048ba9e1f06c428174c52834c"}
 
 [[fuzzy]]
 member = "func_800F3BE4"
 path = "src/fuzzy/func_800F3BE4.c"
-scores = {us = 0.3918918918918919}
-key = {us = "f859191223883d6c42de2d71e084a0f4e2bccad5e59e274a760001bdd0c31bb3"}
+scores = {us = 0.0}
+key = {us = "cf96156aedbd12474dc50375ee48c05e0b8dd540fefa2522d5671441a82a7856"}
 
 [[fuzzy]]
 member = "func_800F3D0C"
 path = "src/fuzzy/func_800F3D0C.c"
 scores = {us = 0.7692307692307693}
-key = {us = "17e174a6498dc67874a127cbc6815c63f13bf480595ae102d0e7c8031e1a8002"}
+key = {us = "63e593af40369794a4760bcac35f27433a77eb379ea57a5e77d7d21c492238e2"}
 
 [[fuzzy]]
 member = "func_800F45C8"
 path = "src/fuzzy/func_800F45C8.c"
 scores = {us = 0.953125}
-key = {us = "36860cf675ef43ec4b5ef9a52a391ae71a0eb0413b6633bd9b431badfed6df21"}
+key = {us = "82828a87bcedab78dbfc8ba1e58de7a475abaf0fb8eb3f881f4e2501f729895a"}
 
 [[fuzzy]]
 member = "func_800F5264"
 path = "src/fuzzy/func_800F5264.c"
 scores = {us = 0.611764705882353}
-key = {us = "53cb0f376f089d8d0cac999032f2c61a31127154c01efaba7bf673f10d488c95"}
+key = {us = "deb2704b45de82b28e660f130a6f9ad80d93852f9637d9dcb30a2812df4f5a7a"}
 
 [[fuzzy]]
 member = "func_800F5850"
 path = "src/fuzzy/func_800F5850.c"
 scores = {us = 0.9}
-key = {us = "256c66e2ed88d0bfc9c6fb5f78515e2478d998deb0c923af05d53fb6ab42d38d"}
+key = {us = "1a1bb1f06c299d3c271bb101839042284d35f3a07fa552eeee0fed4bcd565de6"}
 
 [[fuzzy]]
 member = "func_800F58A0"
 path = "src/fuzzy/func_800F58A0.c"
 scores = {us = 0.9}
-key = {us = "ca07e6baf8bd3bb3c7794fca167e37c5fdc8fcd0725bd66cf8a90cc1045a02a0"}
+key = {us = "d027182cb02183095d1c6cd64e127a76d1916c9bab85013785cfc06b9bce6952"}
 
 [[fuzzy]]
 member = "func_800F58F0"
 path = "src/fuzzy/func_800F58F0.c"
 scores = {us = 0.8}
-key = {us = "eb86f24d9e75a1454215d28635be79fd0bacb9e142ce91efa5b9246f0bb6d183"}
+key = {us = "4db66358aa64fc709612b5bc705b7e4395707475d48f934f1faf99a2c80425fa"}
 
 [[fuzzy]]
 member = "func_80105290"
 path = "src/fuzzy/func_80105290.c"
 scores = {us = 0.3611111111111111}
-key = {us = "734e0db2f995acb067dd82615703ca5836e1d3780b42bf340ee1f27a8d56e9a8"}
+key = {us = "a43d5a5fa1135e1c0c3ab4f19bb36357c0035a90017a31182d337fb78b54ab62"}
 
 [[fuzzy]]
 member = "func_801055D4"
 path = "src/fuzzy/func_801055D4.c"
 scores = {us = 0.24444444444444444}
-key = {us = "283b404830fdf5267cb29c3418fe080a212a5d0978315e8fb0eea43aebfc9e19"}
+key = {us = "cdb3e5b8aff1002052bcaf514c16b95d1e504117da072f5690a9b54293c11b08"}
 
 [[fuzzy]]
 member = "func_80105688"
 path = "src/fuzzy/func_80105688.c"
 scores = {us = 0.32}
-key = {us = "883113dc5da5deb777655918a7da5c372e0629b0a128a4c190ad1d9a960597d8"}
+key = {us = "1a3c7bbc2a9a89ba3bd92d9287624f48d985207a76e8ef6162c3a0e26d138c94"}
 
 [[fuzzy]]
 member = "func_80106010"
 path = "src/fuzzy/func_80106010.c"
 scores = {us = 0.0}
-key = {us = "e91df48f5c1d61a52f4f44c85068efa7532470248fdf24b66d53df014e407e8a"}
+key = {us = "afc789956d90110627f1d1db567c04fa518ce27dc9c22c9a9369a05f9cc059fb"}
 
 [[fuzzy]]
 member = "func_80106B60"
 path = "src/fuzzy/func_80106B60.c"
 scores = {us = 0.4050632911392405}
-key = {us = "5e7cdae3cd854b6f63aca480af3eeef7786bde680ec825ff56b49952b13141c3"}
+key = {us = "5b61461aac0633e9f92253f761704fe6ede1545a11d0f4dbff82f7c2c2a2026a"}
 
 [[fuzzy]]
 member = "func_80107A14"
 path = "src/fuzzy/func_80107A14.c"
 scores = {us = 0.40789473684210525}
-key = {us = "9f4a5d7f6c05ae886d0d475a162af160980b433711b6b1b72ac4ebbb294f58b2"}
+key = {us = "515e890ae4dad468930c2d56918ae45257c5599f7bff9f0586028cfed894cf8c"}
 
 [[fuzzy]]
 member = "func_80109498"
 path = "src/fuzzy/func_80109498.c"
 scores = {us = 0.5256410256410257}
-key = {us = "08682a2e787823a2eaef55623ea2c9e4e68d41672ab0a2428be67e4e739b660c"}
+key = {us = "97ae7757c36b44fea7871ab86fef597f1c2da6bff6e64764d2029ae4fe401cd3"}
 
 [[fuzzy]]
 member = "func_8010A8A8"
 path = "src/fuzzy/func_8010A8A8.c"
 scores = {us = 0.9557522123893806}
-key = {us = "2f1f2faee3660f1eaa7d61805422bef3954d4fb8fdb256b2da5f325b001ad768"}
+key = {us = "432f58afb2470d724253cb46b7552e5404a3a3d6bbc26d6992d89f121fa56c6b"}
 
 [[fuzzy]]
 member = "func_8010AA6C"
 path = "src/fuzzy/func_8010AA6C.c"
 scores = {us = 0.4744525547445255}
-key = {us = "b4ac52d193a45a490211ea8a2f8f0b60cdc6173b92856393a49b471a6fe13775"}
+key = {us = "94854cd15367ed033209f1e77b347819ddbc3306fddd0c5677bb94e6269ab555"}
 
 [[fuzzy]]
 member = "func_8010BC10"
 path = "src/fuzzy/func_8010BC10.c"
 scores = {us = 0.81}
-key = {us = "badaf85048ddd4d55fba26ad4000a2fe8f7b8ba922f747886d9e3b27a2a6d7ec"}
+key = {us = "042b06ea0c0b6f35541f00b267baca08d005787dfcc5c12baa3f73adb53a9299"}
 
 [[fuzzy]]
 member = "func_80110480"
 path = "src/fuzzy/func_80110480.c"
 scores = {us = 0.3333333333333333}
-key = {us = "7639c8ff50237acac780b3d8de94459f46db12cf2b55a4ddb4bcf147632c97ec"}
+key = {us = "1e74ef9f8360a26b0b365bea9d9f4e1898f7db707d85a416a8e0df9ffcc96a37"}
 
 [[fuzzy]]
 member = "func_80110490"
 path = "src/fuzzy/func_80110490.c"
 scores = {us = 0.10227272727272728}
-key = {us = "15697d5d5fc1df0f9769844ae1896be5c4cf048d7b66d0aa44067ac3e405d438"}
+key = {us = "1b7be9efae1bed7ee26d40d3484d171ca6e0c08f252f6d56631920e935536976"}
 
 [[fuzzy]]
 member = "func_801106A0"
 path = "src/fuzzy/func_801106A0.c"
 scores = {us = 0.05555555555555555}
-key = {us = "600e45ab18554f24d711210c161b640cdd3b250191355a702bdad2ca599a8fe5"}
+key = {us = "453ad68bc34109a3da8ec573688d101b9b54f19b27de2ba3b16dcbdb56d03cd1"}
 
 [[fuzzy]]
 member = "func_80112C94"
 path = "src/fuzzy/func_80112C94.c"
 scores = {us = 0.10344827586206896}
-key = {us = "60a519544e75ef08af9a07060b2e489cb8db35f3d0d7c157489b839d30611b63"}
+key = {us = "a6343d4cad52861a664680e82116470cb92618d97bd3ca0a317da708272cc674"}
 
 [[fuzzy]]
 member = "func_80113460"
 path = "src/fuzzy/func_80113460.c"
 scores = {us = 0.08620689655172414}
-key = {us = "4e2d9bba313e7745611e08532ae34283572846d5f99f7dcea04b580f839e745d"}
+key = {us = "9c144855b6f819f497b7914e87b7f33bd924a941260cd3914aa5f074ad7f0949"}
 
 [[fuzzy]]
 member = "func_801190D4"
 path = "src/fuzzy/func_801190D4.c"
 scores = {us = 0.6363636363636364}
-key = {us = "85b4939af796c60e53d93b1deca35d0921072809c6188377bda6d88613d4ed08"}
+key = {us = "d179cb44b339e632ff49cbe0af88fe997c4a23899c634f4097681b834b1befe1"}
 
 [[fuzzy]]
 member = "func_80119100"
 path = "src/fuzzy/func_80119100.c"
 scores = {us = 0.125}
-key = {us = "92d63a14e43490e399d9c7ecdfd0e022fcdcf3d15926ca1ea725950a6eed84f6"}
+key = {us = "fd4572d89fc6f3927b8a1b5f0f072db58dc0e1bbebe05291d9f85c09f641e766"}
 
 [[fuzzy]]
 member = "func_8011BFD0"
 path = "src/fuzzy/func_8011BFD0.c"
 scores = {us = 0.5348837209302325}
-key = {us = "9c720bd65aa42658bd0a5b5b7217824eeb8a044a41c5eafc0e86f752fb44cca6"}
+key = {us = "a973a5eb9aa0f02c202e69d99f410e8513dc14a0b4bd2e5df198e446b46601ce"}
 
 [[fuzzy]]
 member = "func_8011DC60"
 path = "src/fuzzy/func_8011DC60.c"
 scores = {us = 0.14285714285714285}
-key = {us = "08c3506065c0e99ba8a3cafa9581b3e007c8a4007f0c5ef4e30eca83be6f422a"}
+key = {us = "52e8fd5f180eee26a5cfa99835b9147406aa86e9acb13c2727885e72d96903d7"}
 
 [[fuzzy]]
 member = "func_80120C24"
 path = "src/fuzzy/func_80120C24.c"
 scores = {us = 0.0}
-key = {us = "411a64686fdb557149c991044d3b8fd74850289f72cafe73c29cbd80020ad233"}
+key = {us = "5a7ffcb030c778d774a886e0123bad0c51f2d595648f3533e6a7305aa9ea1325"}
 
 [[fuzzy]]
 member = "func_80120E48"
 path = "src/fuzzy/func_80120E48.c"
 scores = {us = 0.0}
-key = {us = "07071bf93f4b914df1eb39b51de9243f34e9591ee046824cb2df0d2f7f88ea82"}
+key = {us = "205626fd993f3ad8e37c70c65386078a7e69b771047058b875496d376456d471"}
 
 [[fuzzy]]
 member = "func_801210A4"
 path = "src/fuzzy/func_801210A4.c"
 scores = {us = 0.3333333333333333}
-key = {us = "82775b7d8da055ccc97c6a5d13772d8fa2479dcd00aad6f46ca3b75acbf4a17c"}
+key = {us = "c7bcd2e18c3d4ac24e52e41c013392639a24a4e78b095986d09b63a06892072c"}
 
 [[fuzzy]]
 member = "func_80125450"
 path = "src/fuzzy/func_80125450.c"
 scores = {us = 0.3888888888888889}
-key = {us = "1b5b253a16f31d2aa82dadc6d0c1b91ee7535b82a481449df5383c015218e741"}
+key = {us = "5658ce8704b7c2fba9c4a1d7fa99c9dc39866cd7a577e23c1612180927a79fe6"}
 
 [[fuzzy]]
 member = "func_801254A0"
 path = "src/fuzzy/func_801254A0.c"
 scores = {us = 0.045454545454545456}
-key = {us = "c82dcdd8defd31bd6b76ae09af841eef6d6d96229cc99a780085d68e2c49d4b2"}
+key = {us = "15a2a2e1ba9827f395b17afc20f5619d544e400184fca10bd8d37f2b16d9f887"}

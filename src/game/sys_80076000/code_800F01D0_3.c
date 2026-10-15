@@ -23,3 +23,16 @@ unsigned int func_800F38F4(void) {
     D_auto_80139610 = temp_v0;
     return (temp_v0 << 0x10) | ((u32) temp_v0 >> 0x10);
 }
+
+f32 func_800F3940(void)
+{
+    u32 seed;
+    u32 seed2;
+    f32 first;
+    seed = D_auto_80139610 * 0x10DCD + 1;
+    D_auto_80139610 = seed;
+    first = (f32)seed / 4294967296.0f;
+    seed2 = seed * 0x10DCD + 1;
+    D_auto_80139610 = seed2;
+    return (first + (f32)seed2 / 4294967296.0f) * 0.5f;
+}

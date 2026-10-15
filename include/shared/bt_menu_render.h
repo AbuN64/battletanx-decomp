@@ -25,7 +25,7 @@ void func_800B0440(void);
 void func_800B098C(void);
 void func_800B0D1C(void);
 int func_800B1264(void);
-int func_800B9C0C(void *);
+s32 func_800B9C0C(const u8 *text);
 int func_800B9C34(int, int);
 int func_800F4DFC(Gfx **, int, int, int, int, int, int, int, int);
 void func_801054E0(int);
