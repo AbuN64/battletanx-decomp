@@ -482,6 +482,7 @@ schema = 1
 "func_800E9458" = { evidence = "landed", signature = "float func_800E9458(void)" }
 "func_800E95A8" = { evidence = "authored", signature = "s32 func_800E95A8(s32)" }
 "func_800E986C" = { evidence = "authored", signature = "s32 func_800E986C(s32, s32, s32)" }
+"func_800E9880" = { evidence = "landed", signature = "s32 func_800E9880(s32 arg0, s32 arg1)" }
 "func_800E9894" = { evidence = "landed", signature = "void func_800E9894(func_800E9894_S1_Shared800EA1FC *arg0, s16 arg1)" }
 "func_800E9940" = { evidence = "authored", signature = "int func_800E9940(void * arg0, int arg1)" }
 "func_800E99D4" = { evidence = "landed", signature = "void func_800E99D4(struct ResetState *arg0)" }
