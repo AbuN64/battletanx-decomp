@@ -237,7 +237,7 @@ schema = 1
 "func_800A68AC" = { evidence = "landed", signature = "u8 func_800A68AC(s32 arg0)" }
 "func_800A68C0" = { evidence = "authored", signature = "void * func_800A68C0(int arg0)" }
 "func_800A68E0" = { evidence = "landed", signature = "void func_800A68E0(void)" }
-"func_800A6900" = { evidence = "authored", signature = "int func_800A6900(void * arg0, void * arg1)" }
+"func_800A6900" = { evidence = "landed", signature = "int func_800A6900(N *arg0, s32 *arg1)" }
 "func_800A6958" = { evidence = "authored", signature = "void * func_800A6958(int arg0, void * arg1)" }
 "func_800A6AB4" = { evidence = "authored", signature = "s32 func_800A6AB4()" }
 "func_800A6E10" = { evidence = "landed", signature = "int func_800A6E10(L *arg0)" }

@@ -618,4 +618,6 @@ extern s32 D_auto_80137648;
 
 extern s32 D_auto_80137670;
 
+int func_800A70BC(N *arg0);
+
 #endif
