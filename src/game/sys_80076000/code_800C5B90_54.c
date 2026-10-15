@@ -22,3 +22,7 @@ void func_800EBC6C(s32 arg0) {
 void func_800EBC94(s32 arg0) {
     func_800EA93C(arg0, &D_auto_8013728C);
 }
+
+void func_800EBCBC(s32 arg0) {
+    func_800EA93C(arg0, &D_auto_80137310);
+}

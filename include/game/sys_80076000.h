@@ -594,4 +594,8 @@ extern s32 D_auto_80137248;
 
 extern s32 D_auto_8013728C;
 
+extern s32 D_auto_80137310;
+
+extern s32 D_auto_80137354;
+
 #endif
