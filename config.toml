@@ -6,7 +6,6 @@ name = "BattleTanx"
 title = "BattleTanx"
 versions = ["us"]
 names_from = "us"
-readme_map = "us"
 toolchain = "gcc-2.7.2-kmc"
 
 [build]

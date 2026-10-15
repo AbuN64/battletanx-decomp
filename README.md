@@ -9,8 +9,6 @@ A matching decompilation of *BattleTanx* for the Nintendo 64.
 <!-- progress -->
 <pre><code>all  [██░░░░░░░░░░░░░░░░░░]  11.68% (~12.97%)  102,396 of 876,608 bytes</code><br><code>us   [██░░░░░░░░░░░░░░░░░░]  11.68% (~12.97%)  102,396 of 876,608 bytes</code></pre>
 
-<img src="docs/memory-map-us.svg">
-
 | us (NUS-NBXE-0, North America). NTSC release. SHA256 `c5b7cf3523de025e3f18e2c8df2deb0eced5613e7c46cb8c6c5a4f22644ead3f` |
 |---|
 | <pre><code>code      [█░░░░░░░░░░░░░░░░░░░]   7.61% (~9.22%)  53,728 of 705,956</code><br><code>data      [█████░░░░░░░░░░░░░░░]  28.51%  48,668 of 170,652</code><br><code>functions [████▒░░░░░░░░░░░░░░░]  20.26% (~27.25%)  348 of 1,717</code></pre> |
@@ -28,6 +26,8 @@ For detailed instructions please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Dependencies
 
-- [AbuCakeUnbake64](https://github.com/AbuN64/cake-unbake-64) at `773fba517ee2c9552051bcea15a315999c1ff368`
-- [GCC 2.7.2 (KMC)](https://github.com/decompals/mips-gcc-2.7.2) at `43d1cdb67ed135879869b5266f01efaaada5e35a`, the compiler of toolchain `gcc-2.7.2-kmc`, assembled by SN ASN64 version 2.81
-- [IDO static recompilation](https://github.com/decompals/ido-static-recomp), the compiler of toolchain `ido-7.1`
+| Compiler | Toolchain | Assembler | Source |
+|---|---|---|---|
+| GCC 2.7.2 (KMC) | `gcc-2.7.2-kmc` | SN ASN64 2.81 | [decompals/mips-gcc-2.7.2](https://github.com/decompals/mips-gcc-2.7.2/tree/43d1cdb67ed135879869b5266f01efaaada5e35a) `43d1cdb` |
+| IDO 7.1 (static recompilation) | `ido-7.1` | IDO built-in | [decompals/ido-static-recomp](https://github.com/decompals/ido-static-recomp/releases/tag/v1.2) `v1.2` |
+| GCC 2.8.1 | `gcc-2.8.1-sn64` | SN ASN64 2.81 | [pmret/gcc-papermario](https://github.com/pmret/gcc-papermario/tree/d97824ffc7517675646960442b3f512a473e4404) `d97824f` |
