@@ -70,6 +70,7 @@ schema = 1
 "func_8007A470" = { evidence = "declared", signature = "s32 func_8007A470" }
 "func_8007A5A4" = { evidence = "authored", signature = "int func_8007A5A4(void * arg0, void * arg1)" }
 "func_8007A79C" = { evidence = "authored", signature = "int func_8007A79C(void * arg0)" }
+"func_8007A7E0" = { evidence = "declared", signature = "s32 func_8007A7E0" }
 "func_8007AA70" = { evidence = "landed", signature = "void func_8007AA70(void)" }
 "func_8007AAA0" = { evidence = "landed", signature = "s32 func_8007AAA0(void)" }
 "func_8007AAB0" = { evidence = "landed", signature = "s32 func_8007AAB0(void)" }
