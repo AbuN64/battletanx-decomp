@@ -1,4 +1,6 @@
 #include "shared/bt_types.h"
+#include "game/sys_80076000.h"
+#include "shared/bt_span_1000_code_8007A470.h"
 
 s32 func_80094774(f32 *arg0, f32 *arg1) {
     f32 d[4];
@@ -46,4 +48,16 @@ s32 func_80094774(f32 *arg0, f32 *arg1) {
         }
     }
     return 0;
+}
+
+void func_8009491C(void)
+{
+    s32 i, j, k;
+    for (i = 0; i < func_8007AAA0(); i++) {
+        for (j = 0; j < 3; j++) {
+            for (k = 0; k < 100; k++) {
+                D_auto_802D5BC0[i][j][k][0] = 0x8FFF;
+            }
+        }
+    }
 }

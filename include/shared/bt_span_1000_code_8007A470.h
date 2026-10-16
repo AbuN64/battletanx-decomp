@@ -51,4 +51,32 @@ typedef struct AudioDmaBuffer {
     u8 *ptr;
 } AudioDmaBuffer;
 typedef struct AudioDmaLists { AudioDmaBuffer *firstUsed, *firstFree; } AudioDmaLists;
+typedef struct AudioTask {
+    u32 type, flags;
+    u64 *ucodeBoot;
+    u32 ucodeBootSize;
+    u64 *ucode;
+    u32 ucodeSize;
+    u64 *ucodeData;
+    u32 ucodeDataSize;
+    u64 *dramStack;
+    u32 dramStackSize;
+    u64 *outputBuff;
+    u64 *outputBuffSize;
+    u64 *dataPtr;
+    u32 dataSize;
+    u64 *yieldDataPtr;
+    u32 yieldDataSize;
+} AudioTask;
+struct AudioFrameInfo;
+typedef struct AudioDoneMessage { s32 type; struct AudioFrameInfo *frame; } AudioDoneMessage;
+typedef struct AudioFrameInfo {
+    s16 *outputBuffer;
+    s16 frameSamples;
+    AudioTask task;
+    AudioDoneMessage message;
+} AudioFrameInfo;
+extern s32 func_801105F0(void *address, s32 length);
+
 #endif
+

@@ -2,18 +2,18 @@
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
-s32 func_800941E0(f32 x, f32 y, f32 r, ViewCone *c) {
+s32 func_800941E0(f32 x, f32 y, f32 r, SceneView *c) {
     f32 dx;
     f32 dy;
     f32 a;
     f32 b;
-    if (c->disabled != 0) {
+    if (c->disableCulling != 0) {
         return 0;
     }
-    dy = y + c->offsetX;
-    dx = x + c->offsetZ;
-    a = c->m00 * dy + c->m01 * dx;
-    b = c->m10 * dx - c->m11 * dy;
+    dy = y + c->offsetZ;
+    dx = x + c->offsetX;
+    a = c->forwardZ * dy + c->forwardX * dx;
+    b = c->sideX * dx - c->sideZ * dy;
     if (a <= 0.0f) {
         return 1;
     }

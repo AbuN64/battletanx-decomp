@@ -2,7 +2,7 @@
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
-s32 func_800942A8(f32 (*points)[2], s32 count, ViewCone *view)
+s32 func_800942A8(f32 (*points)[2], s32 count, SceneView *view)
 {
     f32 rel[4][2];
     f32 proj[4][2];
@@ -11,17 +11,17 @@ s32 func_800942A8(f32 (*points)[2], s32 count, ViewCone *view)
     s32 next;
     u8 k = 0xFF;
     f32 t;
-    if (view->disabled) {
+    if (view->disableCulling) {
         return 0;
     }
     if (count >= 5) {
         return 1;
     }
     for (i = 0; i < count; i++) {
-        rel[i][1] = points[i][1] + view->offsetZ;
-        rel[i][0] = points[i][0] + view->offsetX;
-        proj[i][1] = view->m10 * rel[i][1] - view->m11 * rel[i][0];
-        proj[i][0] = view->m00 * rel[i][0] + view->m01 * rel[i][1];
+        rel[i][1] = points[i][1] + view->offsetX;
+        rel[i][0] = points[i][0] + view->offsetZ;
+        proj[i][1] = view->sideX * rel[i][1] - view->sideZ * rel[i][0];
+        proj[i][0] = view->forwardZ * rel[i][0] + view->forwardX * rel[i][1];
         if (proj[i][1] > 0.0f) {
             if (proj[i][0] < 0.0f) {
                 codes[i] = 5;

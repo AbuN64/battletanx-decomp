@@ -176,4 +176,26 @@ typedef struct EffectKind {
     void (*event)(void *effect, void *sender, s32 event, void *input, void *output);
     void (*draw)(void *effect);
 } EffectKind;
+
+typedef struct EffectKind08 {
+    EffectHeader header;
+    Vec3f position;
+    Vec3f velocity;
+    s16 value24, value26;
+    u16 value28;
+    f32 scale;
+    s32 value30;
+    u8 value34;
+    s32 value38;
+    f32 value3C;
+} EffectKind08;
+typedef struct EffectKind18 {
+    EffectHeader header;
+    Vec3f position;
+    s16 angle;
+    EffectHeader *owner;
+    u32 ownerSerial;
+    s32 frame;
+} EffectKind18;
+
 #endif

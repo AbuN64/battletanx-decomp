@@ -444,10 +444,10 @@ extern f32 D_auto_8007486C;
 f32 func_800F3880(f32 arg0);
 extern f32 D_auto_80074720;
 
-extern s32 D_auto_80125764;
+extern AudioTask *D_auto_80125764;
 extern u8 D_auto_80152F90;
 
-extern s32 D_auto_80152A10;
+extern void *D_auto_80152A10;
 extern u8 D_auto_801B4A28;
 
 extern f32 D_auto_80074390;
@@ -545,7 +545,7 @@ f32 func_8007B208(s32 *r, s32 value);
 
 s32 func_8010CB4C(s32, s32);
 
-s32 func_80084CC4(s32, s32, s32, s32, s32, s32, s32, f32);
+void func_80084CC4(Scene *, s32, void *, void *, s32, s32, f32 *, f32);
 extern f32 D_auto_80071E90;
 
 extern s32 D_auto_80135E64;
@@ -763,8 +763,8 @@ void func_800768E4(void);
 
 s32 func_80076F60(s32 port, u32 source, u32 length);
 
-extern void func_800824E4(u8 *level, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 index);
-void func_800849B0(u8 *level, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 mask);
+extern void func_800824E4(Scene *level, s32 arg1, void *arg2, void *arg3, s32 arg4, s32 arg5, s32 index);
+void func_800849B0(Scene *level, s32 arg1, void *arg2, s32 arg3, s32 arg4, u8 mask);
 
 extern s32 D_auto_802DF580[];
 extern s32 D_auto_802DF590[];
@@ -1037,7 +1037,7 @@ void func_800A841C(f32 src[4][4], f32 dst[4][4], u16 angle);
 
 extern s32 D_auto_801C9178;
 extern int func_800A5EB0(s32);
-extern int func_8009491C(void);
+extern void func_8009491C(void);
 extern s32 func_80095C1C(s32 *, s32);
 extern void func_80095768(s32, s32, s32, s32, s32, s32, s32, s32, s32);
 extern s32 func_800962B4(s32, s32, s32, s32, s32, s32, s32, s32);
@@ -1045,14 +1045,14 @@ extern void func_800827AC(Scene *, s32, void *, void *, s32, s32, s32, s32);
 
 extern f32 D_auto_800730D0;
 
-s32 func_800942A8(f32 (*points)[2], s32 count, ViewCone *view);
+s32 func_800942A8(f32 (*points)[2], s32 count, SceneView *view);
 
 extern BitStrideEntry D_auto_8013578C[];
 u32 func_800DD244(u32 value);
 
 extern f64 D_auto_80072020;
 extern f64 D_auto_80072028;
-s32 func_800941E0(f32 x, f32 y, f32 r, ViewCone *c);
+s32 func_800941E0(f32 x, f32 y, f32 r, SceneView *c);
 
 void func_800AB65C(ListNode *node);
 
@@ -1408,6 +1408,32 @@ extern s32 func_800E2D40(void *member);
 extern f32 func_800E9720(struct ResetState *context, s32 key);
 
 extern s32 D_auto_80125C40;
+
+extern s32 D_auto_802D5BC0[][3][100][2];
+
+s32 func_80110480();
+extern s32 D_auto_80125778;
+void func_8007A758(void);
+
+extern s32 func_801181B0(OSPfs *pfs);
+
+extern DrawGroup *D_auto_801C0840[][32];
+extern s32 func_8007E8EC(void *view, s32 perspNorm);
+extern void func_8007EB64(u32 address, s32 params);
+extern void func_8007EF64(s32 count, Gfx *src);
+void func_80080AA8(s32 layer, ViewMatrix *views, u16 *perspNorms);
+
+void func_8008F040(Vec3f *position, s32 count, f32 scale, s32 arg3);
+
+extern u64 *func_8011DD48(u64 *commandList, s32 *commandCount, u32 outputBuffer, s16 samples);
+extern u64 D_auto_8010E160[];
+extern u64 D_auto_8010E230[];
+extern u8 D_auto_8010F660[];
+extern u8 D_auto_80145AA0[];
+extern s32 D_auto_80152EE8;
+extern u64 *D_auto_80152EF0[2];
+extern s32 D_auto_801B4A40;
+s32 func_8007A5A4(AudioFrameInfo *frame, AudioFrameInfo *previous);
 
 #endif
 

@@ -30,4 +30,21 @@ typedef struct FrameState {
     u16 vertexCount;
 } FrameState;
 
+
+typedef struct ViewMatrix {
+    f32 matrix[4][4];
+    s32 (*fixed)[4][4];
+} ViewMatrix;
+typedef struct DrawItem {
+    Gfx *displayList;
+    u32 matrixAddress;
+    Gfx *commands;
+    struct DrawItem *next;
+} DrawItem;
+typedef struct DrawGroup {
+    Gfx *displayList;
+    DrawItem *perPlayer[4];
+    struct DrawGroup *next;
+} DrawGroup;
+
 #endif
