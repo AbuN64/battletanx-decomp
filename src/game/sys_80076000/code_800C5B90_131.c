@@ -14,3 +14,17 @@ void func_800DAD60(void) {
         *cursor = fill;
     }
 }
+
+void func_80077930(s32 arg0, s32 arg1, s32 arg2);
+
+
+
+
+void func_800DADBC(void)
+{
+    u32 size = D_auto_B04AD7E0 - D_auto_B04AC150;
+
+    func_80077930((u32)D_auto_B04AC150, D_auto_803DA800, size);
+    func_800F4F60(size, D_auto_803DA800, 0x25800, D_auto_803275F4);
+    func_801053B0(1);
+}

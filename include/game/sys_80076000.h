@@ -2,6 +2,8 @@
 #define GAME_SYS_80076000_H
 
 #include "shared/bt_types.h"
+#include "shared/bt_span_1000_code_800A8940.h"
+#include "shared/bt_span_1000_code_8007C700.h"
 #include "shared/bt_span_1000_code_800A9FC4.h"
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_800824E4.h"
@@ -534,7 +536,7 @@ s32 func_800E3980(s32, s16, u16, s32);
 
 s32 func_80107170(s32);
 
-s32 func_8007B208(s32, s32);
+f32 func_8007B208(s32 *r, s32 value);
 
 s32 func_8010CB4C(s32, s32);
 
@@ -865,7 +867,7 @@ extern void func_800792C8(void *scheduler);
 extern void func_80079474(void *scheduler);
 void func_80078F70(void *scheduler);
 
-void func_800A90E0(void);
+s32 func_800A90E0(void);
 void func_8007968C(void);
 void func_8007D998(void);
 void func_800A8EE0(void);
@@ -1147,5 +1149,53 @@ void func_80084F4C(void *table, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6,
 
 extern Quad2f D_auto_80071E64;
 void func_80091108(struct PolygonPoint *origin, struct PolygonPoint *out);
+
+u16 func_800DDCCC(U16HistoryQueue *ring, u16 index);
+
+u32 func_800DD2A8(u32 value);
+
+s32 func_800DD544(unsigned char *code, s32 *level, s32 *stage, s32 *score, s32 *lives, s32 *mode);
+
+extern char D_auto_80071560[];
+extern char D_auto_80071564[];
+char *func_80086378(s32 value, s32 digits, char *out);
+
+extern u8 D_auto_802DF360[];
+extern void *D_auto_802DF380[];
+extern OSContStatus D_auto_802DF390[4];
+extern OSPfs D_auto_802DF3A0[4];
+extern s32 D_auto_802DF550[4];
+extern u8 D_auto_802DF5B0[];
+extern void *D_auto_802DF5C8[];
+extern void *D_auto_802DF5E8[];
+extern u8 D_auto_802DF5F0[];
+extern void *D_auto_802E17A0;
+extern s32 D_auto_8000030C;
+extern void func_80111510(void *queue, void *messages, s32 count);
+extern void func_8011BA10(s32 event, void *queue, s32 message);
+extern s32 func_80110FE0(void *queue, u8 *pattern, OSContStatus *status);
+extern s32 func_80113C40(void *queue, OSPfs *pfs, s32 channel);
+extern s32 func_80116C70(void *queue, OSPfs *pfs, s32 channel);
+extern void func_800A8C88(void *arg);
+s32 func_800A8940(void);
+
+extern s32 func_80110CA0(void *queue);
+extern void func_80110D24(OSContStatus *status);
+
+extern f32 D_auto_80071100;
+
+void func_8007C770(GameSettings *src, GameSettings *dst);
+
+extern u8 D_auto_B049DCD0[];
+extern u8 D_auto_B04AC150[];
+void func_800C54F0(void);
+
+extern u8 D_auto_B049C740[];
+extern s32 D_auto_80327F40;
+extern u8 D_auto_80327F44;
+void func_800CA980(void);
+
+extern u8 D_auto_B04AD7E0[];
+void func_800DADBC(void);
 
 #endif

@@ -37,3 +37,24 @@ u32 func_800DD244(u32 value)
     }
     return value;
 }
+
+u32 func_800DD2A8(u32 value)
+{
+    u32 one = 1;
+    s32 offset;
+    u32 bit;
+    s32 stride;
+    u32 result;
+    for (offset = 15; offset >= 0; offset--) {
+        result = value;
+        bit = D_auto_8013578C[offset].start;
+        stride = D_auto_8013578C[offset].stride;
+        if ((result >> bit) & 1) {
+            for (bit += stride; bit < 32; bit += stride) {
+                result ^= one << bit;
+            }
+        }
+        value = result;
+    }
+    return value;
+}
