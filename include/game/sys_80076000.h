@@ -894,4 +894,61 @@ extern f32 D_auto_80139620[];
 
 extern f32 D_auto_80074F54;
 
+extern u8 D_auto_80327C12;
+extern u64 D_auto_80327BC8;
+extern u64 D_auto_80327BD0;
+extern u64 D_auto_80327BD8;
+extern u8 D_auto_80327BE0;
+extern s32 D_auto_80327BE4;
+extern u8 D_auto_80327C11;
+extern u8 D_auto_80132F00[];
+extern u8 D_auto_80132F4C[];
+extern u8 D_auto_80132F80[];
+extern u8 D_auto_801330C4[];
+extern u8 D_auto_801330E4[];
+extern u8 D_auto_80133100[];
+extern u8 D_auto_80133220[];
+extern u8 D_auto_801332FC[];
+extern u8 D_auto_80133360[];
+void func_800BC4A8(Gfx **list);
+
+extern u8 D_auto_80327D41;
+extern u8 D_auto_80327D42;
+extern u64 D_auto_80327D48;
+extern u64 D_auto_80327D50;
+extern u64 D_auto_80327D58;
+extern u8 D_auto_80327D60;
+extern s32 D_auto_80327D64;
+extern u8 D_auto_80133C38[];
+extern u8 D_auto_80133CAC[];
+void func_800C3730(Gfx **list);
+
+extern u64 D_auto_803277A0;
+extern s32 D_auto_803277D0;
+extern s32 D_auto_803277D4;
+extern s32 D_auto_803277D8;
+extern u64 D_auto_803278C0;
+extern s32 D_auto_803278C8;
+extern s32 D_auto_803278CC;
+extern s32 D_auto_803278D0;
+extern s32 D_auto_803278D4;
+extern u64 D_auto_80327A30;
+extern u64 D_auto_80327A40;
+extern u64 D_auto_80327A48;
+extern u8 D_auto_80327A54;
+extern u8 D_auto_80327B44;
+extern u8 D_auto_801324CC[];
+extern u8 D_auto_8013250C[];
+extern u8 D_auto_8013259C[];
+extern u8 D_auto_801327EC[];
+extern u8 D_auto_8013281C[];
+extern u8 D_auto_8013285C[];
+extern u8 D_auto_801328D8[];
+extern u8 D_auto_8013297C[];
+extern u8 D_auto_80132AC8[];
+extern u8 D_auto_80132B04[];
+extern u8 D_auto_80132BB0[];
+extern u8 D_auto_80132C30[];
+void func_800B8804(Gfx **list);
+
 #endif

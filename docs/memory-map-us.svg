@@ -673,7 +673,7 @@
 <rect class="q10" x="72" width="80.75" height="6"><title>func_800B1520 · 100% · 28652 B</title></rect>
 <rect class="q0" x="152.75" width="36.25" height="6"><title>func_800B850C · 0% · 580 B</title></rect>
 <rect class="q10" x="189" width="11.25" height="6"><title>func_800B8750 · 100% · 180 B</title></rect>
-<rect class="q0" x="200.25" width="320.5" height="6"><title>func_800B8804 · 0% · 5128 B</title></rect>
+<rect class="q10" x="200.25" width="320.5" height="6"><title>func_800B8804 · 100% · 5128 B</title></rect>
 <rect class="q10" x="520.75" width="2.5" height="6"><title>func_800B9C0C · 100% · 40 B</title></rect>
 <rect class="q10" x="523.25" width="4.75" height="6"><title>func_800B9C34 · 100% · 76 B</title></rect>
 <rect class="q10" x="528" width="1.75" height="6"><title>func_800B9C80 · 100% · 28 B</title></rect>
@@ -684,13 +684,13 @@
 <rect class="q0" x="797.5" width="79.75" height="6"><title>func_800BAD58 · 0% · 1276 B</title></rect>
 <rect class="q0" x="877.25" width="31.75" height="6"><title>func_800BB254 · 0% · 508 B</title></rect>
 <rect class="q0" x="909" width="36.75" height="6"><title>func_800BB450 · 0% · 588 B</title></rect>
-<rect class="q0" x="945.75" width="150.25" height="6"><title>func_800BB69C · 0% · 2936 B</title></rect>
+<rect class="q9" x="945.75" width="150.25" height="6"><title>func_800BB69C · 95.91% · 2936 B</title></rect>
 </g>
 <g transform="translate(0 144)"><text y="6">0004C000</text>
-<rect class="q0" x="72" width="33.25" height="6"><title>func_800BB69C · 0% · 2936 B</title></rect>
+<rect class="q9" x="72" width="33.25" height="6"><title>func_800BB69C · 95.91% · 2936 B</title></rect>
 <rect class="q0" x="105.25" width="35.25" height="6"><title>func_800BC214 · 0% · 564 B</title></rect>
 <rect class="q10" x="140.5" width="6" height="6"><title>func_800BC448 · 100% · 96 B</title></rect>
-<rect class="q0" x="146.5" width="207.25" height="6"><title>func_800BC4A8 · 0% · 3316 B</title></rect>
+<rect class="q10" x="146.5" width="207.25" height="6"><title>func_800BC4A8 · 100% · 3316 B</title></rect>
 <rect class="q0" x="353.75" width="5.25" height="6"><title>func_800BD19C · 0% · 84 B</title></rect>
 <rect class="q10" x="359" width="1.75" height="6"><title>func_800BD1F0 · 100% · 28 B</title></rect>
 <rect class="q0" x="360.75" width="120.5" height="6"><title>func_800BD20C · 0% · 1928 B</title></rect>
@@ -716,7 +716,7 @@
 <rect class="q0" x="620.75" width="302.5" height="6"><title>func_800C224C · 0% · 4840 B</title></rect>
 <rect class="q0" x="923.25" width="27.25" height="6"><title>func_800C3534 · 0% · 436 B</title></rect>
 <rect class="q9" x="950.5" width="4.5" height="6"><title>func_800C36E8 · 88.89% · 72 B</title></rect>
-<rect class="q0" x="955" width="119.25" height="6"><title>func_800C3730 · 0% · 1908 B</title></rect>
+<rect class="q10" x="955" width="119.25" height="6"><title>func_800C3730 · 100% · 1908 B</title></rect>
 <rect class="q10" x="1074.25" width="4.75" height="6"><title>func_800C3EA4 · 100% · 76 B</title></rect>
 <rect class="q10" x="1079" width="1" height="6"><title>func_800C3EF0 · 100% · 16 B</title></rect>
 <rect class="q10" x="1080" width="16" height="6"><title>func_800C3F00 · 100% · 400 B</title></rect>
@@ -724,7 +724,7 @@
 <g transform="translate(0 160)"><text y="6">00054000</text>
 <rect class="q10" x="72" width="9" height="6"><title>func_800C3F00 · 100% · 400 B</title></rect>
 <rect class="q0" x="81" width="28.25" height="6"><title>func_800C4090 · 0% · 452 B</title></rect>
-<rect class="q0" x="109.25" width="136.75" height="6"><title>func_800C4254 · 0% · 2188 B</title></rect>
+<rect class="q9" x="109.25" width="136.75" height="6"><title>func_800C4254 · 98.17% · 2188 B</title></rect>
 <rect class="q0" x="246" width="49.75" height="6"><title>func_800C4AE0 · 0% · 796 B</title></rect>
 <rect class="q9" x="295.75" width="4.5" height="6"><title>func_800C4DFC · 88.89% · 72 B</title></rect>
 <rect class="q0" x="300.25" width="106.75" height="6"><title>func_800C4E44 · 0% · 1708 B</title></rect>

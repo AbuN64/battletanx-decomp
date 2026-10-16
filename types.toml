@@ -346,17 +346,27 @@ schema = 1
 "func_800B1520" = { evidence = "landed", signature = "void func_800B1520(void)" }
 "func_800B850C" = { evidence = "authored", signature = "int func_800B850C(void)" }
 "func_800B8750" = { evidence = "landed", signature = "u8 func_800B8750(void)" }
-"func_800B8804" = { evidence = "authored", signature = "void * func_800B8804(int * arg0)" }
+"func_800B8804" = { evidence = "landed", signature = "void func_800B8804(Gfx **list)" }
 "func_800B9C0C" = { evidence = "landed", signature = "s32 func_800B9C0C(const u8 *text)" }
 "func_800B9C34" = { evidence = "landed", signature = "s32 func_800B9C34(s32 arg0, s16 arg1)" }
 "func_800B9C80" = { evidence = "landed", signature = "void func_800B9C80(void)" }
+"func_800BA764" = { evidence = "declared", signature = "void func_800BA764(void)" }
+"func_800BA960" = { evidence = "declared", signature = "void func_800BA960(void)" }
+"func_800BAB5C" = { evidence = "declared", signature = "void func_800BAB5C(void)" }
+"func_800BAD58" = { evidence = "declared", signature = "void func_800BAD58(void)" }
+"func_800BB254" = { evidence = "declared", signature = "void func_800BB254(void)" }
+"func_800BB450" = { evidence = "declared", signature = "void func_800BB450(void)" }
 "func_800BC448" = { evidence = "landed", signature = "u8 func_800BC448(void)" }
+"func_800BC4A8" = { evidence = "landed", signature = "void func_800BC4A8(Gfx **list)" }
+"func_800BD19C" = { evidence = "declared", signature = "s32 func_800BD19C(s32, s32)" }
 "func_800BD1F0" = { evidence = "landed", signature = "void func_800BD1F0(void)" }
 "func_800BFF68" = { evidence = "landed", signature = "u8 func_800BFF68(void)" }
 "func_800C0880" = { evidence = "landed", signature = "void func_800C0880(void)" }
+"func_800C3730" = { evidence = "landed", signature = "void func_800C3730(Gfx **list)" }
 "func_800C3EA4" = { evidence = "landed", signature = "s32 func_800C3EA4(s32 arg0, s16 arg1)" }
 "func_800C3EF0" = { evidence = "landed", signature = "void func_800C3EF0(void)" }
 "func_800C3F00" = { evidence = "landed", signature = "void func_800C3F00(void)" }
+"func_800C4090" = { evidence = "declared", signature = "void func_800C4090(void)" }
 "func_800C7FC0" = { evidence = "landed", signature = "s32 func_800C7FC0(void)" }
 "func_800C80E0" = { evidence = "authored", signature = "void func_800C80E0(void)" }
 "func_800CC1A8" = { evidence = "landed", signature = "s32 func_800CC1A8(void)" }
@@ -1193,7 +1203,30 @@ schema = 1
 "D_auto_801322D0" = { declaration = "extern s32 D_auto_801322D0[];", evidence = "authored" }
 "D_auto_801322F0" = { declaration = "extern u16 D_auto_801322F0;", evidence = "authored" }
 "D_auto_801322F4" = { declaration = "extern s32 D_auto_801322F4[];", evidence = "authored" }
+"D_auto_801324CC" = { declaration = "extern u8 D_auto_801324CC[];", evidence = "authored" }
+"D_auto_8013250C" = { declaration = "extern u8 D_auto_8013250C[];", evidence = "authored" }
+"D_auto_8013259C" = { declaration = "extern u8 D_auto_8013259C[];", evidence = "authored" }
+"D_auto_801327EC" = { declaration = "extern u8 D_auto_801327EC[];", evidence = "authored" }
+"D_auto_8013281C" = { declaration = "extern u8 D_auto_8013281C[];", evidence = "authored" }
+"D_auto_8013285C" = { declaration = "extern u8 D_auto_8013285C[];", evidence = "authored" }
+"D_auto_801328D8" = { declaration = "extern u8 D_auto_801328D8[];", evidence = "authored" }
+"D_auto_8013297C" = { declaration = "extern u8 D_auto_8013297C[];", evidence = "authored" }
+"D_auto_80132AC8" = { declaration = "extern u8 D_auto_80132AC8[];", evidence = "authored" }
+"D_auto_80132B04" = { declaration = "extern u8 D_auto_80132B04[];", evidence = "authored" }
+"D_auto_80132BB0" = { declaration = "extern u8 D_auto_80132BB0[];", evidence = "authored" }
+"D_auto_80132C30" = { declaration = "extern u8 D_auto_80132C30[];", evidence = "authored" }
 "D_auto_80132EF0" = { declaration = "extern s8 D_auto_80132EF0;", evidence = "authored" }
+"D_auto_80132F00" = { declaration = "extern u8 D_auto_80132F00[];", evidence = "authored" }
+"D_auto_80132F4C" = { declaration = "extern u8 D_auto_80132F4C[];", evidence = "authored" }
+"D_auto_80132F80" = { declaration = "extern u8 D_auto_80132F80[];", evidence = "authored" }
+"D_auto_801330C4" = { declaration = "extern u8 D_auto_801330C4[];", evidence = "authored" }
+"D_auto_801330E4" = { declaration = "extern u8 D_auto_801330E4[];", evidence = "authored" }
+"D_auto_80133100" = { declaration = "extern u8 D_auto_80133100[];", evidence = "authored" }
+"D_auto_80133220" = { declaration = "extern u8 D_auto_80133220[];", evidence = "authored" }
+"D_auto_801332FC" = { declaration = "extern u8 D_auto_801332FC[];", evidence = "authored" }
+"D_auto_80133360" = { declaration = "extern u8 D_auto_80133360[];", evidence = "authored" }
+"D_auto_80133C38" = { declaration = "extern u8 D_auto_80133C38[];", evidence = "authored" }
+"D_auto_80133CAC" = { declaration = "extern u8 D_auto_80133CAC[];", evidence = "authored" }
 "D_auto_80134010" = { declaration = "extern s32 D_auto_80134010[];", evidence = "authored" }
 "D_auto_80134E54" = { declaration = "extern s32 D_auto_80134E54;", evidence = "authored" }
 "D_auto_80134E58" = { declaration = "extern s32 D_auto_80134E58;", evidence = "authored" }
@@ -1343,17 +1376,45 @@ schema = 1
 "D_auto_80327614" = { declaration = "extern s32 D_auto_80327614;", evidence = "authored" }
 "D_auto_803276D4" = { declaration = "extern Gfx *D_auto_803276D4;", evidence = "authored" }
 "D_auto_803276E0" = { declaration = "extern u8 D_auto_803276E0;", evidence = "authored" }
+"D_auto_803277A0" = { declaration = "extern u64 D_auto_803277A0;", evidence = "authored" }
+"D_auto_803277D0" = { declaration = "extern s32 D_auto_803277D0;", evidence = "authored" }
+"D_auto_803277D4" = { declaration = "extern s32 D_auto_803277D4;", evidence = "authored" }
+"D_auto_803277D8" = { declaration = "extern s32 D_auto_803277D8;", evidence = "authored" }
+"D_auto_803278C0" = { declaration = "extern u64 D_auto_803278C0;", evidence = "authored" }
+"D_auto_803278C8" = { declaration = "extern s32 D_auto_803278C8;", evidence = "authored" }
+"D_auto_803278CC" = { declaration = "extern s32 D_auto_803278CC;", evidence = "authored" }
+"D_auto_803278D0" = { declaration = "extern s32 D_auto_803278D0;", evidence = "authored" }
+"D_auto_803278D4" = { declaration = "extern s32 D_auto_803278D4;", evidence = "authored" }
+"D_auto_80327A30" = { declaration = "extern u64 D_auto_80327A30;", evidence = "authored" }
+"D_auto_80327A40" = { declaration = "extern u64 D_auto_80327A40;", evidence = "authored" }
+"D_auto_80327A48" = { declaration = "extern u64 D_auto_80327A48;", evidence = "authored" }
+"D_auto_80327A54" = { declaration = "extern u8 D_auto_80327A54;", evidence = "authored" }
 "D_auto_80327B20" = { declaration = "extern u8 D_auto_80327B20;", evidence = "authored" }
 "D_auto_80327B21" = { declaration = "extern s8 D_auto_80327B21;", evidence = "authored" }
 "D_auto_80327B34" = { declaration = "extern s32 D_auto_80327B34;", evidence = "authored" }
+"D_auto_80327B44" = { declaration = "extern u8 D_auto_80327B44;", evidence = "authored" }
 "D_auto_80327B4C" = { declaration = "extern s32 D_auto_80327B4C;", evidence = "authored" }
 "D_auto_80327B50" = { declaration = "extern u8 D_auto_80327B50;", evidence = "authored" }
+"D_auto_80327BC8" = { declaration = "extern u64 D_auto_80327BC8;", evidence = "authored" }
+"D_auto_80327BD0" = { declaration = "extern u64 D_auto_80327BD0;", evidence = "authored" }
+"D_auto_80327BD8" = { declaration = "extern u64 D_auto_80327BD8;", evidence = "authored" }
+"D_auto_80327BE0" = { declaration = "extern u8 D_auto_80327BE0;", evidence = "authored" }
+"D_auto_80327BE4" = { declaration = "extern s32 D_auto_80327BE4;", evidence = "authored" }
 "D_auto_80327C0F" = { declaration = "extern u8 D_auto_80327C0F;", evidence = "authored" }
 "D_auto_80327C10" = { declaration = "extern s8 D_auto_80327C10;", evidence = "authored" }
+"D_auto_80327C11" = { declaration = "extern u8 D_auto_80327C11;", evidence = "authored" }
+"D_auto_80327C12" = { declaration = "extern u8 D_auto_80327C12;", evidence = "authored" }
 "D_auto_80327C30" = { declaration = "extern u8 D_auto_80327C30;", evidence = "authored" }
 "D_auto_80327D2C" = { declaration = "extern u8 D_auto_80327D2C;", evidence = "authored" }
 "D_auto_80327D2D" = { declaration = "extern s8 D_auto_80327D2D;", evidence = "authored" }
 "D_auto_80327D40" = { declaration = "extern u8 D_auto_80327D40;", evidence = "authored" }
+"D_auto_80327D41" = { declaration = "extern u8 D_auto_80327D41;", evidence = "authored" }
+"D_auto_80327D42" = { declaration = "extern u8 D_auto_80327D42;", evidence = "authored" }
+"D_auto_80327D48" = { declaration = "extern u64 D_auto_80327D48;", evidence = "authored" }
+"D_auto_80327D50" = { declaration = "extern u64 D_auto_80327D50;", evidence = "authored" }
+"D_auto_80327D58" = { declaration = "extern u64 D_auto_80327D58;", evidence = "authored" }
+"D_auto_80327D60" = { declaration = "extern u8 D_auto_80327D60;", evidence = "authored" }
+"D_auto_80327D64" = { declaration = "extern s32 D_auto_80327D64;", evidence = "authored" }
 "D_auto_80327E30" = { declaration = "extern u8 D_auto_80327E30;", evidence = "authored" }
 "D_auto_80327E50" = { declaration = "extern u8 D_auto_80327E50;", evidence = "authored" }
 "D_auto_80327E58" = { declaration = "extern u64 D_auto_80327E58;", evidence = "authored" }
