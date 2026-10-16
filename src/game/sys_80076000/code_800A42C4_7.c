@@ -1,8 +1,8 @@
-#include "game/sys_80076000.h"
-#include "shared/bt_ai_team.h"
 #include "shared/bt_player.h"
+#include "shared/bt_ai_team.h"
+#include "game/sys_80076000.h"
 #include "span_1000/code_800A51E8.h"
-#include "shared/bt_span_1000_code_8010BFDC.h"
+extern s32 D_auto_801B4AA8;
 static inline void set_notice_lines(PlayerRecord *entity, char *text0, char *text1, s32 ticks) {
     if (entity->isAi == 0) {
         entity->messageColor = 0x27;

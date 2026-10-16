@@ -1,7 +1,7 @@
 #ifndef BT_PLAYER_H
 #define BT_PLAYER_H
 #include "shared/bt_gfx.h"
-#include "span_1000/code_8007EBA0.h"
+#include "shared/bt_camera.h"
 /* Four 0x348-byte player records; initialized by the player setup routine. */
 typedef struct PlayerRecord {
     s16 unitIds[5];
@@ -19,7 +19,7 @@ typedef struct PlayerRecord {
     u16 roundKills, value03C;
     s16 value03E, value040, value042;
     u16 soundMode, reserved046;
-    u8 sound[0xA4];
+    AttachedCamera camera;
     s32 value0EC;
     u8 value0F0, reserved0F1[3];
     s32 value0F4, value0F8, value0FC;
@@ -53,8 +53,5 @@ typedef struct PlayerRecord {
     f32 railFireRate, offRailFireRate, railSpeedTuning, aggressivenessTuning, intelligenceTuning;
     s16 gunDamage[4], gunFireRate[4];
 } PlayerRecord;
-static inline PlayerRecord *player_record(u16 index) {
-    PlayerRecord *player = func_800A6688(index);
-    return player;
-}
+
 #endif

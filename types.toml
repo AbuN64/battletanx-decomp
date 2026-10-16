@@ -46,6 +46,7 @@ schema = 1
 "func_80078634" = { evidence = "authored", signature = "s32 func_80078634()" }
 "func_80078654" = { evidence = "authored", signature = "int func_80078654(void * arg0, int arg1)" }
 "func_80078680" = { evidence = "authored", signature = "s32 func_80078680()" }
+"func_80078814" = { evidence = "landed", signature = "void func_80078814(AttachedCamera *camera)" }
 "func_80078834" = { evidence = "authored", signature = "void * func_80078834(float arg0, float arg1, int arg2, int arg3, unsigned char arg4)" }
 "func_80078F60" = { evidence = "landed", signature = "unsigned char *func_80078F60(void)" }
 "func_80078F70" = { evidence = "landed", signature = "void func_80078F70(void *scheduler)" }
@@ -260,6 +261,7 @@ schema = 1
 "func_80097C24" = { evidence = "landed", signature = "void func_80097C24(Block *b)" }
 "func_80097C64" = { evidence = "authored", signature = "float func_80097C64(void * arg0, float arg1)" }
 "func_80097DD0" = { evidence = "declared", signature = "void func_80097DD0(int, int, int)" }
+"func_800983E0" = { evidence = "authored", signature = "s32 func_800983E0(CombatUnit *unit, s32 amount, u8 entityId, s32 arg3)" }
 "func_80099D90" = { evidence = "authored", signature = "s32 func_80099D90(void *, s32)" }
 "func_8009E39C" = { evidence = "landed", signature = "void *func_8009E39C(struct Unknown8009E39C *self)" }
 "func_8009EDD0" = { evidence = "declared", signature = "void func_8009EDD0(int)" }
@@ -268,7 +270,7 @@ schema = 1
 "func_8009F5BC" = { evidence = "authored", signature = "void * func_8009F5BC(void * arg0, void * arg1)" }
 "func_8009F958" = { evidence = "authored", signature = "void func_8009F958(GrenadeEffect *e, PointZX *center, f32 radius, f32 damage, s32 owner)" }
 "func_8009FB8C" = { evidence = "landed", signature = "s32 func_8009FB8C(CombatUnit *unit)" }
-"func_8009FBE4" = { evidence = "authored", signature = "s32 func_8009FBE4()" }
+"func_8009FBE4" = { evidence = "landed", signature = "u8 func_8009FBE4(CombatUnit *unit)" }
 "func_800A0380" = { evidence = "landed", signature = "void func_800A0380(void)" }
 "func_800A03B8" = { evidence = "authored", signature = "void *func_800A03B8()" }
 "func_800A04F0" = { evidence = "landed", signature = "void func_800A04F0(Obj80137A3C *arg0, s32 *arg1)" }
@@ -567,7 +569,7 @@ schema = 1
 "func_800E3C18" = { evidence = "landed", signature = "void func_800E3C18(Obj *obj, void *value)" }
 "func_800E3F90" = { evidence = "authored", signature = "int func_800E3F90(struct Shape_func_800E3F90_us * arg0)" }
 "func_800E4104" = { evidence = "authored", signature = "void * func_800E4104(int arg0, int arg1, unsigned char arg2)" }
-"func_800E4494" = { evidence = "authored", signature = "s32 func_800E4494(void *)" }
+"func_800E4494" = { evidence = "landed", signature = "void func_800E4494(CombatUnit *unit)" }
 "func_800E480C" = { evidence = "landed", signature = "void func_800E480C(void)" }
 "func_800E4820" = { evidence = "authored", signature = "int func_800E4820(int arg0)" }
 "func_800E4A18" = { evidence = "landed", signature = "void func_800E4A18(s32 arg0)" }
@@ -1842,6 +1844,7 @@ schema = 1
 "AiScoreContext" = { declaration = "typedef struct AiScoreContext { u16 unitId; CombatUnit *unit; PlayerRecord *player; void *target; s32 memberPlay, slotPlay; } AiScoreContext;", evidence = "authored" }
 "AiTeam" = { declaration = "typedef struct AiTeam { AiGroup own, allies; u8 active; } AiTeam;", evidence = "authored" }
 "AreaBox" = { declaration = "typedef struct QueryBox AreaBox;", evidence = "authored" }
+"AttachedCamera" = { declaration = "typedef struct AttachedCamera { EffectHeader header; Vec3f *eyeOffset, *previousOffset; u8 blend; EffectHeader *anchor; s32 anchorArg; f32 fraction; Vec3f at, eye, up; ViewMatrix view; u16 roll; s32 floor, count; Vec3f motion; } AttachedCamera;", evidence = "authored" }
 "AudioDmaBuffer" = { declaration = "typedef struct AudioDmaBuffer { ListNode link; u32 startAddr, lastFrame; u8 *ptr; } AudioDmaBuffer;", evidence = "authored" }
 "AudioDmaLists" = { declaration = "typedef struct AudioDmaLists { AudioDmaBuffer *firstUsed, *firstFree; } AudioDmaLists;", evidence = "authored" }
 "AudioDoneMessage" = { declaration = "typedef struct AudioDoneMessage { s32 type; struct AudioFrameInfo *frame; } AudioDoneMessage;", evidence = "authored" }
@@ -2013,7 +2016,7 @@ schema = 1
 "Owner" = { declaration = "struct Owner { unsigned char pad0[0x60]; struct Node *nodes; };", evidence = "authored" }
 "PathSearch" = { declaration = "typedef struct PathSearch { PathSearchNode nodes[3001]; u16 root; } PathSearch;", evidence = "authored" }
 "PathSearchNode" = { declaration = "typedef struct PathSearchNode { u8 active, closed; u16 parent, left, right; f32 cost, total; f32 position[2]; } PathSearchNode;", evidence = "authored" }
-"PlayerRecord" = { declaration = "typedef struct PlayerRecord { s16 unitIds[5]; u16 reserved00A; s32 id; s32 state; u8 value014, value015; u16 type; s32 active, value01C; s16 selectedUnit; u8 count, value023, value024, value025; u16 value026; s32 counter, value02C, value030, kills; u8 maxUnits, reserved039; u16 roundKills, value03C; s16 value03E, value040, value042; u16 soundMode, reserved046; u8 sound[0xA4]; s32 value0EC; u8 value0F0, reserved0F1[3]; s32 value0F4, value0F8, value0FC; ViewMatrix matrix; f32 value144, value148; s32 value14C; f32 transform[4][4]; f32 aggressiveness, intelligence; s32 timerRange[2]; f32 railSpeed; u8 reverseRail, value1A5, isAi, reserved1A7; u16 objectiveId; s16 linkedId; u16 killCount; u8 team, chainActive; f32 z, x; void *group; u8 value1BC, value1BD, value1BE, soundClass; u32 controlFlags[5]; u8 reserved1D4[0x30]; u8 locked, reserved205[3]; s32 value208, value20C, value210, value214; s32 messageColor, messageExpireTick; char messageLine0[32], messageLine1[32]; u8 reserved260[0xA0]; s32 respawnTick, respawnDelay; u8 value308, value309; u16 reserved30A; s32 value30C; f32 offense, defense, resurrection, aiSpeed, aiFireRate; f32 railFireRate, offRailFireRate, railSpeedTuning, aggressivenessTuning, intelligenceTuning; s16 gunDamage[4], gunFireRate[4]; } PlayerRecord;", evidence = "authored" }
+"PlayerRecord" = { declaration = "typedef struct PlayerRecord { s16 unitIds[5]; u16 reserved00A; s32 id; s32 state; u8 value014, value015; u16 type; s32 active, value01C; s16 selectedUnit; u8 count, value023, value024, value025; u16 value026; s32 counter, value02C, value030, kills; u8 maxUnits, reserved039; u16 roundKills, value03C; s16 value03E, value040, value042; u16 soundMode, reserved046; AttachedCamera camera; s32 value0EC; u8 value0F0, reserved0F1[3]; s32 value0F4, value0F8, value0FC; ViewMatrix matrix; f32 value144, value148; s32 value14C; f32 transform[4][4]; f32 aggressiveness, intelligence; s32 timerRange[2]; f32 railSpeed; u8 reverseRail, value1A5, isAi, reserved1A7; u16 objectiveId; s16 linkedId; u16 killCount; u8 team, chainActive; f32 z, x; void *group; u8 value1BC, value1BD, value1BE, soundClass; u32 controlFlags[5]; u8 reserved1D4[0x30]; u8 locked, reserved205[3]; s32 value208, value20C, value210, value214; s32 messageColor, messageExpireTick; char messageLine0[32], messageLine1[32]; u8 reserved260[0xA0]; s32 respawnTick, respawnDelay; u8 value308, value309; u16 reserved30A; s32 value30C; f32 offense, defense, resurrection, aiSpeed, aiFireRate; f32 railFireRate, offRailFireRate, railSpeedTuning, aggressivenessTuning, intelligenceTuning; s16 gunDamage[4], gunFireRate[4]; } PlayerRecord;", evidence = "authored" }
 "PointZX" = { declaration = "typedef struct PointZX { f32 z; f32 x; } PointZX;", evidence = "authored" }
 "PolygonPoint" = { declaration = "struct PolygonPoint { f32 y; f32 x; };", evidence = "authored" }
 "PolygonTransform" = { declaration = "struct PolygonTransform { f32 y_y; f32 y_x; f32 x_x; f32 x_y; f32 translate_x; f32 translate_y; u8 disabled; };", evidence = "authored" }

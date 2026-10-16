@@ -1,6 +1,9 @@
 #include "game/sys_80076000.h"
 #include "shared/bt_unit.h"
 #include "shared/bt_span_1000_code_8010BFDC.h"
+#include "shared/bt_player.h"
+#include "span_1000/code_8007EBA0.h"
+#include "span_1000/code_8008F4EC.h"
 s32 func_8009FB8C(CombatUnit *unit) {
     s32 var_v0;
 
@@ -21,4 +24,9 @@ s32 func_8009FB8C(CombatUnit *unit) {
         return var_v0;
     }
     return var_v0;
+}
+
+u8 func_8009FBE4(CombatUnit *unit) {
+    PlayerRecord *player = func_800A6688(unit->player);
+    return player->team;
 }

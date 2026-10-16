@@ -526,7 +526,7 @@ typedef struct Obj80137A3C {
     s32 unk20;
 } Obj80137A3C;
 
-s32 func_800E4494(void *);
+void func_800E4494(struct CombatUnit *unit);
 
 s32 func_80099D90(void *, s32);
 
@@ -1467,6 +1467,8 @@ void func_800DEC5C(u8 *slots, CombatUnit *skip, AiGroup *group);
 extern const char D_auto_80072DE8[];
 extern const char D_auto_80072E08[];
 extern const char D_auto_80072E14[];
+
+extern s32 func_800983E0(CombatUnit *unit, s32 amount, u8 entityId, s32 arg3);
 
 #endif
 
