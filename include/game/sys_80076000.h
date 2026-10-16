@@ -1385,6 +1385,30 @@ extern u8 D_auto_B03B9630[];
 extern u8 D_auto_B03C1550[];
 s32 func_800EC410(void);
 
+extern void func_8008F6F4(f32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 angleX, s32 angleY, s32 angleZ,
+                              s32 arg7, s32 arg8, s32 arg9, f32 arg10, void *part, s32 arg12,
+                              s32 arg13);
+extern f32 D_auto_80071CE8;
+
+extern s16 D_auto_802C13E2;
+extern s16 D_auto_802C13F4;
+extern s16 D_auto_802C13F6;
+extern s16 D_auto_802C3A28;
+extern EffectKind D_auto_802C3800[];
+extern EffectSlot D_auto_802C3A30[];
+void func_8008B48C(void);
+
+void func_8008B1F0(void);
+
+extern s16 D_auto_802C13E0;
+void func_8008B030(EffectSlot *node);
+
+extern s32 func_800E2D40(void *member);
+
+extern f32 func_800E9720(struct ResetState *context, s32 key);
+
+extern s32 D_auto_80125C40;
+
 #endif
 
 extern Gfx *D_auto_803276D0;

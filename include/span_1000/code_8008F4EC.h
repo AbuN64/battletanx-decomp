@@ -3,7 +3,7 @@
 #include "shared/bt_types.h"
 #pragma once
 
-extern void *func_8008AD10();
+extern void *func_8008AD10(u8 group, s32 kind, s32 size);
 extern int func_80106D18(int, int, int, int, int, int, int, int, int);
 
 extern unsigned char D_auto_802D5BA0[];

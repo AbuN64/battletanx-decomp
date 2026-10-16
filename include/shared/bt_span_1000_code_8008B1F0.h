@@ -166,4 +166,14 @@ typedef struct EffectKind0A {
     s32 value1C;
 } EffectKind0A;
 
+/* Each allocator slot has a common header and sixty bytes of effect data. */
+typedef struct EffectSlot {
+    EffectHeader header;
+    u8 data[60];
+} EffectSlot;
+typedef struct EffectKind {
+    void (*update)(void *effect, s32 *status);
+    void (*event)(void *effect, void *sender, s32 event, void *input, void *output);
+    void (*draw)(void *effect);
+} EffectKind;
 #endif
