@@ -107,4 +107,14 @@ extern float D_80071EA0;
 
 
 
+
+typedef struct ViewCone {
+    f32 m00;
+    f32 m01;
+    f32 m10;
+    f32 m11;
+    f32 offsetZ;
+    f32 offsetX;
+    u8 disabled;
+} ViewCone;
 #endif

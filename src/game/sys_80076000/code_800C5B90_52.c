@@ -15,3 +15,12 @@ s32 func_800EB920(s32 arg0) {
 void func_800EB968(s32 arg0) {
     func_800EA93C(arg0, &D_auto_80136C18);
 }
+
+s32 func_800EB990(struct ResetState *context)
+{
+    func_800E9A00(context, 1.0f);
+    func_800E6FF8(context);
+    func_800E99D4(context);
+    func_800E6C5C(context);
+    return -1;
+}
