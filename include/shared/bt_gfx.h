@@ -7,4 +7,27 @@ typedef union Gfx {
     u64 force_structure_alignment;
 } Gfx;
 
+typedef struct FrameVertex {
+    s16 ob[3];
+    u16 flag;
+    s16 tc[2];
+    u8 cn[4];
+} FrameVertex;
+struct FrameTexture;
+typedef struct FrameState {
+    Gfx *main;
+    Gfx *overlay;
+    Gfx *auxiliary;
+    FrameVertex *vertices;
+    s32 (*matrices)[4][4];
+    u16 overflow;
+    u16 firstVertex;
+    u16 totalVertices;
+    s16 s, t;
+    u8 color[4];
+    Gfx *overlayBranch;
+    struct FrameTexture *texture;
+    u16 vertexCount;
+} FrameState;
+
 #endif

@@ -11,7 +11,25 @@ struct func_800AA280_S1_Shared800AA280 {
 };
 
 
-extern int func_800AB614();
+
+/* Texture metadata and command buffers shared by the table loaders. */
+typedef struct TextureInfo {
+    u16 fmt, siz, width, height, masks, maskt;
+} TextureInfo;
+typedef struct TextureTable {
+    TextureInfo *info;
+    void *images;
+} TextureTable;
+typedef struct RenderFrame {
+    Gfx *main;
+    Gfx *overlay;
+    u8 reserved08[0x20];
+    TextureInfo *texture;
+} RenderFrame;
+void *func_800AB520(u32 table, u16 index);
+TextureInfo *func_800AB61C(s32 table);
+void *func_800AB614(u32 table, u16 index);
+
 
 
 extern void func_800ABFA0(void);

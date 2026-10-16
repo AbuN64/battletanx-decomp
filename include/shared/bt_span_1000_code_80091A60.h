@@ -117,4 +117,8 @@ typedef struct ViewCone {
     f32 offsetX;
     u8 disabled;
 } ViewCone;
+
+/* A four-corner polygon in the shared planar coordinate order. */
+typedef struct Quad2f { struct PolygonPoint points[4]; } Quad2f;
+
 #endif

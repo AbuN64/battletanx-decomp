@@ -23,7 +23,7 @@ struct QueryBox;
 
 struct QueryResult;
 
-extern void func_80107A14(struct QueryBox *, int, struct QueryResult **, int *);
+extern u8 func_80107A14(struct QueryBox *, int, struct QueryResult **, int *);
 
 
 struct QueryBox;

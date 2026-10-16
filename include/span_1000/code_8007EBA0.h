@@ -5,7 +5,7 @@
 
 s32 func_8008228C();
 void func_80083394(Scene *scene);
-s32 func_80083F04();
+void func_80083F04(Scene *scene);
 void *func_800A424C();
 void *func_800A6688();
 

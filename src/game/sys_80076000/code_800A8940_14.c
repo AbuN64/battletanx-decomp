@@ -1,6 +1,6 @@
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
-s32 func_800AB520(u32 table, u16 index)
+void *func_800AB520(u32 table, u16 index)
 {
     switch (table) {
     case 0:

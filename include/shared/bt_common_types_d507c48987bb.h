@@ -23,6 +23,7 @@ struct QueryBox { short values[9]; };
 struct QueryBox;
 
 typedef struct QueryBox QueryBox;
+typedef struct QueryBox AreaBox;
 
 
 

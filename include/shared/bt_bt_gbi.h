@@ -53,4 +53,6 @@
         BT_GBI_BITS(tile,3,24) | BT_GBI_BITS(ulx,12,12) | BT_GBI_BITS(uly,12,0))
 #define gDPHalf1(pkt, value) BT_GBI_WRITE(pkt, 0xB4000000U, (u32)(value))
 #define gDPHalf2(pkt, value) BT_GBI_WRITE(pkt, 0xB3000000U, (u32)(value))
+#define gDPSetEnvColor(pkt, r, g, b, a) \
+    BT_GBI_WRITE(pkt, 0xFB000000U, BT_GBI_BITS(r,8,24) | BT_GBI_BITS(g,8,16) | BT_GBI_BITS(b,8,8) | BT_GBI_BITS(a,8,0))
 #endif

@@ -2,10 +2,12 @@
 #define GAME_SYS_80076000_H
 
 #include "shared/bt_types.h"
+#include "shared/bt_span_1000_code_800A9FC4.h"
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_800824E4.h"
 #include "shared/bt_span_1000_code_800D1AD0.h"
 #include "sdk/libultra.h"
+#include "span_1000/code_8007A470.h"
 
 extern s32 D_auto_801502E0;
 
@@ -81,7 +83,7 @@ extern s32 D_auto_802DF540[];
 extern s32 func_800EC644(void);
 extern s32 D_auto_802DF570[];
 
-extern s32 D_auto_8013227C[];
+extern TextureTable D_auto_8013227C[];
 
 extern void func_80122130(s32);
 
@@ -461,7 +463,8 @@ extern s32 D_auto_801C9188;
 extern s32 *D_auto_801C918C;
 extern s32 D_auto_801C9190;
 
-s32 func_800EA93C(s32, s32 *);
+struct Rule;
+s32 func_800EA93C(void *, struct Rule *);
 extern s32 D_auto_80136774;
 
 s32 func_800E6D58();
@@ -470,7 +473,8 @@ extern s32 D_auto_80135DDC;
 extern s32 D_auto_80135DB4;
 
 void func_80105584(int * arg0, void * arg1);
-extern s32 D_8037A174;
+#include "shared/bt_gfx.h"
+extern Gfx *D_8037A174;
 extern s32 D_auto_80073DB0;
 
 s32 func_800E09B0(s32);
@@ -717,14 +721,13 @@ extern s32 D_auto_80328410;
 s32 func_800DAC4C(void);
 
 extern u16 D_auto_80132298;
-extern s32 D_auto_8013229C[];
+extern void *D_auto_8013229C[];
 extern u16 D_auto_801322BC;
-extern s32 D_auto_801322C0[];
+extern void *D_auto_801322C0[];
 extern u16 D_auto_801322CC;
-extern s32 D_auto_801322D0[];
+extern void *D_auto_801322D0[];
 extern u16 D_auto_801322F0;
-extern s32 D_auto_801322F4[];
-s32 func_800AB520(u32 table, u16 index);
+extern void *D_auto_801322F4[];
 
 extern void func_800F195C(f32 *origin, f32 *position, s32 arg2, s32 arg3, u8 byte0, u8 byte1, u8 byte2);
 extern f32 D_auto_80074DE0;
@@ -967,8 +970,8 @@ extern u8 D_auto_80133594[];
 extern u8 D_auto_801335E8[];
 void func_800BFFC8(Gfx **list);
 
-typedef struct AreaBox AreaBox;
-extern void func_80109268(AreaBox *box, s32 x, s32 y, s32 minA, s32 maxA, s32 minB, s32 maxB, s32 flags);
+#include "shared/bt_common_types_d507c48987bb.h"
+extern void func_80109268(AreaBox *box, s32 x, s32 y, s32 minA, s32 maxA, s32 minB, s32 maxB, u16 flags);
 extern f32 D_auto_80072120;
 extern f32 D_auto_80072124;
 extern f32 D_auto_80072128;
@@ -994,7 +997,7 @@ extern s32 D_auto_802DF560[];
 s32 func_800A933C(void);
 void func_800A93C8(void);
 
-void func_800A823C(void *arg0, f32 arg1, f32 arg2, f32 arg3);
+void func_800A823C(f32 matrix[4][4], f32 x, f32 y, f32 z);
 
 void func_800DDBCC(void);
 
@@ -1045,5 +1048,104 @@ s32 func_800941E0(f32 x, f32 y, f32 r, ViewCone *c);
 void func_800AB65C(ListNode *node);
 
 s32 func_800EB990(struct ResetState *context);
+
+extern f32 D_auto_80126038[];
+extern f32 D_auto_80072C80;
+s32 func_800A12E4(f32 x, f32 y, s32 sizeIndex);
+
+void func_80085290(Gfx *list, s32 count, s32 offset);
+
+extern void func_801106A0(const void *src, void *dst, s32 size);
+extern s16 D_auto_80125800;
+extern u8 D_auto_80125802;
+extern Gfx D_auto_801C2F40[2][0x400];
+Gfx *func_8008067C(Gfx *src, s32 count, Gfx *next);
+
+void func_800852E0(Gfx *commands, s32 count, s32 offset);
+
+extern void func_8010647C(void **displayList, u8 ch);
+
+extern s32 D_auto_8032843C;
+void func_800DAD60(void);
+
+extern f32 D_auto_8007442C;
+extern f32 D_auto_80074430;
+extern f32 D_auto_80074434;
+extern f32 D_auto_80074438;
+
+extern void func_800953AC(s32 x0, s32 z0, s32 x1, s32 z1, s32 arg4, s32 arg5, s32 key);
+extern s32 func_80095F30(s32 x0, s32 z0, s32 x1, s32 z1, s32 mode, s32 view);
+
+extern s32 D_auto_80125710;
+
+extern S *func_8007AAF4(void);
+extern s16 D_auto_80125A30[];
+
+extern u32 D_auto_803282A8[][17];
+extern u8 D_auto_803283B8[];
+extern s32 D_auto_80135034[];
+void func_800D6274(s32 player, s32 n, u32 value);
+
+s32 func_800D1F20(s32 row, s32 count1, s32 count2, s32 count3, s32 count4, s32 *isFirst, s32 *offset);
+
+extern f32 D_auto_800730C4;
+void func_800A8034(f32 src[4][4], f32 view[4][4], f32 eye[3], f32 at[3]);
+
+extern s32 D_auto_80141050;
+extern f32 D_auto_80074F78;
+extern f32 D_auto_80074F7C;
+extern f32 D_auto_80074F80;
+extern f32 D_auto_80074F84;
+extern f32 D_auto_8035BC68;
+extern f32 D_auto_8035BC6C;
+extern u8 D_auto_8035BC70;
+extern u8 D_auto_8035BC71;
+extern s16 D_auto_8035BC72;
+extern u8 D_auto_8035BC74;
+extern u8 D_auto_8035BC75;
+extern s16 D_auto_8035BC76;
+extern s16 D_auto_8035BC78;
+extern s32 D_auto_8035BC80[4][4];
+extern u16 D_auto_8035BCC4;
+extern void func_80114970(void *m, u16 *perspNorm, f32 fovy, f32 aspect, f32 near, f32 far,
+                          f32 scale);
+void func_800F45C8(void);
+
+s32 func_8010AA6C(struct PolygonPoint a, struct PolygonPoint b, struct PolygonPoint c, struct PolygonPoint d, struct PolygonPoint *delta, struct PolygonPoint *hit);
+
+void func_800A9C20(void);
+
+typedef struct FrameVertexSource {
+    u16 s;
+    u16 t;
+    f32 x;
+    f32 y;
+    f32 z;
+} FrameVertexSource;
+void func_800AA168(u16 count, FrameVertexSource *source);
+
+extern f32 D_auto_800714A0;
+extern f32 D_auto_800714A4;
+extern f32 D_auto_800714A8;
+s32 func_800821D0(struct PolygonPoint *a, struct PolygonPoint *b, s32 mode);
+
+s32 func_8010BC10(struct PolygonPoint a, struct PolygonPoint b, struct PolygonPoint c, struct PolygonPoint d, struct PolygonPoint *hit);
+
+s32 func_800E0EA8(struct PolygonPoint *a, struct PolygonPoint *origin, struct PolygonPoint *c);
+
+extern void func_800A9CC4(void);
+extern void func_800A9FC4(f32 x, f32 y, f32 z);
+extern void func_800AB0A4(f32 scaleX, f32 scaleY);
+extern f32 D_auto_8007558C;
+extern u16 D_auto_80142CC0;
+void func_8010C9E8(s32 unused, f32 (*v)[3]);
+
+extern void func_80082D60(void *table, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6,
+                                 s32 a7, s32 mask);
+void func_80084F4C(void *table, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6,
+                              s32 a7);
+
+extern Quad2f D_auto_80071E64;
+void func_80091108(struct PolygonPoint *origin, struct PolygonPoint *out);
 
 #endif

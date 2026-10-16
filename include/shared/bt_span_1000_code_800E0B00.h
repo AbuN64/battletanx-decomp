@@ -13,7 +13,7 @@ extern void func_800E0B00(int arg0, struct PolygonPoint *arg1);
 extern float func_800E1A20(int, float *);
 
 
-extern float func_800E0BC4(void * arg0);
+extern float func_800E0BC4(f32 * arg0);
 
 
 

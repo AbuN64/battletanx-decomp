@@ -1,9 +1,32 @@
-#include "shared/bt_types.h"
-#include "game/sys_80076000.h"
+#include "shared/bt_gfx.h"
 #include "shared/bt_span_1000_code_8007EBA0.h"
-void func_800A9F80(s32 arg0, s32 arg1) {
-    void *temp_v0;
-    temp_v0 = func_8007F060();
-    (*(s16 *)((s8 *)(temp_v0) + (0x1A))) = (s16) (arg0 << 6);
-    (*(s16 *)((s8 *)(temp_v0) + (0x1C))) = (s16) (arg1 << 6);
+extern void *func_8007F060(void);
+void func_800A9F80(s32 s, s32 t) {
+    FrameState *frame = func_8007F060();
+    frame->s = s << 6;
+    frame->t = t << 6;
+}
+
+void func_800A9FC4(f32 x, f32 y, f32 z) {
+    u16 count;
+    FrameState *frame;
+    FrameVertex *vertex;
+    frame = func_8007F060();
+    count = frame->vertexCount;
+    if (count == 32) {
+        frame->overflow = 1;
+        return;
+    }
+    vertex = &frame->vertices[count];
+    vertex->ob[0] = x;
+    vertex->ob[1] = y;
+    vertex->ob[2] = z;
+    vertex->tc[0] = frame->s;
+    vertex->tc[1] = frame->t;
+    vertex->cn[0] = frame->color[0];
+    vertex->cn[1] = frame->color[1];
+    vertex->cn[2] = frame->color[2];
+    vertex->cn[3] = frame->color[3];
+    frame->totalVertices++;
+    frame->vertexCount++;
 }

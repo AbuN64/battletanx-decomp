@@ -1517,9 +1517,9 @@
 #define gsDPLoadTile(tile, uls, ult, lrs, lrt) \
     { { _SHIFTL(G_LOADTILE, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12) } }
 #define gDPLoadBlock(pkt, tile, uls, ult, lrs, dxt) \
-    _GBI_CMD(pkt, _SHIFTL(G_LOADBLOCK, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(dxt, 0, 12))
+    _GBI_CMD(pkt, _SHIFTL(G_LOADBLOCK, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(MIN(lrs, G_TX_LDBLK_MAX_TXL), 12, 12) | _SHIFTL(dxt, 0, 12))
 #define gsDPLoadBlock(tile, uls, ult, lrs, dxt) \
-    { { _SHIFTL(G_LOADBLOCK, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(dxt, 0, 12) } }
+    { { _SHIFTL(G_LOADBLOCK, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(MIN(lrs, G_TX_LDBLK_MAX_TXL), 12, 12) | _SHIFTL(dxt, 0, 12) } }
 #define gDPLoadTLUTCmd(pkt, tile, count) \
     _GBI_CMD(pkt, _SHIFTL(G_LOADTLUT, 24, 8), _SHIFTL(tile, 24, 3) | _SHIFTL(count, 14, 10))
 #define gsDPLoadTLUTCmd(tile, count) \
@@ -1578,4 +1578,86 @@
 #define gDPSetDepthSource(pkt, data) gSPSetOtherMode(pkt, G_SETOTHERMODE_L, G_MDSFT_ZSRCSEL, 1, data)
 #define gsDPSetDepthSource(data) gsSPSetOtherMode(G_SETOTHERMODE_L, G_MDSFT_ZSRCSEL, 1, data)
 
+
+/* Composite texture-loading commands. */
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define G_SETOTHERMODE_H 0xBA
+#define G_TEXTURE_IMAGE_FRAC 2
+#define G_IM_SIZ_8b_BYTES 1
+#define G_IM_SIZ_8b_LINE_BYTES 1
+#define G_IM_SIZ_16b_BYTES 2
+#define G_IM_SIZ_16b_LINE_BYTES 2
+#define G_IM_SIZ_32b_BYTES 4
+#define G_IM_SIZ_32b_LINE_BYTES 2
+#define G_IM_SIZ_8b_LOAD_BLOCK G_IM_SIZ_16b
+#define G_IM_SIZ_16b_LOAD_BLOCK G_IM_SIZ_16b
+#define G_IM_SIZ_32b_LOAD_BLOCK G_IM_SIZ_32b
+#define G_IM_SIZ_8b_SHIFT 1
+#define G_IM_SIZ_16b_SHIFT 0
+#define G_IM_SIZ_32b_SHIFT 0
+#define G_IM_SIZ_8b_INCR 1
+#define G_IM_SIZ_16b_INCR 0
+#define G_IM_SIZ_32b_INCR 0
+#define gSetImage(pkt, cmd, fmt, siz, width, i)                                                       \
+    {                                                                                                 \
+        Gfx *_g = (Gfx *)(pkt);                                                                       \
+        _g->words.w0 = _SHIFTL(cmd, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) |             \
+                       _SHIFTL((width)-1, 0, 12);                                                     \
+        _g->words.w1 = (unsigned int)(i);                                                             \
+    }
+#define gDPNoParam(pkt, cmd)                                                                          \
+    {                                                                                                 \
+        Gfx *_g = (Gfx *)(pkt);                                                                       \
+        _g->words.w0 = _SHIFTL(cmd, 24, 8);                                                           \
+        _g->words.w1 = 0;                                                                             \
+    }
+#define gDPLoadTileGeneric(pkt, c, tile, uls, ult, lrs, lrt)                                          \
+    {                                                                                                 \
+        Gfx *_g = (Gfx *)(pkt);                                                                       \
+        _g->words.w0 = _SHIFTL(c, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12);                \
+        _g->words.w1 = _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12);            \
+    }
+#define gDPLoadTLUT_pal16(pkt, pal, dram)                                                             \
+    {                                                                                                 \
+        gDPSetTextureImage(pkt, G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, dram);                               \
+        gDPTileSync(pkt);                                                                             \
+        gDPSetTile(pkt, 0, 0, 0, (256 + (((pal)&0xf) * 16)), G_TX_LOADTILE, 0, 0, 0, 0, 0, 0, 0);     \
+        gDPLoadSync(pkt);                                                                             \
+        gDPLoadTLUTCmd(pkt, G_TX_LOADTILE, 15);                                                       \
+        gDPPipeSync(pkt)                                                                              \
+    }
+#define TXL2WORDS(txls, b_txl) MAX(1, ((txls) * (b_txl) / 8))
+#define CALC_DXT(width, b_txl) (((1 << G_TX_DXT_FRAC) + TXL2WORDS(width, b_txl) - 1) / TXL2WORDS(width, b_txl))
+#define TXL2WORDS_4b(txls) MAX(1, ((txls) / 16))
+#define CALC_DXT_4b(width) (((1 << G_TX_DXT_FRAC) + TXL2WORDS_4b(width) - 1) / TXL2WORDS_4b(width))
+#define gDPLoadTextureBlock(pkt, timg, fmt, siz, width, height, pal, cms, cmt, masks, maskt, shifts, shiftt) \
+    {                                                                                                 \
+        gDPSetTextureImage(pkt, fmt, siz##_LOAD_BLOCK, 1, timg);                                     \
+        gDPSetTile(pkt, fmt, siz##_LOAD_BLOCK, 0, 0, G_TX_LOADTILE, 0, cmt, maskt, shiftt, cms, masks, shifts); \
+        gDPLoadSync(pkt);                                                                             \
+        gDPLoadBlock(pkt, G_TX_LOADTILE, 0, 0, (((width) * (height) + siz##_INCR) >> siz##_SHIFT) - 1, \
+                     CALC_DXT(width, siz##_BYTES));                                                   \
+        gDPPipeSync(pkt);                                                                             \
+        gDPSetTile(pkt, fmt, siz, (((width)*siz##_LINE_BYTES) + 7) >> 3, 0, G_TX_RENDERTILE, pal, cmt, \
+                   maskt, shiftt, cms, masks, shifts);                                                \
+        gDPSetTileSize(pkt, G_TX_RENDERTILE, 0, 0, ((width)-1) << G_TEXTURE_IMAGE_FRAC,              \
+                       ((height)-1) << G_TEXTURE_IMAGE_FRAC)                                          \
+    }
+#define gDPLoadTextureBlock_4b(pkt, timg, fmt, width, height, pal, cms, cmt, masks, maskt, shifts, shiftt) \
+    {                                                                                                 \
+        gDPSetTextureImage(pkt, fmt, G_IM_SIZ_16b, 1, timg);                                          \
+        gDPSetTile(pkt, fmt, G_IM_SIZ_16b, 0, 0, G_TX_LOADTILE, 0, cmt, maskt, shiftt, cms, masks, shifts); \
+        gDPLoadSync(pkt);                                                                             \
+        gDPLoadBlock(pkt, G_TX_LOADTILE, 0, 0, (((width) * (height) + 3) >> 2) - 1, CALC_DXT_4b(width)); \
+        gDPPipeSync(pkt);                                                                             \
+        gDPSetTile(pkt, fmt, G_IM_SIZ_4b, ((((width) >> 1) + 7) >> 3), 0, G_TX_RENDERTILE, pal, cmt, maskt, \
+                   shiftt, cms, masks, shifts);                                                       \
+        gDPSetTileSize(pkt, G_TX_RENDERTILE, 0, 0, ((width)-1) << G_TEXTURE_IMAGE_FRAC,              \
+                       ((height)-1) << G_TEXTURE_IMAGE_FRAC)                                          \
+    }
+
+/* F3D other-mode field encoding for command streams using the older microcode. */
+#define gSPSetOtherModeF3D(pkt, cmd, sft, len, data) \
+    _GBI_CMD(pkt, _SHIFTL(cmd,24,8) | _SHIFTL(sft,8,8) | _SHIFTL(len,0,8), (unsigned int)(data))
 #endif /* UNBAKE_GBI_H */
