@@ -47,4 +47,9 @@ typedef struct DrawGroup {
     struct DrawGroup *next;
 } DrawGroup;
 
+typedef struct FrameVertexInput {
+    u16 s, t;
+    f32 position[3];
+} FrameVertexInput;
+
 #endif

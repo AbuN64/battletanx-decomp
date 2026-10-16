@@ -116,6 +116,7 @@ typedef struct ViewCone {
     f32 offsetZ;
     f32 offsetX;
     u8 disabled;
+    s32 mode;
 } ViewCone;
 
 /* A four-corner polygon in the shared planar coordinate order. */

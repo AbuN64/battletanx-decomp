@@ -1,5 +1,6 @@
 #include "shared/bt_span_1000_code_800E21E4.h"
 #include "shared/bt_types.h"
+#include "shared/bt_unit.h"
 #include "span_1000/code_800E21E4.h"
 #include "span_1000/code_80097038.h"
 
@@ -9,8 +10,8 @@ s32 func_800E3460(const u8 *arg0) {
     return arg0[0x350] == 2;
 }
 
-int func_auto_800E3470(unsigned char *state) {
-    return state[848] == 1;
+int func_auto_800E3470(CombatUnit *unit) {
+    return unit->value350 == 1;
 }
 
 struct Unknown800E349C;

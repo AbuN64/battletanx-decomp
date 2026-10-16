@@ -1,8 +1,9 @@
 #include "shared/bt_types.h"
 #pragma once
+struct PlayerRecord;
 
 s32 func_8007C700();
-s32 func_800A5DD8();
+void func_800A5DD8(struct PlayerRecord *player, s32 threshold);
 
 extern u16 D_auto_802DF34A;
 

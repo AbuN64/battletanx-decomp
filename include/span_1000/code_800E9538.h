@@ -1,6 +1,7 @@
 #include "shared/audio_callbacks.h"
 #pragma once
 
+struct CombatUnit;
 struct ResetState {
     void *team;
     void *owner;

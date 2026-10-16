@@ -1,6 +1,9 @@
 #include "shared/bt_span_1000_code_800EC380.h"
 #include "shared/bt_span_1000_code_8007A470.h"
+#include "shared/bt_unit.h"
+#include "shared/bt_ai_team.h"
 struct ResetState;
+struct CombatUnit;
 #ifndef GAME_SYS_80076000_H
 #define GAME_SYS_80076000_H
 
@@ -161,7 +164,7 @@ extern s32 func_800E6C5C(struct ResetState *);
 
 extern s32 func_800E6FF8(s32);
 
-extern s32 func_800E7448(s32);
+extern s32 func_800E7448(struct ResetState *context);
 extern s32 func_800E73BC(struct ResetState *);
 
 extern s32 D_auto_80137900;
@@ -434,7 +437,7 @@ extern s32 D_auto_803C4D70;
 extern f64 D_auto_80074F10;
 extern f32 D_auto_80074F18;
 
-int func_auto_800E3470(unsigned char *state);
+int func_auto_800E3470(struct CombatUnit *unit);
 
 int func_80079D58();
 
@@ -1441,7 +1444,7 @@ extern f32 D_auto_800746EC;
 extern f32 D_auto_80074894;
 extern f32 D_auto_80074898;
 
-extern void func_800E28DC(void *entity, f32 *point, s32 arg2, s32 *result, s32 arg4);
+extern void func_800E28DC(struct CombatUnit *unit, f32 *point, s32 *bodyDelta, s32 *headDelta, s32 arg4);
 
 void func_800E18B0(u16 corner, struct PolygonPoint **start, struct PolygonPoint **end);
 
@@ -1450,6 +1453,20 @@ s32 func_800DF214(u16 id);
 struct PolygonPoint *func_800E0A48(u32 id);
 
 void func_800E0A84(u16 *indices, struct PolygonPoint *out);
+
+extern void func_800E21E4(CombatUnit *unit, DriveCommand *out, void *target);
+void func_800E2AF0(CombatUnit *unit, DriveCommand *out, void *target);
+
+extern s32 func_800E56B0(void *pairing);
+extern UnitPairing D_auto_8033AAE8[];
+extern u16 D_auto_8033B448;
+void func_800E5BA0(s32 arg0, s32 arg1);
+
+void func_800DEC5C(u8 *slots, CombatUnit *skip, AiGroup *group);
+
+extern const char D_auto_80072DE8[];
+extern const char D_auto_80072E08[];
+extern const char D_auto_80072E14[];
 
 #endif
 
