@@ -52,4 +52,8 @@ typedef struct FrameVertexInput {
     f32 position[3];
 } FrameVertexInput;
 
+typedef struct FrameViewport {
+    s16 scale[4];
+    s16 translate[4];
+} FrameViewport;
 #endif

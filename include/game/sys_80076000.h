@@ -1373,7 +1373,7 @@ void func_800D6908(void);
 extern EffectScriptStep *D_auto_80138F3C[];
 void func_800ED994(ScriptedEffect *effect, s32 *status);
 
-extern u8 *D_auto_8033B620;
+extern DemoEvent *D_auto_8033B620;
 extern s32 D_auto_8033B624;
 extern u8 D_auto_B0319B30[];
 extern u8 D_auto_B0334630[];
@@ -1526,6 +1526,15 @@ extern u16 D_auto_801C9050[];
 extern s32 func_800A1408(s32 arg0, s32 arg1, s32 arg2, u16 arg3, PointZX *from, PointZX *to, s32 arg6,
                           s32 arg7, s32 arg8);
 extern s32 func_8010DAA0(void *pos, s32 arg1);
+
+extern f32 D_auto_800745D0;
+extern f32 func_800E0D54(void *from, void *to);
+
+extern void func_800A7F3C(f32 first[4][4], f32 second[4][4], f32 output[4][4]);
+extern f32 func_800A7DBC(void *matrix, void *in, void *out);
+s32 func_8009453C(f32 *point, f32 *screen, s32 index);
+
+void func_8008011C(u8 red, u8 green, u8 blue, u8 alpha, s32 viewport);
 
 #endif
 

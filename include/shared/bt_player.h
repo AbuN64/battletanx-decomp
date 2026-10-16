@@ -22,7 +22,9 @@ typedef struct PlayerRecord {
     AttachedCamera camera;
     s32 value0EC;
     u8 value0F0, reserved0F1[3];
-    s32 value0F4, value0F8, value0FC;
+    s32 value0F4;
+    FrameViewport *viewport;
+    s32 value0FC;
     ViewMatrix matrix;
     f32 value144, value148;
     s32 value14C;

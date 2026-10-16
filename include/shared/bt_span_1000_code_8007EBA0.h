@@ -37,7 +37,7 @@ extern Gfx *D_auto_801B6C00;
 
 
 
-extern int func_8007EF40(int);
+extern int func_8007EF40(void *);
 
 
 

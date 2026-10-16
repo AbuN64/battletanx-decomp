@@ -28,7 +28,10 @@ typedef struct CombatUnit {
     ViewMatrix matrix;
     s32 value98;
     s32 state;
-    u8 reserved0A0[0x14];
+    f32 *target;
+    f32 targetPoint[2];
+    struct CombatUnit *leader;
+    u32 reserved0B0;
     s32 secondaryState;
     u8 reserved0B8[0xC];
     struct CombatUnit *secondaryTarget;

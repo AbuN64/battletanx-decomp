@@ -28,4 +28,10 @@ struct func_800ED810_S1_Shared800ED810 {
 typedef struct DemoHeader {
     s32 frameCount, objectCount, value08, trailerCount, value10, value14;
 } DemoHeader;
+typedef struct DemoEvent {
+    s16 frame;
+    u8 kind, value;
+    s32 x, z;
+} DemoEvent;
 #endif
+

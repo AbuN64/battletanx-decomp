@@ -47,3 +47,17 @@ f32 *func_800EC700(s32 index) {
     }
     return result;
 }
+
+u8 func_800EC738(s32 kind)
+{
+    DemoEvent *event;
+
+    if (D_auto_80137900 != 0 && D_auto_8033B624 >= 0) {
+        event = &D_auto_8033B620[D_auto_8033B624];
+        if (event->frame == D_auto_8033B5F0 && (event->kind & 0x7F) == kind) {
+            return event->value;
+        }
+        return 0;
+    }
+    return 0;
+}

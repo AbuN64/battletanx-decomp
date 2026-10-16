@@ -1664,4 +1664,10 @@
 /* Fast3D display-list termination, independent of the active microcode API. */
 #define gSPEndDisplayListF3D(pkt) _GBI_CMD(pkt, _SHIFTL(0xB8, 24, 8), 0)
 
+/* Vertex DMA encoding used by the first-generation extended microcode. */
+#define gSPVertexF3DEX(pkt, vertices, count, first) \
+    _GBI_CMD(pkt, _SHIFTL(4, 24, 8) | _SHIFTL((first) * 2, 16, 8) | \
+        _SHIFTL(((count) << 10) | ((count) * sizeof(FrameVertex) - 1), 0, 16), \
+        (u32)(vertices) - 0x80000000U)
 #endif /* UNBAKE_GBI_H */
+
