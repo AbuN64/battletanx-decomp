@@ -225,4 +225,48 @@ typedef struct EffectKind21 {
     u16 secondaryModel;
     s16 count, heading;
 } EffectKind21;
+typedef struct EffectKind17 {
+    EffectHeader header;
+    s32 value0C;
+    f32 z, x;
+    s32 active, motion, owner;
+} EffectKind17;
+typedef struct EffectKind11 { EffectHeader header; s32 active; } EffectKind11;
+typedef struct EffectKind1D {
+    EffectHeader header;
+    PointZX center;
+    s32 motion, createTick, startTick, value20, owner;
+} EffectKind1D;
+
+typedef struct SequenceEffect {
+    EffectHeader header;
+    u8 flags;
+    u8 stepCount;
+    u8 step;
+} SequenceEffect;
+
+typedef struct EffectKind0C {
+    EffectHeader header;
+    Vec3f position;
+    u16 angle;
+    f32 remaining;
+    f32 distance;
+    s32 sound;
+    u8 player;
+} EffectKind0C;
+
+typedef struct EffectKind23 {
+    EffectHeader header;
+    Vec3f position, end;
+    f32 axisB[3], axisA[3];
+    u8 age, life, mode, red, green, blue;
+} EffectKind23;
+typedef struct EffectKind1E {
+    EffectHeader header;
+    s32 column, row;
+    PointZX origin, step, side;
+    s32 target;
+    u16 value30;
+    u8 useEntity;
+} EffectKind1E;
 #endif

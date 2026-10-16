@@ -17,4 +17,5 @@ typedef struct AiScoreContext {
     void *target;
     s32 memberPlay, slotPlay;
 } AiScoreContext;
+extern void func_800E5328(u16 teamCount, AiTeam *teams);
 #endif

@@ -28,7 +28,13 @@ typedef struct CombatUnit {
     ViewMatrix matrix;
     s32 value98;
     s32 state;
-    u8 reserved0A0[0x2A4];
+    u8 reserved0A0[0x14];
+    s32 secondaryState;
+    u8 reserved0B8[0xC];
+    struct CombatUnit *secondaryTarget;
+    u8 reserved0C8[0x44];
+    f32 aiParams[10];
+    u8 reserved134[0x210];
     s16 value344;
     u16 slot;
     s8 value348;
@@ -63,7 +69,9 @@ typedef struct CombatUnit {
     f32 value3BC;
     f32 value3C0;
     f32 value3C4;
-    s32 value3C8[10];
+    s32 value3C8[2];
+    f32 value3D0, value3D4;
+    s32 value3D8[6];
     signed long long value3F0;
     f32 value3F8;
     f32 value3FC;
@@ -114,4 +122,5 @@ typedef struct CombatUnit {
     void *effect;
 } CombatUnit;
 extern CombatUnit D_auto_802D8180[20];
+extern f32 *func_800E9880(CombatUnit *unit, s32 parameter);
 #endif

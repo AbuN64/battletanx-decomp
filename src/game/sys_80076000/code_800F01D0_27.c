@@ -1,15 +1,16 @@
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
-void func_800F0DE0(void *arg0, s32 *arg1) {
-    f32 temp_f0;
-    s32 temp_a0;
-    temp_f0 = (f32) ((f64) (*(f32 *)((s8 *)(arg0) + (0x1C))) - D_auto_80074D20);
-    (*(f32 *)((s8 *)(arg0) + (0x1C))) = temp_f0;
-    if (temp_f0 <= 0.0f) {
-        temp_a0 = (*(s32 *)((s8 *)(arg0) + (0x24)));
-        if (temp_a0 != -1) {
-            func_800796F0(temp_a0, 0);
+void func_800F0DE0(EffectKind0C *effect, s32 *state)
+{
+    f32 remaining = effect->remaining - D_auto_80074D20;
+    s32 sound;
+
+    effect->remaining = remaining;
+    if (remaining <= 0.0f) {
+        sound = effect->sound;
+        if (sound != -1) {
+            func_800796F0(sound, 0);
         }
-        *arg1 = 2;
+        *state = 2;
     }
 }

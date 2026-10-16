@@ -2,7 +2,7 @@
 #define UNBAKE_COMMON_TYPES_D507C48987BB_H
 struct QueryResult;
 
-struct QueryResult { int unused[2]; int kind; };
+struct QueryResult { int unused[2]; int kind; void *object; };
 
 
 

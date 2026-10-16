@@ -6,7 +6,7 @@ struct ResetState {
     void *team;
     void *owner;
     void *unk8;
-    s32 unkC;
+    void *unkC;
     void *stack;
     s32 kind;
     s16 unk18;

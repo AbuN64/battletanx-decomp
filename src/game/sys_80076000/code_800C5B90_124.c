@@ -15,13 +15,14 @@ u32 func_800DDB94(void)
     return result;
 }
 
-void func_800DDBCC(void) {
+void func_800DDBCC(void)
+{
     if (D_auto_80135834 != 0) {
-        (*(s8 *)((s8 *)((*(void **)((s8 *)(D_auto_80135834) + (0x1C)))) + (9))) = 0;
-        (*(s8 *)((s8 *)((*(void **)((s8 *)(D_auto_80135834) + (0x1C)))) + (0xA))) = 0;
-        (*(s8 *)((s8 *)((*(void **)((s8 *)(D_auto_80135834) + (0x1C)))) + (0xB))) = 0;
-        (*(s8 *)((s8 *)((*(void **)((s8 *)(D_auto_80135834) + (0x1C)))) + (0xE))) = 0;
-        (*(s8 *)((s8 *)((*(void **)((s8 *)(D_auto_80135834) + (0x1C)))) + (0xD))) = 0;
-        (*(s8 *)((s8 *)((*(void **)((s8 *)(D_auto_80135834) + (0x1C)))) + (0xC))) = 0;
+        D_auto_80135834->enabled[9] = 0;
+        D_auto_80135834->enabled[10] = 0;
+        D_auto_80135834->enabled[11] = 0;
+        D_auto_80135834->enabled[14] = 0;
+        D_auto_80135834->enabled[13] = 0;
+        D_auto_80135834->enabled[12] = 0;
     }
 }

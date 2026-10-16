@@ -158,7 +158,7 @@ extern s32 D_auto_8033AAC8[];
 extern s32 func_800E6FB0(struct ResetState *);
 extern s32 func_800E6B14(struct ResetState *);
 
-extern s32 func_800E6970(s32);
+extern s32 func_800E6970(struct ResetState *context);
 
 extern s32 func_800E6C5C(struct ResetState *);
 
@@ -530,7 +530,7 @@ void func_800E4494(struct CombatUnit *unit);
 
 s32 func_80099D90(void *, s32);
 
-s32 func_800E5F30(void *);
+void func_800E5F30(struct CombatUnit *unit);
 
 void func_800E4A18(s32 arg0);
 
@@ -540,7 +540,7 @@ s32 func_800E3554(s32, s16);
 
 int func_8007EEF8(Gfx *arg0);
 
-s32 func_800E3980(s32, s16, u16, s32);
+s32 func_800E3980(void *, s16, u16, s32);
 
 s32 func_80107170(s32);
 
@@ -1003,7 +1003,7 @@ extern f32 D_auto_80074444;
 extern f32 D_auto_80074448;
 f32 func_800E0C8C(f32 *a, f32 *b);
 
-void func_800A7BE8(void *arg0, void *arg1, void *arg2);
+void func_800A7BE8(EffectMatrix16 *matrix, Vec3f *v, Vec3f *out);
 
 extern s32 D_auto_802DF560[];
 s32 func_800A933C(void);
@@ -1014,18 +1014,18 @@ void func_800A823C(f32 matrix[4][4], f32 x, f32 y, f32 z);
 void func_800DDBCC(void);
 
 extern f64 D_auto_80074D20;
-void func_800F0DE0(void *arg0, s32 *arg1);
+void func_800F0DE0(EffectKind0C *effect, s32 *state);
 
-void func_800A9DA8(void *arg0);
+void func_800A9DA8(u8 color[4]);
 
-void func_800A9EE0(void *arg0);
+void func_800A9EE0(u8 color[4]);
 
 typedef signed long long s64;
 extern void func_80105688(void **displayList, s64 value);
 void func_800D1998(s32 value);
 
 s32 func_80093F3C(void *);
-void func_800933B8(void *arg0);
+void func_800933B8(SequenceEffect *effect);
 
 extern f32 D_auto_800730B0;
 void func_800A7650(f32 matrix[4][4]);
@@ -1210,7 +1210,7 @@ void func_800DADBC(void);
 
 extern void func_800ED8C0(f32 *position, s32 variant);
 extern void func_800902BC(f32 *position, s32 arg1);
-extern void func_8009F958(GrenadeEffect *e, PointZX *center, f32 radius, f32 damage, s32 owner);
+extern void func_8009F958(void *sender, PointZX *center, f32 radius, f32 damage, u8 owner);
 extern s32 func_80085B4C(s32 soundId, f32 x, f32 z);
 void func_800F3490(GrenadeEffect *e, s32 *status);
 
@@ -1416,7 +1416,7 @@ extern s32 D_auto_802D5BC0[][3][100][2];
 
 s32 func_80110480();
 extern s32 D_auto_80125778;
-void func_8007A758(void);
+void func_8007A758(AudioFrameInfo *frame);
 
 extern s32 func_801181B0(OSPfs *pfs);
 
@@ -1490,6 +1490,42 @@ extern u8 D_auto_8013589F;
 extern void func_800F0738(EffectKind21 *effect, void *sender, void *input, void *output);
 extern void func_800F09D0(EffectKind21 *effect, void *sender, void *input, void *output);
 extern void func_800F0B60(EffectKind21 *effect, void *sender, void *input);
+
+extern void *func_80106CCC(s32 index, s32 flags);
+
+extern void func_800E5FA8(CombatUnit *unit, void *command, f32 *point, s32 *flags, f32 *a, f32 *b);
+
+extern f32 D_auto_80074848;
+extern f32 D_auto_8007484C;
+
+extern s32 func_80109094(u32 value);
+
+extern void func_801074AC(s32 motion, s32 x, s32 z, u16 value);
+extern void func_80109364(QueryRecord *record, s32 minZ, s32 maxZ, s32 minX, s32 maxX);
+extern f32 D_auto_80074E00;
+
+extern f32 D_auto_80074E04;
+extern int func_800F2270(void *effect, void *sender, void *input, void *output);
+
+extern s16 D_auto_8033AAE0;
+extern s8 D_auto_8033B44A;
+extern s16 D_auto_8033B44C;
+
+extern AudioFrameInfo *D_auto_801B4A48[3];
+extern u8 D_auto_801502F0[];
+
+extern s32 func_801137F0(OSPfs *pfs);
+
+extern u32 D_auto_801B4AA0;
+
+extern void func_80080C60(s32 bucket, void *matrices, u16 *indices);
+extern void *memcpy(void *dest, const void *source, u32 size);
+extern ViewMatrix D_auto_801C9058[];
+extern u16 D_auto_801C9050[];
+
+extern s32 func_800A1408(s32 arg0, s32 arg1, s32 arg2, u16 arg3, PointZX *from, PointZX *to, s32 arg6,
+                          s32 arg7, s32 arg8);
+extern s32 func_8010DAA0(void *pos, s32 arg1);
 
 #endif
 

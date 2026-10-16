@@ -23,10 +23,11 @@ void func_800A7ABC(f32 m[4][4], f32 x, f32 y, f32 z, f32 degrees) {
     m[0][1] = xy + z * s;
 }
 
-void func_800A7BE8(void *arg0, void *arg1, void *arg2) {
-    (*(f32 *)((s8 *)(arg2) + (0))) = (f32) (((*(f32 *)((s8 *)(arg1) + (0))) * (*(f32 *)((s8 *)(arg0) + (0)))) + ((*(f32 *)((s8 *)(arg1) + (4))) * (*(f32 *)((s8 *)(arg0) + (0x10)))) + ((*(f32 *)((s8 *)(arg1) + (8))) * (*(f32 *)((s8 *)(arg0) + (0x20)))));
-    (*(f32 *)((s8 *)(arg2) + (4))) = (f32) (((*(f32 *)((s8 *)(arg1) + (0))) * (*(f32 *)((s8 *)(arg0) + (4)))) + ((*(f32 *)((s8 *)(arg1) + (4))) * (*(f32 *)((s8 *)(arg0) + (0x14)))) + ((*(f32 *)((s8 *)(arg1) + (8))) * (*(f32 *)((s8 *)(arg0) + (0x24)))));
-    (*(f32 *)((s8 *)(arg2) + (8))) = (f32) (((*(f32 *)((s8 *)(arg1) + (0))) * (*(f32 *)((s8 *)(arg0) + (8)))) + ((*(f32 *)((s8 *)(arg1) + (4))) * (*(f32 *)((s8 *)(arg0) + (0x18)))) + ((*(f32 *)((s8 *)(arg1) + (8))) * (*(f32 *)((s8 *)(arg0) + (0x28)))));
+void func_800A7BE8(EffectMatrix16 *matrix, Vec3f *v, Vec3f *out)
+{
+    out->x = v->x * matrix->m[0][0] + v->y * matrix->m[1][0] + v->z * matrix->m[2][0];
+    out->y = v->x * matrix->m[0][1] + v->y * matrix->m[1][1] + v->z * matrix->m[2][1];
+    out->z = v->x * matrix->m[0][2] + v->y * matrix->m[1][2] + v->z * matrix->m[2][2];
 }
 
 void func_800A7C7C(f32 matrix[4][4], f32 v[3], f32 out[3])

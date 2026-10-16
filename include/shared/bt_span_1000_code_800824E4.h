@@ -43,6 +43,12 @@ typedef struct SceneBound {
     s32 key;
 } SceneBound;
 
+typedef struct SceneModelPart {
+    u32 frame;
+    u32 part;
+    u16 animation;
+} SceneModelPart;
+
 typedef struct Scene {
     u8 reserved000[0x564];
     SceneBound *bounds;
@@ -50,7 +56,7 @@ typedef struct Scene {
     void *reserved56C;
     void *modelRefs;
     void *modelGroups;
-    void *modelParts;
+    SceneModelPart *modelParts;
     void *frames;
     void *parts;
     SceneView views[4];

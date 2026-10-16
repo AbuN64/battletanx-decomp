@@ -38,6 +38,4 @@ struct Unknown800A4D1C {
 
 s32 func_80078634();
 void func_80078680(AttachedCamera *camera, Vec3f *offset);
-extern s32 D_auto_80126128;
-extern s32 D_auto_80126140;
 
