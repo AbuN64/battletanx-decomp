@@ -4,7 +4,7 @@
 #include "shared/bt_common_types_d507c48987bb.h"
 struct QueryBox;
 
-extern int func_8010A8A8(struct QueryBox * arg0, struct QueryBox * arg1, void * arg2);
+extern int func_8010A8A8(struct QueryBox * arg0, struct QueryBox * arg1, f32 * arg2);
 
 
 extern int func_80107168(void);

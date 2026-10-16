@@ -6,7 +6,7 @@ void *func_8007A79C(u8 **state)
     initialized = &D_auto_80152F80;
     if (*initialized == 0) {
         D_auto_80152F88 = &D_auto_80150398;
-        D_auto_80152F84 = 0;
+        D_auto_80152F84.firstUsed = 0;
         *initialized = 1;
     }
     *state = initialized;

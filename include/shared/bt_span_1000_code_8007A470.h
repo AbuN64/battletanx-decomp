@@ -1,6 +1,7 @@
 #ifndef UNBAKE_SPAN_1000_CODE_8007A470_H
 #define UNBAKE_SPAN_1000_CODE_8007A470_H
 #include "shared/bt_types.h"
+#include "sdk/libultra.h"
 
 
 
@@ -44,4 +45,10 @@ extern int D_auto_801B4AB8;
 
 
 
+typedef struct AudioDmaBuffer {
+    ListNode link;
+    u32 startAddr, lastFrame;
+    u8 *ptr;
+} AudioDmaBuffer;
+typedef struct AudioDmaLists { AudioDmaBuffer *firstUsed, *firstFree; } AudioDmaLists;
 #endif

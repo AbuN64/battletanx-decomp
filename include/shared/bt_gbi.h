@@ -1660,4 +1660,8 @@
 /* F3D other-mode field encoding for command streams using the older microcode. */
 #define gSPSetOtherModeF3D(pkt, cmd, sft, len, data) \
     _GBI_CMD(pkt, _SHIFTL(cmd,24,8) | _SHIFTL(sft,8,8) | _SHIFTL(len,0,8), (unsigned int)(data))
+
+/* Fast3D display-list termination, independent of the active microcode API. */
+#define gSPEndDisplayListF3D(pkt) _GBI_CMD(pkt, _SHIFTL(0xB8, 24, 8), 0)
+
 #endif /* UNBAKE_GBI_H */

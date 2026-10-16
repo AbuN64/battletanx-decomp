@@ -20,7 +20,7 @@ void func_800EC7A8(f32 out[4][4], s32 offset) {
             return;
         }
         frame = D_auto_8033B5F0 + offset;
-        last = D_auto_8033B600 - 1;
+        last = D_auto_8033B600.frameCount - 1;
         if (frame > last) {
             frame = last;
         }

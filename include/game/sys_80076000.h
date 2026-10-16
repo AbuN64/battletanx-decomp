@@ -1,3 +1,6 @@
+#include "shared/bt_span_1000_code_800EC380.h"
+#include "shared/bt_span_1000_code_8007A470.h"
+struct ResetState;
 #ifndef GAME_SYS_80076000_H
 #define GAME_SYS_80076000_H
 
@@ -119,7 +122,7 @@ extern s32 func_800E6B3C(s32);
 extern s32 func_800E69A4(struct ResetState *);
 extern s32 func_800E6C80(struct ResetState *);
 
-extern s32 func_800E6FD8(void);
+extern s32 func_800E6FD8(struct ResetState *);
 
 extern void func_800E9A00(void *, f32);
 extern s32 func_800E7064(s32);
@@ -187,7 +190,7 @@ extern s32 D_auto_8033B604;
 
 extern s32 D_auto_803283C4;
 extern s32 D_auto_803283C0;
-extern s32 D_auto_80328400;
+extern s32 D_auto_80328400[4];
 extern s32 D_auto_80328404;
 extern s32 D_auto_801352A4;
 
@@ -464,8 +467,8 @@ extern s8 D_auto_80327C10;
 s32 func_800E9E5C();
 
 extern s32 D_auto_801C9188;
-extern s32 *D_auto_801C918C;
-extern s32 D_auto_801C9190;
+extern u8 *D_auto_801C918C;
+extern u8 D_auto_801C9190[0xF8240];
 
 struct Rule;
 s32 func_800EA93C(void *, struct Rule *);
@@ -520,19 +523,19 @@ typedef struct Obj80137A3C {
     s32 unk20;
 } Obj80137A3C;
 
-s32 func_800E4494(s32);
+s32 func_800E4494(void *);
 
-s32 func_80099D90(s32, s32);
+s32 func_80099D90(void *, s32);
 
-s32 func_800E5F30(s32);
+s32 func_800E5F30(void *);
 
 void func_800E4A18(s32 arg0);
 
-s32 func_800E986C(s32, s32, s32);
+s32 func_800E986C(void *, u32, f32);
 
 s32 func_800E3554(s32, s16);
 
-int func_8007EEF8(int arg0);
+int func_8007EEF8(Gfx *arg0);
 
 s32 func_800E3980(s32, s16, u16, s32);
 
@@ -709,7 +712,7 @@ void func_80105C68(void *context, u8 *text, s32 lineCount, s32 lineHeight, s32 m
 extern f32 D_auto_800749E0;
 extern f32 D_auto_800749E4;
 extern s32 D_auto_8033B5F4;
-extern s32 D_auto_8033B600;
+extern DemoHeader D_auto_8033B600;
 extern u8 *D_auto_8033B618;
 extern f32 (*D_auto_8033B61C)[3];
 void func_800EC7A8(f32 out[4][4], s32 offset);
@@ -800,7 +803,7 @@ void func_800D1EBC(u32 kind);
 extern char D_auto_80073D9C[];
 void func_800D3C84(s32 value);
 
-s32 func_80081A78(s32 size);
+u8 *func_80081A78(s32 size);
 
 extern f32 D_auto_80074478;
 extern f32 D_auto_8007447C;
@@ -808,7 +811,7 @@ void func_800E10D0(f32 *source, f32 *target);
 
 extern u8 D_auto_80150398;
 extern u8 D_auto_80152F80;
-extern s32 D_auto_80152F84;
+extern AudioDmaLists D_auto_80152F84;
 extern u8 *D_auto_80152F88;
 extern void func_8007A7E0(void);
 void *func_8007A79C(u8 **state);
@@ -975,6 +978,8 @@ extern u8 D_auto_801335E8[];
 void func_800BFFC8(Gfx **list);
 
 #include "shared/bt_common_types_d507c48987bb.h"
+#include "shared/bt_span_1000_code_800E5328.h"
+#include "shared/bt_span_1000_code_800E21E4.h"
 extern void func_80109268(AreaBox *box, s32 x, s32 y, s32 minA, s32 maxA, s32 minB, s32 maxB, u16 flags);
 extern f32 D_auto_80072120;
 extern f32 D_auto_80072124;
@@ -1299,4 +1304,89 @@ extern s32 D_auto_803B8234;
 extern s32 D_auto_803B8240;
 void func_80106B60(s32 width, s32 height);
 
+s32 func_800EB840(struct ResetState *context);
+
+s32 func_800EC314(struct ResetState *context);
+
+void func_800E5688(UnitPairing *pair, u8 first, u8 second, u8 connected);
+
+void func_800E2ACC(s32 unused, DriveCommand *command);
+
+void func_800D1930(s32 value);
+
+extern struct Rule D_auto_80137730;
+s32 func_800EC128(struct ResetState *context);
+
+extern struct Rule D_auto_801377F8;
+s32 func_800EC26C(struct ResetState *context);
+
+extern struct Rule D_auto_80135D80;
+s32 func_800EABB0(struct ResetState *context);
+
+extern void func_8007D850(void);
+extern void func_800A8ECC(void);
+extern void func_800B9C9C(void);
+extern void func_800BB69C(f32);
+extern u8 func_800BC448(void);
+extern void func_800EC380(s32);
+extern f32 D_auto_80073440;
+extern u8 D_auto_80135770;
+extern s32 D_auto_803276D8;
+extern s32 D_auto_80327C20;
+s32 func_800BC214(void);
+
+extern void func_800C8210(void);
+extern void func_800C83D4(f32);
+extern u8 func_800CA5BC(void);
+extern f32 D_auto_80073700;
+extern f32 D_auto_80073704;
+extern s32 D_auto_80134020[4];
+extern s32 D_auto_80134A80[];
+s32 func_800CA398(void);
+
+extern void func_800C0898(void);
+extern void func_800C224C(f32);
+extern f32 D_auto_80073570;
+extern s32 D_auto_80327E40;
+s32 func_800C3534(void);
+
+extern void func_800DAE30(s32 index);
+s32 func_800DC93C(void);
+
+extern void func_8011C150(ListNode *node);
+extern u8 D_auto_801529D8;
+void func_8007A968(void);
+
+extern u8 D_auto_B03D16D0[];
+extern u8 D_auto_B03D6940[];
+extern s32 D_auto_801262C0[4];
+extern s32 D_auto_803283C8[4];
+extern s32 D_auto_803283D8[4];
+extern s32 D_auto_803283E8;
+extern s32 D_auto_803283F0[4];
+extern s32 func_800D9024(void);
+void func_800D6908(void);
+
+extern EffectScriptStep *D_auto_80138F3C[];
+void func_800ED994(ScriptedEffect *effect, s32 *status);
+
+extern u8 *D_auto_8033B620;
+extern s32 D_auto_8033B624;
+extern u8 D_auto_B0319B30[];
+extern u8 D_auto_B0334630[];
+extern u8 D_auto_B0348DB0[];
+extern u8 D_auto_B0364100[];
+extern u8 D_auto_B03747F0[];
+extern u8 D_auto_B0380670[];
+extern u8 D_auto_B0383CC0[];
+extern u8 D_auto_B038BBE0[];
+extern u8 D_auto_B03A0820[];
+extern u8 D_auto_B03B9630[];
+extern u8 D_auto_B03C1550[];
+s32 func_800EC410(void);
+
 #endif
+
+extern Gfx *D_auto_803276D0;
+
+u64 func_8007B268(void);

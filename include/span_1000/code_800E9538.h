@@ -2,13 +2,16 @@
 #pragma once
 
 struct ResetState {
-    char pad[0x8];
-    s32 unk8;
+    void *team;
+    void *owner;
+    void *unk8;
     s32 unkC;
-    char pad10[0x8];
+    void *stack;
+    s32 kind;
     s16 unk18;
     u16 unk1A;
-    char pad1C[0x24];
+    u8 teamIndex;
+    f32 params[8];
     int field40;
     int field44;
 };

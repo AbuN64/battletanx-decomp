@@ -2,6 +2,7 @@
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_80107168.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
+#include "shared/bt_span_1000_code_80091A60.h"
 
 /* Both callees end in add.s to f0 and jr ra. Each takes the low 16 bits
  * of a0, interpolates a single precision table, and returns f32. */
@@ -50,4 +51,54 @@ s32 func_8010A680(struct QueryBox *dst, struct QueryBox *base,
     if ((f32)base->values[6] < bounds[2]) return 1;
     if (bounds[3] < (f32)base->values[5]) return 1;
     return 0;
+}
+
+s32 func_8010A8A8(QueryBox *a, QueryBox *b, f32 *normal) {
+    QueryBox localA;
+    QueryBox localB;
+    f32 dx;
+    f32 dz;
+    f32 cosine;
+    f32 sine;
+    f32 negSine;
+    f32 normalSine;
+    f32 normalCosine;
+
+    if (func_8010A680(&localA, a, b)) {
+        return 0;
+    }
+    if (func_8010A680(&localB, b, a)) {
+        return 0;
+    }
+    dx = a->values[1] - b->values[1];
+    dz = a->values[2] - b->values[2];
+    cosine = func_800F3B40((u16)b->values[8]);
+    sine = func_800F3AE0((u16)b->values[8]);
+    localA.values[1] = cosine * dx - sine * dz;
+    localA.values[2] = sine * dx + cosine * dz;
+    localA.values[8] = a->values[8] - b->values[8];
+    localA.values[3] = a->values[3];
+    localA.values[4] = a->values[4];
+    localA.values[5] = a->values[5];
+    localA.values[6] = a->values[6];
+    normalSine = func_800F3AE0((u16)b->values[8]);
+    negSine = -normalSine;
+    normalCosine = func_800F3B40((u16)b->values[8]);
+    normal[1] = 0.0f;
+    normal[0] = 0.0f;
+    if (localA.values[1] < 0) {
+        normal[0] = normalSine;
+        normal[1] = -normalCosine;
+    } else if (localA.values[1] > 0) {
+        normal[1] = normalCosine;
+        normal[0] = negSine;
+    }
+    if (localA.values[2] < 0) {
+        normal[1] = normal[1] + negSine;
+        normal[0] = normal[0] - normalCosine;
+    } else if (localA.values[2] > 0) {
+        normal[1] = normal[1] - negSine;
+        normal[0] = normal[0] + normalCosine;
+    }
+    return 1;
 }

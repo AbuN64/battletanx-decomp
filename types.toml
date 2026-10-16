@@ -3,6 +3,7 @@ schema = 1
 [function]
 "approx_horizontal_length" = { evidence = "landed", signature = "static inline f32 approx_horizontal_length(f32 *v)" }
 "decode_password" = { evidence = "landed", signature = "static inline s32 decode_password(unsigned char *password, u32 *outValue)" }
+"draw_frame" = { evidence = "landed", signature = "static inline void draw_frame(f32 *value)" }
 "draw_scene_object" = { evidence = "landed", signature = "static inline void draw_scene_object(Scene *scene, SceneObject *object, s32 view)" }
 "find_slot" = { evidence = "landed", signature = "static inline u8 find_slot(s32 player, s32 n)" }
 "func_80076000" = { evidence = "landed", signature = "int func_80076000(void)" }
@@ -88,6 +89,7 @@ schema = 1
 "func_8007A5A4" = { evidence = "authored", signature = "int func_8007A5A4(void * arg0, void * arg1)" }
 "func_8007A79C" = { evidence = "landed", signature = "void *func_8007A79C(u8 **state)" }
 "func_8007A7E0" = { evidence = "authored", signature = "void func_8007A7E0(void)" }
+"func_8007A968" = { evidence = "landed", signature = "void func_8007A968(void)" }
 "func_8007AA70" = { evidence = "landed", signature = "void func_8007AA70(void)" }
 "func_8007AAA0" = { evidence = "landed", signature = "s32 func_8007AAA0(void)" }
 "func_8007AAB0" = { evidence = "landed", signature = "s32 func_8007AAB0(void)" }
@@ -101,7 +103,7 @@ schema = 1
 "func_8007B1DC" = { evidence = "landed", signature = "s32 func_8007B1DC(void)" }
 "func_8007B1EC" = { evidence = "landed", signature = "s32 func_8007B1EC(f32 arg0)" }
 "func_8007B208" = { evidence = "landed", signature = "f32 func_8007B208(s32 *r, s32 value)" }
-"func_8007B268" = { evidence = "authored", signature = "int func_8007B268()" }
+"func_8007B268" = { evidence = "authored", signature = "u64 func_8007B268(void)" }
 "func_8007B590" = { evidence = "authored", signature = "s32 func_8007B590(s32 mode)" }
 "func_8007C298" = { evidence = "landed", signature = "void func_8007C298(void)" }
 "func_8007C33C" = { evidence = "landed", signature = "int func_8007C33C(void)" }
@@ -109,13 +111,14 @@ schema = 1
 "func_8007C58C" = { evidence = "landed", signature = "s32 func_8007C58C(s32 state)" }
 "func_8007C6C4" = { evidence = "landed", signature = "void func_8007C6C4(void)" }
 "func_8007C6D8" = { evidence = "authored", signature = "s32 func_8007C6D8(void)" }
-"func_8007C700" = { evidence = "authored", signature = "s32 func_8007C700()" }
+"func_8007C700" = { evidence = "landed", signature = "s32 func_8007C700(void)" }
 "func_8007C728" = { evidence = "landed", signature = "s32 func_8007C728(void)" }
 "func_8007C770" = { evidence = "landed", signature = "void func_8007C770(GameSettings *src, GameSettings *dst)" }
 "func_8007D2A0" = { evidence = "landed", signature = "void func_8007D2A0(u32 id)" }
 "func_8007D384" = { evidence = "authored", signature = "int func_8007D384(signed int * arg0)" }
 "func_8007D430" = { evidence = "authored", signature = "unsigned char func_8007D430(unsigned char arg0, unsigned char arg1, unsigned char arg2)" }
 "func_8007D48C" = { evidence = "authored", signature = "void * func_8007D48C(void * arg0, void * arg1, void * arg2)" }
+"func_8007D850" = { evidence = "authored", signature = "void func_8007D850(void)" }
 "func_8007D998" = { evidence = "authored", signature = "void func_8007D998(void)" }
 "func_8007DBC4" = { evidence = "authored", signature = "int func_8007DBC4()" }
 "func_8007E140" = { evidence = "landed", signature = "void func_8007E140(void *arg0)" }
@@ -134,7 +137,7 @@ schema = 1
 "func_8007ECE8" = { evidence = "authored", signature = "int func_8007ECE8(int unused, int arg1)" }
 "func_8007ED98" = { evidence = "authored", signature = "int func_8007ED98(int unused, int arg1)" }
 "func_8007EE48" = { evidence = "authored", signature = "int func_8007EE48(int unused, int arg1)" }
-"func_8007EEF8" = { evidence = "authored", signature = "int func_8007EEF8(int arg0)" }
+"func_8007EEF8" = { evidence = "authored", signature = "int func_8007EEF8(Gfx *arg0)" }
 "func_8007EF1C" = { evidence = "authored", signature = "int func_8007EF1C(int arg0)" }
 "func_8007EF40" = { evidence = "authored", signature = "int func_8007EF40(int)" }
 "func_8007F00C" = { evidence = "authored", signature = "void * func_8007F00C()" }
@@ -160,7 +163,7 @@ schema = 1
 "func_80081934" = { evidence = "authored", signature = "int func_80081934()" }
 "func_80081A30" = { evidence = "landed", signature = "s32 func_80081A30(void)" }
 "func_80081A50" = { evidence = "landed", signature = "int func_80081A50(void)" }
-"func_80081A78" = { evidence = "landed", signature = "s32 func_80081A78(s32 size)" }
+"func_80081A78" = { evidence = "landed", signature = "u8 *func_80081A78(s32 size)" }
 "func_80081AC0" = { evidence = "landed", signature = "s32 func_80081AC0(void)" }
 "func_800821C0" = { evidence = "landed", signature = "s32 func_800821C0(void)" }
 "func_800821D0" = { evidence = "landed", signature = "s32 func_800821D0(struct PolygonPoint *a, struct PolygonPoint *b, s32 mode)" }
@@ -246,7 +249,7 @@ schema = 1
 "func_80097C24" = { evidence = "landed", signature = "void func_80097C24(Block *b)" }
 "func_80097C64" = { evidence = "authored", signature = "float func_80097C64(void * arg0, float arg1)" }
 "func_80097DD0" = { evidence = "declared", signature = "void func_80097DD0(int, int, int)" }
-"func_80099D90" = { evidence = "authored", signature = "s32 func_80099D90(s32, s32)" }
+"func_80099D90" = { evidence = "authored", signature = "s32 func_80099D90(void *, s32)" }
 "func_8009E39C" = { evidence = "landed", signature = "void *func_8009E39C(struct Unknown8009E39C *self)" }
 "func_8009EDD0" = { evidence = "declared", signature = "void func_8009EDD0(int)" }
 "func_8009EEC0" = { evidence = "authored", signature = "int func_8009EEC0(void * arg0, void * arg1, void * arg2, void * arg3)" }
@@ -391,12 +394,15 @@ schema = 1
 "func_800B9C0C" = { evidence = "landed", signature = "s32 func_800B9C0C(const u8 *text)" }
 "func_800B9C34" = { evidence = "landed", signature = "s32 func_800B9C34(s32 arg0, s16 arg1)" }
 "func_800B9C80" = { evidence = "landed", signature = "void func_800B9C80(void)" }
+"func_800B9C9C" = { evidence = "authored", signature = "void func_800B9C9C(void)" }
 "func_800BA764" = { evidence = "declared", signature = "void func_800BA764(void)" }
 "func_800BA960" = { evidence = "declared", signature = "void func_800BA960(void)" }
 "func_800BAB5C" = { evidence = "declared", signature = "void func_800BAB5C(void)" }
 "func_800BAD58" = { evidence = "declared", signature = "void func_800BAD58(void)" }
 "func_800BB254" = { evidence = "declared", signature = "void func_800BB254(void)" }
 "func_800BB450" = { evidence = "declared", signature = "void func_800BB450(void)" }
+"func_800BB69C" = { evidence = "authored", signature = "void func_800BB69C(f32)" }
+"func_800BC214" = { evidence = "landed", signature = "s32 func_800BC214(void)" }
 "func_800BC448" = { evidence = "landed", signature = "u8 func_800BC448(void)" }
 "func_800BC4A8" = { evidence = "landed", signature = "void func_800BC4A8(Gfx **list)" }
 "func_800BD19C" = { evidence = "declared", signature = "s32 func_800BD19C(s32, s32)" }
@@ -404,6 +410,9 @@ schema = 1
 "func_800BFF68" = { evidence = "landed", signature = "u8 func_800BFF68(void)" }
 "func_800BFFC8" = { evidence = "landed", signature = "void func_800BFFC8(Gfx **list)" }
 "func_800C0880" = { evidence = "landed", signature = "void func_800C0880(void)" }
+"func_800C0898" = { evidence = "authored", signature = "void func_800C0898(void)" }
+"func_800C224C" = { evidence = "authored", signature = "void func_800C224C(f32)" }
+"func_800C3534" = { evidence = "landed", signature = "s32 func_800C3534(void)" }
 "func_800C36E8" = { evidence = "landed", signature = "s32 func_800C36E8(void)" }
 "func_800C3730" = { evidence = "landed", signature = "void func_800C3730(Gfx **list)" }
 "func_800C3EA4" = { evidence = "landed", signature = "s32 func_800C3EA4(s32 arg0, s16 arg1)" }
@@ -414,6 +423,10 @@ schema = 1
 "func_800C54F0" = { evidence = "landed", signature = "void func_800C54F0(void)" }
 "func_800C7FC0" = { evidence = "landed", signature = "s32 func_800C7FC0(void)" }
 "func_800C80E0" = { evidence = "landed", signature = "void func_800C80E0(void)" }
+"func_800C8210" = { evidence = "authored", signature = "void func_800C8210(void)" }
+"func_800C83D4" = { evidence = "authored", signature = "void func_800C83D4(f32)" }
+"func_800CA398" = { evidence = "landed", signature = "s32 func_800CA398(void)" }
+"func_800CA5BC" = { evidence = "authored", signature = "u8 func_800CA5BC(void)" }
 "func_800CA980" = { evidence = "landed", signature = "void func_800CA980(void)" }
 "func_800CC1A8" = { evidence = "landed", signature = "s32 func_800CC1A8(void)" }
 "func_800CE214" = { evidence = "landed", signature = "s32 func_800CE214(void)" }
@@ -435,6 +448,7 @@ schema = 1
 "func_800D1824" = { evidence = "landed", signature = "void func_800D1824(void)" }
 "func_800D1874" = { evidence = "landed", signature = "void func_800D1874(void)" }
 "func_800D18C4" = { evidence = "landed", signature = "void func_800D18C4(s32 arg0, void *arg1)" }
+"func_800D1930" = { evidence = "landed", signature = "void func_800D1930(s32 value)" }
 "func_800D1998" = { evidence = "landed", signature = "void func_800D1998(s32 value)" }
 "func_800D1A00" = { evidence = "landed", signature = "void func_800D1A00(s32 ticks)" }
 "func_800D1AD0" = { evidence = "landed", signature = "void func_800D1AD0(s32 ticks)" }
@@ -450,17 +464,18 @@ schema = 1
 "func_800D6274" = { evidence = "landed", signature = "void func_800D6274(s32 player, s32 n, u32 value)" }
 "func_800D64CC" = { evidence = "authored", signature = "int func_800D64CC()" }
 "func_800D68D0" = { evidence = "landed", signature = "void func_800D68D0(void)" }
-"func_800D6908" = { evidence = "authored", signature = "int func_800D6908()" }
+"func_800D6908" = { evidence = "landed", signature = "void func_800D6908(void)" }
 "func_800D6A54" = { evidence = "authored", signature = "int func_800D6A54()" }
 "func_800D89F4" = { evidence = "authored", signature = "int func_800D89F4(void)" }
 "func_800D8C20" = { evidence = "authored", signature = "int func_800D8C20()" }
-"func_800D9024" = { evidence = "authored", signature = "int func_800D9024()" }
+"func_800D9024" = { evidence = "landed", signature = "s32 func_800D9024(void)" }
 "func_800D9080" = { evidence = "authored", signature = "int func_800D9080(void)" }
 "func_800DA9B4" = { evidence = "authored", signature = "int func_800DA9B4(void)" }
 "func_800DAC4C" = { evidence = "landed", signature = "s32 func_800DAC4C(void)" }
 "func_800DAD60" = { evidence = "landed", signature = "void func_800DAD60(void)" }
 "func_800DADBC" = { evidence = "landed", signature = "void func_800DADBC(void)" }
-"func_800DC93C" = { evidence = "authored", signature = "int func_800DC93C(void)" }
+"func_800DAE30" = { evidence = "authored", signature = "void func_800DAE30(s32 index)" }
+"func_800DC93C" = { evidence = "landed", signature = "s32 func_800DC93C(void)" }
 "func_800DCA7C" = { evidence = "authored", signature = "void func_800DCA7C(void)" }
 "func_800DCCC0" = { evidence = "landed", signature = "s32 func_800DCCC0(void)" }
 "func_800DCFCC" = { evidence = "landed", signature = "void func_800DCFCC(u32 arg0, u8 *arg1)" }
@@ -514,6 +529,7 @@ schema = 1
 "func_800E27E4" = { evidence = "landed", signature = "s32 func_800E27E4(u16 angle, u16 reference)" }
 "func_800E2820" = { evidence = "landed", signature = "u16 func_800E2820(f32 *from, f32 *to)" }
 "func_800E289C" = { evidence = "landed", signature = "s32 func_800E289C(s32 from, s32 to)" }
+"func_800E2ACC" = { evidence = "landed", signature = "void func_800E2ACC(s32 unused, DriveCommand *command)" }
 "func_800E3460" = { evidence = "landed", signature = "s32 func_800E3460(const u8 *arg0)" }
 "func_800E34B4" = { evidence = "landed", signature = "void func_800E34B4(func_800E34B4_S1_Shared800E34B4 *arg0, s16 arg1, s16 arg2)" }
 "func_800E3554" = { evidence = "authored", signature = "s32 func_800E3554(s32, s16)" }
@@ -524,7 +540,7 @@ schema = 1
 "func_800E3C18" = { evidence = "landed", signature = "void func_800E3C18(Obj *obj, void *value)" }
 "func_800E3F90" = { evidence = "authored", signature = "int func_800E3F90(struct Shape_func_800E3F90_us * arg0)" }
 "func_800E4104" = { evidence = "authored", signature = "void * func_800E4104(int arg0, int arg1, unsigned char arg2)" }
-"func_800E4494" = { evidence = "authored", signature = "s32 func_800E4494(s32)" }
+"func_800E4494" = { evidence = "authored", signature = "s32 func_800E4494(void *)" }
 "func_800E480C" = { evidence = "landed", signature = "void func_800E480C(void)" }
 "func_800E4820" = { evidence = "authored", signature = "int func_800E4820(int arg0)" }
 "func_800E4A18" = { evidence = "landed", signature = "void func_800E4A18(s32 arg0)" }
@@ -537,9 +553,10 @@ schema = 1
 "func_800E52A0" = { evidence = "authored", signature = "s32 func_800E52A0()" }
 "func_800E5328" = { evidence = "authored", signature = "int func_800E5328(int arg0, signed int * arg1)" }
 "func_800E566C" = { evidence = "landed", signature = "void func_800E566C(struct Rec *r)" }
+"func_800E5688" = { evidence = "landed", signature = "void func_800E5688(UnitPairing *pair, u8 first, u8 second, u8 connected)" }
 "func_800E5AB0" = { evidence = "authored", signature = "int func_800E5AB0(void)" }
 "func_800E5DE4" = { evidence = "authored", signature = "int func_800E5DE4(int arg0)" }
-"func_800E5F30" = { evidence = "authored", signature = "s32 func_800E5F30(s32)" }
+"func_800E5F30" = { evidence = "authored", signature = "s32 func_800E5F30(void *)" }
 "func_800E6970" = { evidence = "authored", signature = "s32 func_800E6970(s32)" }
 "func_800E69A4" = { evidence = "landed", signature = "s32 func_800E69A4(struct ResetState *arg0)" }
 "func_800E69D4" = { evidence = "authored", signature = "s32 func_800E69D4(s32)" }
@@ -558,7 +575,7 @@ schema = 1
 "func_800E6D58" = { evidence = "authored", signature = "s32 func_800E6D58()" }
 "func_800E6FA0" = { evidence = "landed", signature = "s32 func_800E6FA0(void)" }
 "func_800E6FB0" = { evidence = "landed", signature = "s32 func_800E6FB0(struct ResetState *arg0)" }
-"func_800E6FD8" = { evidence = "landed", signature = "s32 func_800E6FD8(void)" }
+"func_800E6FD8" = { evidence = "landed", signature = "s32 func_800E6FD8(struct ResetState *context)" }
 "func_800E6FF8" = { evidence = "authored", signature = "s32 func_800E6FF8(s32)" }
 "func_800E7064" = { evidence = "authored", signature = "s32 func_800E7064(s32)" }
 "func_800E70B0" = { evidence = "authored", signature = "s32 func_800E70B0(s32)" }
@@ -592,7 +609,8 @@ schema = 1
 "func_800E9318" = { evidence = "authored", signature = "f32 func_800E9318()" }
 "func_800E9458" = { evidence = "landed", signature = "float func_800E9458(void)" }
 "func_800E95A8" = { evidence = "landed", signature = "f32 func_800E95A8(s32 startTime)" }
-"func_800E986C" = { evidence = "authored", signature = "s32 func_800E986C(s32, s32, s32)" }
+"func_800E97F0" = { evidence = "landed", signature = "void func_800E97F0(struct ResetState *context, u32 key, f32 value)" }
+"func_800E986C" = { evidence = "authored", signature = "s32 func_800E986C(void *, u32, f32)" }
 "func_800E9880" = { evidence = "landed", signature = "s32 func_800E9880(s32 arg0, s32 arg1)" }
 "func_800E9894" = { evidence = "landed", signature = "void func_800E9894(func_800E9894_S1_Shared800EA1FC *arg0, s16 arg1)" }
 "func_800E9940" = { evidence = "authored", signature = "int func_800E9940(void * arg0, int arg1)" }
@@ -607,13 +625,14 @@ schema = 1
 "func_800EA2A4" = { evidence = "authored", signature = "int func_800EA2A4(void * arg0)" }
 "func_800EA3D0" = { evidence = "authored", signature = "int func_800EA3D0(void * arg0)" }
 "func_800EA93C" = { evidence = "authored", signature = "s32 func_800EA93C(void *, struct Rule *)" }
+"func_800EABB0" = { evidence = "landed", signature = "s32 func_800EABB0(struct ResetState *context)" }
 "func_800EAC48" = { evidence = "landed", signature = "void func_800EAC48(s32 arg0)" }
 "func_800EAC80" = { evidence = "landed", signature = "s32 func_800EAC80(s32 arg0)" }
 "func_800EACB4" = { evidence = "landed", signature = "void func_800EACB4(s32 arg0)" }
 "func_800EACEC" = { evidence = "landed", signature = "s32 func_800EACEC(struct ResetState *context)" }
-"func_800EAD2C" = { evidence = "landed", signature = "s32 func_800EAD2C(void)" }
-"func_800EAD4C" = { evidence = "landed", signature = "void func_800EAD4C(s32 arg0)" }
-"func_800EAD74" = { evidence = "landed", signature = "void func_800EAD74(s32 arg0)" }
+"func_800EAD2C" = { evidence = "landed", signature = "s32 func_800EAD2C(struct ResetState *context)" }
+"func_800EAD4C" = { evidence = "landed", signature = "void func_800EAD4C(struct ResetState *arg0)" }
+"func_800EAD74" = { evidence = "landed", signature = "void func_800EAD74(struct ResetState *arg0)" }
 "func_800EAD9C" = { evidence = "landed", signature = "s32 func_800EAD9C(struct ResetState *context)" }
 "func_800EAF14" = { evidence = "landed", signature = "s32 func_800EAF14(struct ResetState *context)" }
 "func_800EAFC4" = { evidence = "landed", signature = "s32 func_800EAFC4(s32 arg0)" }
@@ -629,7 +648,7 @@ schema = 1
 "func_800EB178" = { evidence = "landed", signature = "void func_800EB178(s32 arg0)" }
 "func_800EB1A0" = { evidence = "landed", signature = "s32 func_800EB1A0(s32 arg0)" }
 "func_800EB1C0" = { evidence = "landed", signature = "void func_800EB1C0(s32 arg0)" }
-"func_800EB228" = { evidence = "landed", signature = "s32 func_800EB228(void)" }
+"func_800EB228" = { evidence = "landed", signature = "s32 func_800EB228(struct ResetState *context)" }
 "func_800EB2A4" = { evidence = "landed", signature = "void func_800EB2A4(s32 arg0)" }
 "func_800EB2CC" = { evidence = "landed", signature = "s32 func_800EB2CC(struct ResetState *arg0)" }
 "func_800EB310" = { evidence = "landed", signature = "void func_800EB310(s32 arg0)" }
@@ -642,14 +661,15 @@ schema = 1
 "func_800EB440" = { evidence = "landed", signature = "s32 func_800EB440(s32 arg0)" }
 "func_800EB47C" = { evidence = "landed", signature = "void func_800EB47C(s32 arg0)" }
 "func_800EB4A4" = { evidence = "landed", signature = "s32 func_800EB4A4(void *context)" }
-"func_800EB4E4" = { evidence = "landed", signature = "s32 func_800EB4E4(void)" }
-"func_800EB504" = { evidence = "landed", signature = "s32 func_800EB504(s32 arg0)" }
+"func_800EB4E4" = { evidence = "landed", signature = "s32 func_800EB4E4(struct ResetState *context)" }
+"func_800EB504" = { evidence = "landed", signature = "s32 func_800EB504(struct ResetState *arg0)" }
 "func_800EB5A0" = { evidence = "landed", signature = "s32 func_800EB5A0(s32 arg0)" }
 "func_800EB5C0" = { evidence = "landed", signature = "void func_800EB5C0(s32 arg0)" }
 "func_800EB640" = { evidence = "landed", signature = "void func_800EB640(s32 arg0)" }
 "func_800EB668" = { evidence = "landed", signature = "s32 func_800EB668(s32 arg0)" }
 "func_800EB69C" = { evidence = "landed", signature = "void func_800EB69C(s32 arg0)" }
 "func_800EB818" = { evidence = "landed", signature = "void func_800EB818(s32 arg0)" }
+"func_800EB840" = { evidence = "landed", signature = "s32 func_800EB840(struct ResetState *context)" }
 "func_800EB888" = { evidence = "landed", signature = "void func_800EB888(s32 arg0)" }
 "func_800EB8F8" = { evidence = "landed", signature = "void func_800EB8F8(s32 arg0)" }
 "func_800EB920" = { evidence = "landed", signature = "s32 func_800EB920(s32 arg0)" }
@@ -658,18 +678,18 @@ schema = 1
 "func_800EB9D8" = { evidence = "landed", signature = "void func_800EB9D8(s32 arg0)" }
 "func_800EBA00" = { evidence = "landed", signature = "s32 func_800EBA00(struct ResetState *context)" }
 "func_800EBA48" = { evidence = "landed", signature = "void func_800EBA48(s32 arg0)" }
-"func_800EBAB8" = { evidence = "landed", signature = "void func_800EBAB8(s32 arg0)" }
+"func_800EBAB8" = { evidence = "landed", signature = "void func_800EBAB8(struct ResetState *arg0)" }
 "func_800EBAE0" = { evidence = "landed", signature = "s32 func_800EBAE0(struct ResetState *context)" }
 "func_800EBB58" = { evidence = "landed", signature = "void func_800EBB58(s32 arg0)" }
 "func_800EBB80" = { evidence = "landed", signature = "s32 func_800EBB80(s32 arg0)" }
 "func_800EBBB4" = { evidence = "landed", signature = "s32 func_800EBBB4(void)" }
 "func_800EBBBC" = { evidence = "landed", signature = "s32 func_800EBBBC(struct ResetState *context)" }
-"func_800EBBFC" = { evidence = "landed", signature = "s32 func_800EBBFC(void)" }
-"func_800EBC1C" = { evidence = "landed", signature = "void func_800EBC1C(s32 arg0)" }
-"func_800EBC44" = { evidence = "landed", signature = "void func_800EBC44(s32 arg0)" }
-"func_800EBC6C" = { evidence = "landed", signature = "void func_800EBC6C(s32 arg0)" }
-"func_800EBC94" = { evidence = "landed", signature = "void func_800EBC94(s32 arg0)" }
-"func_800EBCBC" = { evidence = "landed", signature = "void func_800EBCBC(s32 arg0)" }
+"func_800EBBFC" = { evidence = "landed", signature = "s32 func_800EBBFC(struct ResetState *context)" }
+"func_800EBC1C" = { evidence = "landed", signature = "void func_800EBC1C(struct ResetState *arg0)" }
+"func_800EBC44" = { evidence = "landed", signature = "void func_800EBC44(struct ResetState *arg0)" }
+"func_800EBC6C" = { evidence = "landed", signature = "void func_800EBC6C(struct ResetState *arg0)" }
+"func_800EBC94" = { evidence = "landed", signature = "void func_800EBC94(struct ResetState *arg0)" }
+"func_800EBCBC" = { evidence = "landed", signature = "void func_800EBCBC(struct ResetState *arg0)" }
 "func_800EBCE4" = { evidence = "landed", signature = "s32 func_800EBCE4(s32 arg0)" }
 "func_800EBD04" = { evidence = "landed", signature = "void func_800EBD04(s32 arg0)" }
 "func_800EBD2C" = { evidence = "landed", signature = "s32 func_800EBD2C(s32 arg0)" }
@@ -691,12 +711,15 @@ schema = 1
 "func_800EC03C" = { evidence = "landed", signature = "s32 func_800EC03C(s32 arg0)" }
 "func_800EC05C" = { evidence = "landed", signature = "void func_800EC05C(s32 arg0)" }
 "func_800EC084" = { evidence = "landed", signature = "s32 func_800EC084(s32 arg0)" }
+"func_800EC128" = { evidence = "landed", signature = "s32 func_800EC128(struct ResetState *context)" }
+"func_800EC26C" = { evidence = "landed", signature = "s32 func_800EC26C(struct ResetState *context)" }
+"func_800EC314" = { evidence = "landed", signature = "s32 func_800EC314(struct ResetState *context)" }
 "func_800EC35C" = { evidence = "landed", signature = "s32 func_800EC35C(s32 arg0)" }
 "func_800EC380" = { evidence = "landed", signature = "void func_800EC380(s32 arg0)" }
 "func_800EC390" = { evidence = "landed", signature = "s32 func_800EC390(void)" }
 "func_800EC3D0" = { evidence = "authored", signature = "int func_800EC3D0()" }
 "func_800EC3F0" = { evidence = "landed", signature = "s32 func_800EC3F0(void)" }
-"func_800EC410" = { evidence = "authored", signature = "int func_800EC410()" }
+"func_800EC410" = { evidence = "landed", signature = "s32 func_800EC410(void)" }
 "func_800EC644" = { evidence = "landed", signature = "s32 func_800EC644(void)" }
 "func_800EC654" = { evidence = "landed", signature = "s32 func_800EC654(void)" }
 "func_800EC668" = { evidence = "landed", signature = "s32 func_800EC668(s32 arg0)" }
@@ -714,7 +737,7 @@ schema = 1
 "func_800ED5C8" = { evidence = "authored", signature = "s32 func_800ED5C8()" }
 "func_800ED810" = { evidence = "landed", signature = "void func_800ED810(func_800ED810_S1_Shared800ED810 *arg0, s32 arg1, u32 arg2, s32 arg3, func_800A2EA4_S1_Shared800A2EA4 *arg4)" }
 "func_800ED8C0" = { evidence = "authored", signature = "void func_800ED8C0(f32 *position, s32 variant)" }
-"func_800ED994" = { evidence = "authored", signature = "int func_800ED994(void * arg0, void * arg1)" }
+"func_800ED994" = { evidence = "landed", signature = "void func_800ED994(ScriptedEffect *effect, s32 *status)" }
 "func_800EDA98" = { evidence = "landed", signature = "s32 func_800EDA98(Obj80137A3C *arg0, u32 arg1)" }
 "func_800EDAAC" = { evidence = "landed", signature = "s32 func_800EDAAC(s32 arg0, s32 arg1)" }
 "func_800EE4BC" = { evidence = "landed", signature = "void func_800EE4BC(void)" }
@@ -772,7 +795,7 @@ schema = 1
 "func_80106010" = { evidence = "authored", signature = "void func_80106010(void *context, u8 ch)" }
 "func_8010647C" = { evidence = "authored", signature = "void func_8010647C(void **displayList, u8 ch)" }
 "func_8010698C" = { evidence = "authored", signature = "void func_8010698C(Gfx **)" }
-"func_80106B28" = { evidence = "landed", signature = "int func_80106B28(DmaRegion *arg0, s32 arg1)" }
+"func_80106B28" = { evidence = "landed", signature = "int func_80106B28(Gfx *arg0, Gfx *arg1)" }
 "func_80106B60" = { evidence = "landed", signature = "void func_80106B60(s32 width, s32 height)" }
 "func_80106CCC" = { evidence = "authored", signature = "void * func_80106CCC(int arg0, int arg1)" }
 "func_80106D00" = { evidence = "landed", signature = "int func_80106D00(void)" }
@@ -794,7 +817,7 @@ schema = 1
 "func_801095D0" = { evidence = "authored", signature = "int func_801095D0(void * arg0, float * arg1, void * arg2, void * arg3, void * arg4)" }
 "func_8010A474" = { evidence = "authored", signature = "float func_8010A474(void * arg0, void * arg1)" }
 "func_8010A680" = { evidence = "landed", signature = "s32 func_8010A680(struct QueryBox *dst, struct QueryBox *base, struct QueryBox *other)" }
-"func_8010A8A8" = { evidence = "authored", signature = "int func_8010A8A8(struct QueryBox * arg0, struct QueryBox * arg1, void * arg2)" }
+"func_8010A8A8" = { evidence = "landed", signature = "s32 func_8010A8A8(QueryBox *a, QueryBox *b, f32 *normal)" }
 "func_8010AA6C" = { evidence = "landed", signature = "s32 func_8010AA6C(struct PolygonPoint a, struct PolygonPoint b, struct PolygonPoint c, struct PolygonPoint d, struct PolygonPoint *delta, struct PolygonPoint *hit)" }
 "func_8010AC90" = { evidence = "authored", signature = "int func_8010AC90(void * arg0, void * arg1, void * arg2, void * arg3, void * arg4)" }
 "func_8010B9C8" = { evidence = "authored", signature = "u8 func_8010B9C8(QueryBox *body, f32 *delta, QueryBox *other, s32 arg3, s32 arg4)" }
@@ -974,9 +997,11 @@ schema = 1
 "func_auto_8011C3A4" = { evidence = "landed", signature = "void func_auto_8011C3A4(void)" }
 "int_power" = { evidence = "landed", signature = "static inline s32 int_power(s32 base, s32 exponent)" }
 "intersect_segments_2d" = { evidence = "landed", signature = "static inline s32 intersect_segments_2d(struct PolygonPoint a, struct PolygonPoint b, struct PolygonPoint c, struct PolygonPoint d, struct PolygonPoint *out)" }
+"load_rom_span" = { evidence = "landed", signature = "static inline s32 load_rom_span(u8 *start, u8 *end, u8 *dst)" }
 "load_tile_4b" = { evidence = "landed", signature = "static inline void load_tile_4b(RenderFrame *frame, TextureInfo *info, void *texture, s32 tmem, s32 rtile)" }
 "load_tile_8b" = { evidence = "landed", signature = "static inline void load_tile_8b(RenderFrame *frame, TextureInfo *info, void *texture, s32 tmem, s32 rtile)" }
 "row_section" = { evidence = "landed", signature = "static inline s32 row_section(s32 row, s32 first, s32 header, s32 base, s32 *isFirst, s32 *offset, s32 section)" }
+"script_has_step" = { evidence = "landed", signature = "static inline s32 script_has_step(EffectScriptStep *script, s32 step)" }
 "set_identity" = { evidence = "landed", signature = "static inline void set_identity(f32 matrix[4][4])" }
 "submit_level_object" = { evidence = "landed", signature = "static inline void submit_level_object(Scene *level, SceneObject *obj, s32 view)" }
 "unpropagate_bit_stride_table" = { evidence = "landed", signature = "static inline u32 unpropagate_bit_stride_table(u32 value)" }
@@ -1234,6 +1259,10 @@ schema = 1
 "D_auto_800730CC" = { declaration = "extern f32 D_auto_800730CC;", evidence = "authored" }
 "D_auto_800730D0" = { declaration = "extern f32 D_auto_800730D0;", evidence = "authored" }
 "D_auto_800731B0" = { declaration = "extern s8 D_auto_800731B0;", evidence = "authored" }
+"D_auto_80073440" = { declaration = "extern f32 D_auto_80073440;", evidence = "authored" }
+"D_auto_80073570" = { declaration = "extern f32 D_auto_80073570;", evidence = "authored" }
+"D_auto_80073700" = { declaration = "extern f32 D_auto_80073700;", evidence = "authored" }
+"D_auto_80073704" = { declaration = "extern f32 D_auto_80073704;", evidence = "authored" }
 "D_auto_80073C8C" = { declaration = "extern s32 D_auto_80073C8C;", evidence = "authored" }
 "D_auto_80073C94" = { declaration = "extern s32 D_auto_80073C94;", evidence = "authored" }
 "D_auto_80073C9C" = { declaration = "extern s32 D_auto_80073C9C;", evidence = "authored" }
@@ -1334,6 +1363,7 @@ schema = 1
 "D_auto_801260A4" = { declaration = "extern u8 D_auto_801260A4[4];", evidence = "authored" }
 "D_auto_80126128" = { declaration = "extern s32 D_auto_80126128;", evidence = "authored" }
 "D_auto_80126140" = { declaration = "extern s32 D_auto_80126140;", evidence = "authored" }
+"D_auto_801262C0" = { declaration = "extern s32 D_auto_801262C0[4];", evidence = "authored" }
 "D_auto_801262D8" = { declaration = "extern u8 D_auto_801262D8[];", evidence = "authored" }
 "D_auto_80126700" = { declaration = "extern f32 D_auto_80126700;", evidence = "authored" }
 "D_auto_80126704" = { declaration = "extern f32 D_auto_80126704;", evidence = "authored" }
@@ -1379,8 +1409,10 @@ schema = 1
 "D_auto_80133CAC" = { declaration = "extern u8 D_auto_80133CAC[];", evidence = "authored" }
 "D_auto_80133FE0" = { declaration = "extern s16 D_auto_80133FE0;", evidence = "authored" }
 "D_auto_80134010" = { declaration = "extern s32 D_auto_80134010[];", evidence = "authored" }
+"D_auto_80134020" = { declaration = "extern s32 D_auto_80134020[4];", evidence = "authored" }
 "D_auto_80134058" = { declaration = "extern u32 D_auto_80134058[];", evidence = "authored" }
 "D_auto_80134080" = { declaration = "extern u32 D_auto_80134080[];", evidence = "authored" }
+"D_auto_80134A80" = { declaration = "extern s32 D_auto_80134A80[];", evidence = "authored" }
 "D_auto_80134E54" = { declaration = "extern s32 D_auto_80134E54;", evidence = "authored" }
 "D_auto_80134E58" = { declaration = "extern s32 D_auto_80134E58;", evidence = "authored" }
 "D_auto_80134E5C" = { declaration = "extern int D_auto_80134E5C;", evidence = "authored" }
@@ -1404,6 +1436,7 @@ schema = 1
 "D_auto_80135674" = { declaration = "extern s32 D_auto_80135674;", evidence = "authored" }
 "D_auto_80135680" = { declaration = "extern u8 D_auto_80135680[];", evidence = "authored" }
 "D_auto_8013568C" = { declaration = "extern u8 D_auto_8013568C[];", evidence = "authored" }
+"D_auto_80135770" = { declaration = "extern u8 D_auto_80135770;", evidence = "authored" }
 "D_auto_80135773" = { declaration = "extern u8 D_auto_80135773;", evidence = "authored" }
 "D_auto_80135778" = { declaration = "extern u8 D_auto_80135778[];", evidence = "authored" }
 "D_auto_8013578C" = { declaration = "extern BitStrideEntry D_auto_8013578C[];", evidence = "authored" }
@@ -1411,6 +1444,7 @@ schema = 1
 "D_auto_80135834" = { declaration = "extern Data80135834Ptr *D_auto_80135834;", evidence = "authored" }
 "D_auto_80135838" = { declaration = "extern s16 D_auto_80135838;", evidence = "authored" }
 "D_auto_8013583C" = { declaration = "extern s32 D_auto_8013583C;", evidence = "authored" }
+"D_auto_80135D80" = { declaration = "extern struct Rule D_auto_80135D80;", evidence = "authored" }
 "D_auto_80135DB4" = { declaration = "extern s32 D_auto_80135DB4;", evidence = "authored" }
 "D_auto_80135DDC" = { declaration = "extern s32 D_auto_80135DDC;", evidence = "authored" }
 "D_auto_80135E64" = { declaration = "extern s32 D_auto_80135E64;", evidence = "authored" }
@@ -1456,11 +1490,14 @@ schema = 1
 "D_auto_80137614" = { declaration = "extern s32 D_auto_80137614;", evidence = "authored" }
 "D_auto_80137648" = { declaration = "extern s32 D_auto_80137648;", evidence = "authored" }
 "D_auto_80137670" = { declaration = "extern s32 D_auto_80137670;", evidence = "authored" }
+"D_auto_80137730" = { declaration = "extern struct Rule D_auto_80137730;", evidence = "authored" }
+"D_auto_801377F8" = { declaration = "extern struct Rule D_auto_801377F8;", evidence = "authored" }
 "D_auto_80137888" = { declaration = "extern struct CallbackDescriptor *D_auto_80137888[0x1E];", evidence = "authored" }
 "D_auto_80137900" = { declaration = "extern s32 D_auto_80137900;", evidence = "authored" }
 "D_auto_80137904" = { declaration = "extern u32 D_auto_80137904;", evidence = "authored" }
 "D_auto_80137908" = { declaration = "extern s32 D_auto_80137908;", evidence = "authored" }
 "D_auto_8013790C" = { declaration = "extern s32 D_auto_8013790C[];", evidence = "authored" }
+"D_auto_80138F3C" = { declaration = "extern EffectScriptStep *D_auto_80138F3C[];", evidence = "authored" }
 "D_auto_80139610" = { declaration = "extern u32 D_auto_80139610;", evidence = "authored" }
 "D_auto_80139620" = { declaration = "extern f32 D_auto_80139620[];", evidence = "authored" }
 "D_auto_80141050" = { declaration = "extern s32 D_auto_80141050;", evidence = "authored" }
@@ -1486,12 +1523,13 @@ schema = 1
 "D_auto_80150354" = { declaration = "extern s32 D_auto_80150354;", evidence = "authored" }
 "D_auto_80150380" = { declaration = "extern int D_auto_80150380;", evidence = "authored" }
 "D_auto_80150398" = { declaration = "extern u8 D_auto_80150398;", evidence = "authored" }
+"D_auto_801529D8" = { declaration = "extern u8 D_auto_801529D8;", evidence = "authored" }
 "D_auto_80152A10" = { declaration = "extern s32 D_auto_80152A10;", evidence = "authored" }
 "D_auto_80152A38" = { declaration = "extern s32 D_auto_80152A38;", evidence = "authored" }
 "D_auto_80152EF0" = { declaration = "extern int D_auto_80152EF0[];", evidence = "authored" }
 "D_auto_80152EF8" = { declaration = "extern int D_auto_80152EF8;", evidence = "authored" }
 "D_auto_80152F80" = { declaration = "extern u8 D_auto_80152F80;", evidence = "authored" }
-"D_auto_80152F84" = { declaration = "extern s32 D_auto_80152F84;", evidence = "authored" }
+"D_auto_80152F84" = { declaration = "extern AudioDmaLists D_auto_80152F84;", evidence = "authored" }
 "D_auto_80152F88" = { declaration = "extern u8 *D_auto_80152F88;", evidence = "authored" }
 "D_auto_80152F90" = { declaration = "extern u8 D_auto_80152F90;", evidence = "authored" }
 "D_auto_801B4A28" = { declaration = "extern u8 D_auto_801B4A28;", evidence = "authored" }
@@ -1511,8 +1549,8 @@ schema = 1
 "D_auto_801C9174" = { declaration = "extern s32 D_auto_801C9174;", evidence = "authored" }
 "D_auto_801C9178" = { declaration = "extern s32 D_auto_801C9178;", evidence = "authored" }
 "D_auto_801C9188" = { declaration = "extern s32 D_auto_801C9188;", evidence = "authored" }
-"D_auto_801C918C" = { declaration = "extern s32 *D_auto_801C918C;", evidence = "authored" }
-"D_auto_801C9190" = { declaration = "extern s32 D_auto_801C9190;", evidence = "authored" }
+"D_auto_801C918C" = { declaration = "extern u8 *D_auto_801C918C;", evidence = "authored" }
+"D_auto_801C9190" = { declaration = "extern u8 D_auto_801C9190[0xF8240];", evidence = "authored" }
 "D_auto_802C13F0" = { declaration = "extern s32 D_auto_802C13F0;", evidence = "authored" }
 "D_auto_802D5A36" = { declaration = "extern s16 D_auto_802D5A36;", evidence = "authored" }
 "D_auto_802D5BA0" = { declaration = "extern unsigned char D_auto_802D5BA0[];", evidence = "authored" }
@@ -1548,7 +1586,9 @@ schema = 1
 "D_auto_803275F0" = { declaration = "extern M D_auto_803275F0;", evidence = "authored" }
 "D_auto_803275F4" = { declaration = "extern u8 *D_auto_803275F4;", evidence = "authored" }
 "D_auto_80327614" = { declaration = "extern s32 D_auto_80327614;", evidence = "authored" }
+"D_auto_803276D0" = { declaration = "extern Gfx *D_auto_803276D0;", evidence = "authored" }
 "D_auto_803276D4" = { declaration = "extern Gfx *D_auto_803276D4;", evidence = "authored" }
+"D_auto_803276D8" = { declaration = "extern s32 D_auto_803276D8;", evidence = "authored" }
 "D_auto_803276E0" = { declaration = "extern u8 D_auto_803276E0;", evidence = "authored" }
 "D_auto_803277A0" = { declaration = "extern u64 D_auto_803277A0;", evidence = "authored" }
 "D_auto_803277D0" = { declaration = "extern s32 D_auto_803277D0;", evidence = "authored" }
@@ -1578,6 +1618,7 @@ schema = 1
 "D_auto_80327C10" = { declaration = "extern s8 D_auto_80327C10;", evidence = "authored" }
 "D_auto_80327C11" = { declaration = "extern u8 D_auto_80327C11;", evidence = "authored" }
 "D_auto_80327C12" = { declaration = "extern u8 D_auto_80327C12;", evidence = "authored" }
+"D_auto_80327C20" = { declaration = "extern s32 D_auto_80327C20;", evidence = "authored" }
 "D_auto_80327C30" = { declaration = "extern u8 D_auto_80327C30;", evidence = "authored" }
 "D_auto_80327C34" = { declaration = "extern u8 D_auto_80327C34;", evidence = "authored" }
 "D_auto_80327C35" = { declaration = "extern u8 D_auto_80327C35;", evidence = "authored" }
@@ -1598,6 +1639,7 @@ schema = 1
 "D_auto_80327D64" = { declaration = "extern s32 D_auto_80327D64;", evidence = "authored" }
 "D_auto_80327E30" = { declaration = "extern u8 D_auto_80327E30;", evidence = "authored" }
 "D_auto_80327E31" = { declaration = "extern s8 D_auto_80327E31;", evidence = "authored" }
+"D_auto_80327E40" = { declaration = "extern s32 D_auto_80327E40;", evidence = "authored" }
 "D_auto_80327E50" = { declaration = "extern u8 D_auto_80327E50;", evidence = "authored" }
 "D_auto_80327E58" = { declaration = "extern u64 D_auto_80327E58;", evidence = "authored" }
 "D_auto_80327E60" = { declaration = "extern s32 D_auto_80327E60;", evidence = "authored" }
@@ -1622,7 +1664,11 @@ schema = 1
 "D_auto_803283B8" = { declaration = "extern u8 D_auto_803283B8[];", evidence = "authored" }
 "D_auto_803283C0" = { declaration = "extern s32 D_auto_803283C0;", evidence = "authored" }
 "D_auto_803283C4" = { declaration = "extern s32 D_auto_803283C4;", evidence = "authored" }
-"D_auto_80328400" = { declaration = "extern s32 D_auto_80328400;", evidence = "authored" }
+"D_auto_803283C8" = { declaration = "extern s32 D_auto_803283C8[4];", evidence = "authored" }
+"D_auto_803283D8" = { declaration = "extern s32 D_auto_803283D8[4];", evidence = "authored" }
+"D_auto_803283E8" = { declaration = "extern s32 D_auto_803283E8;", evidence = "authored" }
+"D_auto_803283F0" = { declaration = "extern s32 D_auto_803283F0[4];", evidence = "authored" }
+"D_auto_80328400" = { declaration = "extern s32 D_auto_80328400[4];", evidence = "authored" }
 "D_auto_80328404" = { declaration = "extern s32 D_auto_80328404;", evidence = "authored" }
 "D_auto_80328410" = { declaration = "extern s32 D_auto_80328410;", evidence = "authored" }
 "D_auto_80328420" = { declaration = "extern s32 D_auto_80328420;", evidence = "authored" }
@@ -1640,12 +1686,14 @@ schema = 1
 "D_auto_8033AAC8" = { declaration = "extern s32 D_auto_8033AAC8[];", evidence = "authored" }
 "D_auto_8033B5F0" = { declaration = "extern s32 D_auto_8033B5F0;", evidence = "authored" }
 "D_auto_8033B5F4" = { declaration = "extern s32 D_auto_8033B5F4;", evidence = "authored" }
-"D_auto_8033B600" = { declaration = "extern s32 D_auto_8033B600;", evidence = "authored" }
+"D_auto_8033B600" = { declaration = "extern DemoHeader D_auto_8033B600;", evidence = "authored" }
 "D_auto_8033B604" = { declaration = "extern s32 D_auto_8033B604;", evidence = "authored" }
 "D_auto_8033B608" = { declaration = "extern s32 D_auto_8033B608;", evidence = "authored" }
 "D_auto_8033B610" = { declaration = "extern void *D_auto_8033B610[];", evidence = "authored" }
 "D_auto_8033B618" = { declaration = "extern u8 *D_auto_8033B618;", evidence = "authored" }
 "D_auto_8033B61C" = { declaration = "extern f32 (*D_auto_8033B61C)[3];", evidence = "authored" }
+"D_auto_8033B620" = { declaration = "extern u8 *D_auto_8033B620;", evidence = "authored" }
+"D_auto_8033B624" = { declaration = "extern s32 D_auto_8033B624;", evidence = "authored" }
 "D_auto_8033B628" = { declaration = "extern s32 D_auto_8033B628;", evidence = "authored" }
 "D_auto_8033B62C" = { declaration = "extern s32 D_auto_8033B62C;", evidence = "authored" }
 "D_auto_8033B630" = { declaration = "extern u8 D_auto_8033B630;", evidence = "authored" }
@@ -1689,6 +1737,19 @@ schema = 1
 "D_auto_B02C3E50" = { declaration = "extern u8 D_auto_B02C3E50[];", evidence = "authored" }
 "D_auto_B02CB230" = { declaration = "extern u8 D_auto_B02CB230[];", evidence = "authored" }
 "D_auto_B02D2790" = { declaration = "extern u8 D_auto_B02D2790[];", evidence = "authored" }
+"D_auto_B0319B30" = { declaration = "extern u8 D_auto_B0319B30[];", evidence = "authored" }
+"D_auto_B0334630" = { declaration = "extern u8 D_auto_B0334630[];", evidence = "authored" }
+"D_auto_B0348DB0" = { declaration = "extern u8 D_auto_B0348DB0[];", evidence = "authored" }
+"D_auto_B0364100" = { declaration = "extern u8 D_auto_B0364100[];", evidence = "authored" }
+"D_auto_B03747F0" = { declaration = "extern u8 D_auto_B03747F0[];", evidence = "authored" }
+"D_auto_B0380670" = { declaration = "extern u8 D_auto_B0380670[];", evidence = "authored" }
+"D_auto_B0383CC0" = { declaration = "extern u8 D_auto_B0383CC0[];", evidence = "authored" }
+"D_auto_B038BBE0" = { declaration = "extern u8 D_auto_B038BBE0[];", evidence = "authored" }
+"D_auto_B03A0820" = { declaration = "extern u8 D_auto_B03A0820[];", evidence = "authored" }
+"D_auto_B03B9630" = { declaration = "extern u8 D_auto_B03B9630[];", evidence = "authored" }
+"D_auto_B03C1550" = { declaration = "extern u8 D_auto_B03C1550[];", evidence = "authored" }
+"D_auto_B03D16D0" = { declaration = "extern u8 D_auto_B03D16D0[];", evidence = "authored" }
+"D_auto_B03D6940" = { declaration = "extern u8 D_auto_B03D6940[];", evidence = "authored" }
 "D_auto_B049C740" = { declaration = "extern u8 D_auto_B049C740[];", evidence = "authored" }
 "D_auto_B049DCD0" = { declaration = "extern u8 D_auto_B049DCD0[];", evidence = "authored" }
 "D_auto_B04AC150" = { declaration = "extern u8 D_auto_B04AC150[];", evidence = "authored" }
@@ -1702,6 +1763,8 @@ schema = 1
 "Accum" = { declaration = "struct Accum { int unk_00; int unk_04; int unk_08; int unk_0C; int unk_10; };", evidence = "authored" }
 "Acmd" = { declaration = "typedef union { Awords words; long long int force_union_align; } Acmd;", evidence = "authored" }
 "AreaBox" = { declaration = "typedef struct QueryBox AreaBox;", evidence = "authored" }
+"AudioDmaBuffer" = { declaration = "typedef struct AudioDmaBuffer { ListNode link; u32 startAddr, lastFrame; u8 *ptr; } AudioDmaBuffer;", evidence = "authored" }
+"AudioDmaLists" = { declaration = "typedef struct AudioDmaLists { AudioDmaBuffer *firstUsed, *firstFree; } AudioDmaLists;", evidence = "authored" }
 "Awords" = { declaration = "typedef struct { unsigned int w0; unsigned int w1; } Awords;", evidence = "authored" }
 "B" = { declaration = "struct B { char pad0[0x60]; struct Elem *unk60; };", evidence = "authored" }
 "Best" = { declaration = "typedef struct Best Best;", evidence = "authored" }
@@ -1721,8 +1784,10 @@ schema = 1
 "CommandQueueOwner" = { declaration = "typedef struct CommandQueueOwner CommandQueueOwner;", evidence = "authored" }
 "Ctx" = { declaration = "typedef struct Ctx Ctx;", evidence = "authored" }
 "Data80135834Ptr" = { declaration = "typedef struct Data80135834Ptr { s32 unk0; s32 unk4; u16 unk8; u16 unkA; s32 unkC; s32 unk10; s32 unk14; s32 unk18; s32 unk1C; s32 unk20; } Data80135834Ptr;", evidence = "authored" }
+"DemoHeader" = { declaration = "typedef struct DemoHeader { s32 frameCount, objectCount, value08, trailerCount, value10, value14; } DemoHeader;", evidence = "authored" }
 "Dest" = { declaration = "typedef struct Dest Dest;", evidence = "authored" }
 "DmaRegion" = { declaration = "typedef struct DmaRegion { u32 end; u32 flags; } DmaRegion;", evidence = "authored" }
+"DriveCommand" = { declaration = "typedef struct DriveCommand { s32 mode; f32 turn, drive; s8 buttons[5]; } DriveCommand;", evidence = "authored" }
 "E" = { declaration = "typedef struct E E;", evidence = "authored" }
 "EffectHeader" = { declaration = "typedef struct EffectHeader { s16 next; u16 reserved02; u32 serial; u32 kind; } EffectHeader;", evidence = "authored" }
 "EffectKind0A" = { declaration = "typedef struct EffectKind0A { EffectHeader header; s32 value0C; f32 value10; f32 value14; f32 value18; s32 value1C; } EffectKind0A;", evidence = "authored" }
@@ -1868,7 +1933,7 @@ schema = 1
 "Rec" = { declaration = "struct Rec { char pad0[3]; unsigned char a; unsigned char b; unsigned char c; unsigned char d; unsigned char e; int f; };", evidence = "authored" }
 "Record" = { declaration = "typedef struct Record Record;", evidence = "authored" }
 "RenderFrame" = { declaration = "typedef FrameState RenderFrame;", evidence = "authored" }
-"ResetState" = { declaration = "struct ResetState { char pad[0x8]; s32 unk8; s32 unkC; char pad10[0x8]; s16 unk18; u16 unk1A; char pad1C[0x24]; int field40; int field44; };", evidence = "authored" }
+"ResetState" = { declaration = "struct ResetState { void *team; void *owner; void *unk8; s32 unkC; void *stack; s32 kind; s16 unk18; u16 unk1A; u8 teamIndex; f32 params[8]; int field40; int field44; };", evidence = "authored" }
 "S" = { declaration = "typedef struct S S;", evidence = "authored" }
 "Scene" = { declaration = "typedef struct Scene { u8 reserved000[0x564]; SceneBound *bounds; SceneObject *objects; void *reserved56C; void *modelRefs; void *modelGroups; void *modelParts; void *frames; void *parts; SceneView views[4]; s32 boundCount; s32 sortedCount; } Scene;", evidence = "authored" }
 "SceneBound" = { declaration = "typedef struct SceneBound { u16 reserved00, object; f32 rectangle[4]; s32 key; } SceneBound;", evidence = "authored" }
@@ -1898,6 +1963,7 @@ schema = 1
 "TextureInfo" = { declaration = "typedef struct FrameTexture TextureInfo;", evidence = "authored" }
 "TextureTable" = { declaration = "typedef struct TextureTable { TextureInfo *info; void *images; } TextureTable;", evidence = "authored" }
 "U16HistoryQueue" = { declaration = "typedef struct U16HistoryQueue { u16 *data; u16 readIndex; u16 oldestIndex; u16 count; u16 historyCount; u16 capacity; } U16HistoryQueue;", evidence = "authored" }
+"UnitPairing" = { declaration = "typedef struct UnitPairing { u8 first, second, connected, state; u8 flags[4]; s32 value; } UnitPairing;", evidence = "authored" }
 "Unknown800917C4" = { declaration = "typedef struct Unknown800917C4 Unknown800917C4;", evidence = "authored" }
 "Unknown8009E39C" = { declaration = "struct Unknown8009E39C { unsigned char unk_000[0x54]; unsigned char member[4]; };", evidence = "authored" }
 "Unknown800A424C" = { declaration = "struct Unknown800A424C { unsigned char unk_000[0x48]; unsigned char member[4]; };", evidence = "authored" }

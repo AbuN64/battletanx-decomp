@@ -54,4 +54,5 @@ struct func_800E34B4_S1_Shared800E34B4 {
     void * unk10;
     s32 unk14;
 };
+typedef struct DriveCommand { s32 mode; f32 turn, drive; s8 buttons[5]; } DriveCommand;
 #endif

@@ -1,13 +1,11 @@
+#include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 
 
 
 
 
-extern s32 func_8007B268();
-extern EffectScriptStep *D_auto_80138F3C[];
 
-void func_800ED994(ScriptedEffect *effect, s32 *status);
 
 static inline s32 script_has_step(EffectScriptStep *script, s32 step) {
     EffectScriptStep *entry = &script[step];

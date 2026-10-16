@@ -60,4 +60,5 @@ struct func_800E6CA4_S1_Shared800E6CA4 {
     f32 unk4DC;
     f32 unk4E0;
 };
+typedef struct UnitPairing { u8 first, second, connected, state; u8 flags[4]; s32 value; } UnitPairing;
 #endif

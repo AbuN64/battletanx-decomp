@@ -4,12 +4,12 @@
 #include "span_1000/code_800E9538.h"
 
 
-s32 func_800EB4E4(void) {
-    func_800E6FD8();
+s32 func_800EB4E4(struct ResetState *context) {
+    func_800E6FD8(context);
     return -1;
 }
 
-s32 func_800EB504(s32 arg0) {
+s32 func_800EB504(struct ResetState *arg0) {
     func_800E9A00(arg0, 0);
     func_800E75D4(arg0);
     func_800E99D4(arg0);

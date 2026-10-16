@@ -3,16 +3,16 @@
 #include "span_1000/code_800E9538.h"
 
 
-s32 func_800EAD2C(void) {
-    func_800E6FD8();
+s32 func_800EAD2C(struct ResetState *context) {
+    func_800E6FD8(context);
     return -1;
 }
 
-void func_800EAD4C(s32 arg0) {
+void func_800EAD4C(struct ResetState *arg0) {
     func_800EA93C(arg0, &D_auto_80135E64);
 }
 
-void func_800EAD74(s32 arg0) {
+void func_800EAD74(struct ResetState *arg0) {
     func_800EA93C(arg0, &D_auto_80135F84);
 }
 

@@ -1,6 +1,7 @@
 #include "shared/bt_span_1000_code_800E5328.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_800E5328.h"
+#include "game/sys_80076000.h"
 
 struct Rec;
 
@@ -19,4 +20,17 @@ void func_800E566C(struct Rec *r) {
     r->e = 0;
     r->f = 0;
     r->a = 0;
+}
+
+void func_800E5688(UnitPairing *pair, u8 first, u8 second, u8 connected)
+{
+    pair->first = first;
+    pair->second = second;
+    pair->connected = connected;
+    pair->flags[0] = 0;
+    pair->flags[1] = 0;
+    pair->flags[2] = 0;
+    pair->flags[3] = 0;
+    pair->value = 0;
+    pair->state = 0;
 }
