@@ -1435,6 +1435,22 @@ extern u64 *D_auto_80152EF0[2];
 extern s32 D_auto_801B4A40;
 s32 func_8007A5A4(AudioFrameInfo *frame, AudioFrameInfo *previous);
 
+extern f32 D_auto_800746E8;
+extern f32 D_auto_800746EC;
+
+extern f32 D_auto_80074894;
+extern f32 D_auto_80074898;
+
+extern void func_800E28DC(void *entity, f32 *point, s32 arg2, s32 *result, s32 arg4);
+
+void func_800E18B0(u16 corner, struct PolygonPoint **start, struct PolygonPoint **end);
+
+s32 func_800DF214(u16 id);
+
+struct PolygonPoint *func_800E0A48(u32 id);
+
+void func_800E0A84(u16 *indices, struct PolygonPoint *out);
+
 #endif
 
 extern Gfx *D_auto_803276D0;

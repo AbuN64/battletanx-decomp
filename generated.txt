@@ -6,6 +6,7 @@ Makefile
 README.md
 ci/run
 docs/memory-map-us.svg
+docs/overview-us.svg
 generated.txt
 progress.json
 versions/stamp.json

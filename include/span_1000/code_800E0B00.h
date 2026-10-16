@@ -13,5 +13,5 @@ typedef struct Data80135834Ptr {
     s32 unk1C;
     s32 unk20;
 } Data80135834Ptr;
-extern Data80135834Ptr *D_auto_80135834;
+#include "shared/bt_navigation_mesh.h"
 
