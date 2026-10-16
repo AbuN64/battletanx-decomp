@@ -171,7 +171,7 @@ schema = 1
 "func_80081A50" = { evidence = "landed", signature = "int func_80081A50(void)" }
 "func_80081A78" = { evidence = "landed", signature = "u8 *func_80081A78(s32 size)" }
 "func_80081AC0" = { evidence = "landed", signature = "s32 func_80081AC0(void)" }
-"func_800821C0" = { evidence = "landed", signature = "s32 func_800821C0(void)" }
+"func_800821C0" = { evidence = "landed", signature = "Scene *func_800821C0(void)" }
 "func_800821D0" = { evidence = "landed", signature = "s32 func_800821D0(struct PolygonPoint *a, struct PolygonPoint *b, s32 mode)" }
 "func_8008228C" = { evidence = "authored", signature = "s32 func_8008228C()" }
 "func_800824E4" = { evidence = "authored", signature = "void func_800824E4(Scene *level, s32 arg1, void *arg2, void *arg3, s32 arg4, s32 arg5, s32 index)" }
@@ -210,6 +210,7 @@ schema = 1
 "func_8008CED0" = { evidence = "landed", signature = "s32 func_8008CED0(void)" }
 "func_8008DF2C" = { evidence = "landed", signature = "EffectKind16 *func_8008DF2C(Vec3f *pos, f32 speed, u16 angle, s8 arg3, u8 arg4, u16 arg5, u8 useLocalPoints, Vec3f *start, Vec3f *end, s32 arg9, s16 arg10)" }
 "func_8008F040" = { evidence = "landed", signature = "void func_8008F040(Vec3f *position, s32 count, f32 scale, s32 arg3)" }
+"func_8008F4EC" = { evidence = "landed", signature = "void func_8008F4EC(f32 *max, f32 *min, FrameVertex *vertices, s32 count)" }
 "func_8008F6F4" = { evidence = "authored", signature = "void func_8008F6F4(f32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 angleX, s32 angleY, s32 angleZ, s32 arg7, s32 arg8, s32 arg9, f32 arg10, void *part, s32 arg12, s32 arg13)" }
 "func_8008FB1C" = { evidence = "authored", signature = "int func_8008FB1C(void * arg0, void * arg1)" }
 "func_800902BC" = { evidence = "landed", signature = "void func_800902BC(f32 *arg0, s32 count)" }
@@ -583,8 +584,9 @@ schema = 1
 "func_800E4D2C" = { evidence = "authored", signature = "void func_800E4D2C(void * arg0)" }
 "func_800E4D44" = { evidence = "authored", signature = "void func_800E4D44(void * arg0, short arg1)" }
 "func_800E5198" = { evidence = "landed", signature = "void func_800E5198(void)" }
-"func_800E51A0" = { evidence = "authored", signature = "int func_800E51A0(int arg0)" }
+"func_800E51A0" = { evidence = "landed", signature = "s32 func_800E51A0(s32 index)" }
 "func_800E51B8" = { evidence = "landed", signature = "void func_800E51B8(void)" }
+"func_800E51C0" = { evidence = "landed", signature = "void func_800E51C0(void)" }
 "func_800E52A0" = { evidence = "authored", signature = "s32 func_800E52A0()" }
 "func_800E5328" = { evidence = "authored", signature = "int func_800E5328(int arg0, signed int * arg1)" }
 "func_800E566C" = { evidence = "landed", signature = "void func_800E566C(struct Rec *r)" }
@@ -791,8 +793,13 @@ schema = 1
 "func_800EF11C" = { evidence = "landed", signature = "s32 func_800EF11C(s32 arg0)" }
 "func_800EF144" = { evidence = "landed", signature = "s32 func_800EF144(s32 arg0)" }
 "func_800EF16C" = { evidence = "authored", signature = "s32 func_800EF16C(s32, s32, s32)" }
-"func_800F01D0" = { evidence = "authored", signature = "int func_800F01D0(void * arg0)" }
+"func_800F01D0" = { evidence = "landed", signature = "void func_800F01D0(EffectKind21 *effect)" }
+"func_800F0234" = { evidence = "landed", signature = "void func_800F0234(EffectKind21 *effect)" }
 "func_800F03B4" = { evidence = "authored", signature = "int func_800F03B4(void * arg0, void * arg1)" }
+"func_800F0738" = { evidence = "authored", signature = "void func_800F0738(EffectKind21 *effect, void *sender, void *input, void *output)" }
+"func_800F09D0" = { evidence = "authored", signature = "void func_800F09D0(EffectKind21 *effect, void *sender, void *input, void *output)" }
+"func_800F0B60" = { evidence = "authored", signature = "void func_800F0B60(EffectKind21 *effect, void *sender, void *input)" }
+"func_800F0CF0" = { evidence = "landed", signature = "void func_800F0CF0(EffectKind21 *effect, void *sender, u32 message, void *input, PositionReport *report)" }
 "func_800F0DE0" = { evidence = "landed", signature = "void func_800F0DE0(void *arg0, s32 *arg1)" }
 "func_800F15A0" = { evidence = "landed", signature = "s32 func_800F15A0(f32 *pos, s16 value18, s8 value1A, s16 value1C, s32 value20, s32 value24, s32 value28, s32 value2C)" }
 "func_800F16E4" = { evidence = "authored", signature = "int func_800F16E4(void * arg0, void * arg1)" }
@@ -804,7 +811,7 @@ schema = 1
 "func_800F2270" = { evidence = "authored", signature = "int func_800F2270(void * arg0, void * arg1, void * arg2, void * arg3)" }
 "func_800F2614" = { evidence = "landed", signature = "int func_800F2614(struct N *arg0, s32 *arg1)" }
 "func_800F2630" = { evidence = "landed", signature = "void func_800F2630(EffectHeader *owner, Vec3f *position, s16 angle)" }
-"func_800F2ED4" = { evidence = "authored", signature = "int func_800F2ED4(void * arg0, void * arg1)" }
+"func_800F2ED4" = { evidence = "landed", signature = "void func_800F2ED4(EffectKind19 *effect, s32 *state)" }
 "func_800F3014" = { evidence = "landed", signature = "void func_800F3014(s8 arg0, s8 arg1, s8 arg2, s8 arg3, u8 arg4, u8 arg5, s32 arg6, s32 arg7)" }
 "func_800F3234" = { evidence = "authored", signature = "unsigned char func_800F3234(void * arg0)" }
 "func_800F3490" = { evidence = "landed", signature = "void func_800F3490(GrenadeEffect *e, s32 *status)" }
@@ -1424,6 +1431,7 @@ schema = 1
 "D_auto_80125860" = { declaration = "extern s32 D_auto_80125860;", evidence = "authored" }
 "D_auto_801258D8" = { declaration = "extern s32 D_auto_801258D8;", evidence = "authored" }
 "D_auto_80125A30" = { declaration = "extern s16 D_auto_80125A30[];", evidence = "authored" }
+"D_auto_80125A68" = { declaration = "extern RomAsset D_auto_80125A68[];", evidence = "authored" }
 "D_auto_80125C40" = { declaration = "extern s32 D_auto_80125C40;", evidence = "authored" }
 "D_auto_80125D40" = { declaration = "extern s32 D_auto_80125D40;", evidence = "authored" }
 "D_auto_80125D44" = { declaration = "extern s32 D_auto_80125D44;", evidence = "authored" }
@@ -1515,6 +1523,9 @@ schema = 1
 "D_auto_80135834" = { declaration = "extern NavigationMesh *D_auto_80135834;", evidence = "authored" }
 "D_auto_80135838" = { declaration = "extern s16 D_auto_80135838;", evidence = "authored" }
 "D_auto_8013583C" = { declaration = "extern s32 D_auto_8013583C;", evidence = "authored" }
+"D_auto_8013589D" = { declaration = "extern u8 D_auto_8013589D;", evidence = "authored" }
+"D_auto_8013589E" = { declaration = "extern u8 D_auto_8013589E;", evidence = "authored" }
+"D_auto_8013589F" = { declaration = "extern u8 D_auto_8013589F;", evidence = "authored" }
 "D_auto_80135D80" = { declaration = "extern struct Rule D_auto_80135D80;", evidence = "authored" }
 "D_auto_80135DB4" = { declaration = "extern s32 D_auto_80135DB4;", evidence = "authored" }
 "D_auto_80135DDC" = { declaration = "extern s32 D_auto_80135DDC;", evidence = "authored" }
@@ -1620,7 +1631,7 @@ schema = 1
 "D_auto_801B6C20" = { declaration = "extern unsigned char D_auto_801B6C20;", evidence = "authored" }
 "D_auto_801C0840" = { declaration = "extern DrawGroup *D_auto_801C0840[][32];", evidence = "authored" }
 "D_auto_801C2F40" = { declaration = "extern Gfx D_auto_801C2F40[2][0x400];", evidence = "authored" }
-"D_auto_801C9170" = { declaration = "extern s32 D_auto_801C9170;", evidence = "authored" }
+"D_auto_801C9170" = { declaration = "extern Scene *D_auto_801C9170;", evidence = "authored" }
 "D_auto_801C9174" = { declaration = "extern s32 D_auto_801C9174;", evidence = "authored" }
 "D_auto_801C9178" = { declaration = "extern s32 D_auto_801C9178;", evidence = "authored" }
 "D_auto_801C9188" = { declaration = "extern s32 D_auto_801C9188;", evidence = "authored" }
@@ -1896,6 +1907,8 @@ schema = 1
 "EffectKind0D" = { declaration = "typedef struct EffectKind0D { EffectHeader header; f32 value0C; f32 value10; f32 value14; s16 value18; s8 value1A; s16 value1C; s32 value20; s32 value24; s32 value28; s8 value2C; } EffectKind0D;", evidence = "authored" }
 "EffectKind16" = { declaration = "typedef struct EffectKind16 { EffectHeader header; Vec3f pos; f32 speed; u16 angle; u16 value1E; u16 value20; s16 value22; u8 value24; u8 value25; s8 value26; u8 value27; Vec3f localStart; Vec3f localEnd; s32 value40; s16 value44; u8 value46; } EffectKind16;", evidence = "authored" }
 "EffectKind18" = { declaration = "typedef struct EffectKind18 { EffectHeader header; Vec3f position; s16 angle; EffectHeader *owner; u32 ownerSerial; s32 frame; } EffectKind18;", evidence = "authored" }
+"EffectKind19" = { declaration = "typedef struct EffectKind19 { EffectHeader header; u8 red, green, blue; s32 frameLimit, frame, player; } EffectKind19;", evidence = "authored" }
+"EffectKind21" = { declaration = "typedef struct EffectKind21 { EffectHeader header; u8 flags; f32 z, x; u16 angle; s32 motion, slot, hits, lastTick; s16 model, sound; u16 secondaryModel; s16 count, heading; } EffectKind21;", evidence = "authored" }
 "EffectKind2B" = { declaration = "typedef struct EffectKind2B { EffectHeader header; s32 value0C; Vec3f position; s32 lifetime; u16 value20; u16 value22; f32 value24; f32 value28; s32 value2C; u8 mode; s16 value32; u16 value34; u16 value36; f32 drift; u8 currentIndex; u8 nextIndex; u8 value3E; u8 value3F; u16 blend; u16 blendStep; } EffectKind2B;", evidence = "authored" }
 "EffectKind2BParams" = { declaration = "typedef struct EffectKind2BParams { s32 value00; Vec3f position; f32 value10; f32 value14; s32 value18; s32 lifetime; u16 value20; u16 value22; u16 value24; u16 value26; u16 value28; } EffectKind2BParams;", evidence = "authored" }
 "EffectKind2D" = { declaration = "typedef struct EffectKind2D { EffectHeader header; EffectKind2DTriple value0C; u16 value18; s32 value1C; u16 value20; s32 value24; f32 value28; f32 value2C; u8 value30; u8 value31; s16 value32; u8 value34; u8 value35; s16 value36; s16 value38; } EffectKind2D;", evidence = "authored" }
@@ -2045,10 +2058,11 @@ schema = 1
 "Record" = { declaration = "typedef struct Record Record;", evidence = "authored" }
 "RenderFrame" = { declaration = "typedef FrameState RenderFrame;", evidence = "authored" }
 "ResetState" = { declaration = "struct ResetState { void *team; void *owner; void *unk8; s32 unkC; void *stack; s32 kind; s16 unk18; u16 unk1A; u8 teamIndex; f32 params[8]; int field40; int field44; };", evidence = "authored" }
+"RomAsset" = { declaration = "typedef struct RomAsset { const u8 *start, *end; const u8 *alternateStart, *alternateEnd; } RomAsset;", evidence = "authored" }
 "S" = { declaration = "typedef struct S S;", evidence = "authored" }
 "Scene" = { declaration = "typedef struct Scene { u8 reserved000[0x564]; SceneBound *bounds; SceneObject *objects; void *reserved56C; void *modelRefs; void *modelGroups; void *modelParts; void *frames; void *parts; SceneView views[4]; s32 boundCount; s32 sortedCount; } Scene;", evidence = "authored" }
 "SceneBound" = { declaration = "typedef struct SceneBound { u16 reserved00, object; f32 rectangle[4]; s32 key; } SceneBound;", evidence = "authored" }
-"SceneObject" = { declaration = "typedef struct SceneObject { u8 flags, mode; u16 reserved02; u32 kind; u32 transform[19]; u16 model; u16 reserved56; } SceneObject;", evidence = "authored" }
+"SceneObject" = { declaration = "typedef struct SceneObject { u8 flags, mode; u16 reserved02; u32 kind; f32 transform[4][4]; f32 z, x; u16 heading; s16 alternateModel; u16 model; u16 reserved56; } SceneObject;", evidence = "authored" }
 "SceneView" = { declaration = "typedef struct SceneView { f32 forwardZ, forwardX, sideX, sideZ; f32 offsetX, offsetZ; u8 disableCulling; u8 reserved19[3]; u32 reserved1C; f32 z, x; u8 mode; u8 reserved29[3]; } SceneView;", evidence = "authored" }
 "ScriptedEffect" = { declaration = "typedef struct ScriptedEffect { EffectHeader header; u8 script; u16 startTime; s16 now; s16 elapsed; u8 step; } ScriptedEffect;", evidence = "authored" }
 "SegmentBounds" = { declaration = "struct SegmentBounds { f32 min_x; f32 max_x; f32 min_y; f32 max_y; };", evidence = "authored" }

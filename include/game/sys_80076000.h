@@ -1483,6 +1483,14 @@ extern void func_800A0930(ShotEffect *, s32, s32, s32);
 
 extern char D_auto_80072DFC[];
 
+extern u8 D_auto_8013589D;
+extern u8 D_auto_8013589E;
+extern u8 D_auto_8013589F;
+
+extern void func_800F0738(EffectKind21 *effect, void *sender, void *input, void *output);
+extern void func_800F09D0(EffectKind21 *effect, void *sender, void *input, void *output);
+extern void func_800F0B60(EffectKind21 *effect, void *sender, void *input);
+
 #endif
 
 extern Gfx *D_auto_803276D0;

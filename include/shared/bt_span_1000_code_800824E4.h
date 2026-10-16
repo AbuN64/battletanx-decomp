@@ -29,7 +29,10 @@ typedef struct SceneObject {
     u8 flags, mode;
     u16 reserved02;
     u32 kind;
-    u32 transform[19];
+    f32 transform[4][4];
+    f32 z, x;
+    u16 heading;
+    s16 alternateModel;
     u16 model;
     u16 reserved56;
 } SceneObject;

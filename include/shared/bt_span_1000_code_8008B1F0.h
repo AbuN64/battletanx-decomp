@@ -210,4 +210,19 @@ typedef struct PositionReport {
     s8 valid;
     f32 z, x;
 } PositionReport;
+typedef struct EffectKind19 {
+    EffectHeader header;
+    u8 red, green, blue;
+    s32 frameLimit, frame, player;
+} EffectKind19;
+typedef struct EffectKind21 {
+    EffectHeader header;
+    u8 flags;
+    f32 z, x;
+    u16 angle;
+    s32 motion, slot, hits, lastTick;
+    s16 model, sound;
+    u16 secondaryModel;
+    s16 count, heading;
+} EffectKind21;
 #endif
