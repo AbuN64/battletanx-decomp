@@ -15,4 +15,5 @@ extern void func_auto_800DDA00(void);
 
 
 
+typedef struct FontTable { s32 count; s32 offsets[1]; } FontTable;
 #endif

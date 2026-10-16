@@ -13,7 +13,7 @@ typedef struct FrameVertex {
     s16 tc[2];
     u8 cn[4];
 } FrameVertex;
-struct FrameTexture;
+struct FrameTexture { u16 fmt, siz, width, height, masks, maskt; };
 typedef struct FrameState {
     Gfx *main;
     Gfx *overlay;

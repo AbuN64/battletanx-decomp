@@ -8,4 +8,162 @@ extern void func_8008C2DC(int arg0);
 
 
 
+typedef struct EffectHeader {
+    s16 next;
+    u16 reserved02;
+    u32 serial;
+    u32 kind;
+} EffectHeader;
+typedef struct GrenadeEffect {
+    EffectHeader header;
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 vx;
+    f32 vy;
+    f32 vz;
+    u16 timer;
+    u16 spin;
+    u8 owner;
+    s32 ignore;
+} GrenadeEffect;
+typedef struct PointZX {
+    f32 z;
+    f32 x;
+} PointZX;
+typedef struct SegmentHit {
+    struct QueryObject *object;
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 normalZ;
+    f32 normalX;
+} SegmentHit;
+typedef struct EffectMatrix16 {
+    f32 m[4][4];
+} EffectMatrix16;
+typedef struct Vec3f {
+    f32 x;
+    f32 y;
+    f32 z;
+} Vec3f;
+typedef struct EffectKind16 {
+    EffectHeader header;
+    Vec3f pos;
+    f32 speed;
+    u16 angle;
+    u16 value1E;
+    u16 value20;
+    s16 value22;
+    u8 value24;
+    u8 value25;
+    s8 value26;
+    u8 value27;
+    Vec3f localStart;
+    Vec3f localEnd;
+    s32 value40;
+    s16 value44;
+    u8 value46;
+} EffectKind16;
+typedef struct EffectKind2B {
+    EffectHeader header;
+    s32 value0C;
+    Vec3f position;
+    s32 lifetime;
+    u16 value20;
+    u16 value22;
+    f32 value24;
+    f32 value28;
+    s32 value2C;
+    u8 mode;
+    s16 value32;
+    u16 value34;
+    u16 value36;
+    f32 drift;
+    u8 currentIndex;
+    u8 nextIndex;
+    u8 value3E;
+    u8 value3F;
+    u16 blend;
+    u16 blendStep;
+} EffectKind2B;
+typedef struct EffectKind2BParams {
+    s32 value00;
+    Vec3f position;
+    f32 value10;
+    f32 value14;
+    s32 value18;
+    s32 lifetime;
+    u16 value20;
+    u16 value22;
+    u16 value24;
+    u16 value26;
+    u16 value28;
+} EffectKind2BParams;
+typedef struct ScriptedEffect {
+    EffectHeader header;
+    u8 script;
+    u16 startTime;
+    s16 now;
+    s16 elapsed;
+    u8 step;
+} ScriptedEffect;
+typedef struct EffectScriptStep {
+    s32 (*handler)(ScriptedEffect *effect, s32 a, s32 b);
+    s32 a;
+    s32 b;
+} EffectScriptStep;
+typedef struct EffectKind2DTriple {
+    s32 value00;
+    s32 value04;
+    s32 value08;
+} EffectKind2DTriple;
+typedef struct EffectKind2DParams {
+    EffectKind2DTriple value00;
+    u16 value0C;
+    s32 value10;
+    u16 value14;
+    s32 value18;
+    f32 value1C;
+    f32 value20;
+} EffectKind2DParams;
+typedef struct EffectKind2D {
+    EffectHeader header;
+    EffectKind2DTriple value0C;
+    u16 value18;
+    s32 value1C;
+    u16 value20;
+    s32 value24;
+    f32 value28;
+    f32 value2C;
+    u8 value30;
+    u8 value31;
+    s16 value32;
+    u8 value34;
+    u8 value35;
+    s16 value36;
+    s16 value38;
+} EffectKind2D;
+typedef struct EffectKind0D {
+    EffectHeader header;
+    f32 value0C;
+    f32 value10;
+    f32 value14;
+    s16 value18;
+    s8 value1A;
+    s16 value1C;
+    s32 value20;
+    s32 value24;
+    s32 value28;
+    s8 value2C;
+} EffectKind0D;
+typedef struct EffectKind0A {
+    EffectHeader header;
+    s32 value0C;
+    f32 value10;
+    f32 value14;
+    f32 value18;
+    s32 value1C;
+} EffectKind0A;
+
 #endif

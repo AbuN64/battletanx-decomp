@@ -10,6 +10,8 @@
 #include "shared/bt_span_1000_code_800D1AD0.h"
 #include "sdk/libultra.h"
 #include "span_1000/code_8007A470.h"
+#include "shared/bt_span_1000_code_8008B1F0.h"
+#include "shared/bt_span_1000_code_800DAD5C.h"
 
 extern s32 D_auto_801502E0;
 
@@ -124,13 +126,13 @@ extern s32 func_800E7064(s32);
 
 extern s32 func_800E70C4(s32);
 
-extern s32 func_800E75D4(s32);
-extern s32 func_800E6AAC(s32);
+s32 func_800E75D4(struct ResetState *context);
+s32 func_800E6AAC(struct ResetState *context);
 extern s32 func_800E7394(s32);
 
 extern s8 D_auto_8032900F;
 
-extern s32 func_800E7168(s32, s32);
+s32 func_800E7168(struct ResetState *context, s32 action);
 
 extern s32 func_800E6BF0(s32);
 
@@ -679,7 +681,7 @@ extern u8 *D_803AAD98;
 extern s32 D_803B75A0;
 void func_80105D90(void *context, u8 *text, s32 lineCount, s32 lineHeight, s32 left, s32 right);
 
-extern void func_801053B0(s32 font);
+void func_801053B0(u8 font);
 extern s32 func_800F4F60(u32 sourceSize, u8 *source, u32 destinationSize, u8 *destination);
 extern s8 D_auto_80132EF0;
 extern u8 *D_auto_803275F4;
@@ -1197,5 +1199,104 @@ void func_800CA980(void);
 
 extern u8 D_auto_B04AD7E0[];
 void func_800DADBC(void);
+
+extern void func_800ED8C0(f32 *position, s32 variant);
+extern void func_800902BC(f32 *position, s32 arg1);
+extern void func_8009F958(GrenadeEffect *e, PointZX *center, f32 radius, f32 damage, s32 owner);
+extern s32 func_80085B4C(s32 soundId, f32 x, f32 z);
+void func_800F3490(GrenadeEffect *e, s32 *status);
+
+s32 func_800E7320(struct ResetState *context);
+s32 func_800E7340(struct ResetState *context);
+s32 func_800E7360(struct ResetState *context);
+s32 func_800E7380(struct ResetState *context);
+
+s32 func_800EB2CC(struct ResetState *arg0);
+
+extern EffectMatrix16 D_auto_80071B6C;
+extern f32 D_auto_80071BAC;
+extern f32 D_auto_80071BB0;
+extern void func_800A82B8(EffectMatrix16 *target, EffectMatrix16 *matrix, u16 angle);
+EffectKind16 *func_8008DF2C(Vec3f *pos, f32 speed, u16 angle, s8 arg3, u8 arg4, u16 arg5, u8 useLocalPoints,
+                                   Vec3f *start, Vec3f *end, s32 arg9, s16 arg10);
+
+extern f32 D_auto_80075510;
+extern f32 D_auto_80075518;
+extern u16 D_auto_80142B70[];
+EffectKind2B *func_8010BDA0(EffectKind2BParams *params);
+
+extern u32 D_auto_80142CD0;
+s32 func_8010CB60(EffectKind2DParams *params);
+
+s32 func_800F15A0(f32 *pos, s16 value18, s8 value1A, s16 value1C, s32 value20, s32 value24,
+                         s32 value28, s32 value2C);
+
+extern f32 D_auto_8007438C;
+EffectKind0A *func_800DD970(f32 *pos, s32 arg);
+
+void func_8010BEFC(EffectKind2B *effect, s32 *result);
+
+s32 func_800EBA00(struct ResetState *context);
+
+s32 func_800EACEC(struct ResetState *context);
+
+s32 func_800EBBBC(struct ResetState *context);
+
+extern s32 func_800AB95C(u32 mode);
+extern s16 D_auto_80133FE0;
+extern u32 D_auto_80134058[];
+extern u32 D_auto_80134080[];
+extern s32 D_auto_80327EE4;
+
+s32 func_800E6A78(struct ResetState *);
+s32 func_800E6BBC(struct ResetState *);
+s32 func_800E70DC(struct ResetState *);
+s32 func_800E73A4(struct ResetState *);
+s32 func_800E73E0(struct ResetState *);
+s32 func_800E7458(struct ResetState *);
+s32 func_800E7490(struct ResetState *);
+s32 func_800E7560(struct ResetState *);
+s32 func_800E7628(struct ResetState *);
+s32 func_800E76D0(struct ResetState *);
+int func_auto_800EB71C(struct ResetState * arg0);
+int func_auto_800EB764(struct ResetState * arg0);
+int func_auto_800EB7AC(struct ResetState * arg0);
+
+extern f32 D_auto_800749A0;
+extern f32 D_auto_800749A4;
+s32 func_800EAD9C(struct ResetState *context);
+
+extern s32 D_auto_80142B50[4];
+extern s32 D_auto_80142B60[4];
+extern s16 D_auto_803B75B0[4][20][20];
+extern s16 D_auto_803B8230;
+extern s32 D_auto_803B8238;
+extern s32 D_auto_803B823C;
+extern SpatialRecord D_auto_803B8248[];
+u8 func_80108B68(QueryBox *body, s32 self, u16 mask, f32 *delta, f32 *out, s32 arg5, s32 arg6,
+                     s32 *owner);
+
+extern s32 D_auto_803AAD80;
+extern s32 D_auto_803AAD84;
+extern FontTable *D_auto_803AAD9C;
+extern u8 D_auto_803AADA0[];
+extern f32 D_auto_80075420;
+extern u8 D_auto_B02C3E50[];
+extern u8 D_auto_B02CB230[];
+extern u8 D_auto_B02D2790[];
+
+void func_800AACCC(u32 table, u16 index, s32 tile);
+
+s32 func_800EBAE0(struct ResetState *context);
+
+s32 func_800EB07C(struct ResetState *context);
+
+s32 func_800EAF14(struct ResetState *context);
+
+s32 func_800EBED4(struct ResetState *context);
+
+extern s32 D_auto_803B8234;
+extern s32 D_auto_803B8240;
+void func_80106B60(s32 width, s32 height);
 
 #endif

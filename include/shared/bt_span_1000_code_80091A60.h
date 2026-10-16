@@ -121,4 +121,17 @@ typedef struct ViewCone {
 /* A four-corner polygon in the shared planar coordinate order. */
 typedef struct Quad2f { struct PolygonPoint points[4]; } Quad2f;
 
+typedef struct SpatialRecord {
+    u16 mode;
+    s16 next;
+    s16 prev;
+    u16 reserved06;
+    s32 owner;
+    QueryBox body;
+    s16 cellLinks[4];
+} SpatialRecord;
+
+u8 func_8010B9C8(QueryBox *body, f32 *delta, QueryBox *other, s32 arg3, s32 arg4);
+
+
 #endif

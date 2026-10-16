@@ -1,4 +1,5 @@
 #include "shared/bt_types.h"
+#include "game/sys_80076000.h"
 extern s32 func_80096920(s32 controller, s32 repeat);
 extern void func_800C80E0(void);
 extern s32 D_auto_80134010[];
@@ -47,4 +48,31 @@ s32 func_800C7FC0(void)
         result = 2;
     }
     return result;
+}
+
+void func_80077930(s32 arg0, s32 arg1, s32 arg2);
+
+
+
+
+void func_800C80E0(void) {
+    s32 previousMode;
+    u32 romStart;
+    u32 size;
+    s32 bundle;
+
+    if (D_auto_80134010[D_auto_80327EE8] >= 10) {
+        D_auto_80134010[D_auto_80327EE8] = 0;
+    }
+    if (D_auto_80134010[D_auto_80327EE8] != D_auto_80327EE4) {
+        previousMode = func_800AB95C(4);
+        bundle = D_auto_80134010[D_auto_80327EE8];
+        size = D_auto_80134080[bundle] - D_auto_80134058[bundle];
+        romStart = D_auto_80134058[bundle];
+        func_80077930(romStart, D_auto_803DA800, size);
+        func_800F4F60(size, D_auto_803DA800, 0x25800, D_auto_803275F4);
+        func_800AB95C(previousMode);
+        D_auto_80133FE0 = 0x40;
+        D_auto_80327EE4 = D_auto_80134010[D_auto_80327EE8];
+    }
 }
