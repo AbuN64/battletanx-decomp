@@ -1,6 +1,7 @@
 #include "shared/bt_types.h"
 #include "shared/audio_callbacks.h"
 #pragma once
+#include "shared/bt_camera.h"
 
 s32 func_800A27D0();
 s32 func_800A2A44();
@@ -36,7 +37,7 @@ struct Unknown800A4D1C {
 };
 
 s32 func_80078634();
-s32 func_80078680();
+void func_80078680(AttachedCamera *camera, Vec3f *offset);
 extern s32 D_auto_80126128;
 extern s32 D_auto_80126140;
 

@@ -198,4 +198,16 @@ typedef struct EffectKind18 {
     s32 frame;
 } EffectKind18;
 
+typedef struct ShotEffect {
+    EffectHeader header;
+    u32 kind;
+    f32 position[3];
+    u16 volume;
+    s32 motion;
+    u8 state, alternate, soundClass;
+} ShotEffect;
+typedef struct PositionReport {
+    s8 valid;
+    f32 z, x;
+} PositionReport;
 #endif

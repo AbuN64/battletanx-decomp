@@ -1470,6 +1470,19 @@ extern const char D_auto_80072E14[];
 
 extern s32 func_800983E0(CombatUnit *unit, s32 amount, u8 entityId, s32 arg3);
 
+extern int func_80077E94(void *camera);
+
+extern s16 D_auto_802D5A5A;
+extern s16 D_auto_802D5A76;
+extern s16 D_auto_802D5A8E;
+extern s16 D_auto_802D5AC0;
+
+extern void func_800905D8(s32 sound, f32 *position, s32, s32, s32, s32, s32);
+extern void func_800A06F8(ShotEffect *, s32, s32, PositionReport *);
+extern void func_800A0930(ShotEffect *, s32, s32, s32);
+
+extern char D_auto_80072DFC[];
+
 #endif
 
 extern Gfx *D_auto_803276D0;

@@ -9,3 +9,19 @@ void func_800A04F0(Obj80137A3C *arg0, s32 *arg1) {
     }
     *arg1 = 2;
 }
+
+s32 func_800A052C(ShotEffect *object)
+{
+    switch (object->kind) {
+    case 0:
+        return D_auto_802D5A5A;
+    case 2:
+        return D_auto_802D5A8E;
+    case 1:
+        if (object->alternate) {
+            return D_auto_802D5AC0;
+        }
+        return D_auto_802D5A76;
+    }
+    return 0;
+}
