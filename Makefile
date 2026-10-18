@@ -74,7 +74,9 @@ define COMPILE_gcc_2_8_1_sn64
 $(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
 $(Q)$(CC_gcc_2_8_1_sn64) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
 $(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
+$(Q)sed -i -E 's/^([ \t]*\.word[ \t]+\.L[0-9]+)[ \t]*$$/\1-0x80000000/' $(@:.o=.s)
 $(Q)$(N64LINK) asn64 --as $(AS_gcc_2_8_1_sn64) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@
+$(Q)$(OBJCOPY) --set-section-flags .rdata=alloc,load,readonly,data,contents $@
 endef
 define COMPILE_ido_7_1
 $(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
@@ -441,10 +443,10 @@ build/%.bin.o: asm/%.bin
 build/%/link.ld: $(NAME).ld
 	$(Q)mkdir -p $(@D)
 	$(Q)$(CPP) -P -undef -D$(VMACRO_$*) $< > $@
-# Every fact of symbol_addrs.txt and every name splat left undefined, PROVIDEd: what no object defines (data outside
+# Every fact of symbol_addrs.txt and aliases.txt and every name splat left undefined, PROVIDEd: what no object defines (data outside
 # the ROM). So is every name splat made up that the extracted assembly spells, at the address the name carries: a .L
 # label the assembler keeps out of the object, or a label inside bytes a C file compiles.
-build/%/undefined_syms.ld: versions/%/symbol_addrs.txt build/%/undefined_syms_auto.txt build/%/undefined_funcs_auto.txt asm/%/.extracted
+build/%/undefined_syms.ld: versions/%/symbol_addrs.txt build/%/undefined_syms_auto.txt build/%/undefined_funcs_auto.txt asm/%/.extracted $$(wildcard versions/$$*/aliases.txt)
 	$(Q)sed -nE 's/^([A-Za-z_.][A-Za-z0-9_.$$]*)[[:space:]]*=[[:space:]]*(0x[0-9A-Fa-f]+);.*/PROVIDE(\1 = \2);/p' $^ > $@
 	$(Q)grep -rhoE --include='*.s' '[A-Za-z_.]*auto_[0-9A-F]{8}\b' asm/$* | sort -u | sed -E 's/^([A-Za-z_.]*auto_(.*))$$/PROVIDE(\1 = 0x\2);/' >> $@
 build/%/undefined_syms_auto.txt build/%/undefined_funcs_auto.txt:
