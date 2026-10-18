@@ -8,6 +8,7 @@ readme_map = "us"
 
 [version.us]
 sha1 = "535860d941738ac1210c20a9b80114fea0e0ff17"
+size = 0x800000
 cartridge_id = "NUS-NBXE-0"
 region = "North America"
 description = "NTSC release."
