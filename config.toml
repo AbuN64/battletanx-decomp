@@ -1,224 +1,133 @@
-schema = 3
-
-[project]
-id = "21d5f798-5b7b-4cae-aa1d-3ca69e54c99f"
+schema = 4
 name = "BattleTanx"
 title = "BattleTanx"
-versions = ["us"]
-names_from = "us"
 toolchain = "gcc-2.7.2-kmc"
-
-[build]
-# Preprocessor flags passed to every compile.
-cppflags = ["-P", "-undef", "-nostdinc", "-D_LANGUAGE_C", "-DF3DEX_GBI_2", "-D__GNUC__=2"]
-# Compiler code generation flags passed to every compile.
-cflags = []
-# Assembler flags for hand-written assembly units.
-asflags = ["-march=vr4300", "-mabi=32", "-EB", "-G0", "--no-pad-sections"]
-# GNU assembler flags for compiler-emitted assembly.
-gnu_asflags = ["-mips3"]
-
-[resident]
-
-[[resident.us]]
-address = 2147946496
-end = 24576
-start = 4096
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2147971224
-end = 28944
-start = 28824
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2147973896
-end = 31504
-start = 31496
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2147980712
-end = 38320
-start = 38312
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2147996716
-end = 54320
-start = 54316
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148000056
-end = 57664
-start = 57656
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148033340
-end = 91000
-start = 90940
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148052236
-end = 109840
-start = 109836
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148077272
-end = 134880
-start = 134872
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148079468
-end = 137156
-start = 137068
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148089132
-end = 146736
-start = 146732
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148089948
-end = 147552
-start = 147548
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148101748
-end = 159360
-start = 159348
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148140024
-end = 197632
-start = 197624
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148142292
-end = 201072
-start = 199892
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148151112
-end = 209008
-start = 208712
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148163556
-end = 221168
-start = 221156
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148169288
-end = 226896
-start = 226888
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148178964
-end = 236576
-start = 236564
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148340740
-end = 398652
-start = 398340
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148390808
-end = 448880
-start = 448408
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148407828
-end = 465440
-start = 465428
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148422300
-end = 479904
-start = 479900
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148453380
-end = 511004
-start = 510980
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148559700
-end = 617312
-start = 617300
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148587588
-end = 645200
-start = 645188
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148589912
-end = 656512
-start = 647512
-table_entry_bias = 2147483648
-
-[[resident.us]]
-address = 2148682044
-end = 739648
-start = 739644
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148683448
-end = 741056
-start = 741048
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148684868
-end = 742480
-start = 742468
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148684956
-end = 742560
-start = 742556
-table_entry_bias = 0
-
-[[resident.us]]
-address = 2148685136
-end = 880704
-start = 742736
-table_entry_bias = 0
-
+cppflags = ["-DF3DEX_GBI_2"]
+readme_map = "us"
 
 [version.us]
-baserom = "roms/baserom.us.z64"
-baserom_sha1 = "535860d941738ac1210c20a9b80114fea0e0ff17"
-split = "versions/us/BattleTanx.yaml"
-symbols = "versions/us/symbol_addrs.txt"
-macros = ["VERSION_US"]
+sha1 = "535860d941738ac1210c20a9b80114fea0e0ff17"
 cartridge_id = "NUS-NBXE-0"
 region = "North America"
 description = "NTSC release."
+segments = [
+  { name = "retained_0", rom = 0x0, kind = "bin" },
+  { name = "span_1000", rom = 0x1000, vram = 0x80071000 },
+  { name = "retained_D7040", rom = 0xD7040, kind = "bin" },
+]
+
+[file."src/game/sys_80076000/code_80076000_800949B8.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_80076000_80096784.c"]
+toolchain = "gcc-2.8.1-sn64"
+
+[file."src/game/sys_80076000/code_80097C24.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_80097C24_8009E39C.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_800A42BC.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_800A42C4_800A4D10.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_800A6798_800A76A0.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_800A8940_80073210.c"]
+toolchain = "gcc-2.7.2-kmc"
+cflags = ["-UF3DEX_GBI_2", "-G8"]
+omit = ["-G0"]
+
+[file."src/game/sys_80076000/code_800C5B90_800E3C18.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_80076000/code_800C5B90_800E99D4.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_801121E0/code_8011B8F0.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_801121E0/code_8011B9E0.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_801121E0/code_8011BD50_8011BDE4.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_8011C210/code_8011C2B0_8011C300.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_8011C210/code_8011EB90_8011EBB8.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_8011C210/code_8011EB90_8011ECA4.c"]
+toolchain = "ido-7.1"
+
+[file."src/game/sys_8011C210/code_8011F7F0.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_80110CA0.c"]
+toolchain = "ido-7.1"
+cflags = ["-O1"]
+omit = ["-O2"]
+
+[file."src/sdk/libultra/code_80114520_801145D0.c"]
+toolchain = "ido-7.1"
+cflags = ["-O1"]
+omit = ["-O2"]
+
+[file."src/sdk/libultra/code_80114520_801147A0.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_801153B0_80115474.c"]
+toolchain = "ido-7.1"
+cflags = ["-O1"]
+omit = ["-O2"]
+
+[file."src/sdk/libultra/code_801153B0_80115C80.c"]
+toolchain = "ido-7.1"
+cflags = ["-O1"]
+omit = ["-O2"]
+
+[file."src/sdk/libultra/code_80119530_8011954C.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_80119B60.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_80119B60_80119CE8.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_80119B60_80119F70.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_80119B60_8011A134.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_8011B4A0_8011B7BC.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_8011C150.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_8011D0D0_8011D0E0.c"]
+toolchain = "ido-7.1"
+cflags = ["-O1"]
+omit = ["-O2"]
+
+[file."src/sdk/libultra/code_8011D1A0_8011D3DC.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_8011E3F0.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_8011E3F0_8011E564.c"]
+toolchain = "ido-7.1"
+
+[file."src/sdk/libultra/code_80121F10.c"]
+toolchain = "ido-7.1"
+cflags = ["-O1"]
+omit = ["-O2"]

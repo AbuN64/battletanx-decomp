@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_80097038.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_80097038.h"
@@ -32,3 +34,4 @@ void func_80097C24(Block *b) {
     b->unk_34 = 0;
     b->unk_38 = 0;
 }
+

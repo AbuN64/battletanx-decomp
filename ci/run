@@ -2,7 +2,6 @@
 # Generated file. The one CI entry point: sh ci/run STAGE. The GitHub and GitLab files only call it.
 #   check        the committed tree: progress reports and the files the site reads
 #   audit        the source rules a change adds (CI_BASE: the revision it is compared with)
-#   board NAME   publish the progress reports to one external board (REPO owner/name, COMMIT sha)
 set -eu
 cd "$(dirname "$0")/.."
 WHEEL=https://github.com/AbuN64/cake-unbake-64/releases/download/v0.4.2/unbake-0.4.2-py3-none-any.whl
@@ -23,38 +22,8 @@ audit)
     pip install "$WHEEL"
     unbake audit --against "$(base)"
     ;;
-board)
-    name=${2:-}
-    if [ -f ".boards/$name" ]; then
-        echo "$name: progress.json is unchanged since this board last published"
-        exit 0
-    fi
-    case "$name" in
-    bytematch)
-        if [ -z "${BYTEMATCH_TOKEN:-}" ]; then
-            echo "bytematch: the BYTEMATCH_TOKEN secret is not set, nothing is published"
-            exit 0
-        fi
-        for v in $VERSIONS; do
-            gzip -c "versions/$v/report.json" |
-                curl -fsS -X POST -H "Authorization: Bearer $BYTEMATCH_TOKEN" -H "Content-Encoding: gzip" \
-                --data-binary @- "https://bytematch.dev/api/v1/projects/$REPO/reports?version=$v&commit=$COMMIT"
-            echo
-        done
-        ;;
-    recomp)
-        for v in $VERSIONS; do test -s "versions/$v/report.json"; done
-        ;;
-    *)
-        echo "unknown board: $name" >&2
-        exit 2
-        ;;
-    esac
-    mkdir -p .boards
-    : >".boards/$name"
-    ;;
 *)
-    echo "usage: sh ci/run check | audit | board NAME" >&2
+    echo "usage: sh ci/run check | audit" >&2
     exit 2
     ;;
 esac

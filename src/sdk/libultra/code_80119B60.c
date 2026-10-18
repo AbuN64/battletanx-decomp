@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_80119B60.h"
 #include "shared/bt_types.h"
 #include "sdk/libultra.h"
@@ -53,3 +55,4 @@ void func_80119BB4(Shape_func_80119BB4 *owner, int index) {
     owner->entries[index].unk4 = 0xC8;
     owner->entries[index].unkC = 1.0f;
 }
+

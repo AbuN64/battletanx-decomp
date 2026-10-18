@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_8011B8F0.h"
 #include "game/sys_8011C210.h"
 /*
@@ -16,3 +18,4 @@ void func_8011B8F0(unsigned char *arg0) {
     v[0] = 0xF;
     func_8011B60C(arg0 + 0x48, v, 0);
 }
+

@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_80110CA0.h"
 #include "shared/bt_span_1000_code_8011BD50.h"
 #include "span_1000/code_80077930.h"
@@ -19,3 +21,4 @@ int func_80110CA0(void *arg0) {
     func_8011BDE4();
     return ret;
 }
+

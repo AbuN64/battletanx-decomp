@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
@@ -17,3 +19,6 @@ void func_800C54F0(void)
     func_801053B0(1);
 }
 
+INCLUDE_ASM("span_1000", func_800C5580);
+INCLUDE_ASM("span_1000", func_800C5848);
+INCLUDE_ASM("span_1000", func_800C5B64);

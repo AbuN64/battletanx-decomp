@@ -1,0 +1,11 @@
+#include "include_asm.h"
+
+INCLUDE_ASM("span_1000", func_800EF2D0);
+INCLUDE_ASM("span_1000", func_800EF380);
+INCLUDE_ASM("span_1000", func_800EF440);
+INCLUDE_ASM("span_1000", func_800EF984);
+INCLUDE_ASM("span_1000", func_800EFAD8);
+INCLUDE_ASM("span_1000", func_800EFCA8);
+INCLUDE_ASM("span_1000", func_800EFCD0);
+INCLUDE_ASM("span_1000", func_800EFE4C);
+INCLUDE_ASM("span_1000", func_800EFFC8);

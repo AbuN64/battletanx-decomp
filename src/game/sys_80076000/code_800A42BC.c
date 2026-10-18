@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_800A27D0.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_800A27D0.h"
@@ -17,3 +19,4 @@ struct Unknown800A42BC;
 void func_800A42BC(struct Unknown800A42BC *self, int value) {
     self->value = value;
 }
+

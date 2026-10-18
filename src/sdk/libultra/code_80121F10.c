@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_80121F10.h"
 /* func_80121F10 -- turns a virtual address into a physical one. An address in KSEG0
  * (0x80000000..0x9FFFFFFF) or KSEG1 (0xA0000000..0xBFFFFFFF) is masked with 0x1FFFFFFF;
@@ -17,3 +19,4 @@ unsigned int func_80121F10(void *vaddr) {
     }
     return func_80121F90(vaddr);
 }
+

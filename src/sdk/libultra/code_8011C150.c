@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_8011C150.h"
 #include "shared/bt_types.h"
 #include "sdk/libultra.h"
@@ -58,3 +60,4 @@ void func_8011C1DC(s32 arg0, s32 arg1) {
         func_8011DFE0(arg0, arg1);
     }
 }
+

@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_8011E3F0.h"
 #include "shared/bt_types.h"
 #include "sdk/libultra.h"
@@ -50,3 +52,4 @@ void func_8011E488(int *arg0, int arg1, int arg2) {
     arg0[6] = arg2;
     arg0[7] = arg1;
 }
+

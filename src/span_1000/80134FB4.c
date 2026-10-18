@@ -1,0 +1,6 @@
+#include "include_asm.h"
+
+INCLUDE_DATA("span_1000", D_80134FB4);
+INCLUDE_DATA("span_1000", D_80134FD8);
+INCLUDE_DATA("span_1000", D_80134FF0);
+INCLUDE_RODATA("span_1000", R_80135058);

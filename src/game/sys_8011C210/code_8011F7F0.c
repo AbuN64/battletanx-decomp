@@ -1,3 +1,5 @@
+#include "include_asm.h"
+
 #include "shared/bt_span_1000_code_8011F7F0.h"
 #include "shared/bt_types.h"
 #include "game/sys_8011C210.h"
@@ -21,3 +23,4 @@ void func_8011F7F0(struct CallbackRecord *arg0, int (*arg1)(), int (*arg2)(), in
     arg0->unkE = 0;
     arg0->unk10 = arg3;
 }
+
