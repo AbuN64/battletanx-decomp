@@ -338,9 +338,11 @@ endif
 DATA_SED := -e '/^\.section /d' -e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8})([0-9A-F]{8}) \*/\s*)\.double .*@\1.word 0x\2, 0x\3@'
 # An instruction splat marks handwritten (a 64-bit load in 32-bit code, a coprocessor move) is written as the word it
 # is: the assembler would expand or re-encode it. So is a 64-bit load, store or divide with no symbol operand: under
-# the 32-bit ABI the assembler expands it into several instructions. A `b` is spelled as the branch its word is: an
+# the 32-bit ABI the assembler expands it into several instructions; one with a %lo(symbol) operand keeps the
+# relocation on the word, whose low half the link fills. A `b` is spelled as the branch its word is: an
 # assembler may encode `b` as either beq or bgez.
 CODE_SED := -e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*).*/\* handwritten instruction \*/$$@\1.word 0x\2@' \
+	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{4})[0-9A-F]{4} \*/\s*)(ld|sd|ldl|ldr|sdl|sdr|lld|scd)\s[^%]*%lo\(([A-Za-z0-9_.]+)\).*@\1.reloc ., R_MIPS_LO16, \4\n    .word 0x\20000@' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*)(ld|sd|ldl|ldr|sdl|sdr|lld|scd|ddiv|ddivu)\s[^%]*$$@\1.word 0x\2@' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} 1000[0-9A-F]{4} \*/\s*)b(\s+)@\1beq\2$$zero, $$zero, @' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} 0401[0-9A-F]{4} \*/\s*)b(\s+)@\1bgez\2$$zero, @'
