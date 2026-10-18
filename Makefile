@@ -67,11 +67,13 @@ ASFLAGS := -march=vr4300 -mabi=32 -EB --no-pad-sections -mips3 -G0
 define COMPILE_gcc_2_7_2_kmc
 $(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
 $(Q)$(CC_gcc_2_7_2_kmc) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
+$(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
 $(Q)$(N64LINK) asn64 --as $(AS_gcc_2_7_2_kmc) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@
 endef
 define COMPILE_gcc_2_8_1_sn64
 $(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
 $(Q)$(CC_gcc_2_8_1_sn64) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
+$(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
 $(Q)$(N64LINK) asn64 --as $(AS_gcc_2_8_1_sn64) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@
 endef
 define COMPILE_ido_7_1
@@ -346,6 +348,24 @@ CODE_SED := -e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*).*/\* hand
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*)(ld|sd|ldl|ldr|sdl|sdr|lld|scd|ddiv|ddivu)\s[^%]*$$@\1.word 0x\2@' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} 1000[0-9A-F]{4} \*/\s*)b(\s+)@\1beq\2$$zero, $$zero, @' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} 0401[0-9A-F]{4} \*/\s*)b(\s+)@\1bgez\2$$zero, @'
+# An object whose data starts off a word boundary in the ROM (NOALIGN in text_sizes.mk) has the alignment its
+# compiler asks for in data sections dropped from its assembly, and its words and halves spelled as unaligned data:
+# the ROM packs that data at the byte, so a pad the assembler adds would shift everything after it.
+define STRIP_ALIGN
+import re, sys
+path, section, out = sys.argv[1], "text", []
+for line in open(path):
+    found = re.match(r"\s*\.section\s+\.?(\w+)", line) or re.match(r"\s*\.(text|data|rdata|sdata|bss|rodata)\b", line)
+    if found:
+        section = found.group(1)
+    elif section in ("data", "rdata", "rodata", "sdata"):
+        if re.match(r"\s*\.(p2)?align\b", line):
+            continue
+        line = re.sub(r"^(\s*)\.word\b", r"\1.4byte", re.sub(r"^(\s*)\.(half|short)\b", r"\1.2byte", line))
+    out.append(line)
+open(path, "w").write("".join(out))
+endef
+export STRIP_ALIGN
 # A data piece is the ROM bytes from its address to the next row of splat.yaml: splat drops string padding, a partial
 # last word and whole tiny pieces, so each extracted data file is rewritten as its ROM slice, every label kept at its
 # offset (from the ROM column of the line after it).
