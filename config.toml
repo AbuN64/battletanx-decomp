@@ -39,7 +39,6 @@ toolchain = "ido-7.1"
 toolchain = "ido-7.1"
 
 [file."src/game/sys_80076000/code_800A8940_80073210.c"]
-rodata = { us = 0x80073210 }
 toolchain = "gcc-2.7.2-kmc"
 cflags = ["-UF3DEX_GBI_2", "-G8"]
 omit = ["-G0"]
@@ -135,130 +134,87 @@ cflags = ["-O1"]
 omit = ["-O2"]
 
 [file."src/game/sys_80076000/code_80076000.c"]
-rodata = { us = 0x80071040 }
 
 [file."src/game/sys_80076000/code_80076000_800710C0.c"]
-rodata = { us = 0x800710C0 }
 
 [file."src/game/sys_80076000/code_80076000_800710F4.c"]
-rodata = { us = 0x800710F4 }
 
 [file."src/game/sys_80076000/code_80076000_800711C8.c"]
-rodata = { us = 0x800711C8 }
 
 [file."src/game/sys_80076000/code_80076000_80071378.c"]
-rodata = { us = 0x80071378 }
 
 [file."src/game/sys_80076000/code_80076000_800714D8.c"]
-rodata = { us = 0x800714D8 }
 
 [file."src/game/sys_80076000/code_80076000_80071568.c"]
-rodata = { us = 0x80071568 }
 
 [file."src/game/sys_80076000/code_80076000_800716E0.c"]
-rodata = { us = 0x800716E0 }
 
 [file."src/game/sys_80076000/code_80076000_80071708.c"]
-rodata = { us = 0x80071708 }
 
 [file."src/game/sys_80076000/code_80076000_80071960.c"]
-rodata = { us = 0x80071960 }
 
 [file."src/game/sys_80076000/code_80076000_80071C50.c"]
-rodata = { us = 0x80071C50 }
 
 [file."src/game/sys_80076000/code_80076000_80072030.c"]
-rodata = { us = 0x80072030 }
 
 [file."src/game/sys_80076000/code_80076000_80072038.c"]
-rodata = { us = 0x80072038 }
 
 [file."src/game/sys_80076000/code_800A8940.c"]
-rodata = { us = 0x80073110 }
 
 [file."src/game/sys_80076000/code_800A8940_800733B8.c"]
-rodata = { us = 0x800733B8 }
 
 [file."src/game/sys_80076000/code_800A8940_80073444.c"]
-rodata = { us = 0x80073444 }
 
 [file."src/game/sys_80076000/code_800BD1F0.c"]
-rodata = { us = 0x800734D4 }
 
 [file."src/game/sys_80076000/code_800C0880.c"]
-rodata = { us = 0x80073574 }
 
 [file."src/game/sys_80076000/code_800C5B90.c"]
-rodata = { us = 0x800738C8 }
 
 [file."src/game/sys_80076000/code_800C5B90_80073D20.c"]
-rodata = { us = 0x80073D20 }
 
 [file."src/game/sys_80076000/code_800C5B90_800743B8.c"]
-rodata = { us = 0x800743B8 }
 
 [file."src/game/sys_80076000/code_800C5B90_80074428.c"]
-rodata = { us = 0x80074428 }
 
 [file."src/game/sys_80076000/code_800C5B90_800745B0.c"]
-rodata = { us = 0x800745B0 }
 
 [file."src/game/sys_80076000/code_800C5B90_800746C0.c"]
-rodata = { us = 0x800746C0 }
 
 [file."src/game/sys_80076000/code_800C5B90_800746C4.c"]
-rodata = { us = 0x800746C4 }
 
 [file."src/game/sys_80076000/code_800C5B90_80074718.c"]
-rodata = { us = 0x80074718 }
 
 [file."src/game/sys_80076000/code_800C5B90_800747AC.c"]
-rodata = { us = 0x800747AC }
 
 [file."src/game/sys_80076000/code_800C5B90_800747B4.c"]
-rodata = { us = 0x800747B4 }
 
 [file."src/game/sys_80076000/code_800C5B90_800747C0.c"]
-rodata = { us = 0x800747C0 }
 
 [file."src/game/sys_80076000/code_800C5B90_8007481C.c"]
-rodata = { us = 0x8007481C }
 
 [file."src/game/sys_80076000/code_800C5B90_80074860.c"]
-rodata = { us = 0x80074860 }
 
 [file."src/game/sys_80076000/code_800C5B90_80074884.c"]
-rodata = { us = 0x80074884 }
 
 [file."src/game/sys_80076000/code_800C5B90_80074914.c"]
-rodata = { us = 0x80074914 }
 
 [file."src/game/sys_80076000/code_800C5B90_80074950.c"]
-rodata = { us = 0x80074950 }
 
 [file."src/game/sys_80076000/code_800C5B90_800749B0.c"]
-rodata = { us = 0x800749B0 }
 
 [file."src/game/sys_80076000/code_800F01D0.c"]
-rodata = { us = 0x80074C80 }
 
 [file."src/game/sys_80076000/code_800F01D0_80074EEC.c"]
-rodata = { us = 0x80074EEC }
 
 [file."src/game/sys_80076000/code_800F01D0_80074F20.c"]
-rodata = { us = 0x80074F20 }
 
 [file."src/game/sys_80076000/code_800F01D0_800754B8.c"]
-rodata = { us = 0x800754B8 }
 
 [file."src/game/sys_80076000/code_800F01D0_80075500.c"]
-rodata = { us = 0x80075500 }
 
 [file."src/game/sys_80076000/code_800F01D0_80075514.c"]
-rodata = { us = 0x80075514 }
 
 [file."src/game/sys_80076000/code_800F01D0_8007551C.c"]
-rodata = { us = 0x8007551C }
 
 [file."src/game/sys_80076000/code_800F01D0_80075618.c"]
-rodata = { us = 0x80075618 }
