@@ -10,7 +10,7 @@ struct Unknown800A42BC;
 
 /* func_800A42BC -- writes the word at 0x010.
  *
- * The write half of the pair whose read half is func_auto_800A42B0, twelve bytes earlier. The store
+ * The write half of the pair whose read half is func_800A42B0, twelve bytes earlier. The store
  * sits in the return's delay slot, so the function is two words with no body ahead of it.
  */
 

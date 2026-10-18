@@ -24,13 +24,13 @@ INCLUDE_ASM("span_1000", func_80076068);
 INCLUDE_ASM("span_1000", func_800760A0);
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
-extern s32 D_auto_80147040;
+extern s32 D_80147040;
 
 int func_800760DC(s32 arg0) {
-    D_auto_80147040 = 0;
+    D_80147040 = 0;
 loop_2:
-    if (D_auto_80147040 < arg0) {
-        D_auto_80147040 += 1;
+    if (D_80147040 < arg0) {
+        D_80147040 += 1;
         goto loop_2;
     }
 }
@@ -122,19 +122,19 @@ void func_80076634(u32 mode) {
     u32 last;
 
     if (src > 0xEFFFFFFF) {
-        src += (u32)D_auto_8F147050;
+        src += (u32)D_8F147050;
     }
     while (left != 0) {
         idx = 0;
-        while (D_auto_80125550[idx].end < src) {
+        while (D_80125550[idx].end < src) {
             idx++;
         }
         last = src - 1;
-        n = D_auto_80125550[idx].end - last;
+        n = D_80125550[idx].end - last;
         if (left < n) {
             n = left;
         }
-        fl = D_auto_80125550[idx].flags;
+        fl = D_80125550[idx].flags;
         if ((fl & mode) == 0) {
             if (mode == 1) {
                 func_800764F4(dst, 0, n);

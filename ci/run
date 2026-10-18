@@ -1,11 +1,10 @@
 #!/bin/sh
-# Generated file. The one CI entry point: sh ci/run STAGE. The GitHub and GitLab files only call it.
-#   check        the committed tree: progress reports and the files the site reads
-#   audit        the source rules a change adds (CI_BASE: the revision it is compared with)
+# Generated file. The one CI entry point: sh ci/run STAGE. The forge files only call it.
+#   check   the committed tree: the generated files are present and `unbake sync --check` would not change them
+#   audit   the source rules a change adds (CI_BASE: the revision it is compared with)
 set -eu
 cd "$(dirname "$0")/.."
-WHEEL=https://github.com/AbuN64/cake-unbake-64/releases/download/v0.4.2/unbake-0.4.2-py3-none-any.whl
-VERSIONS="us"
+WHEEL=https://github.com/AbuN64/cake-unbake-64/releases/download/v0.5.0/unbake-0.5.0-py3-none-any.whl
 
 base() {
     b=${CI_BASE:-}

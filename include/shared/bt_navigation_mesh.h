@@ -14,5 +14,5 @@ typedef struct NavigationMesh {
     u8 *enabled;
     s32 unk20;
 } NavigationMesh;
-extern NavigationMesh *D_auto_80135834;
+extern NavigationMesh *D_80135834;
 #endif

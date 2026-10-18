@@ -41,29 +41,36 @@ void func_800E0B00(s32 arg0, struct PolygonPoint *arg1) {
 
     func_800E1818(arg0 & 0xFFFF, &sp10, &sp12);
     var_a1 = ((void *)0);
-    if ((sp10 < (u16) ((struct Func_800E0B00_View0_Shared800E0B00 *)D_auto_80135834)->field_8) && (sp10 != 0)) {
-        var_a1 = ((struct Func_800E0B00_View0_Shared800E0B00 *)D_auto_80135834)->field_c + (sp10 * 8);
+    if ((sp10 < (u16) ((struct Func_800E0B00_View0_Shared800E0B00 *)D_80135834)->field_8) && (sp10 != 0)) {
+        var_a1 = ((struct Func_800E0B00_View0_Shared800E0B00 *)D_80135834)->field_c + (sp10 * 8);
     }
-    if (sp12 >= (u16) ((struct Func_800E0B00_View0_Shared800E0B00 *)D_auto_80135834)->field_8) {
+    if (sp12 >= (u16) ((struct Func_800E0B00_View0_Shared800E0B00 *)D_80135834)->field_8) {
         var_v1 = ((void *)0);
     } else if (sp12 == 0) {
         var_v1 = ((void *)0);
     } else {
-        var_v1 = ((struct Func_800E0B00_View0_Shared800E0B00 *)D_auto_80135834)->field_c + (sp12 * 8);
+        var_v1 = ((struct Func_800E0B00_View0_Shared800E0B00 *)D_80135834)->field_c + (sp12 * 8);
     }
     ((arg1))->x = (f32) ((((struct PolygonPoint *)var_a1)->x + ((struct PolygonPoint *)var_v1)->x) / D_80074428);
     ((arg1))->y = (f32) ((((struct PolygonPoint *)var_a1)->y + ((struct PolygonPoint *)var_v1)->y) / D_80074428);
 }
 
-INCLUDE_RODATA("span_1000", R_8007442C);
-INCLUDE_RODATA("span_1000", R_8007443C);
-INCLUDE_RODATA("span_1000", R_8007444C);
-INCLUDE_RODATA("span_1000", R_8007445C);
-INCLUDE_RODATA("span_1000", R_80074478);
-INCLUDE_RODATA("span_1000", R_80074480);
-INCLUDE_RODATA("span_1000", R_800744B0);
-INCLUDE_RODATA("span_1000", R_800744B4);
-INCLUDE_RODATA("span_1000", R_800744B8);
+INCLUDE_RODATA("span_1000", D_8007442C);
+INCLUDE_DATA("span_1000", D_80074430);
+INCLUDE_DATA("span_1000", D_80074434);
+INCLUDE_DATA("span_1000", D_80074438);
+INCLUDE_RODATA("span_1000", D_8007443C);
+INCLUDE_DATA("span_1000", D_80074440);
+INCLUDE_DATA("span_1000", D_80074444);
+INCLUDE_DATA("span_1000", D_80074448);
+INCLUDE_RODATA("span_1000", D_8007444C);
+INCLUDE_RODATA("span_1000", D_8007445C);
+INCLUDE_RODATA("span_1000", D_80074478);
+INCLUDE_DATA("span_1000", D_8007447C);
+INCLUDE_RODATA("span_1000", D_80074480);
+INCLUDE_RODATA("span_1000", D_800744B0);
+INCLUDE_RODATA("span_1000", D_800744B4);
+INCLUDE_RODATA("span_1000", D_800744B8);
 INCLUDE_DATA("span_1000", D_800744C8);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
@@ -81,9 +88,9 @@ f32 func_800E0BC4(f32 *offset)
         x = -x;
     }
     if (x < z) {
-        return z + x * D_auto_80074434 / D_auto_80074438;
+        return z + x * D_80074434 / D_80074438;
     }
-    return x + z * D_auto_8007442C / D_auto_80074430;
+    return x + z * D_8007442C / D_80074430;
 }
 
 INCLUDE_ASM("span_1000", func_800E0C44);
@@ -100,9 +107,9 @@ static inline f32 approx_horizontal_length(f32 *v) {
         b = -b;
     }
     if (b < a) {
-        return a + (b * D_auto_8007443C) / D_auto_80074440;
+        return a + (b * D_8007443C) / D_80074440;
     }
-    return b + (a * D_auto_80074444) / D_auto_80074448;
+    return b + (a * D_80074444) / D_80074448;
 }
 f32 func_800E0C8C(f32 *a, f32 *b) {
     f32 offset[2];
@@ -160,8 +167,8 @@ s32 func_800E1098(struct PolygonPoint *arg0, struct PolygonPoint *arg1) {
 void func_800E10D0(f32 *source, f32 *target)
 {
     f32 value = *source;
-    if (*target < value + D_auto_80074478) {
-        f32 step = D_auto_8007447C;
+    if (*target < value + D_80074478) {
+        f32 step = D_8007447C;
         *source = value - step;
         *target += step;
     }
@@ -302,13 +309,13 @@ INCLUDE_ASM("span_1000", func_800E1818);
 
 static inline struct PolygonPoint *mesh_vertex(u16 *index)
 {
-    if (*index >= D_auto_80135834->vertexCount) {
+    if (*index >= D_80135834->vertexCount) {
         return 0;
     }
     if (*index == 0) {
         return 0;
     }
-    return &D_auto_80135834->vertices[*index];
+    return &D_80135834->vertices[*index];
 }
 void func_800E18B0(u16 corner, struct PolygonPoint **start, struct PolygonPoint **end)
 {
@@ -319,8 +326,8 @@ void func_800E18B0(u16 corner, struct PolygonPoint **start, struct PolygonPoint 
 
     offset = corner % 3;
     next = (offset + 1) % 3 + (corner - offset);
-    first = D_auto_80135834->corners[corner].vertex;
-    second = D_auto_80135834->corners[next].vertex;
+    first = D_80135834->corners[corner].vertex;
+    second = D_80135834->corners[next].vertex;
     *start = mesh_vertex(&first);
     *end = mesh_vertex(&second);
 }
@@ -338,4 +345,3 @@ INCLUDE_ASM("span_1000", func_800E19DC);
 s32 func_800E1A08(s32 arg0, s32 arg1) {
     return arg0 & arg1 & 0xFF;
 }
-

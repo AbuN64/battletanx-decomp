@@ -3,7 +3,7 @@
 extern void func_8011C39C(void);
 
 
-extern void func_auto_8011C3A4(void);
+extern void func_8011C3A4(void);
 
 
 #endif

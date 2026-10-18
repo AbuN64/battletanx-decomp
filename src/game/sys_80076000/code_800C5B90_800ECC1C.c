@@ -75,7 +75,7 @@ static inline s32 script_has_step(EffectScriptStep *script, s32 step) {
 }
 
 void func_800ED994(ScriptedEffect *effect, s32 *status) {
-    EffectScriptStep *script = D_auto_80138F3C[effect->script];
+    EffectScriptStep *script = D_80138F3C[effect->script];
     s32 step;
     s32 next;
     u32 now;

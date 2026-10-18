@@ -2,9 +2,9 @@
 #include "shared/bt_span_1000_code_800824E4.h"
 #pragma once
 
-extern unsigned char D_auto_801B6C20;
+extern unsigned char D_801B6C20;
 
-extern s32 D_auto_80125850;
+extern s32 D_80125850;
 
-extern Scene *D_auto_801C9170;
+extern Scene *D_801C9170;
 

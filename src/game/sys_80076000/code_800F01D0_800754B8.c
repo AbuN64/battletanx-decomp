@@ -43,7 +43,7 @@ s32 func_8010AA6C(struct PolygonPoint a, struct PolygonPoint b, struct PolygonPo
     return 0;
 }
 
-INCLUDE_RODATA("span_1000", R_800754C0);
+INCLUDE_RODATA("span_1000", D_800754C0);
 INCLUDE_ASM("span_1000", func_8010AC90);
 INCLUDE_ASM("span_1000", func_8010B740);
 INCLUDE_ASM("span_1000", func_8010B9C8);

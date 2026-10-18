@@ -11,7 +11,7 @@ extern void func_800E5198(void);
 extern void func_800E480C(void);
 
 
-extern void func_auto_800E4814(void);
+extern void func_800E4814(void);
 
 
 

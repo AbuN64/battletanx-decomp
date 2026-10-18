@@ -24,19 +24,20 @@ f32 func_800E8E5C(struct ResetState *context) {
     return owner->linkedId != 0xFF ? 1.0f : 0.0f;
 }
 
-INCLUDE_RODATA("span_1000", R_80074820);
-INCLUDE_RODATA("span_1000", R_80074828);
-INCLUDE_RODATA("span_1000", R_8007482C);
-INCLUDE_RODATA("span_1000", R_80074830);
-INCLUDE_RODATA("span_1000", R_80074834);
-INCLUDE_RODATA("span_1000", R_80074838);
-INCLUDE_RODATA("span_1000", R_8007483C);
-INCLUDE_RODATA("span_1000", R_80074840);
-INCLUDE_RODATA("span_1000", R_80074844);
-INCLUDE_RODATA("span_1000", R_80074848);
-INCLUDE_RODATA("span_1000", R_80074850);
-INCLUDE_RODATA("span_1000", R_80074854);
-INCLUDE_RODATA("span_1000", R_80074858);
+INCLUDE_RODATA("span_1000", D_80074820);
+INCLUDE_RODATA("span_1000", D_80074828);
+INCLUDE_RODATA("span_1000", D_8007482C);
+INCLUDE_RODATA("span_1000", D_80074830);
+INCLUDE_RODATA("span_1000", D_80074834);
+INCLUDE_RODATA("span_1000", D_80074838);
+INCLUDE_RODATA("span_1000", D_8007483C);
+INCLUDE_RODATA("span_1000", D_80074840);
+INCLUDE_RODATA("span_1000", D_80074844);
+INCLUDE_RODATA("span_1000", D_80074848);
+INCLUDE_DATA("span_1000", D_8007484C);
+INCLUDE_RODATA("span_1000", D_80074850);
+INCLUDE_RODATA("span_1000", D_80074854);
+INCLUDE_RODATA("span_1000", D_80074858);
 INCLUDE_ASM("span_1000", func_800E8E84);
 INCLUDE_ASM("span_1000", func_800E8EB4);
 INCLUDE_ASM("span_1000", func_800E8F1C);
@@ -54,12 +55,12 @@ f32 func_800E9200(struct ResetState *context)
 {
     f32 weight;
     CombatUnit *unit = context->unk8;
-    if (unit->secondaryState == 1 && func_auto_800E3470(unit->secondaryTarget)) {
-        weight = D_auto_80074848;
+    if (unit->secondaryState == 1 && func_800E3470(unit->secondaryTarget)) {
+        weight = D_80074848;
     } else {
         weight = 0.0f;
     }
-    return D_auto_8007484C - weight;
+    return D_8007484C - weight;
 }
 
 INCLUDE_ASM("span_1000", func_800E925C);

@@ -22,25 +22,25 @@ s32 func_8007AAA0(void) {
 }
 
 s32 func_8007AAB0(void) {
-    return D_auto_801B4AB8;
+    return D_801B4AB8;
 }
 
-/* func_8007AAC0 -- returns the field at 0x204 of the object D_auto_801B4ABC points to, or 0 when there is none. */
+/* func_8007AAC0 -- returns the field at 0x204 of the object D_801B4ABC points to, or 0 when there is none. */
 
 
 int func_8007AAC0(void) {
-    if (D_auto_801B4ABC) {
-        return D_auto_801B4ABC->unk204;
+    if (D_801B4ABC) {
+        return D_801B4ABC->unk204;
     }
     return 0;
 }
 
 s32 func_8007AAE4(void) {
-    return D_auto_80134E5C;
+    return D_80134E5C;
 }
 
 S *func_8007AAF4(void) {
-    return D_auto_801B4ABC;
+    return D_801B4ABC;
 }
 
 INCLUDE_ASM("span_1000", func_8007AB04);

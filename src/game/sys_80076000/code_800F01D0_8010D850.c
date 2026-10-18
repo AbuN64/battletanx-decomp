@@ -6,11 +6,11 @@ INCLUDE_ASM("span_1000", func_8010D850);
 
 
 void func_8010D984(void) {
-    D_auto_803C4D70 += 1;
+    D_803C4D70 += 1;
 }
 
 void func_8010D9A0(void) {
-    D_auto_803C4D70 = 0;
+    D_803C4D70 = 0;
 }
 
 INCLUDE_ASM("span_1000", func_8010D9B0);
@@ -29,8 +29,8 @@ void func_8010DC0C(EffectKind1D *effect, s32 *state)
             func_80107170(effect->motion);
         }
         func_80085B4C(5, effect->center.x, effect->center.z);
-        effect->startTick = D_auto_801B4AA8;
-    } else if (effect->startTick + 8 < D_auto_801B4AA8) {
+        effect->startTick = D_801B4AA8;
+    } else if (effect->startTick + 8 < D_801B4AA8) {
         func_8009F958(effect, &effect->center, 108.0f, 20.0f, (u8)effect->owner);
         *state = 2;
     }
@@ -80,7 +80,7 @@ void func_8010DCD0(func_8010DCD0_S1_Shared8010DCD0 *arg0, func_8010DCD0_S2_Share
         action = arg1->unk8;
         switch (action) {
         case 0:
-            if ((arg0->unk18 + 0x3C) < D_auto_801B4AA8) {
+            if ((arg0->unk18 + 0x3C) < D_801B4AA8) {
                 func_8008B89C(arg0);
                 arg3->unk0 = 8;
                 arg3->unk4 = 0x1E;

@@ -2,7 +2,7 @@
 #define UNBAKE_SPAN_1000_CODE_8008F248_H
 #include "shared/bt_types.h"
 #include "shared/bt_common_draft_fields_func_800907CC_us.h"
-extern void func_auto_800916B8(void * arg0, void * arg1, int arg2, void * arg3, void * arg4);
+extern void func_800916B8(void * arg0, void * arg1, int arg2, void * arg3, void * arg4);
 
 
 extern int func_80090F10(void);

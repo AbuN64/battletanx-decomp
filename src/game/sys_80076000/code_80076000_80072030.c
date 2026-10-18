@@ -179,7 +179,7 @@ void func_8009491C(void)
     for (i = 0; i < func_8007AAA0(); i++) {
         for (j = 0; j < 3; j++) {
             for (k = 0; k < 100; k++) {
-                D_auto_802D5BC0[i][j][k][0] = 0x8FFF;
+                D_802D5BC0[i][j][k][0] = 0x8FFF;
             }
         }
     }

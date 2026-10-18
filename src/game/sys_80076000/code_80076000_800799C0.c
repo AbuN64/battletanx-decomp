@@ -12,14 +12,14 @@
 
 
 void func_800799C0(s32 arg0) {
-    D_auto_80125774 = (s16) arg0;
+    D_80125774 = (s16) arg0;
 }
 
 void func_800799D0(s32 id, s16 volume) {
-    s16 scaled = (volume * D_auto_80125774) / 32767;
+    s16 scaled = (volume * D_80125774) / 32767;
     if (id != -1) {
-        func_8011CB90(D_auto_80150380, id);
-        func_8011CBB0(D_auto_80150380, scaled);
+        func_8011CB90(D_80150380, id);
+        func_8011CBB0(D_80150380, scaled);
     }
 }
 

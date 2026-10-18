@@ -71,7 +71,7 @@ INCLUDE_ASM("span_1000", func_800865E0);
 #include "game/sys_80076000.h"
 s16 func_80086AE8(void)
 {
-    return D_auto_80125A30[func_8007AAF4()->unk4];
+    return D_80125A30[func_8007AAF4()->unk4];
 }
 
 INCLUDE_ASM("span_1000", func_80086B1C);

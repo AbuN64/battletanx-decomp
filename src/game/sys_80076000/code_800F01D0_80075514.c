@@ -29,15 +29,15 @@ EffectKind2B *func_8010BDA0(EffectKind2BParams *params)
     effect->value2C = params->value18;
     effect->lifetime = params->lifetime;
     effect->value20 = params->value20;
-    effect->value22 = (u32)(params->value22 * D_auto_80075510);
+    effect->value22 = (u32)(params->value22 * D_80075510);
     effect->value32 = params->value24;
     effect->value34 = params->value26;
     effect->value36 = params->value28;
-    effect->drift = D_auto_80075518 / effect->value32;
+    effect->drift = D_80075518 / effect->value32;
     effect->mode = 0;
     index = func_800F38F4() & 7;
     effect->currentIndex = index;
-    effect->nextIndex = D_auto_80142B70[index];
+    effect->nextIndex = D_80142B70[index];
     effect->value3E = func_800F38F4();
     effect->value3F = func_800F38F4();
     effect->blend = 0;
@@ -45,4 +45,4 @@ EffectKind2B *func_8010BDA0(EffectKind2BParams *params)
     return effect;
 }
 
-INCLUDE_RODATA("span_1000", R_80075518);
+INCLUDE_RODATA("span_1000", D_80075518);

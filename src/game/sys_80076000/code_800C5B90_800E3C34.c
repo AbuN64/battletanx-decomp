@@ -65,7 +65,7 @@ void func_800E480C(void) {
 
               /* size 0x0 */
 
-void func_auto_800E4814(void) {
+void func_800E4814(void) {
 
 }
 

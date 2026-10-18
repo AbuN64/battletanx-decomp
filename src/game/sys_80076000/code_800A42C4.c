@@ -13,9 +13,9 @@ void func_800A42D0(PlayerRecord *player, s32 unused, CombatUnit *unit)
 {
     Vec3f **table;
     if (player->soundMode == 1) {
-        table = D_auto_80126140[func_8007AAA0() >= 3];
+        table = D_80126140[func_8007AAA0() >= 3];
     } else {
-        table = D_auto_80126128[func_8007AAA0() >= 3];
+        table = D_80126128[func_8007AAA0() >= 3];
     }
     func_80078654(&player->camera, table[unit->kind]);
     func_800786D4(&player->camera, 2);

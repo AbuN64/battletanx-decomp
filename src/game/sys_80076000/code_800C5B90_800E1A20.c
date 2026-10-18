@@ -10,7 +10,7 @@ INCLUDE_ASM("span_1000", func_800E1D40);
 
 
 f32 func_800E1ED0(void) {
-    return D_auto_800744E4;
+    return D_800744E4;
 }
 
 INCLUDE_ASM("span_1000", func_800E1EE0);
@@ -23,7 +23,7 @@ INCLUDE_ASM("span_1000", func_800E2110);
 
 
 f32 func_800E21B4(void) {
-    return (f32) func_8007B1DC() * D_auto_80074500;
+    return (f32) func_8007B1DC() * D_80074500;
 }
 
 INCLUDE_ASM("span_1000", func_800E21E4);
@@ -42,7 +42,7 @@ s32 func_800E2614(void *arg0) {
 
               /* size 0x0 */
 
-s32 func_auto_800E2620(void *arg0) {
+s32 func_800E2620(void *arg0) {
     s32 value = 0x80;
     ((struct Measured_func_800E2620_us_85b85564f990 *)(arg0))->value = value;
     return value;

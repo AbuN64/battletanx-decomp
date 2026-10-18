@@ -9,20 +9,20 @@
 void *func_8008AD10(u8 group, s32 kind, s32 size) {
     s32 index;
 
-    if (D_auto_802C13E0 == -1) {
+    if (D_802C13E0 == -1) {
         return 0;
     }
-    index = D_auto_802C13E0;
-    D_auto_802C13E0 = D_auto_802C3A30[index].header.next;
+    index = D_802C13E0;
+    D_802C13E0 = D_802C3A30[index].header.next;
     if (group == 1) {
-        D_auto_802C3A30[index].header.next = D_auto_802C13E2;
-        D_auto_802C13E2 = index;
+        D_802C3A30[index].header.next = D_802C13E2;
+        D_802C13E2 = index;
     } else {
-        D_auto_802C3A30[index].header.next = D_auto_802C13F6;
-        D_auto_802C13F6 = index;
+        D_802C3A30[index].header.next = D_802C13F6;
+        D_802C13F6 = index;
     }
-    D_auto_802C3A30[index].header.kind = kind;
-    D_auto_802C3A30[index].header.serial = D_auto_80125C40++;
-    return &D_auto_802C3A30[index];
+    D_802C3A30[index].header.kind = kind;
+    D_802C3A30[index].header.serial = D_80125C40++;
+    return &D_802C3A30[index];
 }
 

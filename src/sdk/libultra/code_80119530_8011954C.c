@@ -30,13 +30,13 @@ void func_8011954C(Dest *dst, Src *src) {
 
               /* size 0x0 */
 
-s32 func_auto_80119568(s32 arg0) {
+s32 func_80119568(s32 arg0) {
     return ((CallbackValue *)arg0)->value;
 }
 
               /* size 0x0 */
 
-void func_auto_80119570(void) {
+void func_80119570(void) {
 
 }
 

@@ -73,14 +73,14 @@ void func_800E2AF0(CombatUnit *unit, DriveCommand *out, void *target) {
     }
 }
 
-INCLUDE_RODATA("span_1000", R_800745D0);
-INCLUDE_RODATA("span_1000", R_800745D4);
-INCLUDE_RODATA("span_1000", R_800745F4);
-INCLUDE_RODATA("span_1000", R_80074600);
-INCLUDE_RODATA("span_1000", R_80074628);
-INCLUDE_RODATA("span_1000", R_80074630);
-INCLUDE_RODATA("span_1000", R_80074638);
-INCLUDE_RODATA("span_1000", R_8007463C);
+INCLUDE_RODATA("span_1000", D_800745D0);
+INCLUDE_RODATA("span_1000", D_800745D4);
+INCLUDE_RODATA("span_1000", D_800745F4);
+INCLUDE_RODATA("span_1000", D_80074600);
+INCLUDE_RODATA("span_1000", D_80074628);
+INCLUDE_RODATA("span_1000", D_80074630);
+INCLUDE_RODATA("span_1000", D_80074638);
+INCLUDE_RODATA("span_1000", D_8007463C);
 INCLUDE_DATA("span_1000", D_80074644);
 INCLUDE_ASM("span_1000", func_800E2CFC);
 #include "game/sys_80076000.h"
@@ -104,7 +104,7 @@ s32 func_800E2D40(void *arg)
         distance = func_800E0D54(member->position, member->leader->position);
         break;
     default:
-        distance = D_auto_800745D0;
+        distance = D_800745D0;
         break;
     }
     return distance < member->status;
@@ -124,7 +124,7 @@ s32 func_800E3460(const u8 *arg0) {
     return arg0[0x350] == 2;
 }
 
-int func_auto_800E3470(CombatUnit *unit) {
+int func_800E3470(CombatUnit *unit) {
     return unit->value350 == 1;
 }
 
@@ -133,19 +133,19 @@ struct Unknown800E349C;
 
 
 /* Two neighbouring resets that share one interval.
- * func_auto_800E3480 clears the two words at the start of the record; func_auto_800E348C clears
+ * func_800E3480 clears the two words at the start of the record; func_800E348C clears
  * the halfword at 0x344 and the bytes at 0x348 and 0x34A of a much larger one.
  * sw fixes the first pair as words, sh fixes 0x344 as a halfword and sb fixes 0x348
  * and 0x34A as single bytes. */
 
 
 
-void func_auto_800E3480(int *p) {
+void func_800E3480(int *p) {
     p[0] = 0;
     p[1] = 0;
 }
 
-void func_auto_800E348C(struct Unknown800E349C *s) {
+void func_800E348C(struct Unknown800E349C *s) {
     s->half_344 = 0;
     s->byte_34A = 0;
     s->byte_348 = 0;
@@ -154,7 +154,7 @@ void func_auto_800E348C(struct Unknown800E349C *s) {
 
 
 
-/* func_auto_800E349C -- clears five fields of the object it is handed and returns nothing.
+/* func_800E349C -- clears five fields of the object it is handed and returns nothing.
  *
  * Every store is of `$zero`, so this writes zeros and reads nothing back; the widths the
  * cartridge uses are what fix the types. Two words go out at 0x09C and 0x0A0, one halfword at
@@ -167,7 +167,7 @@ void func_auto_800E348C(struct Unknown800E349C *s) {
 
 
 
-void func_auto_800E349C(struct Unknown800E349C *self) {
+void func_800E349C(struct Unknown800E349C *self) {
     self->word_09C = 0;
     self->word_0A0 = 0;
     self->half_344 = 0;

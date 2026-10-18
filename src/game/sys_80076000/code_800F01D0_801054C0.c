@@ -7,19 +7,19 @@
 
 
 void func_801054C0(s32 arg0) {
-    D_auto_803B75AC = arg0;
+    D_803B75AC = arg0;
 }
 
 void func_801054D0(u8 arg0) {
-    D_auto_803B75A9 = arg0;
+    D_803B75A9 = arg0;
 }
 
 void func_801054E0(s32 index)
 {
-    if (index >= D_auto_803AAD80) {
+    if (index >= D_803AAD80) {
         index = 0;
     }
-    D_auto_803AAD84 = index;
-    D_803AAD98 = D_auto_803AAD9C->offsets[index] + D_auto_803AADA0;
+    D_803AAD84 = index;
+    D_803AAD98 = D_803AAD9C->offsets[index] + D_803AADA0;
 }
 

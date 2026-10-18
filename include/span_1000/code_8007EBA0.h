@@ -9,5 +9,5 @@ void func_80083F04(Scene *scene);
 void *func_800A424C();
 void *func_800A6688(u16 index);
 
-extern u8 D_auto_801257F5;
+extern u8 D_801257F5;
 

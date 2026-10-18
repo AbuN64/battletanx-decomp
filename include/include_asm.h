@@ -7,9 +7,9 @@
             "    .include \"nonmatchings/" SEG "/" #NAME ".s\"\n" \
             "    .set reorder\n    .set at\n")
 #define INCLUDE_RODATA(SEG, NAME) \
-    __asm__(INCLUDE_PRE ".section .rodata." #NAME "\n    .include \"data/" SEG "/" #NAME ".ro\\144ata.s\"\n.section .text")
+    __asm__(INCLUDE_PRE ".section .rodata." #NAME "\n    .include \"data/" SEG "/" #NAME ".s\"\n.section .text")
 #define INCLUDE_DATA(SEG, NAME) \
-    __asm__(INCLUDE_PRE ".section .data." #NAME "\n    .include \"data/" SEG "/" #NAME ".data.s\"\n.section .text")
+    __asm__(INCLUDE_PRE ".section .data." #NAME "\n    .include \"data/" SEG "/" #NAME ".s\"\n.section .text")
 #define INCLUDE_BSS(SEG, NAME, SIZE) \
     __asm__(".section .bss\n    .space " #SIZE "\n.section .text")
 #else

@@ -74,8 +74,8 @@ void func_800953AC(s32 x0, s32 z0, s32 x1, s32 z1, s32 arg4, s32 arg5, s32 key) 
 INCLUDE_ASM("span_1000", func_80095768);
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
-extern s32 D_auto_802D5BC0;
-extern s32 D_auto_802D5BC4;
+extern s32 D_802D5BC0;
+extern s32 D_802D5BC4;
 
 s32 func_80095C1C(s32 *arg0, s32 arg1) {
     s32 *var_a1;
@@ -98,8 +98,8 @@ s32 func_80095C1C(s32 *arg0, s32 arg1) {
         var_t0 = (var_a3 * 4) + arg0;
 loop_2:
         temp_a1 = var_t1 + (arg1 * 0x960);
-        if (*(&D_auto_802D5BC0 + temp_a1) != 0x8FFF) {
-            temp_a2 = *(&D_auto_802D5BC4 + temp_a1);
+        if (*(&D_802D5BC0 + temp_a1) != 0x8FFF) {
+            temp_a2 = *(&D_802D5BC4 + temp_a1);
             var_v1 = 0;
             if (var_a3 > 0) {
                 var_a1 = arg0;

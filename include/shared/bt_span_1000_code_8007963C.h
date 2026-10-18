@@ -4,7 +4,7 @@
 #include "shared/bt_menu_render.h"
 
 
-extern void func_auto_80079684(void);
+extern void func_80079684(void);
 
 
 

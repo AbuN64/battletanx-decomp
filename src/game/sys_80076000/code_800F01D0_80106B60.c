@@ -11,28 +11,28 @@ void func_80106B60(s32 width, s32 height)
     u32 i;
     s16 *cells;
 
-    func_80110C00(D_auto_803B8248, sizeof(SpatialRecord) * 0x514);
+    func_80110C00(D_803B8248, sizeof(SpatialRecord) * 0x514);
     for (i = 0; i < 0x514; i++) {
-        D_auto_803B8248[i].cellLinks[0] = -1;
-        D_auto_803B8248[i].cellLinks[1] = -1;
-        D_auto_803B8248[i].cellLinks[2] = -1;
-        D_auto_803B8248[i].cellLinks[3] = -1;
+        D_803B8248[i].cellLinks[0] = -1;
+        D_803B8248[i].cellLinks[1] = -1;
+        D_803B8248[i].cellLinks[2] = -1;
+        D_803B8248[i].cellLinks[3] = -1;
     }
     for (i = 0; i < 0x513; i++) {
-        D_auto_803B8248[i].next = i + 1;
-        D_auto_803B8248[i].prev = i - 1;
+        D_803B8248[i].next = i + 1;
+        D_803B8248[i].prev = i - 1;
     }
-    D_auto_803B8248[0x513].next = -1;
-    D_auto_803B8248[0].prev = -1;
-    D_auto_803B8240 = -1;
-    D_auto_803B8238 = width + 0x1F4;
-    D_auto_803B8234 = 0;
-    D_auto_803B823C = height + 0x1F4;
-    cells = D_auto_803B75B0[0][0];
+    D_803B8248[0x513].next = -1;
+    D_803B8248[0].prev = -1;
+    D_803B8240 = -1;
+    D_803B8238 = width + 0x1F4;
+    D_803B8234 = 0;
+    D_803B823C = height + 0x1F4;
+    cells = D_803B75B0[0][0];
     for (i = 0; i < 0x640; i++) {
         cells[i] = -1;
     }
-    D_auto_803B8230 = -1;
+    D_803B8230 = -1;
 }
 
 INCLUDE_ASM("span_1000", func_80106C9C);
@@ -52,7 +52,7 @@ int func_80106D00(void) {
 
               /* size 0x0 */
 
-void func_auto_80106D08(void) {
+void func_80106D08(void) {
 
 }
 
@@ -90,10 +90,10 @@ INCLUDE_ASM("span_1000", func_80107754);
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_80107168.h"
 #include "shared/bt_types.h"
-extern s32 D_auto_803B8240;
-extern s32 D_auto_803B8248;
-extern s32 D_auto_803B824A;
-extern s32 D_auto_803B8250;
+extern s32 D_803B8240;
+extern s32 D_803B8248;
+extern s32 D_803B824A;
+extern s32 D_803B8250;
 
 void func_80107A14(QueryBox *arg0, s32 arg1, QueryResult **arg2, s32 *arg3) {
     s32 sp10;
@@ -106,15 +106,15 @@ void func_80107A14(QueryBox *arg0, s32 arg1, QueryResult **arg2, s32 *arg3) {
 
     var_s3 = arg2;
     var_s2 = 0;
-    var_s1 = D_auto_803B8240;
-    if ((s16) D_auto_803B8240 != -1) {
+    var_s1 = D_803B8240;
+    if ((s16) D_803B8240 != -1) {
 loop_2:
         temp_s0 = (s16) var_s1 * 0x28;
-        if (*(&D_auto_803B8248 + temp_s0) & arg1) {
+        if (*(&D_803B8248 + temp_s0) & arg1) {
             var_v0 = var_s1 << 0x10;
             if (func_8010A8A8(arg0, &D_803B8254[(s16) var_s1].box, &sp10) & 0xFF) {
                 var_s2 += 1;
-                *var_s3 = *(&D_auto_803B8250 + temp_s0);
+                *var_s3 = *(&D_803B8250 + temp_s0);
                 var_s3 += 4;
                 if (var_s2 < 0x20) {
                     goto block_5;
@@ -126,7 +126,7 @@ loop_2:
 block_5:
             var_v0 = var_s1 << 0x10;
 block_6:
-            temp_v0 = *(&D_auto_803B824A + ((var_v0 >> 0x10) * 0x28));
+            temp_v0 = *(&D_803B824A + ((var_v0 >> 0x10) * 0x28));
             var_s1 = (s32) temp_v0;
             if (temp_v0 != -1) {
                 goto loop_2;
@@ -169,11 +169,11 @@ u8 func_80108B68(QueryBox *body, s32 self, u16 mask, f32 *delta, f32 *out, s32 a
     hit = 0;
     cellCount = 0;
     *owner = 0;
-    baseX = body->values[1] + D_auto_803B8238;
-    baseZ = body->values[2] + D_auto_803B823C;
+    baseX = body->values[1] + D_803B8238;
+    baseZ = body->values[2] + D_803B823C;
     for (i = 0; i < 4; i++) {
-        row = (baseX + D_auto_80142B50[i]) >> 11;
-        col = (baseZ + D_auto_80142B60[i]) >> 11;
+        row = (baseX + D_80142B50[i]) >> 11;
+        col = (baseZ + D_80142B60[i]) >> 11;
         if (((row >= 20) | (col >= 20)) == 0 && ((row < 0) | (col < 0)) == 0) {
             for (j = 0; j < i; j++) {
                 if (row == rows[j] && col == columns[j]) {
@@ -191,13 +191,13 @@ u8 func_80108B68(QueryBox *body, s32 self, u16 mask, f32 *delta, f32 *out, s32 a
             layer = layers[i];
             row = rows[i];
             col = columns[i];
-            id = D_auto_803B75B0[layer][row][col];
+            id = D_803B75B0[layer][row][col];
         } else {
-            id = D_auto_803B8230;
+            id = D_803B8230;
             layer = 0;
         }
         while (id != -1) {
-            other = &D_auto_803B8248[id];
+            other = &D_803B8248[id];
             if ((other->mode & mask) && id != self) {
                 if (func_8010B9C8(body, delta, &other->body, arg5, arg6)) {
                     *owner = other->owner;

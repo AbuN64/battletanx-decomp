@@ -12,7 +12,7 @@ s32 func_800A12E4(f32 x, f32 y, s32 sizeIndex)
     AreaBox box;
     s32 count;
     f32 half;
-    half = D_auto_80126038[sizeIndex] * D_auto_80072C80;
+    half = D_80126038[sizeIndex] * D_80072C80;
     func_80109268(&box, x, y, -half, half, -half, half, 0);
     return !func_80107A14(&box, 16, results, &count);
 }

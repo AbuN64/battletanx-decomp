@@ -23,7 +23,7 @@ struct CommandQueueOwner {
 
 #pragma once
 
-extern unsigned char D_auto_803C75C8[];
+extern unsigned char D_803C75C8[];
 
 #pragma once
 

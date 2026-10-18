@@ -8,10 +8,10 @@ extern int func_800E9A20(void);
 
 
 
-extern s32 D_auto_8033A980;
+extern s32 D_8033A980;
 
 
-extern int func_auto_800E9A28(void);
+extern int func_800E9A28(void);
 
 
 

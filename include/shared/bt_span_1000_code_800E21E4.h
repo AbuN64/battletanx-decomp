@@ -2,13 +2,13 @@
 #define UNBAKE_SPAN_1000_CODE_800E21E4_H
 #include "shared/bt_types.h"
 #include "shared/bt_common_draft_fields_func_800E2614_us.h"
-extern int func_auto_800E2620(void * arg0);
+extern int func_800E2620(void * arg0);
 
 
 extern int func_800E2614(void * arg0);
 
 
-extern void func_auto_800E3480(int *p);
+extern void func_800E3480(int *p);
 
 
 struct Measured_func_800E2620_us_85b85564f990;

@@ -84,9 +84,9 @@ void func_800E5BA0(s32 arg0, s32 arg1) {
         } while (i < 20);
     }
     j = 0;
-    if (D_auto_8033B448 != 0) {
+    if (D_8033B448 != 0) {
         do {
-            UnitPairing *p = &D_auto_8033AAE8[j];
+            UnitPairing *p = &D_8033AAE8[j];
             if (p->connected != 0) {
                 if (arg0 != 0) {
                     func_800E56B0(p);
@@ -97,7 +97,7 @@ void func_800E5BA0(s32 arg0, s32 arg1) {
                 if (a->visible == 0) {
                     clear_unit_pairing(p);
                 } else if (((a->flags & 4) && (b->flags & 4)) ||
-                           (func_auto_800E3470(a) != 0 && func_auto_800E3470(b) != 0)) {
+                           (func_800E3470(a) != 0 && func_800E3470(b) != 0)) {
                     clear_unit_pairing(p);
                     p->flags[0] = 1;
                     p->flags[3] = 1;
@@ -110,7 +110,7 @@ void func_800E5BA0(s32 arg0, s32 arg1) {
                 }
             }
             j++;
-        } while (j < D_auto_8033B448);
+        } while (j < D_8033B448);
     }
 }
 
@@ -159,9 +159,9 @@ EffectKind11 *func_800E66BC(u16 id, AiTeam *arg)
         return 0;
     }
     func_800E5328(id, arg);
-    D_auto_8033B44A = 1;
-    D_auto_8033B44C = 0;
-    D_auto_8033AAE0 = 0;
+    D_8033B44A = 1;
+    D_8033B44C = 0;
+    D_8033AAE0 = 0;
     effect->active = 1;
     return effect;
 }

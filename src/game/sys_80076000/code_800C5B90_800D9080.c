@@ -13,8 +13,8 @@ s32 func_800DAC4C(void)
     s32 delta;
     s32 index;
     buttons = func_80096920(0, 0);
-    D_auto_80327614 ^= buttons & 0x80;
-    if (D_auto_80327614 != 0) {
+    D_80327614 ^= buttons & 0x80;
+    if (D_80327614 != 0) {
         return 0;
     }
     result = 0;
@@ -27,18 +27,18 @@ s32 func_800DAC4C(void)
         delta++;
         func_800ABF70();
     }
-    index = D_auto_8013566C += delta;
+    index = D_8013566C += delta;
     if (index < 0) {
-        index = D_auto_80328410 - 1;
+        index = D_80328410 - 1;
     }
-    D_auto_8013566C = index;
-    if (index >= D_auto_80328410) {
+    D_8013566C = index;
+    if (index >= D_80328410) {
         index = 0;
     }
-    D_auto_8013566C = index;
+    D_8013566C = index;
     if (buttons & 0x50) {
         result = 1;
-        D_auto_80135674 = D_auto_801352B0[index];
+        D_80135674 = D_801352B0[index];
     }
     if (buttons & 0x20) {
         result = 2;
@@ -53,13 +53,13 @@ void func_800DAD60(void) {
     s32 i;
     s32 fill = ' ';
     u8 *cursor;
-    D_auto_80328420 = 0;
-    D_auto_80328424 = 0;
-    D_auto_80328440 = -1;
-    D_auto_8032843C = 0;
-    D_auto_8032843A = 0;
-    D_auto_80328428 = 0;
-    for (i = 9, cursor = &D_auto_80328430[9]; i >= 0; i--, cursor--) {
+    D_80328420 = 0;
+    D_80328424 = 0;
+    D_80328440 = -1;
+    D_8032843C = 0;
+    D_8032843A = 0;
+    D_80328428 = 0;
+    for (i = 9, cursor = &D_80328430[9]; i >= 0; i--, cursor--) {
         *cursor = fill;
     }
 }
@@ -71,10 +71,10 @@ void func_80077930(s32 arg0, s32 arg1, s32 arg2);
 
 void func_800DADBC(void)
 {
-    u32 size = D_auto_B04AD7E0 - D_auto_B04AC150;
+    u32 size = D_B04AD7E0 - D_B04AC150;
 
-    func_80077930((u32)D_auto_B04AC150, D_auto_803DA800, size);
-    func_800F4F60(size, D_auto_803DA800, 0x25800, D_auto_803275F4);
+    func_80077930((u32)D_B04AC150, D_803DA800, size);
+    func_800F4F60(size, D_803DA800, 0x25800, D_803275F4);
     func_801053B0(1);
 }
 
@@ -94,8 +94,8 @@ s32 func_800DC93C(void) {
     s32 size;
     u8 done;
 
-    size = load_rom_span(D_auto_B04AC150, D_auto_B04AD7E0, D_auto_803DA800);
-    func_800F4F60(size, D_auto_803DA800, 0x25800, D_auto_803275F4);
+    size = load_rom_span(D_B04AC150, D_B04AD7E0, D_803DA800);
+    func_800F4F60(size, D_803DA800, 0x25800, D_803275F4);
     func_801053B0(1);
     do {
         Gfx *cmd;
@@ -104,12 +104,12 @@ s32 func_800DC93C(void) {
         func_800A8EE0();
         done = func_800DCCC0();
         func_8007D850();
-        D_auto_803276D4 = D_auto_803276D0 + D_auto_803276D8 * 0x2200;
-        func_800DAE30(D_auto_803276D8);
-        cmd = D_auto_803276D4++;
+        D_803276D4 = D_803276D0 + D_803276D8 * 0x2200;
+        func_800DAE30(D_803276D8);
+        cmd = D_803276D4++;
         gSPEndDisplayListF3D(cmd);
-        func_8007EEF8(D_auto_803276D0 + D_auto_803276D8 * 0x2200);
-        D_auto_803276D8 = (D_auto_803276D8 + 1 < 3) ? D_auto_803276D8 + 1 : 0;
+        func_8007EEF8(D_803276D0 + D_803276D8 * 0x2200);
+        D_803276D8 = (D_803276D8 + 1 < 3) ? D_803276D8 + 1 : 0;
         func_8007968C();
         func_8007D998();
     } while (!done);
@@ -129,13 +129,13 @@ s32 func_800DCCC0(void) {
     s32 i;
     u8 *p;
     input = func_80096920(0, 0);
-    toggle = D_auto_80327614 ^ (input & 0x80);
-    D_auto_80327614 = toggle;
+    toggle = D_80327614 ^ (input & 0x80);
+    D_80327614 = toggle;
     buttons = input;
     if (toggle != 0) {
         return 0;
     }
-    switch (D_auto_80328424) {
+    switch (D_80328424) {
     case 1:
         count = 10;
         break;
@@ -155,12 +155,12 @@ s32 func_800DCCC0(void) {
         delta++;
         func_800ABF40();
     }
-    D_auto_80328424 += delta;
-    if (D_auto_80328424 < 0) {
-        D_auto_80328424 = 2;
+    D_80328424 += delta;
+    if (D_80328424 < 0) {
+        D_80328424 = 2;
     }
-    if (D_auto_80328424 >= 3) {
-        D_auto_80328424 = 0;
+    if (D_80328424 >= 3) {
+        D_80328424 = 0;
     }
     delta = 0;
     if (buttons & 2) {
@@ -171,57 +171,57 @@ s32 func_800DCCC0(void) {
         delta++;
         func_800ABF70();
     }
-    D_auto_80328420 += delta;
-    if (D_auto_80328420 < 0) {
-        D_auto_80328420 = count - 1;
+    D_80328420 += delta;
+    if (D_80328420 < 0) {
+        D_80328420 = count - 1;
     }
-    if (D_auto_80328420 >= count) {
-        D_auto_80328420 = 0;
+    if (D_80328420 >= count) {
+        D_80328420 = 0;
     }
     if (buttons & 0x50) {
         func_800ABF1C();
-        switch (D_auto_80328424) {
+        switch (D_80328424) {
         case 2:
-            if (D_auto_80328420 == 0) {
-                if (D_auto_80328428 > 0) {
-                    D_auto_8032842F[D_auto_80328428] = ' ';
-                    D_auto_80328428--;
+            if (D_80328420 == 0) {
+                if (D_80328428 > 0) {
+                    D_8032842F[D_80328428] = ' ';
+                    D_80328428--;
                 }
-                D_auto_80328440 = -1;
+                D_80328440 = -1;
             } else {
                 func_800DCA7C();
             }
             break;
         case 1:
-            if (D_auto_8032843A != 0) {
+            if (D_8032843A != 0) {
                 i = 9;
-                p = &D_auto_80328439;
-                D_auto_8032843A = 0;
-                D_auto_80328428 = 0;
+                p = &D_80328439;
+                D_8032843A = 0;
+                D_80328428 = 0;
                 do {
                     *p = ' ';
                     i--;
                     p--;
                 } while (i >= 0);
             }
-            if (D_auto_80328428 < 10) {
-                D_auto_80328430[D_auto_80328428++] = D_auto_8013568C[D_auto_80328420];
+            if (D_80328428 < 10) {
+                D_80328430[D_80328428++] = D_8013568C[D_80328420];
             }
             break;
         case 0:
-            if (D_auto_8032843A != 0) {
+            if (D_8032843A != 0) {
                 i = 9;
-                p = &D_auto_80328439;
-                D_auto_8032843A = 0;
-                D_auto_80328428 = 0;
+                p = &D_80328439;
+                D_8032843A = 0;
+                D_80328428 = 0;
                 do {
                     *p = ' ';
                     i--;
                     p--;
                 } while (i >= 0);
             }
-            if (D_auto_80328428 < 10) {
-                D_auto_80328430[D_auto_80328428++] = D_auto_80135680[D_auto_80328420];
+            if (D_80328428 < 10) {
+                D_80328430[D_80328428++] = D_80135680[D_80328420];
             }
             break;
         }
@@ -237,17 +237,17 @@ void func_800DCFCC(u32 arg0, u8 *arg1) {
     u32 key = arg0 ^ 0xEFF8DF2B;
     u32 check;
 
-    arg1[0] = D_auto_80135778[key >> 28];
-    arg1[1] = D_auto_80135778[(key >> 24) & 0xF];
-    arg1[2] = D_auto_80135778[(key >> 20) & 0xF];
-    arg1[3] = D_auto_80135778[(key >> 16) & 0xF];
-    arg1[4] = D_auto_80135778[(key >> 12) & 0xF];
-    arg1[5] = D_auto_80135778[(key >> 8) & 0xF];
-    arg1[6] = D_auto_80135778[(key >> 4) & 0xF];
+    arg1[0] = D_80135778[key >> 28];
+    arg1[1] = D_80135778[(key >> 24) & 0xF];
+    arg1[2] = D_80135778[(key >> 20) & 0xF];
+    arg1[3] = D_80135778[(key >> 16) & 0xF];
+    arg1[4] = D_80135778[(key >> 12) & 0xF];
+    arg1[5] = D_80135778[(key >> 8) & 0xF];
+    arg1[6] = D_80135778[(key >> 4) & 0xF];
     check = (((key * 0x19660D) + 0x5F) & 0xFF) ^ 0xB2;
-    arg1[7] = D_auto_80135778[key & 0xF];
-    arg1[8] = D_auto_80135778[check >> 4];
-    arg1[9] = D_auto_80135778[check & 0xF];
+    arg1[7] = D_80135778[key & 0xF];
+    arg1[8] = D_80135778[check >> 4];
+    arg1[9] = D_80135778[check & 0xF];
     arg1[10] = 0;
 }
 
@@ -281,8 +281,8 @@ u32 func_800DD244(u32 value)
     s32 start;
     s32 stride;
     for (i = 0; i < 16; i++) {
-        start = D_auto_8013578C[i].start;
-        stride = D_auto_8013578C[i].stride;
+        start = D_8013578C[i].start;
+        stride = D_8013578C[i].stride;
         if ((value >> start) & 1) {
             for (bit = start + stride; bit < 32; bit += stride) {
                 value ^= 1 << bit;
@@ -301,8 +301,8 @@ u32 func_800DD2A8(u32 value)
     u32 result;
     for (offset = 15; offset >= 0; offset--) {
         result = value;
-        bit = D_auto_8013578C[offset].start;
-        stride = D_auto_8013578C[offset].stride;
+        bit = D_8013578C[offset].start;
+        stride = D_8013578C[offset].stride;
         if ((result >> bit) & 1) {
             for (bit += stride; bit < 32; bit += stride) {
                 result ^= one << bit;
@@ -335,7 +335,7 @@ static inline s32 decode_password(unsigned char *password, u32 *outValue)
     for (i = 0; i < 10; i++) {
         found = 0;
         for (digit = 0; digit < 16; digit++) {
-            if ((u8)password[i] == D_auto_80135778[digit]) {
+            if ((u8)password[i] == D_80135778[digit]) {
                 if (i < 8) {
                     value += digit << ((7 - i) * 4);
                     found = 1;
@@ -366,8 +366,8 @@ static inline u32 unpropagate_bit_stride_table(u32 value)
 
     for (offset = 15; offset >= 0; offset--) {
         result = value;
-        bit = D_auto_8013578C[offset].start;
-        stride = D_auto_8013578C[offset].stride;
+        bit = D_8013578C[offset].start;
+        stride = D_8013578C[offset].stride;
         if ((result >> bit) & 1) {
             for (bit += stride; bit < 32; bit += stride) {
                 result ^= one << bit;

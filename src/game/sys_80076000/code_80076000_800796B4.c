@@ -7,8 +7,8 @@
 int func_8011C300(SlotTable *owner);
 s32 func_800796B4(s16 value)
 {
-    func_8011CB90(D_auto_80150380, value);
-    return func_8011C300(D_auto_80150380) != 0;
+    func_8011CB90(D_80150380, value);
+    return func_8011C300(D_80150380) != 0;
 }
 
 INCLUDE_ASM("span_1000", func_800796F0);

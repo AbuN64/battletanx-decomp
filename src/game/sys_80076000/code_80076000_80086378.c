@@ -17,8 +17,8 @@ char *func_80086378(s32 value, s32 digits, char *out)
 {
     char buffer[16];
 
-    func_8011CC84(buffer, D_auto_80071560, value + int_power(10, digits));
-    func_8011CC84(out, D_auto_80071564, buffer + 1);
+    func_8011CC84(buffer, D_80071560, value + int_power(10, digits));
+    func_8011CC84(out, D_80071564, buffer + 1);
     return out;
 }
 

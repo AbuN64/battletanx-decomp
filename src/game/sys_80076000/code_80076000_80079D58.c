@@ -7,9 +7,9 @@
 void func_8011B9E0(CommandQueueOwner *owner);
 s32 func_80079D58(void)
 {
-    func_8011B9A0(D_auto_80150350, 0);
-    func_8011B9E0(D_auto_80150350);
-    D_auto_80125710 = -1;
+    func_8011B9A0(D_80150350, 0);
+    func_8011B9E0(D_80150350);
+    D_80125710 = -1;
     return -1;
 }
 

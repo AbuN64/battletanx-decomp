@@ -5,8 +5,8 @@
 
 
 void func_800C0880(void) {
-    D_auto_80327D40 = 0;
-    D_auto_80327E30 = 0;
+    D_80327D40 = 0;
+    D_80327E30 = 0;
 }
 
 INCLUDE_ASM("span_1000", func_800C0898);
@@ -28,40 +28,40 @@ s32 func_800C3534(void)
     s32 mask;
 
     func_800C0898();
-    while (D_auto_80327E30 == 0) {
+    while (D_80327E30 == 0) {
         func_800A8ECC();
         func_800A8EE0();
-        D_auto_80327E30 = func_800C36E8();
+        D_80327E30 = func_800C36E8();
         func_8007D850();
-        D_auto_803276D4 = D_auto_803276D0 + D_auto_803276D8 * 0x2200;
-        if (D_auto_80327E30 == 0) {
-            func_800C224C(D_auto_80073570);
+        D_803276D4 = D_803276D0 + D_803276D8 * 0x2200;
+        if (D_80327E30 == 0) {
+            func_800C224C(D_80073570);
         }
-        cmd = D_auto_803276D4;
-        dl = D_auto_803276D0 + D_auto_803276D8 * 0x2200;
-        D_auto_803276D4 = cmd + 1;
+        cmd = D_803276D4;
+        dl = D_803276D0 + D_803276D8 * 0x2200;
+        D_803276D4 = cmd + 1;
         gSPEndDisplayListF3D(cmd);
         func_8007EEF8(dl);
-        next = D_auto_803276D8 + 1;
+        next = D_803276D8 + 1;
         mask = -(next < 3);
-        D_auto_803276D8 = next & mask;
+        D_803276D8 = next & mask;
         func_8007968C();
         func_8007D998();
     }
-    if (D_auto_80327E40 != -1) {
-        func_800798C0(D_auto_80327E40);
-        D_auto_80327E40 = -1;
+    if (D_80327E40 != -1) {
+        func_800798C0(D_80327E40);
+        D_80327E40 = -1;
     }
     func_80079BD4();
     func_80079064();
-    D_auto_80132EF0 = 0;
-    if (D_auto_80327D40 == 5) {
-        D_auto_80132EF0 = 1;
-        D_auto_80327B4C = 0x12;
+    D_80132EF0 = 0;
+    if (D_80327D40 == 5) {
+        D_80132EF0 = 1;
+        D_80327B4C = 0x12;
         func_800EC380(8);
         return 0xD;
     }
-    if (D_auto_80135770 != 0) {
+    if (D_80135770 != 0) {
         func_800C3EF0();
         return 0x13;
     }
@@ -79,9 +79,9 @@ s32 func_800C36E8(void) {
     if (buttons & 0x40) {
         result = 1;
     }
-    D_auto_80327E31 = 0;
+    D_80327E31 = 0;
     if (buttons & 0x10) {
-        D_auto_80327E31 = 1;
+        D_80327E31 = 1;
     }
     return result;
 }

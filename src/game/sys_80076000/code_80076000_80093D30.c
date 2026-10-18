@@ -5,9 +5,9 @@
 
 
 void func_80093D30(void) {
-    D_auto_80125D40 = 0;
-    D_auto_80125D44 = 0;
-    D_auto_80125D48 = 0;
+    D_80125D40 = 0;
+    D_80125D44 = 0;
+    D_80125D48 = 0;
 }
 
 INCLUDE_ASM("span_1000", func_80093D50);

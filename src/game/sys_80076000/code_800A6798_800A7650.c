@@ -11,7 +11,7 @@ void func_800A7650(f32 matrix[4][4])
             if (row != column) {
                 matrix[row][column] = 0.0f;
             } else {
-                matrix[row][column] = D_auto_800730B0;
+                matrix[row][column] = D_800730B0;
             }
         }
     }

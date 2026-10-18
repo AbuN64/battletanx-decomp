@@ -13,13 +13,13 @@
 void func_8007967C(void) {
 }
 
-/* func_auto_80079684 -- does nothing.
+/* func_80079684 -- does nothing.
  *
  * Two words: the return and an empty delay slot. The cartridge keeps the entry point, so
  * something calls it; what it was meant to do, if anything, is not in the image.
  */
 
-void func_auto_80079684(void) {
+void func_80079684(void) {
 }
 
 void func_8007968C(void)
@@ -29,7 +29,7 @@ void func_8007968C(void)
     s16 *slot;
     value = 1;
     i = 31;
-    slot = D_auto_801B4A96;
+    slot = D_801B4A96;
     do {
         *slot = value;
         i--;

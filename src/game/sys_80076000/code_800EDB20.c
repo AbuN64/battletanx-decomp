@@ -11,14 +11,15 @@ INCLUDE_ASM("span_1000", func_800EE28C);
 
 
 void func_800EE4BC(void) {
-    D_auto_8033B631 = 0;
-    D_auto_8033B630 = 0;
+    D_8033B631 = 0;
+    D_8033B630 = 0;
 }
 
 INCLUDE_ASM("span_1000", func_800EE4D4);
 INCLUDE_ASM("span_1000", func_800EE75C);
 INCLUDE_ASM("span_1000", func_800EE8B4);
 INCLUDE_ASM("span_1000", func_800EEBEC);
+INCLUDE_ASM("span_1000", func_800EECA0);
 INCLUDE_ASM("span_1000", func_800EED5C);
 INCLUDE_ASM("span_1000", func_800EEE58);
 INCLUDE_ASM("span_1000", func_800EF020);

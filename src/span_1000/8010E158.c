@@ -1,3 +1,6 @@
 #include "include_asm.h"
 
 INCLUDE_DATA("span_1000", D_8010E158);
+INCLUDE_DATA("span_1000", D_8010E160);
+INCLUDE_DATA("span_1000", D_8010E230);
+INCLUDE_DATA("span_1000", D_8010F660);

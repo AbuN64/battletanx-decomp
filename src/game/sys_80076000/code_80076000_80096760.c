@@ -11,6 +11,6 @@ int func_80096760(void) {
 
 void *func_80096768(s32 index)
 {
-    return D_auto_80125D50 + index * 68;
+    return D_80125D50 + index * 68;
 }
 

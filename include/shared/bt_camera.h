@@ -15,7 +15,7 @@ typedef struct AttachedCamera {
     s32 floor, count;
     Vec3f motion;
 } AttachedCamera;
-extern Vec3f *D_auto_80126128[2][3];
-extern Vec3f *D_auto_80126140[2][3];
+extern Vec3f *D_80126128[2][3];
+extern Vec3f *D_80126140[2][3];
 extern void func_800786D4(AttachedCamera *camera, s32 mode);
 #endif

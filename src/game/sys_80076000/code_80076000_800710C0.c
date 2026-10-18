@@ -8,7 +8,7 @@
 /* This entry returns the address without reading the object. */
 
 unsigned char *func_80078F60(void) {
-    return &D_auto_8014E0D0;
+    return &D_8014E0D0;
 }
 
 void func_800793D0(func_800793D0_S1_Shared800793D0 *arg0);
@@ -98,7 +98,7 @@ INCLUDE_ASM("span_1000", func_80079474);
 
 
 void func_800794B4(void) {
-    D_auto_801502E0 = 1;
+    D_801502E0 = 1;
 }
 
 INCLUDE_ASM("span_1000", func_800794C8);

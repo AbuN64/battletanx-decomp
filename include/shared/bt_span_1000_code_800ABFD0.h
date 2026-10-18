@@ -5,7 +5,7 @@
 extern void func_800AC2D0(void);
 
 
-extern void func_auto_800B87F4(void);
+extern void func_800B87F4(void);
 
 
 

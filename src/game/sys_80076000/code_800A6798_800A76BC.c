@@ -28,9 +28,9 @@ void func_800A7800(f32 matrix[4][4], u16 yaw, u16 pitch, u16 roll) {
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800A7964(f32 m[4][4], f32 *angles) {
-    f32 rz = angles[2] * D_auto_80126700;
-    f32 ry = angles[1] * D_auto_80126700;
-    f32 rx = angles[0] * D_auto_80126700;
+    f32 rz = angles[2] * D_80126700;
+    f32 ry = angles[1] * D_80126700;
+    f32 rx = angles[0] * D_80126700;
     f32 sz = func_8011BE10(rz);
     f32 cz = func_801113A0(rz);
     f32 sy = func_8011BE10(ry);

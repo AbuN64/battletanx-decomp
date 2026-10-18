@@ -68,7 +68,7 @@ void func_800E9894(func_800E9894_S1_Shared800EA1FC *arg0, s16 arg1) {
     arg0->unk40 = 0;
     arg0->unk44 = 0;
     arg0->unk1C = temp_v1;
-    arg0->unk0 = (void *) ((s8 *)(&D_auto_8033A980) + ((temp_v1 & 0xFF) * 0x52));
+    arg0->unk0 = (void *) ((s8 *)(&D_8033A980) + ((temp_v1 & 0xFF) * 0x52));
     arg0->unkC = (void *)&temp_a0->unk9C;
     arg0->unk10 = (void *)&temp_a0->unkCC;
 }

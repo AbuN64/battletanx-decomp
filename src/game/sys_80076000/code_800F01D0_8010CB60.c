@@ -33,7 +33,7 @@ s32 func_8010CB60(EffectKind2DParams *params)
     phase = func_800F38F4() & 7;
     effect->value30 = phase;
     effect->value32 = 0x80;
-    effect->value31 = (phase + 1) % D_auto_80142CD0;
+    effect->value31 = (phase + 1) % D_80142CD0;
     effect->value34 = func_800F38F4();
     effect->value35 = func_800F38F4();
     effect->value36 = 0;

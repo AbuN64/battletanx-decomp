@@ -9,5 +9,5 @@ struct S {
     char padC[0x1F8];
     int unk204;
 };
-extern S *D_auto_801B4ABC;
+extern S *D_801B4ABC;
 

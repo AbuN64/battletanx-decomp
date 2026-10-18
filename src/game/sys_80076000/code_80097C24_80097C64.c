@@ -105,7 +105,7 @@ block_31:
                 if (((struct Measured_func_800983E0_us_95b7c07a1977 *)(arg0))->value == 0) {
                     ((struct Measured_func_800983E0_us_db74d82bc842 *)(arg0))->value = 0xF0;
                 }
-                ((struct Measured_func_800983E0_us_d21dc9cabacf *)(arg0))->value = (s32) D_auto_801B4AA8;
+                ((struct Measured_func_800983E0_us_d21dc9cabacf *)(arg0))->value = (s32) D_801B4AA8;
                 if (((struct Measured_func_800983E0_us_7d6aec9d411c *)(arg0))->value <= 0) {
                     if (func_800E3460((u8 *) arg0) == 0) {
                         var_v1 = (var_s1 / 3) + 0x14;
@@ -166,7 +166,7 @@ INCLUDE_ASM("span_1000", func_80099A08);
 
 s32 func_800796F0();                /* extern */
 s32 func_800799D0();                    /* extern */
-s32 func_auto_800E3470();                                /* extern */
+s32 func_800E3470();                                /* extern */
 const f64 D_800723B0 = 0.3;
 const f32 D_800723B8 = 0.5f;
 const f32 D_800723BC = 28672.0f;
@@ -174,7 +174,7 @@ const f32 D_800723BC = 28672.0f;
 void func_80099CD8(void *arg0, s32 arg1) {
     s32 temp_a0;
 
-    if ((((struct Func_80099CD8_View0_Shared80099CD8 *)arg0)->field_464 == 0) && (D_800723B0 < (f64) ((struct Func_80099CD8_View0_Shared80099CD8 *)arg0)->field_3b4) && (func_auto_800E3470() != 0)) {
+    if ((((struct Func_80099CD8_View0_Shared80099CD8 *)arg0)->field_464 == 0) && (D_800723B0 < (f64) ((struct Func_80099CD8_View0_Shared80099CD8 *)arg0)->field_3b4) && (func_800E3470() != 0)) {
         temp_a0 = func_800796F0(arg1, 0);
         if (((struct Func_80099CD8_View0_Shared80099CD8 *)arg0)->field_3b4 < D_800723B8) {
             func_800799D0(temp_a0, (s16) (s32) (2.0f * ((struct Func_80099CD8_View0_Shared80099CD8 *)arg0)->field_3b4 * D_800723BC));
@@ -261,7 +261,7 @@ block_21:
         }
         return;
     case 1:                                         /* switch 1 */
-        if ((arg0->channel != 0) && (D_auto_801B4AA8 <= 0)) {
+        if ((arg0->channel != 0) && (D_801B4AA8 <= 0)) {
             var_a1 = 1;
             goto block_21;
         }

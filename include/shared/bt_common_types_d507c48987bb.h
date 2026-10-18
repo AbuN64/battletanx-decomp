@@ -28,7 +28,7 @@ typedef struct QueryBox AreaBox;
 
 
 
-extern void * D_auto_801257D0;
+extern void * D_801257D0;
 
 
 

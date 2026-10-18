@@ -24,39 +24,39 @@ s32 func_8007C58C(s32 state) {
     default:
         return;
     }
-    D_auto_801B4AE0 = state;
+    D_801B4AE0 = state;
     do {
         result = func_8007C344(0);
         if (result == 2) {
             func_8007B590(2);
-            D_auto_801B4AE0 = D_auto_80327B4C;
+            D_801B4AE0 = D_80327B4C;
         }
     } while (result >= 2);
     func_80079948();
     return -(result == 0);
 }
 
-INCLUDE_RODATA("span_1000", R_800711DC);
-INCLUDE_RODATA("span_1000", R_800711E8);
-INCLUDE_RODATA("span_1000", R_800711F4);
-INCLUDE_RODATA("span_1000", R_80071204);
-INCLUDE_RODATA("span_1000", R_80071228);
-INCLUDE_RODATA("span_1000", R_8007124C);
-INCLUDE_RODATA("span_1000", R_8007125C);
-INCLUDE_RODATA("span_1000", R_80071274);
-INCLUDE_RODATA("span_1000", R_800712AC);
-INCLUDE_RODATA("span_1000", R_800712D0);
-INCLUDE_RODATA("span_1000", R_800712F8);
-INCLUDE_RODATA("span_1000", R_80071340);
-INCLUDE_RODATA("span_1000", R_80071348);
-INCLUDE_RODATA("span_1000", R_80071350);
+INCLUDE_RODATA("span_1000", D_800711DC);
+INCLUDE_RODATA("span_1000", D_800711E8);
+INCLUDE_RODATA("span_1000", D_800711F4);
+INCLUDE_RODATA("span_1000", D_80071204);
+INCLUDE_RODATA("span_1000", D_80071228);
+INCLUDE_RODATA("span_1000", D_8007124C);
+INCLUDE_RODATA("span_1000", D_8007125C);
+INCLUDE_RODATA("span_1000", D_80071274);
+INCLUDE_RODATA("span_1000", D_800712AC);
+INCLUDE_RODATA("span_1000", D_800712D0);
+INCLUDE_RODATA("span_1000", D_800712F8);
+INCLUDE_RODATA("span_1000", D_80071340);
+INCLUDE_RODATA("span_1000", D_80071348);
+INCLUDE_RODATA("span_1000", D_80071350);
 INCLUDE_ASM("span_1000", func_8007C678);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
 void func_8007C6C4(void) {
-    D_auto_80125780 = 1;
+    D_80125780 = 1;
 }
 
 #ifdef NON_MATCHING
@@ -67,7 +67,7 @@ s32 func_8007C6D8(void) {
     s32 var_v0;
     u32 temp_a0;
 
-    temp_a0 = D_auto_801B4ABC->unk0;
+    temp_a0 = D_801B4ABC->unk0;
     var_v0 = 0;
     if (temp_a0 < 7U) {
         var_v0 = temp_a0 >= 3U;
@@ -82,7 +82,7 @@ INCLUDE_ASM("span_1000", func_8007C6D8);
 #include "span_1000/code_800A51E8.h"
 s32 func_8007C700(void)
 {
-    u32 mode = D_auto_801B4ABC->unk0;
+    u32 mode = D_801B4ABC->unk0;
     if (mode < 8) {
         if (mode >= 3) {
             return 1;
@@ -97,7 +97,7 @@ s32 func_8007C700(void)
 #include "game/sys_80076000.h"
 
 s32 func_8007C728(void) {
-    switch (D_auto_801B4ABC->unk0) {
+    switch (D_801B4ABC->unk0) {
         case 0:
         case 3:
         case 4:

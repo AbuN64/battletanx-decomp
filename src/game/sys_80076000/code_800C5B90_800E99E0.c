@@ -13,7 +13,7 @@ s32 func_800E9A20(void) {
 
               /* size 0x0 */
 
-s32 func_auto_800E9A28(void) {
+s32 func_800E9A28(void) {
     return 0;
 }
 

@@ -5,9 +5,9 @@
 
 
 s32 func_800DF214(u16 id) {
-    s32 kind = D_auto_80135834->kinds[id];
+    s32 kind = D_80135834->kinds[id];
 
-    if (D_auto_80135834->enabled[kind] == 0) {
+    if (D_80135834->enabled[kind] == 0) {
         return 0;
     }
     if (kind >= 15) {
@@ -32,11 +32,11 @@ s32 func_800DF214(u16 id) {
     return 4;
 }
 
-INCLUDE_RODATA("span_1000", R_800743F4);
-INCLUDE_RODATA("span_1000", R_800743FC);
-INCLUDE_RODATA("span_1000", R_80074404);
-INCLUDE_RODATA("span_1000", R_80074414);
-INCLUDE_RODATA("span_1000", R_8007441C);
+INCLUDE_RODATA("span_1000", D_800743F4);
+INCLUDE_RODATA("span_1000", D_800743FC);
+INCLUDE_RODATA("span_1000", D_80074404);
+INCLUDE_RODATA("span_1000", D_80074414);
+INCLUDE_RODATA("span_1000", D_8007441C);
 INCLUDE_ASM("span_1000", func_800DF2DC);
 INCLUDE_ASM("span_1000", func_800DF3A0);
 INCLUDE_ASM("span_1000", func_800DF4E8);
@@ -111,10 +111,10 @@ INCLUDE_ASM("span_1000", func_800E031C);
 void func_800E055C(s16 arg0) {
     s32 temp_v0;
 
-    D_auto_80135838 = arg0;
+    D_80135838 = arg0;
     temp_v0 = func_800E09B0(arg0 & 0xFFFF);
-    D_auto_8013583C = temp_v0;
-    func_800E1648(temp_v0, &D_auto_80328450);
+    D_8013583C = temp_v0;
+    func_800E1648(temp_v0, &D_80328450);
 }
 
 INCLUDE_ASM("span_1000", func_800E05A4);
@@ -125,11 +125,11 @@ INCLUDE_ASM("span_1000", func_800E0954);
 #include "span_1000/code_800E0B00.h"
 #include "game/sys_80076000.h"
 void func_800E097C(s32 arg0) {
-    D_auto_80135834->unk20 = arg0;
+    D_80135834->unk20 = arg0;
 }
 
 void func_800E098C(u16 index) {
-    MeshCorner *corner = &D_auto_80135834->corners[index];
+    MeshCorner *corner = &D_80135834->corners[index];
     corner->vertex = 0;
     corner->neighbor = 0;
 }
@@ -143,13 +143,13 @@ INCLUDE_ASM("span_1000", func_800E09F4);
 struct PolygonPoint *func_800E0A48(u32 id)
 {
     id &= 0xFFFF;
-    if (id >= D_auto_80135834->vertexCount) {
+    if (id >= D_80135834->vertexCount) {
         return 0;
     }
     if (id == 0) {
         return 0;
     }
-    return &D_auto_80135834->vertices[id];
+    return &D_80135834->vertices[id];
 }
 
 void func_800E0A84(u16 *indices, struct PolygonPoint *out) {
@@ -160,12 +160,12 @@ void func_800E0A84(u16 *indices, struct PolygonPoint *out) {
         struct PolygonPoint *dst;
         u16 index = indices[i];
 
-        if (index >= D_auto_80135834->vertexCount) {
+        if (index >= D_80135834->vertexCount) {
             vertex = 0;
         } else if (index == 0) {
             vertex = 0;
         } else {
-            vertex = &D_auto_80135834->vertices[index];
+            vertex = &D_80135834->vertices[index];
         }
         dst = &out[i];
         dst->x = vertex->x;

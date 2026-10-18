@@ -43,16 +43,17 @@ s32 func_800E6CA4(func_800E6CA4_S1_Shared800E6CA4 *arg0, s32 arg1) {
     return var_v0;
 }
 
-INCLUDE_RODATA("span_1000", R_800746C8);
-INCLUDE_RODATA("span_1000", R_800746D4);
-INCLUDE_RODATA("span_1000", R_800746D8);
-INCLUDE_RODATA("span_1000", R_800746DC);
-INCLUDE_RODATA("span_1000", R_800746E0);
-INCLUDE_RODATA("span_1000", R_800746E8);
-INCLUDE_RODATA("span_1000", R_800746F0);
-INCLUDE_RODATA("span_1000", R_800746FC);
-INCLUDE_RODATA("span_1000", R_80074704);
-INCLUDE_RODATA("span_1000", R_8007470C);
+INCLUDE_RODATA("span_1000", D_800746C8);
+INCLUDE_RODATA("span_1000", D_800746D4);
+INCLUDE_RODATA("span_1000", D_800746D8);
+INCLUDE_RODATA("span_1000", D_800746DC);
+INCLUDE_RODATA("span_1000", D_800746E0);
+INCLUDE_RODATA("span_1000", D_800746E8);
+INCLUDE_DATA("span_1000", D_800746EC);
+INCLUDE_RODATA("span_1000", D_800746F0);
+INCLUDE_RODATA("span_1000", D_800746FC);
+INCLUDE_RODATA("span_1000", D_80074704);
+INCLUDE_RODATA("span_1000", D_8007470C);
 INCLUDE_ASM("span_1000", func_800E6D58);
 #include "shared/bt_span_1000_code_800E5328.h"
 #include "game/sys_80076000.h"
@@ -63,7 +64,7 @@ s32 func_800E6FA0(void) {
     return -1;
 }
 
-s32 func_auto_800E6FA8(void) {
+s32 func_800E6FA8(void) {
     return -1;
 }
 
@@ -131,7 +132,7 @@ s32 func_800E73BC(struct ResetState *arg0) {
 s32 func_800E73E0(struct ResetState *context) {
     f32 amount = context->params[0];
     s32 now = func_8007B1DC();
-    s32 delay = (amount * D_auto_800746E8) / D_auto_800746EC;
+    s32 delay = (amount * D_800746E8) / D_800746EC;
     CombatUnit *unit = context->unk8;
     unit->deadline = now + delay;
     return -1;

@@ -44,10 +44,10 @@ void func_80083394(Scene *scene)
 
     finished = 0;
     minimum = 1000000;
-    if (D_auto_801C9178 != D_auto_80125858) {
-        D_auto_801C9178 = D_auto_80125858;
-        D_auto_801C9174 = D_auto_80125858 * D_auto_80125858;
-        func_800A5EB0(D_auto_80125858);
+    if (D_801C9178 != D_80125858) {
+        D_801C9178 = D_80125858;
+        D_801C9174 = D_80125858 * D_80125858;
+        func_800A5EB0(D_80125858);
     }
     view = 0;
     func_8009491C();
@@ -59,8 +59,8 @@ void func_80083394(Scene *scene)
     for (view = 0; view < views; view++) {
         positions[view][0] = scene->views[view].x;
         positions[view][1] = scene->views[view].z;
-        limits[view][0] = positions[view][0] - D_auto_80125858 - 450;
-        limits[view][1] = positions[view][0] + D_auto_80125858 + 450;
+        limits[view][0] = positions[view][0] - D_80125858 - 450;
+        limits[view][1] = positions[view][0] + D_80125858 + 450;
         if (limits[view][0] < minimum) minimum = limits[view][0];
         modes[view] = scene->views[view].mode;
     }
@@ -82,7 +82,7 @@ void func_80083394(Scene *scene)
                 if (!(object->mode & 128)) continue;
                 if (!((object->flags >> (view + 4)) & 1)) continue;
             func_80095768(bound->rectangle[0], bound->rectangle[1], bound->rectangle[2], bound->rectangle[3],
-                object->mode & ~128, bound->object, view, D_auto_80125858, D_auto_801C9174);
+                object->mode & ~128, bound->object, view, D_80125858, D_801C9174);
                 break;
             case 2:
                 if (limits[view][1] < key) {
@@ -94,7 +94,7 @@ void func_80083394(Scene *scene)
                 if ((object->mode & ~128) < 2) continue;
                 if (!((object->flags >> (view + 4)) & 1)) continue;
             func_80095768(bound->rectangle[0], bound->rectangle[1], bound->rectangle[2], bound->rectangle[3],
-                object->mode & ~128, bound->object, view, D_auto_80125858, D_auto_801C9174);
+                object->mode & ~128, bound->object, view, D_80125858, D_801C9174);
                 break;
             default:
                 continue;
@@ -134,7 +134,7 @@ collected:
                 if (object->mode & 128) continue;
                 if (!((object->flags >> (view + 4)) & 1)) continue;
                 if (func_800962B4(rectangle[0], rectangle[1], rectangle[2], rectangle[3],
-                    object->mode & ~128, view, D_auto_80125858, D_auto_801C9174))
+                    object->mode & ~128, view, D_80125858, D_801C9174))
                     draw_scene_object(scene, object, view);
                 break;
             case 2:
@@ -146,7 +146,7 @@ collected:
                 if ((object->mode & 128) && (object->mode & ~128) != 1) continue;
                 if (!((object->flags >> (view + 4)) & 1)) continue;
                 if (func_800962B4(rectangle[0], rectangle[1], rectangle[2], rectangle[3],
-                    object->mode & ~128, view, D_auto_80125858, D_auto_801C9174))
+                    object->mode & ~128, view, D_80125858, D_801C9174))
                     draw_scene_object(scene, object, view);
                 break;
             }
@@ -178,7 +178,7 @@ unsorted:
                 }
                 if (!((object->flags >> (view + 4)) & 1)) continue;
                 if (func_800962B4(rectangle[0], rectangle[1], rectangle[2], rectangle[3],
-                    object->mode & 127, view, D_auto_80125858, D_auto_801C9174))
+                    object->mode & 127, view, D_80125858, D_801C9174))
                     draw_scene_object(scene, object, view);
                 break;
             }
@@ -321,7 +321,7 @@ static inline s32 within_radius(f32 px, f32 py, f32 x, f32 y) {
     f32 dy = y - py;
     f32 dx = x - px;
     s32 inside = 0;
-    if (dy * dy + dx * dx < (f32)D_auto_801C9174) inside = 1;
+    if (dy * dy + dx * dx < (f32)D_801C9174) inside = 1;
     return inside;
 }
 s32 func_80084778(Scene *scene, f32 (*quad)[2])
@@ -365,7 +365,7 @@ INCLUDE_ASM("span_1000", func_80084B90);
 static inline s32 level_point_in_radius(f32 y, f32 x, SceneView *view) {
     f32 dy = view->x - y;
     f32 dx = view->z - x;
-    if (dy * dy + dx * dx < (f32)D_auto_801C9174) return 1;
+    if (dy * dy + dx * dx < (f32)D_801C9174) return 1;
     return 0;
 }
 void func_80084CC4(Scene *scene, s32 model, void *matrix, void *anchor, s32 layer, s32 phase, f32 *pos, f32 radius)
@@ -458,8 +458,8 @@ void func_80085330(void *arg0, s32 arg1) {
     if (arg1 > 0) {
         /* FAKEMATCH: copy the command constant to steer its load before the loop bound. */
         magic = (u32)G_ENDDL << 24;
-        base_a1 = (Gfx *)&D_auto_80125860;
-        base_a2 = (Gfx *)&D_auto_801258D8;
+        base_a1 = (Gfx *)&D_80125860;
+        base_a2 = (Gfx *)&D_801258D8;
         temp_t1 = (s32)((arg1 << 3) + (u32)var_a0);
 loop_2:
         if (var_a0->words.w0 != magic) {
@@ -498,13 +498,13 @@ INCLUDE_ASM("span_1000", func_800853C8);
 void func_80085460(void) {
 }
 
-/* func_auto_80085468 -- does nothing.
+/* func_80085468 -- does nothing.
  *
  * Two words: the return and an empty delay slot. The cartridge keeps the entry point, so
  * something calls it; what it was meant to do, if anything, is not in the image.
  */
 
-void func_auto_80085468(void) {
+void func_80085468(void) {
 }
 
 INCLUDE_ASM("span_1000", func_80085470);
@@ -518,17 +518,17 @@ INCLUDE_ASM("span_1000", func_80085E18);
 #include "game/sys_80076000.h"
 void func_800862B4(void)
 {
-    s32 value = D_auto_80125858;
+    s32 value = D_80125858;
     if (value >= 1801) {
-        D_auto_80125858 = value - 100;
-        D_auto_801C9174 = (value - 100) * (value - 100);
+        D_80125858 = value - 100;
+        D_801C9174 = (value - 100) * (value - 100);
     }
 }
 
 void func_800862E8(void) {
-    if (D_auto_80125858 < func_80086AE8()) {
-        D_auto_80125858 += 50;
-        D_auto_801C9174 = D_auto_80125858 * D_auto_80125858;
+    if (D_80125858 < func_80086AE8()) {
+        D_80125858 += 50;
+        D_801C9174 = D_80125858 * D_80125858;
     }
 }
 

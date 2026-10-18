@@ -124,6 +124,6 @@ typedef struct CombatUnit {
     u8 reserved500[0x4];
     void *effect;
 } CombatUnit;
-extern CombatUnit D_auto_802D8180[20];
+extern CombatUnit D_802D8180[20];
 extern f32 *func_800E9880(CombatUnit *unit, s32 parameter);
 #endif

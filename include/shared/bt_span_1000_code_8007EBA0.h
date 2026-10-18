@@ -8,7 +8,7 @@ extern void *func_8007F030(void);
 extern int func_8008001C(int arg0, int arg1, int arg2, int arg3, unsigned char arg4);
 
 
-extern u8 D_auto_801B4C00[];
+extern u8 D_801B4C00[];
 
 
 extern void func_8007FF68(void);
@@ -32,7 +32,7 @@ struct Func_8007FF68_View1_Shared8007FF68 {
 };
 
 
-extern Gfx *D_auto_801B6C00;
+extern Gfx *D_801B6C00;
 
 
 

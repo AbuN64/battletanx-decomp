@@ -52,10 +52,10 @@ void func_8008F040(Vec3f *position, s32 count, f32 scale, s32 arg3) {
     }
 }
 
-INCLUDE_RODATA("span_1000", R_80071C58);
-INCLUDE_RODATA("span_1000", R_80071C64);
-INCLUDE_RODATA("span_1000", R_80071C68);
-INCLUDE_RODATA("span_1000", R_80071C6C);
+INCLUDE_RODATA("span_1000", D_80071C58);
+INCLUDE_RODATA("span_1000", D_80071C64);
+INCLUDE_RODATA("span_1000", D_80071C68);
+INCLUDE_RODATA("span_1000", D_80071C6C);
 INCLUDE_DATA("span_1000", D_80071C70);
 INCLUDE_ASM("span_1000", func_8008F248);
 #include "game/sys_80076000.h"
@@ -106,7 +106,7 @@ void func_800902BC(f32 *arg0, s32 count) {
         angleZ = (func_800F38F4() % 1280) & 0xFFFF;
         spin = (func_800F38F4() % 65535) & 0xFFFF;
         func_8008F6F4(arg0, 0, 0, 0, angleX, angleY, angleZ, spin, 0x2000, 0,
-                          D_auto_80071CE8, 0, 0, 0x12);
+                          D_80071CE8, 0, 0, 0x12);
     }
 }
 

@@ -43,14 +43,14 @@ void func_800F0738(EffectKind21 *effect, void *sender, void *input, void *output
             release_gate(effect);
             effect->flags |= 4;
             func_800821C0()->objects[effect->slot].flags &= 15;
-            now = D_auto_801B4AA8;
+            now = D_801B4AA8;
             if (effect->lastTick + 10 < now) {
                 *result = 5;
                 effect->lastTick = now;
                 break;
             }
         } else {
-            now = D_auto_801B4AA8;
+            now = D_801B4AA8;
             if (effect->lastTick + 10 < now) {
                 *result = 4;
                 effect->lastTick = now;
@@ -65,7 +65,7 @@ void func_800F0738(EffectKind21 *effect, void *sender, void *input, void *output
     }
 }
 
-INCLUDE_RODATA("span_1000", R_80074D20);
+INCLUDE_RODATA("span_1000", D_80074D20);
 INCLUDE_DATA("span_1000", D_80074D28);
 INCLUDE_ASM("span_1000", func_800F0958);
 INCLUDE_ASM("span_1000", func_800F09D0);
@@ -101,7 +101,7 @@ void func_800F0CF0(EffectKind21 *effect, void *sender, u32 message, void *input,
 #include "game/sys_80076000.h"
 void func_800F0DE0(EffectKind0C *effect, s32 *state)
 {
-    f32 remaining = effect->remaining - D_auto_80074D20;
+    f32 remaining = effect->remaining - D_80074D20;
     s32 sound;
 
     effect->remaining = remaining;
@@ -161,8 +161,8 @@ INCLUDE_ASM("span_1000", func_800F195C);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800F1BB4(f32 *origin, u8 byte0, u8 byte1, u8 byte2) {
-    f32 range = D_auto_80074DE0;
-    f32 offset = D_auto_80074DE4;
+    f32 range = D_80074DE0;
+    f32 offset = D_80074DE4;
     f32 position[3];
     s32 i;
     for (i = 0; i < 15; i++) {

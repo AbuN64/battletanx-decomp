@@ -61,11 +61,11 @@ s32 func_800941E0(f32 x, f32 y, f32 r, SceneView *c) {
         return 1;
     }
     if (b > 0.0f) {
-        if (b - r * D_auto_80072020 < a) {
+        if (b - r * D_80072020 < a) {
             return 0;
         }
     } else {
-        if (-b - r * D_auto_80072028 < a) {
+        if (-b - r * D_80072028 < a) {
             return 0;
         }
     }

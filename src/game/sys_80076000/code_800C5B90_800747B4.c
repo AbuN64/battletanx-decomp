@@ -8,7 +8,7 @@ f32 func_800E86C8(struct ResetState *context) {
     return owner->objectiveId == 2 ? 1.0f : 0.0f;
 }
 
-INCLUDE_RODATA("span_1000", R_800747B8);
-INCLUDE_RODATA("span_1000", R_800747BC);
+INCLUDE_RODATA("span_1000", D_800747B8);
+INCLUDE_RODATA("span_1000", D_800747BC);
 INCLUDE_ASM("span_1000", func_800E86F0);
 INCLUDE_ASM("span_1000", func_800E8718);

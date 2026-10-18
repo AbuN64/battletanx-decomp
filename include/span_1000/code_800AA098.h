@@ -8,5 +8,5 @@ struct M {
     int pad;
     int tbl[5];
 };
-extern M D_auto_803275F0;
+extern M D_803275F0;
 

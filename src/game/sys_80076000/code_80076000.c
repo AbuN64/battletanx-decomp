@@ -11,14 +11,14 @@ void func_800768E4(void) {
     func_80077110();
     func_80076068(0xB1FFFFF0, 0);
     func_80076068(0xB1FFFFFC, 0);
-    size = D_auto_80000318;
-    D_auto_80147370 = 1;
-    D_auto_80147372 = 0xFF;
+    size = D_80000318;
+    D_80147370 = 1;
+    D_80147372 = 0xFF;
     if (size > 0x3FFFFF) {
         if (!(size & 0x1FFFF) & (size <= 0x02000000)) {
             size--;
-            D_auto_80125558 = size - 0x80000000;
-            D_auto_80125568 = size + 0xA0000000;
+            D_80125558 = size - 0x80000000;
+            D_80125568 = size + 0xA0000000;
         }
     }
     func_80076038(saved);
@@ -55,23 +55,23 @@ void func_800769B0(void) {
                     keep = 0;
                     break;
                 case 18:
-                    D_auto_80147370 = 0;
-                    D_auto_80147372 = 0;
-                    D_auto_801471C8 &= ~1;
+                    D_80147370 = 0;
+                    D_80147372 = 0;
+                    D_801471C8 &= ~1;
                     func_80077200(func_800771F4() & ~1);
                     break;
                 case 19:
-                    D_auto_80147372 = 0;
-                    D_auto_80147370 = 0;
+                    D_80147372 = 0;
+                    D_80147370 = 0;
                     break;
                 case 20:
-                    D_auto_80147372 = 0xFF;
+                    D_80147372 = 0xFF;
                     break;
                 case 21:
-                    D_auto_80147372 = 0;
+                    D_80147372 = 0;
                     break;
                 case 22:
-                    func_80076068(0xB1FE0000, (D_auto_80147372 << 24) | (D_auto_80147370 << 16));
+                    func_80076068(0xB1FE0000, (D_80147372 << 24) | (D_80147370 << 16));
                     break;
                 case 23:
                     func_80076634(2);
@@ -89,7 +89,7 @@ void func_800769B0(void) {
                 }
             }
         }
-    } while (keep || D_auto_80147372 == 0);
+    } while (keep || D_80147372 == 0);
 }
 
 INCLUDE_DATA("span_1000", D_80071068);

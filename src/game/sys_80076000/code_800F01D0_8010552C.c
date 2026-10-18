@@ -91,7 +91,7 @@ void func_80105688(s32 arg0, s32 arg2, s32 arg3) {
         var_s0 = -var_s0 - (var_s1 != 0);
     }
     D_803B75A0 = -1;
-    D_auto_803B75A9 = 1;
+    D_803B75A9 = 1;
     var_a0 = var_s0;
     do {
 loop_3:
@@ -106,7 +106,7 @@ loop_3:
         }
     } while (var_s1 != 0);
     D_803B75A0 = 1;
-    D_auto_803B75A9 = 0;
+    D_803B75A9 = 0;
 }
 #else
 INCLUDE_ASM("span_1000", func_80105688);

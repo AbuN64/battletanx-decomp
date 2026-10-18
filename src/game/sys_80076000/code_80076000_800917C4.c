@@ -138,7 +138,7 @@ int func_80091D04(void *unused, int *out) {
 }
 
 void func_80091D10(Data80135834Ptr *arg0) {
-    func_80084CC4(func_800821C0(), arg0->unkC, 0, arg0->unk10, 6, 0, arg0->unk14, D_auto_80071E90);
+    func_80084CC4(func_800821C0(), arg0->unkC, 0, arg0->unk10, 6, 0, arg0->unk14, D_80071E90);
 }
 
 INCLUDE_ASM("span_1000", func_80091D6C);

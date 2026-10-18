@@ -6,20 +6,20 @@ INCLUDE_ASM("span_1000", func_800A6798);
 
 
 void func_800A6864(s32 arg0) {
-    D_auto_802DF344[arg0] = D_auto_802DF344[arg0] + 1;
+    D_802DF344[arg0] = D_802DF344[arg0] + 1;
 }
 
 void func_800A6888(s32 arg0) {
-    D_auto_802DF344[arg0] = D_auto_802DF344[arg0] - 1;
+    D_802DF344[arg0] = D_802DF344[arg0] - 1;
 }
 
 u8 func_800A68AC(s32 arg0) {
-    return D_auto_802DF344[arg0];
+    return D_802DF344[arg0];
 }
 
 void *func_800A68C0(s32 index)
 {
-    return D_auto_801262D8 + index * 72;
+    return D_801262D8 + index * 72;
 }
 
 INCLUDE_ASM("span_1000", func_800A68DC);
@@ -35,20 +35,20 @@ INCLUDE_ASM("span_1000", func_800A68DC);
 
 
 void func_800A68E0(void) {
-    D_auto_802DF350 = 0;
+    D_802DF350 = 0;
 }
 
               /* size 0x0 */
 
-s32 func_auto_800A68F0(void) {
-    return D_auto_802DF350;
+s32 func_800A68F0(void) {
+    return D_802DF350;
 }
 
 int func_800A6900(N *arg0, s32 *arg1)
 {
   if (arg0->unk10 == 2)
   {
-    if (D_auto_801B4AA8 > arg0->unk24)
+    if (D_801B4AA8 > arg0->unk24)
     {
       func_800A70BC(arg0);
       goto block_3;

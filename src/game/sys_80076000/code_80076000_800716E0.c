@@ -34,13 +34,14 @@ void func_80086B48(u8 *arg0, f32 arg1) {
     arg0[0xE] = x;
 }
 
-INCLUDE_RODATA("span_1000", R_800716F8);
-INCLUDE_RODATA("span_1000", R_80071700);
+INCLUDE_RODATA("span_1000", D_800716F8);
+INCLUDE_DATA("span_1000", D_800716FC);
+INCLUDE_RODATA("span_1000", D_80071700);
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
-extern f32 D_auto_800716F8;
-extern f32 D_auto_800716FC;
+extern f32 D_800716F8;
+extern f32 D_800716FC;
 
 void func_80086C84(s32 arg0, void *arg1, f32 arg2) {
     f32 temp_fv1;
@@ -58,28 +59,28 @@ void func_80086C84(s32 arg0, void *arg1, f32 arg2) {
         do {
             temp_fv1 = (f32) var_a1->field_c * arg2;
             var_v1 = 0xFF;
-            if (!(D_auto_800716F8 < temp_fv1)) {
-                if (D_auto_800716FC <= temp_fv1) {
-                    var_v1 = (s32) (temp_fv1 - D_auto_800716FC) | 0x80000000;
+            if (!(D_800716F8 < temp_fv1)) {
+                if (D_800716FC <= temp_fv1) {
+                    var_v1 = (s32) (temp_fv1 - D_800716FC) | 0x80000000;
                 } else {
                     var_v1 = (s32) temp_fv1;
                 }
             }
             temp_fv1_2 = (f32) var_a1->field_d * arg2;
             var_a1->field_c = (u8) var_v1;
-            if (D_auto_800716F8 < temp_fv1_2) {
+            if (D_800716F8 < temp_fv1_2) {
                 var_v1_2 = 0xFF;
-            } else if (D_auto_800716FC <= temp_fv1_2) {
-                var_v1_2 = (s32) (temp_fv1_2 - D_auto_800716FC) | 0x80000000;
+            } else if (D_800716FC <= temp_fv1_2) {
+                var_v1_2 = (s32) (temp_fv1_2 - D_800716FC) | 0x80000000;
             } else {
                 var_v1_2 = (s32) temp_fv1_2;
             }
             temp_fv1_3 = (f32) var_a1->field_e * arg2;
             var_a1->field_d = (u8) var_v1_2;
-            if (D_auto_800716F8 < temp_fv1_3) {
+            if (D_800716F8 < temp_fv1_3) {
                 var_v0 = 0xFF;
-            } else if (D_auto_800716FC <= temp_fv1_3) {
-                var_v0 = (s32) (temp_fv1_3 - D_auto_800716FC) | 0x80000000;
+            } else if (D_800716FC <= temp_fv1_3) {
+                var_v0 = (s32) (temp_fv1_3 - D_800716FC) | 0x80000000;
             } else {
                 var_v0 = (s32) temp_fv1_3;
             }
@@ -96,10 +97,10 @@ INCLUDE_ASM("span_1000", func_80086DC0);
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
 #include "game/sys_8011C210.h"
-extern s32 D_auto_0000936C;
-extern s32 D_auto_00009370;
-extern s32 D_auto_00009374;
-extern s32 D_auto_0000937C;
+extern s32 D_0000936C;
+extern s32 D_00009370;
+extern s32 D_00009374;
+extern s32 D_0000937C;
 
 s32 func_80086F3C(struct Slot *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_t0;
@@ -111,13 +112,13 @@ s32 func_80086F3C(struct Slot *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     temp_t0 = arg0->unk28;
     var_a0 = 0;
-    if (*(temp_t0 + &D_auto_0000936C) > 0) {
+    if (*(temp_t0 + &D_0000936C) > 0) {
         var_v1 = temp_t0;
 loop_2:
-        if (*(var_v1 + &D_auto_00009370) != arg1) {
+        if (*(var_v1 + &D_00009370) != arg1) {
             var_a0 += 1;
             var_v1 += 0x10;
-            if (var_a0 >= *(temp_t0 + &D_auto_0000936C)) {
+            if (var_a0 >= *(temp_t0 + &D_0000936C)) {
                 goto block_10;
             }
             goto loop_2;
@@ -125,11 +126,11 @@ loop_2:
         if (arg3 == 0) {
             return 0;
         }
-        *(var_v1 + &D_auto_0000937C) = *(var_v1 + &D_auto_0000937C) + 1;
+        *(var_v1 + &D_0000937C) = *(var_v1 + &D_0000937C) + 1;
         return 0;
     }
 block_10:
-    temp_v1 = *(temp_t0 + &D_auto_0000936C);
+    temp_v1 = *(temp_t0 + &D_0000936C);
     if (temp_v1 == 0x100) {
         return -1;
     }
@@ -138,11 +139,11 @@ block_10:
     } else {
         var_v0 = 1;
     }
-    *(temp_t0 + (temp_v1 * 0x10) + &D_auto_0000937C) = var_v0;
-    *(temp_t0 + (*(temp_t0 + &D_auto_0000936C) * 0x10) + &D_auto_00009370) = arg1;
-    temp_v1_2 = *(temp_t0 + &D_auto_0000936C);
-    *(temp_t0 + &D_auto_0000936C) = temp_v1_2 + 1;
-    *(temp_t0 + (temp_v1_2 * 0x10) + &D_auto_00009374) = arg2;
+    *(temp_t0 + (temp_v1 * 0x10) + &D_0000937C) = var_v0;
+    *(temp_t0 + (*(temp_t0 + &D_0000936C) * 0x10) + &D_00009370) = arg1;
+    temp_v1_2 = *(temp_t0 + &D_0000936C);
+    *(temp_t0 + &D_0000936C) = temp_v1_2 + 1;
+    *(temp_t0 + (temp_v1_2 * 0x10) + &D_00009374) = arg2;
     return 0;
 }
 #else
@@ -151,10 +152,10 @@ INCLUDE_ASM("span_1000", func_80086F3C);
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
 #include "game/sys_8011C210.h"
-extern s32 D_auto_0000A374;
-extern s32 D_auto_0000A378;
-extern s32 D_auto_0000A37C;
-extern s32 D_auto_0000A384;
+extern s32 D_0000A374;
+extern s32 D_0000A378;
+extern s32 D_0000A37C;
+extern s32 D_0000A384;
 
 s32 func_80087054(struct Slot *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_t0;
@@ -166,13 +167,13 @@ s32 func_80087054(struct Slot *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     temp_t0 = arg0->unk28;
     var_a0 = 0;
-    if (*(temp_t0 + &D_auto_0000A374) > 0) {
+    if (*(temp_t0 + &D_0000A374) > 0) {
         var_v1 = temp_t0;
 loop_2:
-        if (*(var_v1 + &D_auto_0000A378) != arg1) {
+        if (*(var_v1 + &D_0000A378) != arg1) {
             var_a0 += 1;
             var_v1 += 0x10;
-            if (var_a0 >= *(temp_t0 + &D_auto_0000A374)) {
+            if (var_a0 >= *(temp_t0 + &D_0000A374)) {
                 goto block_10;
             }
             goto loop_2;
@@ -180,11 +181,11 @@ loop_2:
         if (arg3 == 0) {
             return 0;
         }
-        *(var_v1 + &D_auto_0000A384) = *(var_v1 + &D_auto_0000A384) + 1;
+        *(var_v1 + &D_0000A384) = *(var_v1 + &D_0000A384) + 1;
         return 0;
     }
 block_10:
-    temp_v1 = *(temp_t0 + &D_auto_0000A374);
+    temp_v1 = *(temp_t0 + &D_0000A374);
     if (temp_v1 == 0x708) {
         return -1;
     }
@@ -193,11 +194,11 @@ block_10:
     } else {
         var_v0 = 1;
     }
-    *(temp_t0 + (temp_v1 * 0x10) + &D_auto_0000A384) = var_v0;
-    *(temp_t0 + (*(temp_t0 + &D_auto_0000A374) * 0x10) + &D_auto_0000A378) = arg1;
-    temp_v1_2 = *(temp_t0 + &D_auto_0000A374);
-    *(temp_t0 + &D_auto_0000A374) = temp_v1_2 + 1;
-    *(temp_t0 + (temp_v1_2 * 0x10) + &D_auto_0000A37C) = arg2;
+    *(temp_t0 + (temp_v1 * 0x10) + &D_0000A384) = var_v0;
+    *(temp_t0 + (*(temp_t0 + &D_0000A374) * 0x10) + &D_0000A378) = arg1;
+    temp_v1_2 = *(temp_t0 + &D_0000A374);
+    *(temp_t0 + &D_0000A374) = temp_v1_2 + 1;
+    *(temp_t0 + (temp_v1_2 * 0x10) + &D_0000A37C) = arg2;
     return 0;
 }
 #else

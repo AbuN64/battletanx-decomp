@@ -19,13 +19,13 @@ void func_800AB93C(void) {
 
 
 int func_800AB95C(unsigned int a) {
-    int old = D_auto_803275F0.mode;
+    int old = D_803275F0.mode;
     switch (a) {
-    case 0: D_auto_803275F0.mode = 0; D_auto_803275F0.cur = D_auto_803275F0.tbl[0]; break;
-    case 1: D_auto_803275F0.mode = 1; D_auto_803275F0.cur = D_auto_803275F0.tbl[1]; break;
-    case 2: D_auto_803275F0.mode = 2; D_auto_803275F0.cur = D_auto_803275F0.tbl[2]; break;
-    case 3: D_auto_803275F0.mode = 3; D_auto_803275F0.cur = D_auto_803275F0.tbl[3]; break;
-    case 4: D_auto_803275F0.mode = 4; D_auto_803275F0.cur = D_auto_803275F0.tbl[4]; break;
+    case 0: D_803275F0.mode = 0; D_803275F0.cur = D_803275F0.tbl[0]; break;
+    case 1: D_803275F0.mode = 1; D_803275F0.cur = D_803275F0.tbl[1]; break;
+    case 2: D_803275F0.mode = 2; D_803275F0.cur = D_803275F0.tbl[2]; break;
+    case 3: D_803275F0.mode = 3; D_803275F0.cur = D_803275F0.tbl[3]; break;
+    case 4: D_803275F0.mode = 4; D_803275F0.cur = D_803275F0.tbl[4]; break;
     }
     return old;
 }
@@ -36,15 +36,15 @@ INCLUDE_DATA("span_1000", D_80073124);
 #include "shared/bt_types.h"
 #include "span_1000/code_800AA098.h"
 int func_800ABAB8(int arg0, int arg1);
-extern s32 D_auto_803275F4;
-extern s32 D_auto_80327600;
+extern s32 D_803275F4;
+extern s32 D_80327600;
 
 void func_800AB9FC(s32 arg0, s32 arg1) {
     func_80079064();
     switch (arg1) {
     case 1:
-        D_auto_803275F0.mode = 1;
-        D_auto_803275F4 = D_auto_80327600;
+        D_803275F0.mode = 1;
+        D_803275F4 = D_80327600;
         return;
     case 2:
         if ((arg0 != 0xF) && (arg0 != 7) && (arg0 != 8) && (arg0 != 1) && (arg0 != 0xA) && (arg0 != 3)) {
@@ -92,12 +92,12 @@ INCLUDE_ASM("span_1000", func_800ABFA8);
 #include "shared/bt_types.h"
 
 void func_800ABFD0(void) {
-    func_800F4DFC(&D_auto_803276D4, 0, 0, 0x140, 0xF0, 0, 0, 0, 0xFF);
-    func_8010698C(&D_auto_803276D4);
+    func_800F4DFC(&D_803276D4, 0, 0, 0x140, 0xF0, 0, 0, 0, 0xFF);
+    func_8010698C(&D_803276D4);
     func_8010555C(0xC8, 0xC8, 0xC8, 0xFF);
     func_801054E0(1);
     func_8010552C(0, 0x55);
-    func_80105A50(&D_auto_803276D4, &D_auto_800731B0, 0, 0x140);
+    func_80105A50(&D_803276D4, &D_800731B0, 0, 0x140);
 }
 
 INCLUDE_ASM("span_1000", func_800AC070);
@@ -113,7 +113,7 @@ INCLUDE_ASM("span_1000", func_800AC2C8);
 
 
 void func_800AC2D0(void) {
-    D_auto_803276E0 = 0;
+    D_803276E0 = 0;
 }
 
 INCLUDE_ASM("span_1000", func_800AC2E0);

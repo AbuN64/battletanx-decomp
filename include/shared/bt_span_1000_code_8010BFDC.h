@@ -1,7 +1,7 @@
 #ifndef UNBAKE_SPAN_1000_CODE_8010BFDC_H
 #define UNBAKE_SPAN_1000_CODE_8010BFDC_H
 #include "shared/bt_types.h"
-extern s32 D_auto_801B4AA8;
+extern s32 D_801B4AA8;
 
 
 

@@ -12,7 +12,7 @@ INCLUDE_ASM("span_1000", func_800A6688);
 
 
 s32 func_800A66B0(s32 arg0, s32 arg1, s32 arg2, s32 *arg3) {
-    return (s32) D_auto_802DF34A;
+    return (s32) D_802DF34A;
 }
 
 /* func_800A66C0 -- does nothing.

@@ -5,7 +5,7 @@
 extern void func_800F5128(void);
 
 
-extern void func_auto_800F5178(void);
+extern void func_800F5178(void);
 
 
 extern int func_800F58F0(void);
@@ -14,7 +14,7 @@ extern int func_800F58F0(void);
 
 
 
-extern int D_auto_8035CD24;
+extern int D_8035CD24;
 
 
 

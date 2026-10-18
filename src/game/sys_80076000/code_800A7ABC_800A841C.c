@@ -13,7 +13,7 @@ static inline void set_identity(f32 matrix[4][4]) {
             if (row != column) {
                 matrix[row][column] = 0.0f;
             } else {
-                matrix[row][column] = D_auto_800730CC;
+                matrix[row][column] = D_800730CC;
             }
         }
     }
@@ -59,7 +59,7 @@ void func_800A8580(f32 source[4][4], f32 output[4][4], u16 angle) {
             if (row != column) {
                 rotation[row][column] = 0.0f;
             } else {
-                rotation[row][column] = D_auto_800730D0;
+                rotation[row][column] = D_800730D0;
             }
         }
     }

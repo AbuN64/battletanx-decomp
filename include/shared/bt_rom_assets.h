@@ -6,5 +6,5 @@ typedef struct RomAsset {
     const u8 *start, *end;
     const u8 *alternateStart, *alternateEnd;
 } RomAsset;
-extern RomAsset D_auto_80125A68[];
+extern RomAsset D_80125A68[];
 #endif

@@ -31,19 +31,19 @@ void func_8008B030(EffectSlot *node)
 {
     s16 oldHead;
 
-    oldHead = D_auto_802C13E0;
-    D_auto_802C13E0 = node - D_auto_802C3A30;
+    oldHead = D_802C13E0;
+    D_802C13E0 = node - D_802C3A30;
     node->header.next = oldHead;
 }
 
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
-extern u16 D_auto_802C13E0;
-extern u16 D_auto_802C13E2;
-extern u16 D_auto_802C13F4;
-extern u16 D_auto_802C13F6;
-extern u16 D_auto_802C3A28;
-extern s32 D_auto_802C3A30;
+extern u16 D_802C13E0;
+extern u16 D_802C13E2;
+extern u16 D_802C13F4;
+extern u16 D_802C13F6;
+extern u16 D_802C3A28;
+extern s32 D_802C3A30;
 
 void func_8008B080(void) {
     s16 var_v0;
@@ -57,43 +57,43 @@ void func_8008B080(void) {
     s32 var_v1_4;
     s32 var_v1_5;
 
-    var_v0 = (s16) D_auto_802C13E0;
-    if ((s16) D_auto_802C13E0 != -1) {
+    var_v0 = (s16) D_802C13E0;
+    if ((s16) D_802C13E0 != -1) {
         var_v1 = var_v0 * 8;
         do {
-            var_v0 = (s16) *(&D_auto_802C3A30 + ((var_v1 + var_v0) * 8));
+            var_v0 = (s16) *(&D_802C3A30 + ((var_v1 + var_v0) * 8));
             var_v1 = var_v0 * 8;
         } while (var_v0 != -1);
     }
-    var_v0_2 = (s16) D_auto_802C13F4;
-    if ((s16) D_auto_802C13F4 != -1) {
+    var_v0_2 = (s16) D_802C13F4;
+    if ((s16) D_802C13F4 != -1) {
         var_v1_2 = var_v0_2 * 8;
         do {
-            var_v0_2 = (s16) *(&D_auto_802C3A30 + ((var_v1_2 + var_v0_2) * 8));
+            var_v0_2 = (s16) *(&D_802C3A30 + ((var_v1_2 + var_v0_2) * 8));
             var_v1_2 = var_v0_2 * 8;
         } while (var_v0_2 != -1);
     }
-    var_v0_3 = (s16) D_auto_802C13E2;
-    if ((s16) D_auto_802C13E2 != -1) {
+    var_v0_3 = (s16) D_802C13E2;
+    if ((s16) D_802C13E2 != -1) {
         var_v1_3 = var_v0_3 * 8;
         do {
-            var_v0_3 = (s16) *(&D_auto_802C3A30 + ((var_v1_3 + var_v0_3) * 8));
+            var_v0_3 = (s16) *(&D_802C3A30 + ((var_v1_3 + var_v0_3) * 8));
             var_v1_3 = var_v0_3 * 8;
         } while (var_v0_3 != -1);
     }
-    var_v0_4 = (s16) D_auto_802C3A28;
-    if ((s16) D_auto_802C3A28 != -1) {
+    var_v0_4 = (s16) D_802C3A28;
+    if ((s16) D_802C3A28 != -1) {
         var_v1_4 = var_v0_4 * 8;
         do {
-            var_v0_4 = (s16) *(&D_auto_802C3A30 + ((var_v1_4 + var_v0_4) * 8));
+            var_v0_4 = (s16) *(&D_802C3A30 + ((var_v1_4 + var_v0_4) * 8));
             var_v1_4 = var_v0_4 * 8;
         } while (var_v0_4 != -1);
     }
-    var_v0_5 = (s16) D_auto_802C13F6;
-    if ((s16) D_auto_802C13F6 != -1) {
+    var_v0_5 = (s16) D_802C13F6;
+    if ((s16) D_802C13F6 != -1) {
         var_v1_5 = var_v0_5 * 8;
         do {
-            var_v0_5 = (s16) *(&D_auto_802C3A30 + ((var_v1_5 + var_v0_5) * 8));
+            var_v0_5 = (s16) *(&D_802C3A30 + ((var_v1_5 + var_v0_5) * 8));
             var_v1_5 = var_v0_5 * 8;
         } while (var_v0_5 != -1);
     }
@@ -110,17 +110,17 @@ void func_8008B1F0(void) {
     s16 index;
     s32 next;
 
-    for (index = D_auto_802C13E2; index != -1; index = next) {
-        next = D_auto_802C3A30[index].header.next;
-        D_auto_802C3A30[index].header.next = D_auto_802C13F4;
-        D_auto_802C13F4 = index;
-        D_auto_802C13E2 = next;
+    for (index = D_802C13E2; index != -1; index = next) {
+        next = D_802C3A30[index].header.next;
+        D_802C3A30[index].header.next = D_802C13F4;
+        D_802C13F4 = index;
+        D_802C13E2 = next;
     }
-    for (index = D_auto_802C13F6; index != -1; index = next) {
-        next = D_auto_802C3A30[index].header.next;
-        D_auto_802C3A30[index].header.next = D_auto_802C3A28;
-        D_auto_802C3A28 = index;
-        D_auto_802C13F6 = next;
+    for (index = D_802C13F6; index != -1; index = next) {
+        next = D_802C3A30[index].header.next;
+        D_802C3A30[index].header.next = D_802C3A28;
+        D_802C3A28 = index;
+        D_802C13F6 = next;
     }
 }
 
@@ -135,28 +135,28 @@ void func_8008B48C(void)
     s32 index;
     EffectSlot *effect;
 
-    for (index = D_auto_802C13F4; index != -1; index = D_auto_802C3A30[index].header.next) {
-        effect = &D_auto_802C3A30[index];
-        if (D_auto_802C3800[effect->header.kind].draw) {
-            D_auto_802C3800[effect->header.kind].draw(effect);
+    for (index = D_802C13F4; index != -1; index = D_802C3A30[index].header.next) {
+        effect = &D_802C3A30[index];
+        if (D_802C3800[effect->header.kind].draw) {
+            D_802C3800[effect->header.kind].draw(effect);
         }
     }
-    for (index = D_auto_802C3A28; index != -1; index = D_auto_802C3A30[index].header.next) {
-        effect = &D_auto_802C3A30[index];
-        if (D_auto_802C3800[effect->header.kind].draw) {
-            D_auto_802C3800[effect->header.kind].draw(effect);
+    for (index = D_802C3A28; index != -1; index = D_802C3A30[index].header.next) {
+        effect = &D_802C3A30[index];
+        if (D_802C3800[effect->header.kind].draw) {
+            D_802C3800[effect->header.kind].draw(effect);
         }
     }
-    for (index = D_auto_802C13E2; index != -1; index = D_auto_802C3A30[index].header.next) {
-        effect = &D_auto_802C3A30[index];
-        if (D_auto_802C3800[effect->header.kind].draw) {
-            D_auto_802C3800[effect->header.kind].draw(effect);
+    for (index = D_802C13E2; index != -1; index = D_802C3A30[index].header.next) {
+        effect = &D_802C3A30[index];
+        if (D_802C3800[effect->header.kind].draw) {
+            D_802C3800[effect->header.kind].draw(effect);
         }
     }
-    for (index = D_auto_802C13F6; index != -1; index = D_auto_802C3A30[index].header.next) {
-        effect = &D_auto_802C3A30[index];
-        if (D_auto_802C3800[effect->header.kind].draw) {
-            D_auto_802C3800[effect->header.kind].draw(effect);
+    for (index = D_802C13F6; index != -1; index = D_802C3A30[index].header.next) {
+        effect = &D_802C3A30[index];
+        if (D_802C3800[effect->header.kind].draw) {
+            D_802C3800[effect->header.kind].draw(effect);
         }
     }
 }
@@ -176,7 +176,7 @@ INCLUDE_ASM("span_1000", func_8008C09C);
 
 
 void func_8008C2DC(s32 arg0) {
-    D_auto_802C13F0 = arg0;
+    D_802C13F0 = arg0;
 }
 
 INCLUDE_ASM("span_1000", func_8008C2EC);
@@ -197,7 +197,7 @@ s32 func_8008CED0(void)
     u8 *group;
     u8 *entry;
     context = func_800821C0();
-    table = *(u8 **)(context + 0x570) + D_auto_802D5A36 * 0xC;
+    table = *(u8 **)(context + 0x570) + D_802D5A36 * 0xC;
     group = *(u8 **)(context + 0x574) + *(u16 *)(table + 2) * 4;
     entry = *(u8 **)(context + 0x578) + *(u16 *)(group + 2) * 0xC;
     return *(s32 *)(context + 0x580) + *(s32 *)(entry + 4) * 8;
@@ -239,10 +239,10 @@ EffectKind16 *func_8008DF2C(Vec3f *pos, f32 speed, u16 angle, s8 arg3, u8 arg4, 
     e->pos.y = pos->y;
     e->pos.z = pos->z;
     if (arg10 != 0) {
-        f32 divisor = D_auto_80071BAC;
+        f32 divisor = D_80071BAC;
 
         if (arg10 < 0) {
-            divisor = D_auto_80071BB0;
+            divisor = D_80071BB0;
         }
         e->speed = speed / divisor;
     } else {
@@ -259,8 +259,8 @@ EffectKind16 *func_8008DF2C(Vec3f *pos, f32 speed, u16 angle, s8 arg3, u8 arg4, 
     e->value44 = arg10;
     e->value46 = arg10 != 0;
     if (useLocalPoints) {
-        rotation = D_auto_80071B6C;
-        inverse = D_auto_80071B6C;
+        rotation = D_80071B6C;
+        inverse = D_80071B6C;
         func_800A82B8(&rotation, &inverse, ~(e->value1E * 3));
         func_800A841C(&inverse, &rotation, e->angle);
         func_800A81F0(rotation.m, inverse.m);

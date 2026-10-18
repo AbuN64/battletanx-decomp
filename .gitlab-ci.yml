@@ -1,4 +1,4 @@
-# Generated file: every job calls ci/run. Board jobs run in a scheduled (daily) or manual pipeline.
+# Generated file: every job calls ci/run.
 check:
   image: python:3.11-slim@sha256:0dd364ba7e10242f07755449e3a3d0e35f9efd987952737b90def6709ab0c5ce
   rules:
@@ -8,9 +8,6 @@ check:
     - apt-get install -y --no-install-recommends make
   script:
     - sh ci/run check
-  artifacts:
-    paths:
-      - versions/*/report.json
 
 audit:
   image: python:3.13-slim@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f

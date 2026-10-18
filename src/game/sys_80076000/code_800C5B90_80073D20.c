@@ -22,7 +22,7 @@ void func_800D1EBC(u32 kind) {
     }
 }
 
-INCLUDE_RODATA("span_1000", R_80073D34);
+INCLUDE_RODATA("span_1000", D_80073D34);
 INCLUDE_DATA("span_1000", D_80073D44);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
@@ -88,8 +88,8 @@ INCLUDE_ASM("span_1000", func_800D20E4);
 #include "shared/bt_menu_render.h"
 #include "shared/bt_types.h"
 s32 func_8011CC84(s8 *, s32 *, s32);
-extern s32 D_auto_80073D70;
-extern s8 D_auto_80073D84;
+extern s32 D_80073D70;
+extern s8 D_80073D84;
 
 void func_800D39A4(s32 arg0, s32 arg1) {
     s8 sp10;
@@ -97,13 +97,13 @@ void func_800D39A4(s32 arg0, s32 arg1) {
     func_8010555C(0xFA, 0x1E, 0x1E, 0xFF);
     func_8010698C(&D_8037A174);
     func_801054E0(2);
-    func_8011CC84(&sp10, &D_auto_80073D70, arg1);
+    func_8011CC84(&sp10, &D_80073D70, arg1);
     func_8010552C(0x49, 0x50);
     func_80105A50(&D_8037A174, &sp10, 0, 0x140);
     func_8010555C(0xFF, 0xFF, 0xFF, 0xFF);
     if (arg0 >= 0x2E) {
         func_8010552C(0x2E, 0x6E);
-        func_80105A50(&D_8037A174, &D_auto_80073D84, 0, 0x140);
+        func_80105A50(&D_8037A174, &D_80073D84, 0, 0x140);
     }
 }
 #else
@@ -116,17 +116,17 @@ INCLUDE_ASM("span_1000", func_800D39A4);
 void func_800D3A7C(s32 arg0, s32 arg1) {
     s32 temp_v1;
 
-    temp_v1 = D_auto_80134FD4 + (arg0 * 6) + 0xF;
-    D_auto_80134FD8 = temp_v1;
-    D_auto_80134FDC = temp_v1 + (arg1 * 0x28) + 0x1E;
+    temp_v1 = D_80134FD4 + (arg0 * 6) + 0xF;
+    D_80134FD8 = temp_v1;
+    D_80134FDC = temp_v1 + (arg1 * 0x28) + 0x1E;
 }
 
 s32 func_800D3AC4(s32 value, s32 arg1, s32 arg2, s32 *exact, s32 *offset) {
     s32 i;
     for (i = 0; i < 8; i++) {
-        if (value < D_auto_80134FC0[i]) {
-            *exact = value == D_auto_80134FC0[i - 1];
-            *offset = value - D_auto_80134FC0[i - 1];
+        if (value < D_80134FC0[i]) {
+            *exact = value == D_80134FC0[i - 1];
+            *offset = value - D_80134FC0[i - 1];
             return i;
         }
     }
@@ -140,7 +140,7 @@ INCLUDE_ASM("span_1000", func_800D3B2C);
 void func_800D3C84(s32 value)
 {
     char text[32];
-    func_8011CC84(text, D_auto_80073D9C, value);
+    func_8011CC84(text, D_80073D9C, value);
     func_8010552C(0, 0x3E);
     func_80105A50(&D_8037A174, text, 0, 0x140);
 }
@@ -150,7 +150,7 @@ void func_800D3C84(s32 value)
 
 void func_800D3CD4(void) {
     func_8010552C(0x2E, 0x56);
-    func_80105584(&D_8037A174, &D_auto_80073DB0);
+    func_80105584(&D_8037A174, &D_80073DB0);
 }
 
 #ifdef NON_MATCHING
@@ -158,18 +158,18 @@ void func_800D3CD4(void) {
 #include "shared/bt_menu_render.h"
 #include "shared/bt_types.h"
 s32 func_8011CC84(s32 *, s32 *);
-extern s32 D_auto_80073DBC;
-extern s32 D_auto_80073DD0;
-extern s32 D_auto_80073DE4;
-extern s32 D_auto_80073E00;
-extern s32 D_auto_80073E20;
-extern s32 D_auto_80073E3C;
-extern s32 D_auto_80073E50;
-extern s32 D_auto_80073E68;
-extern s32 D_auto_80073E84;
-extern s32 D_auto_80073EA0;
-extern s32 D_auto_80073EBC;
-extern s32 D_auto_80073ED4;
+extern s32 D_80073DBC;
+extern s32 D_80073DD0;
+extern s32 D_80073DE4;
+extern s32 D_80073E00;
+extern s32 D_80073E20;
+extern s32 D_80073E3C;
+extern s32 D_80073E50;
+extern s32 D_80073E68;
+extern s32 D_80073E84;
+extern s32 D_80073EA0;
+extern s32 D_80073EBC;
+extern s32 D_80073ED4;
 
 void func_800D3D10(u32 arg0) {
     s32 sp10;
@@ -177,43 +177,43 @@ void func_800D3D10(u32 arg0) {
 
     switch (arg0) {
     case 0:
-        var_a1 = &D_auto_80073DBC;
+        var_a1 = &D_80073DBC;
         break;
     case 1:
-        var_a1 = &D_auto_80073DD0;
+        var_a1 = &D_80073DD0;
         break;
     case 2:
-        var_a1 = &D_auto_80073DE4;
+        var_a1 = &D_80073DE4;
         break;
     case 3:
-        var_a1 = &D_auto_80073E00;
+        var_a1 = &D_80073E00;
         break;
     case 4:
-        var_a1 = &D_auto_80073E20;
+        var_a1 = &D_80073E20;
         break;
     case 5:
-        var_a1 = &D_auto_80073E3C;
+        var_a1 = &D_80073E3C;
         break;
     case 6:
-        var_a1 = &D_auto_80073E50;
+        var_a1 = &D_80073E50;
         break;
     case 7:
-        var_a1 = &D_auto_80073E68;
+        var_a1 = &D_80073E68;
         break;
     case 8:
-        var_a1 = &D_auto_80073E84;
+        var_a1 = &D_80073E84;
         break;
     case 9:
-        var_a1 = &D_auto_80073EA0;
+        var_a1 = &D_80073EA0;
         break;
     case 10:
     case 11:
     case 12:
     case 13:
-        var_a1 = &D_auto_80073EBC;
+        var_a1 = &D_80073EBC;
         break;
     default:
-        var_a1 = &D_auto_80073ED4;
+        var_a1 = &D_80073ED4;
         break;
     }
     func_8011CC84(&sp10, var_a1);
@@ -229,9 +229,9 @@ INCLUDE_ASM("span_1000", func_800D4408);
 #include "shared/bt_span_1000_code_80094704.h"
 #include "shared/bt_types.h"
 s32 *func_80096768(u8);
-extern s32 D_auto_803282A0;
-extern s32 D_auto_803282A8;
-extern u8 D_auto_803283B8;
+extern s32 D_803282A0;
+extern s32 D_803282A8;
+extern u8 D_803283B8;
 
 int func_800D4410(s32 arg0, s32 arg1, s32 *arg2, s32 *arg3) {
     s32 *var_a2;
@@ -249,12 +249,12 @@ int func_800D4410(s32 arg0, s32 arg1, s32 *arg2, s32 *arg3) {
     var_a2 = arg2;
     var_a3 = arg3;
     var_s1 = 0;
-    var_s0 = &D_auto_803283B8;
-    var_s2 = &D_auto_803282A8;
+    var_s0 = &D_803283B8;
+    var_s2 = &D_803282A8;
     do {
         temp_v0 = func_80096760(var_a0, var_a1, var_a2, var_a3);
         *var_s0 = temp_v0;
-        *(&D_auto_803282A0 + var_s1) = temp_v0;
+        *(&D_803282A0 + var_s1) = temp_v0;
         var_a3 = var_s2;
         var_a2 = func_80096768(*var_s0);
         temp_t0 = var_a2 + 0x40;
@@ -287,7 +287,7 @@ INCLUDE_ASM("span_1000", func_800D6060);
 static inline u8 find_slot(s32 player, s32 n) {
     u8 i;
     for (i = 0; i < 17; i++) {
-        if (D_auto_803282A8[player][i] <= 0xFFFFF) {
+        if (D_803282A8[player][i] <= 0xFFFFF) {
             if (--n == -1) {
                 break;
             }
@@ -299,32 +299,32 @@ void func_800D6274(s32 player, s32 n, u32 value) {
     s32 ok = 1;
     u8 slot = find_slot(player, n);
     s32 other = -1;
-    u32 old = D_auto_803282A8[player][slot];
+    u32 old = D_803282A8[player][slot];
     s32 i;
-    for (i = 0; i < D_auto_80135034[D_auto_803283B8[player]]; i++) {
-        if (D_auto_803282A8[player][find_slot(player, i)] == value) {
+    for (i = 0; i < D_80135034[D_803283B8[player]]; i++) {
+        if (D_803282A8[player][find_slot(player, i)] == value) {
             other = find_slot(player, i);
             break;
         }
     }
     if (other == -1) {
         for (i = 0; i < 17; i++) {
-            if (D_auto_803282A8[player][i] == value) {
+            if (D_803282A8[player][i] == value) {
                 ok = 0;
                 break;
             }
         }
     }
     if (ok) {
-        D_auto_803282A8[player][slot] = value;
+        D_803282A8[player][slot] = value;
         if (other >= 0) {
-            D_auto_803282A8[player][other] = old;
+            D_803282A8[player][other] = old;
         }
         if (slot == 10) {
-            D_auto_803282A8[player][12] = value;
+            D_803282A8[player][12] = value;
         }
         if (slot == 11) {
-            D_auto_803282A8[player][13] = value;
+            D_803282A8[player][13] = value;
         }
     }
 }
@@ -336,11 +336,11 @@ INCLUDE_ASM("span_1000", func_800D68C8);
 
 
 void func_800D68D0(void) {
-    D_auto_803283C4 = 2;
-    D_auto_803283C0 = 2;
-    D_auto_80328400[0] = 0;
-    D_auto_80328404 = 1;
-    D_auto_801352A4 = 0;
+    D_803283C4 = 2;
+    D_803283C0 = 2;
+    D_80328400[0] = 0;
+    D_80328404 = 1;
+    D_801352A4 = 0;
 }
 
 #include "game/sys_80076000.h"
@@ -352,30 +352,30 @@ void func_80077930(s32 arg0, s32 arg1, s32 arg2);
 
 void func_800D6908(void)
 {
-    u32 size = D_auto_B03D6940 - D_auto_B03D16D0;
-    s32 *option = D_auto_80328400;
+    u32 size = D_B03D6940 - D_B03D16D0;
+    s32 *option = D_80328400;
     s32 i;
 
-    func_80077930((u32)D_auto_B03D16D0, D_auto_803DA800, size);
-    func_800F4F60(size, D_auto_803DA800, 0x25800, D_auto_803275F4);
-    D_auto_803283E8 = -2;
-    D_auto_803283C4 = 0;
+    func_80077930((u32)D_B03D16D0, D_803DA800, size);
+    func_800F4F60(size, D_803DA800, 0x25800, D_803275F4);
+    D_803283E8 = -2;
+    D_803283C4 = 0;
     for (i = 0; i < 4; i++) {
-        D_auto_803283F0[i] = 0;
-        if (i < D_auto_80134E58) {
-            D_auto_803283C8[i] = 0;
-            D_auto_803283C4++;
+        D_803283F0[i] = 0;
+        if (i < D_80134E58) {
+            D_803283C8[i] = 0;
+            D_803283C4++;
         } else if (option[i] < 4) {
-            D_auto_803283D8[i] = 1;
-            D_auto_801262C0[i] = 3;
-            D_auto_803283C4++;
+            D_803283D8[i] = 1;
+            D_801262C0[i] = 3;
+            D_803283C4++;
         } else {
             option[i] = 4;
-            D_auto_803283D8[i] = 2;
-            D_auto_801262C0[i] = 4;
+            D_803283D8[i] = 2;
+            D_801262C0[i] = 4;
         }
     }
-    D_auto_803283C0 = func_800D9024();
+    D_803283C0 = func_800D9024();
 }
 
 INCLUDE_ASM("span_1000", func_800D6A54);
@@ -395,7 +395,7 @@ s32 func_800D9024(void)
 
     for (value = 0; value < 4; value++) {
         for (i = 0; i < 4; i++) {
-            if (D_auto_80328400[i] == value) {
+            if (D_80328400[i] == value) {
                 count++;
                 break;
             }

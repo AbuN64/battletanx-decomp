@@ -4,7 +4,7 @@
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 s32 func_80088590(s32 kind) {
-    if (D_auto_80134E68 != 0) {
+    if (D_80134E68 != 0) {
         switch (kind) {
             case 5:
             case 6:

@@ -23,7 +23,7 @@ EffectKind0A *func_800DD970(f32 *pos, s32 arg)
     effect->value14 = pos[1];
     effect->value10 = pos[0];
     effect->value1C = arg;
-    effect->value18 = D_auto_8007438C;
+    effect->value18 = D_8007438C;
     return effect;
 }
 
@@ -45,7 +45,7 @@ void func_800DD9E8(struct Func800DD970State *state, s32 *result) {
 
               /* size 0x0 */
 
-void func_auto_800DDA00(void) {
+void func_800DDA00(void) {
 
 }
 
@@ -55,10 +55,10 @@ INCLUDE_ASM("span_1000", func_800DDA08);
 #include "span_1000/code_800E0B00.h"
 u32 func_800DDB94(void)
 {
-    u8 previous = D_auto_80135820;
+    u8 previous = D_80135820;
     u8 current = previous + 1;
     u32 result;
-    D_auto_80135820 = current;
+    D_80135820 = current;
     if (current < 241) {
         result = (previous + 16) & 0xFF;
     } else {
@@ -69,13 +69,13 @@ u32 func_800DDB94(void)
 
 void func_800DDBCC(void)
 {
-    if (D_auto_80135834 != 0) {
-        D_auto_80135834->enabled[9] = 0;
-        D_auto_80135834->enabled[10] = 0;
-        D_auto_80135834->enabled[11] = 0;
-        D_auto_80135834->enabled[14] = 0;
-        D_auto_80135834->enabled[13] = 0;
-        D_auto_80135834->enabled[12] = 0;
+    if (D_80135834 != 0) {
+        D_80135834->enabled[9] = 0;
+        D_80135834->enabled[10] = 0;
+        D_80135834->enabled[11] = 0;
+        D_80135834->enabled[14] = 0;
+        D_80135834->enabled[13] = 0;
+        D_80135834->enabled[12] = 0;
     }
 }
 

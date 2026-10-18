@@ -8,18 +8,18 @@
 #include "span_1000/code_8008F4EC.h"
 
 void func_80090EE0(void) {
-    func_80110C00((s32) D_auto_802D5BA0, 0x17);
-    D_auto_802D5BB7 = 0;
+    func_80110C00((s32) D_802D5BA0, 0x17);
+    D_802D5BB7 = 0;
 }
 
-/* func_80090F10 -- picks an index at random, weighted by the byte table D_auto_802D5BA0 whose total is D_auto_802D5BB7. */
+/* func_80090F10 -- picks an index at random, weighted by the byte table D_802D5BA0 whose total is D_802D5BB7. */
 
 int func_80090F10(void) {
     int r;
     int i = 0;
-    r = func_800F38F4() % D_auto_802D5BB7;
-    while (r >= D_auto_802D5BA0[i]) {
-        r -= D_auto_802D5BA0[i++];
+    r = func_800F38F4() % D_802D5BB7;
+    while (r >= D_802D5BA0[i]) {
+        r -= D_802D5BA0[i++];
     }
     return i;
 }
@@ -32,7 +32,7 @@ INCLUDE_ASM("span_1000", func_80090F94);
 void func_80091108(struct PolygonPoint *origin, struct PolygonPoint *out) {
     Quad2f quad;
     s32 i;
-    quad = D_auto_80071E64;
+    quad = D_80071E64;
     for (i = 0; i < 4; i++) {
         out[i].x = quad.points[i].x + origin->x;
         out[i].y = quad.points[i].y + origin->y;
@@ -106,7 +106,7 @@ block_6:
                              /* extern */
                              /* extern */
 
-void func_auto_800916B8(void *arg0, void *arg1, s32 arg2, void *arg3, void *arg4) {
+void func_800916B8(void *arg0, void *arg1, s32 arg2, void *arg3, void *arg4) {
     s32 temp_v0;
     s32 local_arr[1];
 

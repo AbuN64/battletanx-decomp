@@ -20,7 +20,7 @@
 
 
 
-extern int func_auto_800E6FA8(void);
+extern int func_800E6FA8(void);
 
 
 

@@ -17,14 +17,14 @@ s32 func_800A052C(ShotEffect *object)
 {
     switch (object->kind) {
     case 0:
-        return D_auto_802D5A5A;
+        return D_802D5A5A;
     case 2:
-        return D_auto_802D5A8E;
+        return D_802D5A8E;
     case 1:
         if (object->alternate) {
-            return D_auto_802D5AC0;
+            return D_802D5AC0;
         }
-        return D_auto_802D5A76;
+        return D_802D5A76;
     }
     return 0;
 }
@@ -57,16 +57,16 @@ void func_800A0B8C(ShotEffect *effect, s32 arg1, u32 message, s32 arg3, Position
     case 4:
         switch (effect->kind) {
         case 0:
-            sound = D_auto_802D5A5A;
+            sound = D_802D5A5A;
             break;
         case 2:
-            sound = D_auto_802D5A8E;
+            sound = D_802D5A8E;
             break;
         case 1:
             if (effect->alternate != 0) {
-                sound = D_auto_802D5AC0;
+                sound = D_802D5AC0;
             } else {
-                sound = D_auto_802D5A76;
+                sound = D_802D5A76;
             }
             break;
         default:

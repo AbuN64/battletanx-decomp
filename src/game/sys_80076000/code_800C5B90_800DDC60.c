@@ -12,10 +12,10 @@ float func_800DDC68(void) {
     f32 temp_fv1;
     f32 var_fv0;
 
-    temp_fv1 = (f32) D_auto_80125858;
-    var_fv0 = D_auto_80074394;
-    if (D_auto_80074390 < temp_fv1) {
-        var_fv0 = temp_fv1 * D_auto_80074398;
+    temp_fv1 = (f32) D_80125858;
+    var_fv0 = D_80074394;
+    if (D_80074390 < temp_fv1) {
+        var_fv0 = temp_fv1 * D_80074398;
     }
     return var_fv0;
 }
@@ -106,7 +106,7 @@ void func_800DEC04(void) {
     s8 *var_v0;
 
     var_v1 = 0xBB7;
-    var_v0 = &D_auto_8032900F;
+    var_v0 = &D_8032900F;
     do {
         *var_v0 = 0;
         var_v1 -= 1;
@@ -135,7 +135,7 @@ void func_800DEC5C(u8 *slots, CombatUnit *skip, AiGroup *group) {
         if (unit->visible) {
             if (unit != skip) {
                 if (!(unit->flags & 4)) {
-                    if (func_auto_800E3470(unit) == 0) {
+                    if (func_800E3470(unit) == 0) {
                         slots[unit->slot] = 0;
                     }
                 }

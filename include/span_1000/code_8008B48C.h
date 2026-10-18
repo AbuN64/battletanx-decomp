@@ -1,5 +1,5 @@
 #include "shared/bt_types.h"
 #pragma once
 
-extern s32 D_auto_802C13F0;
+extern s32 D_802C13F0;
 

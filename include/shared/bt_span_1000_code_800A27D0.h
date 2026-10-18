@@ -27,7 +27,7 @@ struct FuncA3D30Table_Shared800A3D30 {
 };
 
 
-extern int func_auto_800A42B0(int arg0);
+extern int func_800A42B0(int arg0);
 
 
 extern void func_800A3D30(void *arg0);

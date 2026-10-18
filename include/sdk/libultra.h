@@ -5,9 +5,9 @@
 #include "shared/bt_span_1000_code_80091A60.h"
 #pragma once
 
-extern unsigned char D_auto_803C4DC0;
+extern unsigned char D_803C4DC0;
 
-extern int D_auto_803C4D80[];
+extern int D_803C4D80[];
 
 extern void func_801112A8(int);
 
