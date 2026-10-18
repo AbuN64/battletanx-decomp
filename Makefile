@@ -8,6 +8,7 @@ SHELL := /bin/sh
 .DELETE_ON_ERROR:
 .SECONDARY:
 .SECONDEXPANSION:
+.DEFAULT_GOAL := all
 Q = $(if $(filter 1,$(V)),,@)
 NAME := BattleTanx
 VERSIONS := us
@@ -312,6 +313,11 @@ $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011EB90_8011ECA4.
 # The size each object's .text has in the ROM: a compiler may pad the section past its last function, and a zero tail
 # past that size is cut from the section header before the object links.
 -include $(VERSIONS:%=versions/%/text_sizes.mk)
+# Compare each object's last successful size with its own target-specific value during second expansion.
+# A shared text_sizes.mk timestamp would rebuild every object; removed sizes must also invalidate the old trim.
+text_size_changed = $(if $(filter x$(TEXTSIZE),x$(file <$@.textsize)),,text-size-changed)
+.PHONY: text-size-changed
+text-size-changed:
 TRIM_TEXT = python3 -I -c 'import struct,sys;p,n=sys.argv[1],int(sys.argv[2],0);d=bytearray(open(p,"rb").read());o=struct.unpack_from(">I",d,32)[0];e,c,x=struct.unpack_from(">HHH",d,46);s=struct.unpack_from(">I",d,o+x*e+16)[0];t=[o+k*e for k in range(c) if d[s+struct.unpack_from(">I",d,o+k*e)[0]:].split(b"\0")[0]==b".text"];f,z=struct.unpack_from(">II",d,t[0]+16) if t else (0,0);t and z>n and not d[f+n:f+z].strip(b"\0") and (struct.pack_into(">I",d,t[0]+20,n),open(p,"wb").write(d))'
 
 .PHONY: all check extract
@@ -356,14 +362,16 @@ asm/%/.extracted:
 $(foreach v,$(VERSIONS),$(eval OBJS_$(v) := $(addprefix build/$(v)/,$(shell $(CPP) -P -undef -D$(VMACRO_$(v)) $(NAME).ld 2>/dev/null | grep -oE '[[:alnum:]_./+-]+[.]o' | sort -u))))
 -include $(foreach v,$(VERSIONS),$(OBJS_$(v):.o=.d))
 
-build/%.o: $$(call src,$$*) asm/$$(call ver,$$*)/.extracted | $(STAMPS)
+build/%.o: $$(call src,$$*) asm/$$(call ver,$$*)/.extracted $$(text_size_changed) | $(STAMPS)
 	$(Q)mkdir -p $(@D)
 	$(COMPILE_$(TC))
 	$(Q)$(if $(TEXTSIZE),$(TRIM_TEXT) $@ $(TEXTSIZE))
-build/%.s.o: $$(call src,$$*).s | $(STAMPS)
+	$(Q)printf '%s\n' '$(TEXTSIZE)' > $@.textsize
+build/%.s.o: $$(call src,$$*).s $$(text_size_changed) | $(STAMPS)
 	$(Q)mkdir -p $(@D)
 	$(Q)$(AS) $(ASFLAGS) $(ASINC) -Iinclude $< -o $@
 	$(Q)$(if $(TEXTSIZE),$(TRIM_TEXT) $@ $(TEXTSIZE))
+	$(Q)printf '%s\n' '$(TEXTSIZE)' > $@.textsize
 build/%.bin.o: asm/%.bin
 	$(Q)mkdir -p $(@D)
 	$(Q)$(OBJCOPY) -I binary -O elf32-tradbigmips -B mips $< $@
