@@ -4,7 +4,7 @@
 #include "span_1000/code_80077930.h"
 #include "shared/bt_types.h"
 void func_8011C1A4(s32 arg0);
-void func_8011D2F0(void * arg0);
+void osStopThread(void * arg0);
 static inline AudioFrameInfo *audio_message_frame(void *received)
 {
     AudioDoneMessage *message = received;
@@ -31,7 +31,7 @@ void func_8007A470(void *arg)
             previous = 0;
             func_8011C1A4(D_801502F0);
             D_80125764 = 0;
-            func_8011D2F0(0);
+            osStopThread(0);
             break;
         }
     } while (!done);

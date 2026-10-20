@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-INCLUDE_ASM("span_1000", func_801130A0);
+INCLUDE_ASM("span_1000", osLeoDiskInit);
 INCLUDE_ASM("span_1000", func_801131A0);
 INCLUDE_ASM("span_1000", func_801131CC);
 INCLUDE_ASM("span_1000", func_80113208);

@@ -26,8 +26,8 @@ s32 func_800A8940(void) {
         }
     }
     func_80110FE0(D_802DF360, &pattern, D_802DF390);
-    func_80110C00(D_802E17B8, 0x18);
-    func_80110C00(D_802E17D8, 0x18);
+    bzero(D_802E17B8, 0x18);
+    bzero(D_802E17D8, 0x18);
     for (i = 0; i < 4; i++) {
         D_802DF540[i] = -1;
         D_802DF560[i] = 1;

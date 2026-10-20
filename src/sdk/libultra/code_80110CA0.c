@@ -10,7 +10,7 @@ int func_80110CA0(void *arg0) {
     int ret;
 
     ret = 0;
-    func_8011BDA0();
+    __osSiGetAccess();
     if (D_803C4DC0 != 0) {
         func_801112A8(0);
         ret = __osSiRawStartDma(1, D_803C4D80);
@@ -18,7 +18,7 @@ int func_80110CA0(void *arg0) {
     }
     ret = __osSiRawStartDma(0, D_803C4D80);
     D_803C4DC0 = 0;
-    func_8011BDE4();
+    __osSiRelAccess();
     return ret;
 }
 

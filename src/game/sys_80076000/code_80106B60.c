@@ -11,7 +11,7 @@ void func_80106B60(s32 width, s32 height)
     u32 i;
     s16 *cells;
 
-    func_80110C00(D_803B8248, sizeof(SpatialRecord) * 0x514);
+    bzero(D_803B8248, sizeof(SpatialRecord) * 0x514);
     for (i = 0; i < 0x514; i++) {
         D_803B8248[i].cellLinks[0] = -1;
         D_803B8248[i].cellLinks[1] = -1;

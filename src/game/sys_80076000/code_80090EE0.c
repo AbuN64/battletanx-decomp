@@ -8,7 +8,7 @@
 #include "span_1000/code_8008F4EC.h"
 
 void func_80090EE0(void) {
-    func_80110C00((s32) D_802D5BA0, 0x17);
+    bzero((s32) D_802D5BA0, 0x17);
     D_802D5BB7 = 0;
 }
 

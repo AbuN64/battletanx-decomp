@@ -3,8 +3,8 @@
 .set gp=64
 .set fp=64
 .section .text
-.globl func_80111CBC
-func_80111CBC:
+.globl __osEnqueueAndYield
+__osEnqueueAndYield:
     lui $a1, %hi(D_80146100)
     lw $a1, %lo(D_80146100)($a1)
     mfc0 $t0, $12
@@ -68,7 +68,7 @@ func_80111CBC:
 .Lfunc_80111CBC_0E8:
     beqz $a0, .Lfunc_80111CBC_0F8
     sw $k1, 0x128($a1)
-    jal func_80111DBC
+    jal __osEnqueueThread
     nop
 .Lfunc_80111CBC_0F8:
     j D_80111E14

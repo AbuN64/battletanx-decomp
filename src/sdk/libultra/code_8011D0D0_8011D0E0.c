@@ -3,7 +3,7 @@
 #include "shared/bt_span_1000_code_8011D0D0.h"
 #include "shared/bt_span_1000_code_80077930.h"
 #include "shared/bt_types.h"
-/* Calls func_8011D0D0 with a literal 0x400 and nothing else; the frame exists only to
+/* Calls __osSpSetStatus with a literal 0x400 and nothing else; the frame exists only to
  * hold the return address across that call.
  * There is no load or store of data, so no field types are involved: the single
  * argument is an immediate word. */
@@ -11,7 +11,7 @@
 
 
 void osSpTaskYield(void) {
-    func_8011D0D0(0x400);
+    __osSpSetStatus(0x400);
 }
 
 /* Polls the status word, reports whether its 0x100 bit was set, and when the
@@ -27,7 +27,7 @@ int osSpTaskYielded(func_80078D90_S2_Shared80078D90 *obj) {
     int status;
     int pressed;
 
-    status = func_8011D180();
+    status = __osSpGetStatus();
     if ((status & 0x100) != 0) {
         pressed = 1;
     } else {

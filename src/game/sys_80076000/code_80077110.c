@@ -26,10 +26,10 @@ void func_80077930(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp;
 
     if (arg2 != 0) {
-        func_80110C00(&args, 0x18);
-        func_80110C00(&temp, 4);
+        bzero(&args, 0x18);
+        bzero(&temp, 4);
         osInvalDCache(arg1, arg2);
-        func_801185D0(&args, 0, 0, arg0, arg1, arg2, &D_8014C0B0);
+        osPiStartDma(&args, 0, 0, arg0, arg1, arg2, &D_8014C0B0);
         osRecvMesg(&D_8014C0B0, 0, 1);
     }
 }
@@ -53,7 +53,7 @@ void func_800779CC(s32 arg0) {
 
 /* Configures the title screen callbacks and waits for the screen transition. */
 void func_80077A38(s32 arg0) {
-    func_80118860(0x96, &D_8014C070, &D_8014BD50, 0xC8);
+    osCreatePiManager(0x96, &D_8014C070, &D_8014BD50, 0xC8);
     osCreateThread(&D_8014BBA0, 2, &func_80077AD0, arg0, &D_8014B9F0, 0xA);
     osStartThread(&D_8014BBA0);
     osSetThreadPri(0, 0);

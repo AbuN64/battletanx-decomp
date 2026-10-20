@@ -45,3 +45,52 @@ vram	name	evidence_class	evidence
 0x801222F0	osViSwapBuffer	BAG	func_801222F0.s: __osViNext 0x4 = buffer, flags |= 0x10; RW 0x802BF9B0
 0x801219B0	osViBlack	BAG	func_801219B0.s: __osViNext flags 0x20 set/clear; RW 0x802BF2A0
 0x80121B60	osViGetCurrentFramebuffer	CALL	func_80121B60.s: returns __osViCurr (80146180) 0x4 under disable/restore; __osViSwapBuffer writes 0x4 of __osViNext (80146184)
+0x801106A0	bcopy	SEM	func_801106A0.s: beqz len; move a3,dst; beq src,dst; slt dst<src picks the forward or backward word/byte copy; _VirtualToPhysicalTask (8011CCE0) copies the OSTask with it
+0x80110C00	bzero	SEM	func_80110C00.s: blt len,12 byte loop else word-aligned store loop of zero; osInitialize calls it on 0x8000031C (osAppNMIBuffer), 0x40
+0x80111690	__osException	SEM	handwritten exception handler: saves the context to __osRunningThread, reads MI_INTR/SP/VI/PI/AI status, posts events through send_mesg (80111BD4)
+0x80111BD4	send_mesg	SEM	exceptasm.s static: indexes __osEventStateTab (D_803C7540, the table osSetEventMesg fills) by the event, sends to its queue, wakes the waiter through __osPopThread/__osEnqueueThread
+0x80111CBC	__osEnqueueAndYield	CALL	handwritten: saves the running thread, __osEnqueueThread (80111DBC) on the queue in a0, jumps to __osDispatchThread; every blocking call (osRecvMesg, osSendMesg, osJamMesg, osYieldThread, osStartThread, osSetThreadPri) calls it
+0x80111DBC	__osEnqueueThread	CALL	inserts the thread a1 into the priority queue a0 by OSThread.priority (0x4); called by osStartThread, osSetThreadPri, __osEnqueueAndYield
+0x80111E04	__osPopThread	SEM	func_80111E04.s: lw v0,0(a0); lw t9,0(v0); sw t9,0(a0) (unlink the queue head); osRecvMesg/osSendMesg/osJamMesg wake the popped thread with osStartThread
+0x80112470	__osGetSR	SEM	handwritten: mfc0 v0,$12 (Status) then return; osInitialize reads it before setting CU1
+0x8011BB80	__osSetSR	SEM	handwritten: mtc0 a0,$12 (Status); osInitialize calls it with the CU1 bit
+0x80113790	osMapTLBRdb	SEM	handwritten: Index 0x1F, EntryHi 0xC0000000, EntryLo0 from 0x80000000 >> 6 | 0x17, EntryLo1 1, tlbwi, restores EntryHi; called by osInitialize
+0x801219A0	__osSetCompare	SEM	handwritten: mtc0 a0,$11 (Compare); the timer code (8012162C, 801217A4) arms it after osGetCount
+0x80121560	__osDequeueThread	SEM	walks the thread list at a0 and unlinks a1 (OSThread.next at 0x0); osSetThreadPri, osDestroyThread and osStopThread call it
+0x8011D2F0	osStopThread	CALL	disable; by thread state: running -> __osEnqueueAndYield on no queue, runnable/waiting -> __osDequeueThread (80121560); restore
+0x8011BD50	__osSiCreateAccessQueue	CALL	osCreateMesgQueue on D_803C75C8 then osSendMesg of the one token; called by __osSiGetAccess (8011BDA0)
+0x8011BDA0	__osSiGetAccess	CALL	creates the SI access queue once (8011BD50), then osRecvMesg on D_803C75C8; every SI transfer (cont/pfs/eeprom) calls it before __osSiRawStartDma
+0x8011BDE4	__osSiRelAccess	CALL	osSendMesg(D_803C75C8, 0, OS_MESG_NOBLOCK): returns the SI access token
+0x8011C0B0	__osSiRawReadIo	SEM	__osSiDeviceBusy then *a1 = IO_READ(0xA0000000 | a0); osInitialize reads the PIF word with it
+0x8011C100	__osSiRawWriteIo	SEM	__osSiDeviceBusy then IO_WRITE(0xA0000000 | a0, a1); osInitialize writes the PIF word back with it
+0x80119040	__osPiCreateAccessQueue	CALL	osCreateMesgQueue on D_803C7528 then osSendMesg of the token; called by osCreatePiManager and __osPiGetAccess
+0x80119090	__osPiGetAccess	CALL	creates the PI access queue once (80119040), then osRecvMesg on D_803C7528
+0x801190D4	__osPiRelAccess	CALL	osSendMesg(D_803C7528, 0, OS_MESG_NOBLOCK)
+0x801191E0	osPiRawReadIo	SEM	waits for PI_STATUS (A4600010) idle, *a1 = IO_READ(osRomBase (D_80000308) | a0); osInitialize and osCartRomInit read the ROM header with it
+0x80118860	osCreatePiManager	CALL	osCreateMesgQueue, __osPiCreateAccessQueue (80119040), osSetEventMesg(OS_EVENT_PI), osGetThreadPri/osSetThreadPri, osCreateThread of __osDevMgrMain (80118AF0), osStartThread
+0x80118AF0	__osDevMgrMain	CALL	the PI manager thread: osRecvMesg of the command, __osResetGlobalIntMask/__osSetGlobalIntMask (80119380/8011BA90), osEPiRawReadIo/WriteIo (80118F80/80118FD0), osSendMesg, osYieldThread
+0x80118F80	osEPiRawReadIo	SEM	waits for PI_STATUS & 3 clear, *a2 = IO_READ(handle->baseAddress (0xC) | a1 | 0xA0000000)
+0x80118FD0	osEPiRawWriteIo	SEM	waits for PI_STATUS & 3 clear, IO_WRITE(handle->baseAddress (0xC) | a1 | 0xA0000000, a2)
+0x80119380	__osResetGlobalIntMask	SEM	disable; __OSGlobalIntMask (D_80145DB0) &= ~(a0 & ~0x401); restore
+0x8011BA90	__osSetGlobalIntMask	SEM	disable; __OSGlobalIntMask (D_80145DB0) |= a0; restore
+0x801185D0	osPiStartDma	CALL	osPiGetCmdQueue (80118830); priority high -> osJamMesg else osSendMesg of the request to the PI manager queue
+0x80118830	osPiGetCmdQueue	SEM	returns the PI manager command queue (D_80145DC0 + 8) when the manager is active (D_80145DC0), else 0
+0x801189F0	osCartRomInit	CALL	disable/restore around filling CartRomHandle (D_803C74A0: type, latency, pulse, pageSize, relDuration, domain, baseAddress) after osPiRawReadIo of the ROM header; bzero of its transferInfo
+0x801130A0	osLeoDiskInit	SEM	fills LeoDiskHandle (D_803C5FD0) for domain 2 (PI_BSD_DOM2 registers A4600024..30), bzero of its transferInfo, disable/restore
+0x801125F0	__osLeoInterrupt	SEM	the 64DD interrupt: reads ASIC_STATUS (A5000508/A5000510) and PI_STATUS, resumes the waiting thread through __osLeoAbnormalResume/__osLeoResume (80112C94/80112D7C)
+0x80112C94	__osLeoAbnormalResume	CALL	leointerrupt.c static: clears the 64DD state (A5000510, PI_STATUS) then __osLeoResume (80112D7C)
+0x80112D7C	__osLeoResume	SEM	leointerrupt.c static: the send_mesg body for the 64DD event (__osEventStateTab entry), __osPopThread/__osEnqueueThread
+0x8011CCE0	_VirtualToPhysicalTask	CALL	sptask.c static: bcopy (801106A0) of the OSTask, osVirtualToPhysical of each of its pointers
+0x8011D000	__osSpRawStartDma	SEM	__osSpDeviceBusy, then SP_MEM_ADDR/SP_DRAM_ADDR/SP_RD_LEN or SP_WR_LEN (A4040000..0C) with osVirtualToPhysical of the buffer
+0x8011D0D0	__osSpSetStatus	SEM	func_8011D0D0.s: sw a0 to SP_STATUS (A4040010)
+0x8011D180	__osSpGetStatus	SEM	func_8011D180.s: lw v0 from SP_STATUS (A4040010)
+0x801215A0	__osTimerServicesInit	SEM	zeroes the time counters (D_803C7644/48/4C) and makes __osTimerList (D_80146110) an empty ring; called by osCreateViManager
+0x8012162C	__osTimerInterrupt	CALL	walks __osTimerList (D_80146110): osGetCount, __osSetTimerIntr (801217A4), __osSetCompare (801219A0), osSendMesg of the timer message, __osInsertTimer for an interval timer
+0x801217A4	__osSetTimerIntr	CALL	disable; __osSetCompare (801219A0) of osGetCount + the interval; restore
+0x80121A20	__osViInit	CALL	bzero of the two __OSViContext (D_80146120..), __osViCurr/__osViNext (D_80146180/84), VI registers A4400000/10, __osViSwapContext (80122340)
+0x80122340	__osViSwapContext	SEM	writes the next __OSViContext (D_80146184) to every VI register (A4400000..34) with osVirtualToPhysical of the framebuffer
+0x80121D28	viMgrMain	CALL	vimgr.c static thread: osRecvMesg of the VI event, __osViSwapContext (80122340), __osViGetCurrentContext (80121F00), retrace osSendMesg, __osTimerInterrupt (8012162C)
+0x80121F00	__osViGetCurrentContext	SEM	func_80121F00.s: returns __osViCurr (D_80146180)
+0x8011D190	sqrtf	SEM	func_8011D190.s: sqrt.s f0,f12; jr ra
+0x80124350	__divdi3	SEM	64-bit signed divide: negates a negative numerator and a negative denominator, flipping the result sign for each (nor of the sign word), then the __udivmoddi4 body
+0x80124940	__moddi3	SEM	64-bit signed remainder: the result sign follows only the numerator (sign word set once, the denominator negation leaves it), then the __udivmoddi4 body, remainder returned

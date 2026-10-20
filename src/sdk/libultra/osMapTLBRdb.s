@@ -1,8 +1,8 @@
 .set noreorder
 .set noat
 .section .text
-.globl func_80113790
-func_80113790:
+.globl osMapTLBRdb
+osMapTLBRdb:
     mfc0 $t0, $10
     addiu $t1, $zero, 0x1F
     mtc0 $t1, $0

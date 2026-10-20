@@ -7,7 +7,7 @@
 /* Canonical first argument is the O32 source-address word. Fast paths use
  * measured byte/halfword/word buffer elements only after alignment checks;
  * these are memory-copy arrays, not views of an unknown object layout. */
-void *func_801106A0(s32 source_word, void *destination, s32 length)
+void *bcopy(s32 source_word, void *destination, s32 length)
 {
     s8 *src = (s8 *)source_word;
     s8 *dst = (s8 *)destination;
@@ -164,7 +164,7 @@ backward_bytes:
     return destination;
 }
 #else
-INCLUDE_ASM("span_1000", func_801106A0);
+INCLUDE_ASM("span_1000", bcopy);
 #endif
 #include "shared/bt_span_1000_code_801106A0.h"
 

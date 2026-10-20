@@ -1069,7 +1069,7 @@ s32 func_800A12E4(f32 x, f32 y, s32 sizeIndex);
 
 void func_80085290(Gfx *list, s32 count, s32 offset);
 
-extern void func_801106A0(const void *src, void *dst, s32 size);
+extern void bcopy(const void *src, void *dst, s32 size);
 extern s16 D_80125800;
 extern u8 D_80125802;
 extern Gfx D_801C2F40[2][0x400];
