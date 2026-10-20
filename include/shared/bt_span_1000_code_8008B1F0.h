@@ -232,6 +232,15 @@ typedef struct EffectKind17 {
     s32 active, motion, owner;
 } EffectKind17;
 typedef struct EffectKind11 { EffectHeader header; s32 active; } EffectKind11;
+typedef struct EffectKind12 {
+    EffectHeader header;
+    s32 value0C;
+    s32 value10;
+    s32 value14;
+    s32 value18;
+    s8 value1C;
+    s8 value1D;
+} EffectKind12;
 typedef struct EffectKind1D {
     EffectHeader header;
     PointZX center;
