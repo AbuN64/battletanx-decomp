@@ -1,4 +1,5 @@
 #include "include_asm.h"
+#include "shared/bt_unit.h"
 
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
@@ -66,11 +67,11 @@ void func_800A3D30(void *arg0) {
     func_800A3D30_S1_Shared800A3D30 *ptr;
     s32 var_v0;
     void *temp_s0;
-    func_800A3D30_S2_Shared800A3D30 *temp_v0;
+    CombatUnit *unit;
 
     ptr = arg0;
-    temp_v0 = func_800A03B8(ptr->unk20);
-    if (temp_v0->unk1 != 0) {
+    unit = func_800A03B8(ptr->unk20);
+    if (unit->visible != 0) {
         if (ptr->unk44 == 1) {
             var_v0 = func_8007AAA0();
             temp_s0 = (var_v0 >= 3) ? (FuncA3D30Table_Shared800A3D30 *)&D_80126140 + 1 : (FuncA3D30Table_Shared800A3D30 *)&D_80126140;
@@ -78,9 +79,9 @@ void func_800A3D30(void *arg0) {
             var_v0 = func_8007AAA0();
             temp_s0 = (var_v0 >= 3) ? (FuncA3D30Table_Shared800A3D30 *)&D_80126128 + 1 : (FuncA3D30Table_Shared800A3D30 *)&D_80126128;
         }
-        func_80078680(ptr->data, ((FuncA3D30Table_Shared800A3D30 *)temp_s0)->value[temp_v0->unk18]);
+        func_80078680(ptr->data, ((FuncA3D30Table_Shared800A3D30 *)temp_s0)->value[unit->kind]);
         temp_s0 = ptr->data;
-        func_80078634(temp_s0, temp_v0->unk504);
+        func_80078634(temp_s0, unit->effect);
     }
 }
 
