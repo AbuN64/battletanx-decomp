@@ -26,6 +26,8 @@ INCLUDE_ASM("span_1000", func_800A68DC);
 #include "shared/bt_types.h"
 #include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_800A6864.h"
+#include "shared/bt_span_1000_code_8008F248.h"
+#include "shared/bt_player.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 #include "shared/bt_span_1000_code_8010BFDC.h"
 #include "span_1000/code_800A6864.h"
@@ -172,17 +174,17 @@ INCLUDE_ASM("span_1000", func_800A7418);
 /* extern */
 
 /* Releases linked resources when the selected object matches the active one. */
-void func_800A74AC(func_800A74AC_S4_Shared800A74AC *arg0, func_800A74AC_S1_Shared800A74AC *arg1, s32 arg2) {
-    func_800A74AC_S3_Shared800A74AC *temp_s0;
+void func_800A74AC(func_800A74AC_S4_Shared800A74AC *arg0, HandlerSender *arg1, s32 arg2) {
+    PlayerRecord *player;
     void *temp_s0_2;
-    func_800A74AC_S2_Shared800A74AC *temp_s1;
+    CombatUnit *unit;
     func_800A74AC_S6_Shared800A74AC *var_a0;
 
     if ((arg2 == 0) && (arg1->unk8 == 0)) {
-        temp_s1 = arg1->unkC;
-        temp_s0 = func_800A6688(temp_s1->unk4);
-        if (temp_s0->unk1AE == (((func_800A74AC_S3_Shared800A74AC *)(func_800A6688(arg0->unkC)))->unk1AE)) {
-            var_a0 = temp_s1->unk98;
+        unit = arg1->unit;
+        player = func_800A6688(unit->player);
+        if (player->team == ((PlayerRecord *) func_800A6688(arg0->unkC))->team) {
+            var_a0 = unit->value98;
             if (var_a0 != ((void *)0)) {
                 do {
                     temp_s0_2 = var_a0->unk2C;
@@ -190,7 +192,7 @@ void func_800A74AC(func_800A74AC_S4_Shared800A74AC *arg0, func_800A74AC_S1_Share
                     var_a0 = temp_s0_2;
                 } while (var_a0 != ((void *)0));
             }
-            temp_s1->unk98 = ((void *)0);
+            unit->value98 = ((void *)0);
         }
     }
 }

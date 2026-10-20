@@ -2,6 +2,7 @@
 #define UNBAKE_SPAN_1000_CODE_8008F248_H
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
+#include "shared/bt_unit.h"
 
 
 extern int func_80090F10(void);
@@ -51,7 +52,7 @@ struct HandlerSender {
     s32 unk0;
     s32 unk4;
     s32 unk8;
-    s32 unkC;
+    CombatUnit *unit;
 };
 extern void func_800916B8(HandlerEffect *arg0, HandlerSender *arg1, int arg2, void *arg3, HandlerReply *arg4);
 #endif

@@ -26,7 +26,7 @@ typedef struct CombatUnit {
     f32 value38;
     u8 reserved03C[0x18];
     ViewMatrix matrix;
-    s32 value98;
+    void *value98;
     s32 state;
     f32 *target;
     f32 targetPoint[2];

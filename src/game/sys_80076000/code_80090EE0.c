@@ -75,7 +75,7 @@ INCLUDE_ASM("span_1000", func_800913AC);
 
 void func_80091608(HandlerEffect *arg0, HandlerSender *arg1, void *arg2, HandlerReply *arg3) {
     if (arg0->unk20 == 0) {
-        if ((arg1->unk8 == 0) && ((func_8009FBE4(arg1->unkC) & 0xFF) != arg0->unk2C) && (func_800E3460(arg1->unkC) == 0)) {
+        if ((arg1->unk8 == 0) && ((func_8009FBE4(arg1->unit) & 0xFF) != arg0->unk2C) && (func_800E3460(arg1->unit) == 0)) {
             arg3->code = 3;
             arg3->value = (s32) arg0->unk18;
             arg0->unk20 = 1U;
@@ -112,7 +112,7 @@ void func_800916B8(HandlerEffect *arg0, HandlerSender *arg1, s32 arg2, void *arg
 
     local_arr[0] = (s32) arg1;
     if (arg2 == 0) {
-        if ((arg0->unk20 == 0) && (arg1->unk8 == 0) && ((func_8009FBE4(arg1->unkC) & 0xFF) != arg0->unk2C) && (func_800E3460(arg1->unkC) == 0)) {
+        if ((arg0->unk20 == 0) && (arg1->unk8 == 0) && ((func_8009FBE4(arg1->unit) & 0xFF) != arg0->unk2C) && (func_800E3460(arg1->unit) == 0)) {
             arg4->code = 3;
             temp_v0 = (s32) arg0->unk18;
             arg4->value = temp_v0;
