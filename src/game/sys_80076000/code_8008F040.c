@@ -113,7 +113,7 @@ void func_800902BC(f32 *arg0, s32 count) {
 INCLUDE_ASM("span_1000", func_80090428);
 INCLUDE_ASM("span_1000", func_800905D8);
 #include "shared/bt_span_1000_code_8008F248.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 #include "span_1000/code_8008F4EC.h"

@@ -2,7 +2,7 @@
 
 #include "shared/bt_span_1000_code_800ABFD0.h"
 #include "shared/bt_types.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_menu_render.h"
 #include "span_1000/code_800ABFD0.h"
 #include "game/sys_80076000.h"

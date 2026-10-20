@@ -24,7 +24,7 @@ void *func_800A68C0(s32 index)
 
 INCLUDE_ASM("span_1000", func_800A68DC);
 #include "shared/bt_types.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_800A6864.h"
 #include "shared/bt_span_1000_code_8010BFDC.h"
 #include "span_1000/code_800A6864.h"

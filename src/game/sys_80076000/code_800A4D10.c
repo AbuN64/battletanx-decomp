@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800A27D0.h"
 #include "span_1000/code_800A27D0.h"

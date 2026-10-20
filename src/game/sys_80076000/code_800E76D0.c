@@ -36,7 +36,7 @@ INCLUDE_RODATA("span_1000", D_80074794);
 INCLUDE_RODATA("span_1000", D_8007479C);
 INCLUDE_RODATA("span_1000", D_800747A4);
 #include "shared/bt_span_1000_code_800E6FB0.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -67,7 +67,7 @@ void func_800E775C(void) {
 INCLUDE_ASM("span_1000", func_800E777C);
 INCLUDE_ASM("span_1000", func_800E7804);
 #include "shared/bt_span_1000_code_800E6FB0.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800E78C8.h"
 

@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_8007C700.h"
 
@@ -41,7 +41,7 @@ INCLUDE_ASM("span_1000", func_8007EF64);
 INCLUDE_ASM("span_1000", func_8007EFB8);
 INCLUDE_ASM("span_1000", func_8007F00C);
 #include "shared/bt_types.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_8007EBA0.h"
 
@@ -55,7 +55,7 @@ void *func_8007F030(void) {
 
 INCLUDE_ASM("span_1000", func_8007F040);
 #include "shared/bt_types.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_8007EBA0.h"
 
@@ -213,7 +213,7 @@ void func_8008011C(u8 red, u8 green, u8 blue, u8 alpha, s32 viewport)
 
 INCLUDE_ASM("span_1000", func_800803A4);
 #include "game/sys_80076000.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_8008011C.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_8008011C.h"
@@ -339,7 +339,7 @@ void func_80081934(void)
 }
 
 #include "shared/bt_span_1000_code_8008011C.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -372,7 +372,7 @@ u8 *func_80081A78(s32 size)
 }
 
 #include "shared/bt_span_1000_code_8008011C.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_8008011C.h"
 
@@ -387,7 +387,7 @@ s32 func_80081AC0(void) {
 
 INCLUDE_ASM("span_1000", func_80081AD0);
 #include "game/sys_80076000.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_8008011C.h"
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_types.h"

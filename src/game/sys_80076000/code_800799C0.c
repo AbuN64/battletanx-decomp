@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_8007963C.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_8007963C.h"
 #include "game/sys_80076000.h"

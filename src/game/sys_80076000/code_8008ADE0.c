@@ -102,7 +102,7 @@ INCLUDE_ASM("span_1000", func_8008B89C);
 INCLUDE_ASM("span_1000", func_8008B9E8);
 INCLUDE_ASM("span_1000", func_8008C09C);
 #include "shared/bt_span_1000_code_8008B1F0.h"
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_8008B48C.h"
 

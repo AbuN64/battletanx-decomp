@@ -212,7 +212,7 @@ void func_800E18B0(u16 corner, struct PolygonPoint **start, struct PolygonPoint 
 
 INCLUDE_ASM("span_1000", func_800E19B8);
 INCLUDE_ASM("span_1000", func_800E19DC);
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800E0B00.h"
 

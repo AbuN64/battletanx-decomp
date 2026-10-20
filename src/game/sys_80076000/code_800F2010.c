@@ -12,7 +12,7 @@ void func_800F2010(struct Func_800F3014_View0_Shared800F3014 *arg0, s32 *arg1) {
 }
 
 INCLUDE_ASM("span_1000", func_800F2044);
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_callback_state.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800F01D0.h"

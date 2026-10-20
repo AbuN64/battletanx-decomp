@@ -27,7 +27,7 @@ f32 func_800E21B4(void) {
 }
 
 INCLUDE_ASM("span_1000", func_800E21E4);
-#include "shared/bt_audio_callbacks.h"
+#include "shared/audio_callbacks.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800E21E4.h"
 #include "shared/bt_common_draft_fields_func_800E2614_us.h"
