@@ -45,7 +45,7 @@ int func_80115474(Ctx *ctx, Header *src, Header *dst) {
         }
     }
     dst->unk_0 = -1;
-    dst->unk_4 = func_80112130();
+    dst->unk_4 = osGetCount();
     dst->unk_8 = src->unk_8;
     dst->unk_10 = src->unk_10;
     page = 0;

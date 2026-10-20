@@ -18,11 +18,11 @@ void func_8007A470(void *arg)
     void *received = 0;
 
     do {
-        func_80119240(&D_80152F90, &command, 1);
+        osRecvMesg(&D_80152F90, &command, 1);
         switch ((s32)command) {
         case 1:
             if (func_8007A5A4(D_801B4A48[(u32)D_80125768 % 3], previous) != 0) {
-                func_80119240(&D_801B4A28, &received, 1);
+                osRecvMesg(&D_801B4A28, &received, 1);
                 func_8007A758(audio_message_frame(received));
                 previous = audio_message_frame(received);
             }

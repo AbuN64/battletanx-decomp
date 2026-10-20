@@ -15,7 +15,7 @@ void func_8007AD2C(void) {
     u64 cur;
     u64 prev;
 
-    now = func_801120A0();
+    now = osGetTime();
     cur = now * 1000000ULL / D_80145DA0 / 1000000ULL;
     prev = D_801257A8 * 1000000ULL / D_80145DA0 / 1000000ULL;
     if (prev < cur) {

@@ -13,10 +13,10 @@ int func_80110CA0(void *arg0) {
     func_8011BDA0();
     if (D_803C4DC0 != 0) {
         func_801112A8(0);
-        ret = func_8011BFD0(1, D_803C4D80);
-        func_80119240(arg0, 0, 1);
+        ret = __osSiRawStartDma(1, D_803C4D80);
+        osRecvMesg(arg0, 0, 1);
     }
-    ret = func_8011BFD0(0, D_803C4D80);
+    ret = __osSiRawStartDma(0, D_803C4D80);
     D_803C4DC0 = 0;
     func_8011BDE4();
     return ret;

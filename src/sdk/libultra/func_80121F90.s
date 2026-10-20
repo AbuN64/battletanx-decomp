@@ -1,8 +1,8 @@
 .set noreorder
 .set noat
 .section .text
-.globl func_80121F90
-func_80121F90:
+.globl __osProbeTLB
+__osProbeTLB:
     mfc0 $t0, $10
     andi $t1, $t0, 0xFF
     addiu $at, $zero, -0x2000

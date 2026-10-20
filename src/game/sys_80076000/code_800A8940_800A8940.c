@@ -15,14 +15,14 @@ s32 func_800A8940(void) {
     s32 i;
     s32 result;
 
-    func_80111510(D_802DF5B0, D_802DF5C8, 1);
-    func_80111510(D_802DF5D0, D_802DF5E8, 2);
-    func_80111540(D_802DF5F0, 5, func_800A8C88, 0, &D_802E17A0, 0x10);
-    func_8011D1A0(D_802DF5F0);
-    func_80111510(D_802DF360, D_802DF380, 4);
-    func_8011BA10(5, D_802DF360, 1);
+    osCreateMesgQueue(D_802DF5B0, D_802DF5C8, 1);
+    osCreateMesgQueue(D_802DF5D0, D_802DF5E8, 2);
+    osCreateThread(D_802DF5F0, 5, func_800A8C88, 0, &D_802E17A0, 0x10);
+    osStartThread(D_802DF5F0);
+    osCreateMesgQueue(D_802DF360, D_802DF380, 4);
+    osSetEventMesg(5, D_802DF360, 1);
     if (D_8000030C != 0) {
-        while (func_801120A0() < 0x2000000) {
+        while (osGetTime() < 0x2000000) {
         }
     }
     func_80110FE0(D_802DF360, &pattern, D_802DF390);
@@ -55,9 +55,9 @@ s32 func_800A8940(void) {
             D_80126714++;
         }
     }
-    while (func_80119240(D_802DF360, 0, 0) == 0) {
+    while (osRecvMesg(D_802DF360, 0, 0) == 0) {
     }
-    func_801193E0(D_802DF5B0, &D_802E17A0, 0);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
     return D_80126714;
 }
 
@@ -68,7 +68,7 @@ INCLUDE_ASM("span_1000", func_800A8C88);
 void func_800A8E9C(void)
 {
     s32 message = 0;
-    func_801193E0(D_802DF5D0, &message, 0);
+    osSendMesg(D_802DF5D0, &message, 0);
 }
 
 #include "shared/bt_types.h"
@@ -113,7 +113,7 @@ void func_800A8FB8(s32 arg0) {
 void func_800A9010(void) {
     s32 i;
 
-    func_80119240(D_802DF5B0, &D_802E17A0, 1);
+    osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
     for (i = 0; i < 4; i++) {
         if (D_802DF540[i] != -1) {
             D_802DF570[i] = 0;
@@ -121,7 +121,7 @@ void func_800A9010(void) {
             func_801137F0(&D_802DF3A0[i]);
         }
     }
-    func_801193E0(D_802DF5B0, &D_802E17A0, 0);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
 }
 
 #include "shared/bt_span_1000_code_800A8940.h"
@@ -138,11 +138,11 @@ s32 func_800A90E0(void)
     s32 i;
     s32 result;
 
-    func_80119240(D_802DF5B0, &D_802E17A0, 1);
-    while (func_80119240(D_802DF360, 0, 0) == 0) {
+    osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
+    while (osRecvMesg(D_802DF360, 0, 0) == 0) {
     }
     func_80110CA0(D_802DF360);
-    func_80119240(D_802DF360, 0, 1);
+    osRecvMesg(D_802DF360, 0, 1);
     func_80110D24(D_802DF390);
     for (i = 0; i < 4; i++) {
         D_802DF540[i] = -1;
@@ -171,7 +171,7 @@ s32 func_800A90E0(void)
             D_80126714++;
         }
     }
-    func_801193E0(D_802DF5B0, &D_802E17A0, 0);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
     return D_80126714;
 }
 
@@ -210,13 +210,13 @@ s32 func_800A9484(s32 channel)
 {
     s32 status;
 
-    func_80119240(D_802DF5B0, &D_802E17A0, 1);
+    osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
     channel--;
     status = func_80116C70(D_802DF360, &D_802DF3A0[channel], channel);
     if (status == 10 && func_80113C40(D_802DF360, &D_802DF3A0[channel], channel) == 0) {
         status = 1;
     }
-    func_801193E0(D_802DF5B0, &D_802E17A0, 0);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
     if (status == 2) {
         D_80126710 = status;
     }
@@ -237,10 +237,10 @@ s32 func_800A9AB0(s32 channel)
 {
     s32 status;
 
-    func_80119240(D_802DF5B0, &D_802E17A0, 1);
+    osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
     channel--;
     status = func_801181B0(&D_802DF3A0[channel]);
-    func_801193E0(D_802DF5B0, &D_802E17A0, 0);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
     return status;
 }
 

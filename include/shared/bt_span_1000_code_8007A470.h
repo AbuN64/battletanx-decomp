@@ -76,7 +76,7 @@ typedef struct AudioFrameInfo {
     AudioTask task;
     AudioDoneMessage message;
 } AudioFrameInfo;
-extern s32 func_801105F0(void *address, s32 length);
+extern s32 osAiSetNextBuffer(void *address, s32 length);
 
 #endif
 

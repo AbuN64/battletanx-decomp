@@ -33,6 +33,6 @@ void func_8010552C(int, int);
 void func_8010555C(int, int, int, int);
 void func_80105A50(Gfx **, char *, int, int);
 void func_8010698C(Gfx **);
-u64 func_801120A0(void);
+u64 osGetTime(void);
 
 #endif

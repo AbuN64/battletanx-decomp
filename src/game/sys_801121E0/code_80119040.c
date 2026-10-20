@@ -10,10 +10,10 @@ INCLUDE_ASM("span_1000", func_80119090);
 extern u8 D_803C7528;
 
 func_801190D4(void) {
-    func_801193E0(&D_803C7528, 0, 0);
+    osSendMesg(&D_803C7528, 0, 0);
 }
 #else
 INCLUDE_ASM("span_1000", func_801190D4);
 #endif
-INCLUDE_ASM("span_1000", func_80119100);
+INCLUDE_ASM("span_1000", osPiRawStartDma);
 INCLUDE_ASM("span_1000", func_801191E0);

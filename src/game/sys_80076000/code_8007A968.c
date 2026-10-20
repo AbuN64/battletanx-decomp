@@ -17,7 +17,7 @@ void func_8007A968(void) {
     AudioDmaBuffer *next;
 
     for (i = 0; i < D_8012576C; i++) {
-        func_80119240(&D_801529D8, &message, 0);
+        osRecvMesg(&D_801529D8, &message, 0);
     }
 
     buffer = D_80152F84.firstUsed;

@@ -77,7 +77,7 @@ void func_800B1520(void) {
     gDPSetTextureFilter(D_803276D4++, G_TF_POINT);
     gDPSetTextureConvert(D_803276D4++, G_TC_FILT);
     gDPSetTextureLUT(D_803276D4++, G_TT_RGBA16);
-    now = (func_801120A0() * 1000000ULL / D_80145DA0);
+    now = (osGetTime() * 1000000ULL / D_80145DA0);
     func_801054E0(3);
     switch ((u8) D_803276E0) {
     case 0x0:
@@ -106,9 +106,9 @@ block_51:
         D_80327730 = 0;
         D_8032770C = 0xFF;
         D_80327718 = 0;
-        D_80327720 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xE4E1C0ULL;
-        D_80327710 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-        D_80327728 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
+        D_80327720 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xE4E1C0ULL;
+        D_80327710 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+        D_80327728 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
         func_80079BD4();
         func_80079BB4(0xE);
         func_80079BF4((s32) (s16) (D_80125794 << 0xC));
@@ -144,14 +144,14 @@ block_51:
 block_77:
 block_78:
         D_803276E0 = 2;
-        D_80327740 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x4C4B40ULL;
-        D_80327748 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
-        temp_ret_14 = func_801120A0();
+        D_80327740 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x4C4B40ULL;
+        D_80327748 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
+        temp_ret_14 = osGetTime();
         D_80327760 = 0;
         temp_ret_14 = temp_ret_14 * 1000000ULL / D_80145DA0;
         D_80327750 = temp_ret_14 + 0x1E8480ULL;
         D_80327764 = 0xFF;
-        D_80327758 = (func_801120A0() * 1000000ULL / D_80145DA0);
+        D_80327758 = (osGetTime() * 1000000ULL / D_80145DA0);
         func_80079BD4();
         func_80079BB4(0xD);
         func_80079BF4((s32) (s16) (D_80125794 << 0xC));
@@ -175,11 +175,11 @@ block_92:
 block_93:
         D_803276E0 = 3;
         D_80327790 = 0;
-        D_80327768 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x895440ULL;
-        D_80327778 = (func_801120A0() * 1000000ULL / D_80145DA0);
-        D_80327780 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-        D_80327788 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-        temp_ret_28 = func_801120A0();
+        D_80327768 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x895440ULL;
+        D_80327778 = (osGetTime() * 1000000ULL / D_80145DA0);
+        D_80327780 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+        D_80327788 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+        temp_ret_28 = osGetTime();
         D_80327734 = 0;
         D_80327796 = 0;
         D_80327795 = 0;
@@ -196,7 +196,7 @@ block_93:
                 D_80327760 = (s32) (ratio * 255.0f);
             }
             if (D_80327758 < now) {
-                D_80327758 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xF4240ULL;
+                D_80327758 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xF4240ULL;
                 func_800B9C34(0x29, 0x3800);
             }
             {
@@ -213,11 +213,11 @@ block_110:
 block_111:
         D_803276E0 = 4;
         D_803277CC = 0;
-        D_80327798 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x895440ULL;
-        D_803277A8 = (func_801120A0() * 1000000ULL / D_80145DA0);
-        D_803277B0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-        D_803277B8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-        temp_ret_38 = func_801120A0();
+        D_80327798 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x895440ULL;
+        D_803277A8 = (osGetTime() * 1000000ULL / D_80145DA0);
+        D_803277B0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+        D_803277B8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+        temp_ret_38 = osGetTime();
         D_803277CB = 0;
         D_803277CA = 0;
         D_803277C9 = 0;
@@ -257,11 +257,11 @@ block_111:
         }
     case 0x5:
         if (D_803277E0 < now || (D_80327B21 != 0)) {
-            D_80327820 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
-            D_80327828 = (func_801120A0() * 1000000ULL / D_80145DA0);
-            D_80327830 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x3D0900ULL;
-            D_80327838 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x7A1200ULL;
-            temp_ret_48 = func_801120A0();
+            D_80327820 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
+            D_80327828 = (osGetTime() * 1000000ULL / D_80145DA0);
+            D_80327830 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x3D0900ULL;
+            D_80327838 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x7A1200ULL;
+            temp_ret_48 = osGetTime();
             D_80327849 = 0;
             D_8032784A = 0;
             D_8032784B = 0;
@@ -373,9 +373,9 @@ block_111:
         return;
     case 0x6:
         if (D_80327820 < now || (D_80327B21 != 0)) {
-            D_80327868 = (func_801120A0() * 1000000ULL / D_80145DA0);
-            D_80327860 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x4C4B40ULL;
-            D_80327870 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+            D_80327868 = (osGetTime() * 1000000ULL / D_80145DA0);
+            D_80327860 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x4C4B40ULL;
+            D_80327870 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
             D_80327878 = func_800B9C0C(D_80132754);
             D_803276E0 = 7;
             if (D_80327B34 != -1) {
@@ -480,16 +480,16 @@ block_111:
         return;
     case 0x7:
         if (D_80327860 < now || (D_80327B21 != 0)) {
-            D_80327890 = (func_801120A0() * 1000000ULL / D_80145DA0);
-            temp_ret_58 = func_801120A0();
+            D_80327890 = (osGetTime() * 1000000ULL / D_80145DA0);
+            temp_ret_58 = osGetTime();
             D_803278BC = 0;
             temp_ret_58 = temp_ret_58 * 1000000ULL / D_80145DA0;
             D_80327888 = temp_ret_58 + 0x895440ULL;
             D_803276E0 = 8;
-            D_80327898 = (func_801120A0() * 1000000ULL / D_80145DA0);
-            D_803278A0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-            D_803278A8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-            temp_ret_66 = func_801120A0();
+            D_80327898 = (osGetTime() * 1000000ULL / D_80145DA0);
+            D_803278A0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+            D_803278A8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+            temp_ret_66 = osGetTime();
             D_803278B9 = 0;
             D_803278BA = 0;
             temp_ret_66 = temp_ret_66 * 1000000ULL / D_80145DA0;
@@ -564,13 +564,13 @@ block_298:
         if (D_803278E0 < now || (D_80327B21 != 0)) {
             D_803276E0 = 0xB;
             D_8032794C = func_800B9C0C(D_80132A34);
-            D_80327930 = (func_801120A0() * 1000000ULL / D_80145DA0);
-            D_80327928 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x895440ULL;
-            D_80327958 = (func_801120A0() * 1000000ULL / D_80145DA0);
-            D_80327960 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-            D_80327968 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-            D_80327938 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-            temp_ret_80 = func_801120A0();
+            D_80327930 = (osGetTime() * 1000000ULL / D_80145DA0);
+            D_80327928 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x895440ULL;
+            D_80327958 = (osGetTime() * 1000000ULL / D_80145DA0);
+            D_80327960 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+            D_80327968 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+            D_80327938 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+            temp_ret_80 = osGetTime();
             D_80327970 = 0;
             D_80327971 = 0;
             D_80327972 = 0;
@@ -628,17 +628,17 @@ block_298:
 block_369:
 block_370:
         D_803276E0 = 0xC;
-        D_80327980 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xE4E1C0ULL;
-        D_80327998 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-        D_803279A0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-        D_803279C0 = (func_801120A0() * 1000000ULL / D_80145DA0);
-        D_803279A8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x895440ULL;
-        D_803279C8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-        D_803279B0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
-        D_803279D0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-        D_803279B8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x895440ULL;
-        D_80327988 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x014FB180ULL;
-        temp_ret_102 = func_801120A0();
+        D_80327980 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xE4E1C0ULL;
+        D_80327998 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+        D_803279A0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+        D_803279C0 = (osGetTime() * 1000000ULL / D_80145DA0);
+        D_803279A8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x895440ULL;
+        D_803279C8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+        D_803279B0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
+        D_803279D0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+        D_803279B8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x895440ULL;
+        D_80327988 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x014FB180ULL;
+        temp_ret_102 = osGetTime();
         D_803279D8 = 0;
         D_803279DC = 0;
         D_803279DB = 0;
@@ -714,9 +714,9 @@ block_416:
         D_80327708 = 0;
         D_803276E1 = 0xFF;
         D_803276F0 = 0;
-        D_803276F8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x6ACFC0ULL;
-        D_803276E8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
-        D_80327700 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x4C4B40ULL;
+        D_803276F8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x6ACFC0ULL;
+        D_803276E8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
+        D_80327700 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x4C4B40ULL;
         return;
         } else {
             if (D_80327990 < now) {
@@ -814,12 +814,12 @@ block_416:
 block_530:
 block_531:
         D_803276E0 = 0xD;
-        D_803279F0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x895440ULL;
-        D_80327A00 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
-        D_803279F8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
-        D_80327A18 = (func_801120A0() * 1000000ULL / D_80145DA0);
-        D_80327A20 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
-        temp_ret_120 = func_801120A0();
+        D_803279F0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x895440ULL;
+        D_80327A00 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
+        D_803279F8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x5B8D80ULL;
+        D_80327A18 = (osGetTime() * 1000000ULL / D_80145DA0);
+        D_80327A20 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
+        temp_ret_120 = osGetTime();
         D_80327A08 = 0;
         D_80327A0C = 0;
         temp_ret_120 = temp_ret_120 * 1000000ULL / D_80145DA0;
@@ -877,7 +877,7 @@ block_547:
 block_568:
 block_569:
         D_803276E0 = 0x10;
-        temp_ret_122 = func_801120A0();
+        temp_ret_122 = osGetTime();
         D_80327AA1 = 0;
         temp_ret_122 = temp_ret_122 * 1000000ULL / D_80145DA0;
         D_80327A98 = temp_ret_122 + 0x2DC6C0ULL;
@@ -919,11 +919,11 @@ block_594:
 block_595:
         D_803276E0 = 0x11;
         D_80327AB0 = 0;
-        D_80327AA8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xA7D8C0ULL;
-        D_80327AB8 = (func_801120A0() * 1000000ULL / D_80145DA0);
-        D_80327AC0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
-        D_80327AD0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x3D0900ULL;
-        temp_ret_132 = func_801120A0();
+        D_80327AA8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xA7D8C0ULL;
+        D_80327AB8 = (osGetTime() * 1000000ULL / D_80145DA0);
+        D_80327AC0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x2DC6C0ULL;
+        D_80327AD0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x3D0900ULL;
+        temp_ret_132 = osGetTime();
         D_80327ADA = 0;
         D_80327AD9 = 0;
         D_80327AD8 = 0;
@@ -947,11 +947,11 @@ block_605:
 block_606:
         D_80327B20 = 1;
         D_803276E0 = 0x12;
-        D_80327AE0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
-        D_80327AF0 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
-        D_80327AE8 = (func_801120A0() * 1000000ULL / D_80145DA0) + 0x989680ULL;
-        D_80327B10 = (func_801120A0() * 1000000ULL / D_80145DA0);
-        temp_ret_142 = func_801120A0();
+        D_80327AE0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0xB71B00ULL;
+        D_80327AF0 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x1E8480ULL;
+        D_80327AE8 = (osGetTime() * 1000000ULL / D_80145DA0) + 0x989680ULL;
+        D_80327B10 = (osGetTime() * 1000000ULL / D_80145DA0);
+        temp_ret_142 = osGetTime();
         D_80327AF8 = 0;
         D_80327AFC = 0;
         temp_ret_142 = temp_ret_142 * 1000000ULL / D_80145DA0;

@@ -40,7 +40,7 @@ struct Header {
 
 extern int func_8011609C(Ctx *ctx);
 
-extern int func_80112130(void);
+extern int osGetCount(void);
 
 extern int func_80114190(int a, int b, int mode, unsigned char *buf);
 

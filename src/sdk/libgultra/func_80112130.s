@@ -1,8 +1,8 @@
 .set noreorder
 .set noat
 .section .text
-.globl func_80112130
-func_80112130:
+.globl osGetCount
+osGetCount:
     mfc0 $v0, $9
     jr $ra
     nop

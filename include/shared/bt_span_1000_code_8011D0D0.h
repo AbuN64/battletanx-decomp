@@ -4,7 +4,7 @@
 extern void func_8011D0D0(int arg0);
 
 
-extern void func_8011D0E0(void);
+extern void osSpTaskYield(void);
 
 
 extern int func_8011D180(void);

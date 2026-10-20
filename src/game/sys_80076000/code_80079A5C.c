@@ -36,7 +36,7 @@ void func_80079B08(void) {
     func_8007A36C();
     func_80079EFC();
     func_80079FA4();
-    func_8011D1A0(&D_80152A38);
+    osStartThread(&D_80152A38);
 }
 
 INCLUDE_ASM("span_1000", func_80079B80);

@@ -1,8 +1,8 @@
 .set noreorder
 .set noat
 .section .text
-.globl func_80122720
-func_80122720:
+.globl osWritebackDCacheAll
+osWritebackDCacheAll:
     lui $t0, 0x8000
     addiu $t2, $zero, 0x2000
     addu $t1, $t0, $t2

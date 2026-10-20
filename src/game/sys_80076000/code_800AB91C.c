@@ -8,11 +8,11 @@
 struct M;
 
 void func_800AB91C(void) {
-    func_80122130(0x41);
+    osViSetSpecialFeatures(0x41);
 }
 
 void func_800AB93C(void) {
-    func_80122130(0x42);
+    osViSetSpecialFeatures(0x42);
 }
 
 /* func_800AB95C -- selects one of five modes, taking the mode's value from a five-entry table as the current value, and returns the mode that was set before. */

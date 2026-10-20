@@ -95,7 +95,7 @@ extern s32 D_802DF570[];
 
 extern TextureTable D_8013227C[];
 
-extern void func_80122130(s32);
+extern void osViSetSpecialFeatures(s32);
 
 extern void func_800799D0(s32 id, s16 volume);
 
@@ -513,7 +513,7 @@ extern s32 D_80073C94;
 
 extern s32 D_80073C8C;
 
-s32 func_801121E0();
+s32 osInitialize();
 extern s32 D_801499F0;
 
 extern s8 D_800731B0;
@@ -1183,8 +1183,8 @@ extern void *D_802DF5E8[];
 extern u8 D_802DF5F0[];
 extern void *D_802E17A0;
 extern s32 D_8000030C;
-extern void func_80111510(void *queue, void *messages, s32 count);
-extern void func_8011BA10(s32 event, void *queue, s32 message);
+extern void osCreateMesgQueue(void *queue, void *messages, s32 count);
+extern void osSetEventMesg(s32 event, void *queue, s32 message);
 extern s32 func_80110FE0(void *queue, u8 *pattern, OSContStatus *status);
 extern s32 func_80113C40(void *queue, OSPfs *pfs, s32 channel);
 extern s32 func_80116C70(void *queue, OSPfs *pfs, s32 channel);
@@ -1416,7 +1416,7 @@ extern s32 D_80125C40;
 
 extern s32 D_802D5BC0[][3][100][2];
 
-s32 func_80110480();
+s32 osAiGetLength();
 extern s32 D_80125778;
 void func_8007A758(AudioFrameInfo *frame);
 

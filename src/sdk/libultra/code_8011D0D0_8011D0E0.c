@@ -10,7 +10,7 @@
 
 
 
-void func_8011D0E0(void) {
+void osSpTaskYield(void) {
     func_8011D0D0(0x400);
 }
 
@@ -23,7 +23,7 @@ void func_8011D0E0(void) {
 
 
 
-int func_8011D100(func_80078D90_S2_Shared80078D90 *obj) {
+int osSpTaskYielded(func_80078D90_S2_Shared80078D90 *obj) {
     int status;
     int pressed;
 

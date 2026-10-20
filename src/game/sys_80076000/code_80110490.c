@@ -7,7 +7,7 @@ extern s32 D_A4500008;
 extern s32 D_A4500010;
 extern s32 D_A4500014;
 
-int func_80110490(s32 arg0) {
+int osAiSetFrequency(s32 arg0) {
     s32 var_a2;
     u32 temp_a1;
 
@@ -25,6 +25,6 @@ int func_80110490(s32 arg0) {
     return (s32) D_80145DA8 / (s32) temp_a1;
 }
 #else
-INCLUDE_ASM("span_1000", func_80110490);
+INCLUDE_ASM("span_1000", osAiSetFrequency);
 #endif
-INCLUDE_ASM("span_1000", func_801105F0);
+INCLUDE_ASM("span_1000", osAiSetNextBuffer);

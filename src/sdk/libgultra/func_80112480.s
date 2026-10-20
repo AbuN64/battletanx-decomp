@@ -1,8 +1,8 @@
 .set noreorder
 .set noat
 .section .text
-.globl func_80112480
-func_80112480:
+.globl __osDisableInt
+__osDisableInt:
     mfc0 $t0, $12
     addiu $at, $zero, -0x2
     and $t1, $t0, $at

@@ -12,11 +12,11 @@ s32 func_8007A5A4(AudioFrameInfo *frame, AudioFrameInfo *previous) {
     u64 **commandList;
 
     func_8007A968();
-    outputBuffer = func_80121F10(frame->outputBuffer);
+    outputBuffer = osVirtualToPhysical(frame->outputBuffer);
     if (previous != 0) {
-        func_801105F0(previous->outputBuffer, previous->frameSamples << 2);
+        osAiSetNextBuffer(previous->outputBuffer, previous->frameSamples << 2);
     }
-    frame->frameSamples = (D_801B4A40 - ((u32)func_80110480() >> 2) + 0x60) & 0xFFF0;
+    frame->frameSamples = (D_801B4A40 - ((u32)osAiGetLength() >> 2) + 0x60) & 0xFFF0;
     if (frame->frameSamples < D_80152EE8) {
         frame->frameSamples = D_80152EE8;
     }

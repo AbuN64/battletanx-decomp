@@ -7,7 +7,7 @@
 void func_8007ACC4(void)
 {
     u64 now;
-    now = func_801120A0();
+    now = osGetTime();
     D_801257A8 = now;
     D_801257A0 = now;
     D_801B4AC8 = now;

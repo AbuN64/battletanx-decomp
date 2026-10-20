@@ -15,7 +15,7 @@ void func_800793D0(Scheduler *scheduler);
 void func_80078F70(Scheduler *scheduler) {
     void *message;
     while (1) {
-        func_80119240(scheduler, &message, 1);
+        osRecvMesg(scheduler, &message, 1);
         switch ((s32) message) {
             case 0x29A:
                 func_800790EC(scheduler);

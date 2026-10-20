@@ -1,8 +1,8 @@
 .set noreorder
 .set noat
 .section .text
-.globl func_801124A0
-func_801124A0:
+.globl __osRestoreInt
+__osRestoreInt:
     mfc0 $t0, $12
     or $t0, $t0, $a0
     mtc0 $t0, $12
