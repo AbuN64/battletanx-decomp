@@ -184,27 +184,25 @@ void func_800E349C(struct Unknown800E349C *self) {
 
 /* extern */
 
-void func_800E34B4(func_800E34B4_S1_Shared800E34B4 *arg0, s16 arg1, s16 arg2) {
-    func_800E34B4_S2_Shared800E34B4 *temp_v0;
+void func_800E34B4(TargetSelection *arg0, s16 arg1, s16 arg2) {
+    CombatUnit *temp_v0;
     f32 *ordered_value;
-
     if (arg2 != 0xFF) {
         func_800A03B8(arg1);
         (void)(arg2 << 0x10);
         temp_v0 = func_800A03B8(arg2);
-        arg0->unk10 = temp_v0;
-        arg0->unk14 = func_800E52A0(arg1, arg2);
-        arg0->unkC = (f32) temp_v0->unk24;
-        ordered_value = &arg0->unk8.v1;
-        *ordered_value = (f32) temp_v0->unk2C;
-        arg0->unk4 = (void *)&arg0->unk8.v0;
-        arg0->unk0 = 1;
+        arg0->unit = temp_v0;
+        arg0->value14 = func_800E52A0(arg1, arg2);
+        arg0->point.x = temp_v0->position[0];
+        ordered_value = &arg0->point.z;
+        *ordered_value = temp_v0->position[2];
+        arg0->target = &arg0->point.z;
+        arg0->mode = 1;
         return;
     }
-    arg0->unk0 = 0;
-    arg0->unk4 = ((void *)0);
+    arg0->mode = 0;
+    arg0->target = 0;
 }
-
 INCLUDE_ASM("span_1000", func_800E3554);
 INCLUDE_ASM("span_1000", func_800E35CC);
 INCLUDE_ASM("span_1000", func_800E35F0);
@@ -219,18 +217,17 @@ INCLUDE_ASM("span_1000", func_800E3A64);
 #include "span_1000/code_80097038.h"
 #include "span_1000/code_800E21E4.h"
 
-void func_800E3AB0(func_800E34B4_S1_Shared800E34B4 *selection, s16 sourceId, s16 targetId) {
+void func_800E3AB0(TargetSelection *selection, s16 sourceId, s16 targetId) {
     if (targetId != 0xFF) {
         func_800A03B8(sourceId);
-        selection->unk10 = func_800A03B8(targetId);
-        selection->unk14 = func_800E52A0(sourceId, targetId);
-        selection->unk4 = 0;
-        selection->unk0 = 5;
+        selection->unit = func_800A03B8(targetId);
+        selection->value14 = func_800E52A0(sourceId, targetId);
+        selection->target = 0;
+        selection->mode = 5;
     } else {
-        selection->unk0 = 0;
-        selection->unk4 = 0;
+        selection->mode = 0;
+        selection->target = 0;
     }
 }
-
 INCLUDE_ASM("span_1000", func_800E3B38);
 INCLUDE_ASM("span_1000", func_800E3BC0);

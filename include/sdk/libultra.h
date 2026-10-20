@@ -128,10 +128,6 @@ struct ChainNode {
     struct ChainNode *next;
 };
 
-struct Shape_func_800A72C8 {
-    char pad[0x98];
-    N *head;
-};
 
 struct B {
     char pad0[0x60];
@@ -144,6 +140,10 @@ struct Elem {
     char pad8[8];
 };
 
+struct C {
+    char pad[0xC];
+    unsigned char c;
+};
 struct Shape_func_8011A134 {
     char pad0[0x20];
     struct C *unk20;

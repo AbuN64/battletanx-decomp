@@ -4,34 +4,37 @@
 extern unsigned char *func_80078F60(void);
 
 
-extern int func_800794C8(void * arg0);
+/* The task the scheduler is running; the word at 0x40 goes to func_8007F070. */
+typedef struct SchedulerTask {
+    u32 reserved00[0x10];
+    s32 value40;
+} SchedulerTask;
+/* The scheduler thread's state; messages 0x29A..0x29E drive it (func_80078F70), func_8007902C clears it. */
+typedef struct Scheduler {
+    u8 reserved000[0x1E8];
+    s32 value1E8;
+    u16 value1EC;
+    u16 value1EE;
+    u16 value1F0;
+    u16 value1F2;
+    u16 flags;
+    u16 reserved1F6;
+    s32 pending;
+    s32 value1FC;
+    s32 value200;
+    SchedulerTask *task;
+} Scheduler;
+extern int func_800794C8(Scheduler *scheduler);
 
 
 
 
 
 
-struct func_800793D0_S1_Shared800793D0;
-typedef struct func_800793D0_S1_Shared800793D0 func_800793D0_S1_Shared800793D0;
-typedef struct func_800793D0_S2_Shared800793D0 func_800793D0_S2_Shared800793D0;
-
-struct func_800793D0_S2_Shared800793D0;
 
 
 
 
 
-struct func_800793D0_S1_Shared800793D0 {
-    char pad0[0x1F4];
-    u16 unk1F4;
-    char pad1F4[0x1F8 - 0x1F4 - sizeof(u16)];
-    s32 unk1F8;
-    s32 unk1FC;
-    char pad1FC[0x204 - 0x1FC - sizeof(s32)];
-    struct func_800793D0_S2_Shared800793D0 * unk204;
-};
-struct func_800793D0_S2_Shared800793D0 {
-    char pad0[0x40];
-    s32 unk40;
-};
+
 #endif

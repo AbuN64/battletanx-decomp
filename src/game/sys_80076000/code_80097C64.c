@@ -14,7 +14,7 @@ INCLUDE_ASM("span_1000", func_80099D90);
 #include "shared/bt_span_1000_code_8010BFDC.h"
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_80094704.h"
-void func_8009A22C(struct Func_80096784_Record_Shared80096784 *arg0, u32 arg1) {
+void func_8009A22C(ButtonBinding *arg0, u32 arg1) {
     u32 temp_v1;
     u32 var_a1;
 

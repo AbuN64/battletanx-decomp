@@ -11,8 +11,8 @@ unsigned char *func_80078F60(void) {
     return &D_8014E0D0;
 }
 
-void func_800793D0(func_800793D0_S1_Shared800793D0 *arg0);
-void func_80078F70(void *scheduler) {
+void func_800793D0(Scheduler *scheduler);
+void func_80078F70(Scheduler *scheduler) {
     void *message;
     while (1) {
         func_80119240(scheduler, &message, 1);
@@ -70,28 +70,26 @@ INCLUDE_ASM("span_1000", func_800792C8);
 
 /* extern */
 
-void func_800793D0(func_800793D0_S1_Shared800793D0 *arg0) {
-    u16 temp_v1;
-
+void func_800793D0(Scheduler *scheduler) {
+    u16 flags;
     if (func_8007F204(1) == 0) {
-        func_8007F070(1, arg0->unk204->unk40);
+        func_8007F070(1, scheduler->task->value40);
         func_8007F070(2, 0);
-        if ((arg0->unk1F4 == 0) && (arg0->unk1FC == 1)) {
-            func_800794C8(arg0);
+        if ((scheduler->flags == 0) && (scheduler->value1FC == 1)) {
+            func_800794C8(scheduler);
         } else {
-            temp_v1 = arg0->unk1F4;
-            if (temp_v1 & 4) {
-                arg0->unk1F4 = (u16) (temp_v1 | 8);
+            flags = scheduler->flags;
+            if (flags & 4) {
+                scheduler->flags = (u16) (flags | 8);
             } else {
-                arg0->unk204 = ((void *)0);
+                scheduler->task = 0;
             }
         }
     } else {
-        arg0->unk1F8 = 1;
+        scheduler->pending = 1;
     }
-    func_80079530(arg0);
+    func_80079530(scheduler);
 }
-
 INCLUDE_ASM("span_1000", func_80079474);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"

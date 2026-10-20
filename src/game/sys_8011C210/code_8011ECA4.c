@@ -38,11 +38,11 @@ int func_8011ECA4(ObjectNode *self, int cmd, void *arg) {
     switch (cmd) {
     case 3:
         if (self->tail != 0) {
-            self->tail->next = (struct ChainNode *)arg;
+            self->tail->next = arg;
         } else {
-            self->head = (struct ChainNode *)arg;
+            self->head = arg;
         }
-        self->tail = (struct ChainNode *)arg;
+        self->tail = arg;
         break;
     case 4:
         self->unk_38 = 1;
@@ -59,7 +59,7 @@ int func_8011ECA4(ObjectNode *self, int cmd, void *arg) {
         }
         break;
     case 1:
-        self->owner = (ObjectOwner *)arg;
+        self->owner = arg;
         break;
     default:
         if (self->owner != 0) {

@@ -32,16 +32,16 @@
 /* Emits two display-list commands when the display-list state is ready. */
 void func_800AA280(s32 arg0, s32 arg1, s32 arg2) {
     Gfx *temp_a0;
-    func_800AA280_S1_Shared800AA280 *temp_v0;
+    FrameState *temp_v0;
     Gfx *temp_v1;
 
     temp_v0 = func_8007F060();
-    if (temp_v0->unk14 == 0) {
-        temp_v1 = temp_v0->unk0;
-        temp_v0->unk0 = (void *)(temp_v1 + 1);
+    if (temp_v0->overflow == 0) {
+        temp_v1 = temp_v0->main;
+        temp_v0->main = temp_v1 + 1;
         gSPClearGeometryMode(temp_v1, G_CULL_BOTH);
-        temp_a0 = temp_v0->unk0;
-        temp_v0->unk0 = (void *)(temp_a0 + 1);
+        temp_a0 = temp_v0->main;
+        temp_v0->main = temp_a0 + 1;
         btSPTriangleCommand(temp_a0);
         btSPTriangleIndices(temp_a0, arg0, arg1, arg2);
     }
@@ -64,16 +64,16 @@ void func_800AA280(s32 arg0, s32 arg1, s32 arg2) {
 /* Emits two display-list commands through the secondary display-list pointer when ready. */
 void func_800AA328(s32 arg0, s32 arg1, s32 arg2) {
     Gfx *temp_a0;
-    func_800AA328_S1_Shared800AA328 *temp_v0;
+    FrameState *temp_v0;
     Gfx *temp_v1;
 
     temp_v0 = func_8007F060();
-    if (temp_v0->unk14 == 0) {
-        temp_v1 = temp_v0->unk4;
-        temp_v0->unk4 = (void *)(temp_v1 + 1);
+    if (temp_v0->overflow == 0) {
+        temp_v1 = temp_v0->overlay;
+        temp_v0->overlay = temp_v1 + 1;
         gSPClearGeometryMode(temp_v1, G_CULL_BOTH);
-        temp_a0 = temp_v0->unk4;
-        temp_v0->unk4 = (void *)(temp_a0 + 1);
+        temp_a0 = temp_v0->overlay;
+        temp_v0->overlay = temp_a0 + 1;
         btSPTriangleCommand(temp_a0);
         btSPTriangleIndices(temp_a0, arg0, arg1, arg2);
     }

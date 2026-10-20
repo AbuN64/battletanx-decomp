@@ -59,5 +59,8 @@ typedef struct PlayerRecord {
     f32 railFireRate, offRailFireRate, railSpeedTuning, aggressivenessTuning, intelligenceTuning;
     s16 gunDamage[4], gunFireRate[4];
 } PlayerRecord;
+extern PlayerRecord *func_800A6688(u16 index);
+extern AttachedCamera *func_800A424C(PlayerRecord *player);
+extern s32 func_800A42A4(PlayerRecord *player);
 
 #endif

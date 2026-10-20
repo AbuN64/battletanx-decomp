@@ -78,7 +78,7 @@ extern u64 D_801B4AC8;
 
 extern u8 D_802DF344[];
 
-extern void func_800A6E30(N *, unsigned char);
+extern void func_800A6E30(EffectKind15 *node, u8 player);
 
 #include "shared/bt_gfx.h"
 #include "span_1000/code_800E9538.h"
@@ -635,7 +635,7 @@ extern s32 D_80137648;
 
 extern s32 D_80137670;
 
-int func_800A70BC(N *arg0);
+int func_800A70BC(EffectKind15 *node);
 
 int func_8007A004();
 int func_8007A26C(void);
@@ -873,7 +873,8 @@ void func_8007D2A0(u32 id);
 extern void func_800790EC(void *scheduler);
 extern void func_800792C8(void *scheduler);
 extern void func_80079474(void *scheduler);
-void func_80078F70(void *scheduler);
+struct Scheduler;
+void func_80078F70(struct Scheduler *scheduler);
 
 s32 func_800A90E0(void);
 void func_8007968C(void);
@@ -884,7 +885,8 @@ void func_8007902C(u8 *record);
 void func_80076390(u32 address, u8 value);
 void func_80079948(void);
 s32 func_8007C344(s32 mode);
-void func_800E6C14(void *);
+struct AiUnitContext;
+int func_800E6C14(struct AiUnitContext *context);
 
 extern s8 D_8012579D;
 

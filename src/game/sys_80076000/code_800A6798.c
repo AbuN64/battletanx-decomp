@@ -1,4 +1,6 @@
 #include "include_asm.h"
+#include "shared/bt_unit.h"
+#include "shared/bt_player.h"
 
 INCLUDE_ASM("span_1000", func_800A6798);
 #include "shared/bt_types.h"
@@ -47,11 +49,11 @@ s32 func_800A68F0(void) {
     return D_802DF350;
 }
 
-int func_800A6900(N *arg0, s32 *arg1)
+int func_800A6900(EffectKind15 *arg0, s32 *arg1)
 {
-  if (arg0->unk10 == 2)
+  if (arg0->state == 2)
   {
-    if (D_801B4AA8 > arg0->unk24)
+    if (D_801B4AA8 > arg0->deadline)
     {
       func_800A70BC(arg0);
       goto block_3;
@@ -74,7 +76,6 @@ INCLUDE_ASM("span_1000", func_800A6BE0);
 
 struct L;
 
-struct N;
 
 
 
@@ -86,7 +87,7 @@ struct N;
 
 
 int func_800A6E10(L *arg0) {
-    N *n = arg0->head;
+    EffectKind15 *n = arg0->head;
     int count = 0;
     while (n != 0) {
         n = n->next;
@@ -99,8 +100,8 @@ INCLUDE_ASM("span_1000", func_800A6E30);
 INCLUDE_ASM("span_1000", func_800A6FC0);
 #include "game/sys_80076000.h"
 #include "span_1000/code_800A6864.h"
-int func_800A70BC(N *arg0) {
-    func_800A6E30(arg0, arg0->unkC);
+int func_800A70BC(EffectKind15 *arg0) {
+    func_800A6E30(arg0, arg0->player);
 }
 
 INCLUDE_ASM("span_1000", func_800A70E0);
@@ -113,7 +114,6 @@ INCLUDE_ASM("span_1000", func_800A70E0);
 
 struct L;
 
-struct N;
 
 
 
@@ -121,9 +121,7 @@ struct N;
 
 
 
-struct C;
 
-struct Shape_func_800A72C8;
 
 
 
@@ -135,15 +133,15 @@ struct Shape_func_800A72C8;
 
 
 
-void func_800A72C8(Shape_func_800A72C8 *l, C *c) {
-    N *n = l->head;
-    N *next;
+void func_800A72C8(CombatUnit *unit, EffectKind14 *owner) {
+    EffectKind15 *n = unit->value98;
+    EffectKind15 *next;
     while (n != 0) {
         next = n->next;
-        func_800A6E30(n, c->c);
+        func_800A6E30(n, owner->player);
         n = next;
     }
-    l->head = 0;
+    unit->value98 = 0;
 }
 
 INCLUDE_ASM("span_1000", func_800A7328);
@@ -174,21 +172,21 @@ INCLUDE_ASM("span_1000", func_800A7418);
 /* extern */
 
 /* Releases linked resources when the selected object matches the active one. */
-void func_800A74AC(func_800A74AC_S4_Shared800A74AC *arg0, HandlerSender *arg1, s32 arg2) {
+void func_800A74AC(EffectKind14 *arg0, HandlerSender *arg1, s32 arg2) {
     PlayerRecord *player;
     void *temp_s0_2;
     CombatUnit *unit;
-    func_800A74AC_S6_Shared800A74AC *var_a0;
+    EffectKind15 *var_a0;
 
     if ((arg2 == 0) && (arg1->unk8 == 0)) {
         unit = arg1->unit;
         player = func_800A6688(unit->player);
-        if (player->team == ((PlayerRecord *) func_800A6688(arg0->unkC))->team) {
+        if (player->team == func_800A6688(arg0->player)->team) {
             var_a0 = unit->value98;
             if (var_a0 != ((void *)0)) {
                 do {
-                    temp_s0_2 = var_a0->unk2C;
-                    func_800A6E30(var_a0, arg0->unkC);
+                    temp_s0_2 = var_a0->next;
+                    func_800A6E30(var_a0, arg0->player);
                     var_a0 = temp_s0_2;
                 } while (var_a0 != ((void *)0));
             }

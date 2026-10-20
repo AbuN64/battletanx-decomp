@@ -296,4 +296,57 @@ typedef struct EffectKind1E {
     u16 value30;
     u8 useEntity;
 } EffectKind1E;
+/* Kind 0x04: the update hands the word at 0x24 to func_8010CB4C. */
+typedef struct EffectKind04 {
+    EffectHeader header;
+    s32 value0C, value10, value14, value18, value1C, value20;
+    s32 value24;
+} EffectKind04;
+/* Kind 0x10: reports its position (x at 0xC, z at 0x14) unless hidden. */
+typedef struct EffectKind10 {
+    EffectHeader header;
+    Vec3f position;
+    u8 value18[4];
+    u8 hidden;
+} EffectKind10;
+/* Kind 0x14: an event-only effect owned by a player. */
+typedef struct EffectKind14 {
+    EffectHeader header;
+    u8 player;
+} EffectKind14;
+/* Kind 0x15: a node a combat unit keeps in its list at 0x98 (func_800A70E0), released back to its player. */
+typedef struct EffectKind15 {
+    EffectHeader header;
+    u8 player;
+    u8 value0D;
+    u8 reserved0E[2];
+    s32 state;
+    u8 value14;
+    u8 reserved15[3];
+    s32 value18;
+    PointZX point;
+    s32 deadline;
+    s32 value28;
+    struct EffectKind15 *next;
+} EffectKind15;
+/* Kind 0x1B: reports the point at 0x1C. */
+typedef struct EffectKind1B {
+    EffectHeader header;
+    u8 state;
+    u8 value0D;
+    u8 value0E;
+    u8 reserved0F;
+    u16 value10;
+    u16 value12;
+    s32 value14;
+    u16 value18;
+    u16 reserved1A;
+    PointZX point;
+} EffectKind1B;
+/* The three-word message an effect event writes back: a code, a kind and the owner. */
+typedef struct EffectMessage {
+    s32 code;
+    s32 kind;
+    s32 owner;
+} EffectMessage;
 #endif

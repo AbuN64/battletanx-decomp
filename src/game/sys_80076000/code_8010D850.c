@@ -1,4 +1,7 @@
 #include "include_asm.h"
+#include "shared/bt_unit.h"
+#include "shared/bt_span_1000_code_8008B1F0.h"
+#include "shared/bt_span_1000_code_8008F248.h"
 
 INCLUDE_ASM("span_1000", func_8010D850);
 #include "shared/bt_types.h"
@@ -72,19 +75,19 @@ void func_8010DC0C(EffectKind1D *effect, s32 *state)
 
 
 /* Checks the pending action and updates its result fields when the timer allows it. */
-void func_8010DCD0(func_8010DCD0_S1_Shared8010DCD0 *arg0, func_8010DCD0_S2_Shared8010DCD0 *arg1, s32 arg2, func_8010DCD0_S3_Shared8010DCD0 *arg3) {
+void func_8010DCD0(EffectKind1D *arg0, HandlerSender *arg1, s32 arg2, EffectMessage *arg3) {
     s32 action;
     s32 result;
 
-    if (arg0->unk1C == 0) {
+    if (arg0->startTick == 0) {
         action = arg1->unk8;
         switch (action) {
         case 0:
-            if ((arg0->unk18 + 0x3C) < D_801B4AA8) {
+            if ((arg0->createTick + 0x3C) < D_801B4AA8) {
                 func_8008B89C(arg0);
-                arg3->unk0 = 8;
-                arg3->unk4 = 0x1E;
-                arg3->unk8 = arg0->unk24;
+                arg3->code = 8;
+                arg3->kind = 0x1E;
+                arg3->owner = arg0->owner;
                 return;
             }
             result = 1;
@@ -96,7 +99,7 @@ void func_8010DCD0(func_8010DCD0_S1_Shared8010DCD0 *arg0, func_8010DCD0_S2_Share
             result = 1;
             break;
         }
-        arg3->unk0 = result;
+        arg3->code = result;
     }
 }
 

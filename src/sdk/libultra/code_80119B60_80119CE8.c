@@ -10,10 +10,9 @@ void func_80119CE8(void) {
 
 }
 
-s32 func_80119CF0(struct N *arg0, s32 arg1) {
+s32 func_80119CF0(EffectKind15 *arg0, s32 arg1) {
     s32 temp_v1;
-
-    temp_v1 = arg0->unk24 - arg1;
+    temp_v1 = arg0->deadline - arg1;
     if (temp_v1 >= 0) {
         return temp_v1;
     }

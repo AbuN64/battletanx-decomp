@@ -7,24 +7,6 @@
 
 struct L;
 
-struct N;
-
-
-
-
-
-
-
-struct C;
-
-struct Shape_func_800A72C8;
-
-
-
-
-
-
-
 struct B;
 struct Elem;
 struct Shape_func_8011A134;

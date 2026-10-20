@@ -17,13 +17,6 @@ extern float func_800E0BC4(f32 * arg0);
 
 
 
-struct Func_800E0B00_View0_Shared800E0B00;
-struct Func_800E0B00_View0_Shared800E0B00 {
-    char pad_0[0x8];
-    u16 field_8;
-    char pad_a[0x2];
-    unsigned char *field_c;
-};
 
 
 

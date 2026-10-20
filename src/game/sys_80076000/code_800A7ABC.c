@@ -1,4 +1,5 @@
 #include "include_asm.h"
+#include "shared/bt_span_1000_code_8008B1F0.h"
 
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
@@ -65,12 +66,11 @@ void func_800A7C7C(f32 matrix[4][4], f32 v[3], f32 out[3])
 
 
 /* Transforms a vector by the supplied matrix and translation. */
-void func_800A7D10(func_800A7D10_S3_Shared800A7D10 *arg0, func_800A7D10_S1_Shared800A7D10 *arg1, func_800A7D10_S1_Shared800A7D10 *arg2) {
-    arg2->unk0 = (f32) ((arg1->unk0 * arg0->unk0) + (arg1->unk4 * arg0->unk10) + (arg1->unk8 * arg0->unk20) + arg0->unk30);
-    arg2->unk4 = (f32) ((arg1->unk0 * arg0->unk4) + (arg1->unk4 * arg0->unk14) + (arg1->unk8 * arg0->unk24) + arg0->unk34);
-    arg2->unk8 = (f32) ((arg1->unk0 * arg0->unk8) + (arg1->unk4 * arg0->unk18) + (arg1->unk8 * arg0->unk28) + arg0->unk38);
+void func_800A7D10(f32 m[4][4], Vec3f *in, Vec3f *out) {
+    out->x = (f32) ((in->x * m[0][0]) + (in->y * m[1][0]) + (in->z * m[2][0]) + m[3][0]);
+    out->y = (f32) ((in->x * m[0][1]) + (in->y * m[1][1]) + (in->z * m[2][1]) + m[3][1]);
+    out->z = (f32) ((in->x * m[0][2]) + (in->y * m[1][2]) + (in->z * m[2][2]) + m[3][2]);
 }
-
 INCLUDE_ASM("span_1000", func_800A7DBC);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"

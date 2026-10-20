@@ -21,20 +21,6 @@ extern unsigned int func_800F38F4(void);
 
 
 
-struct Func_800F3014_View0_Shared800F3014;
 
 
-struct Func_800F3014_View0_Shared800F3014 {
-    char pad_0[0xc];
-    s8 field_c;
-    s8 field_d;
-    s8 field_e;
-    s8 field_f;
-    u8 field_10;
-    u8 field_11;
-    char pad_12[0x2];
-    s32 field_14;
-    s32 field_18;
-    s32 field_1c;
-};
 #endif

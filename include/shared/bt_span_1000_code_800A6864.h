@@ -25,14 +25,6 @@ extern void func_800A68E0(void);
 
 
 
-typedef struct func_800A74AC_S4_Shared800A74AC func_800A74AC_S4_Shared800A74AC;
-typedef struct func_800A74AC_S6_Shared800A74AC func_800A74AC_S6_Shared800A74AC;
-
-
-
-struct func_800A74AC_S4_Shared800A74AC;
-
-struct func_800A74AC_S6_Shared800A74AC;
 
 
 
@@ -45,14 +37,10 @@ struct func_800A74AC_S6_Shared800A74AC;
 
 
 
-struct func_800A74AC_S4_Shared800A74AC {
-    char pad0[0xC];
-    u8 unkC;
-};
-struct func_800A74AC_S6_Shared800A74AC {
-    char pad0[0x2C];
-    void * unk2C;
-};
+
+
+
+
 
 
 #endif

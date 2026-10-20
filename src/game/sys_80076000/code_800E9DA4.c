@@ -59,20 +59,20 @@ void func_800EA1EC(s32 *arg0) {
 }
 
 /* Pops pending callbacks from the object's queue at its shared +16 field. */
-void func_800EA1FC(func_800E9894_S1_Shared800EA1FC *arg0, u32 arg1) {
+void func_800EA1FC(AiUnitContext *arg0, u32 arg1) {
     s32 (*temp_v0)(void *);
     u32 *arg0_2;
     u32 *temp_v0_2;
-    if (arg1 < (u32) *(u32 *)arg0->unk10) {
-        temp_v0_2 = arg0->unk10;
+    if (arg1 < *arg0->queue) {
+        temp_v0_2 = arg0->queue;
         do {
             temp_v0 = D_80137888[((struct CallbackQueueSlot *)((u32)temp_v0_2 - (-(*temp_v0_2 * sizeof(struct CallbackQueueSlot)))))->kind]->callback;
             if (temp_v0 != 0) {
                 temp_v0(arg0);
             }
-            arg0_2 = arg0->unk10;
+            arg0_2 = arg0->queue;
             *arg0_2 -= 1;
-        } while (arg1 < (u32) *(temp_v0_2 = arg0->unk10));
+        } while (arg1 < *(temp_v0_2 = arg0->queue));
     }
 }
 

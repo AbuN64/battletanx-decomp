@@ -35,7 +35,9 @@ typedef struct CombatUnit {
     s32 secondaryState;
     u8 reserved0B8[0xC];
     struct CombatUnit *secondaryTarget;
-    u8 reserved0C8[0x44];
+    u8 reserved0C8[0x4];
+    u32 callbackQueue;
+    u8 reserved0D0[0x3C];
     f32 aiParams[10];
     u8 reserved134[0x210];
     s16 value344;

@@ -100,18 +100,17 @@ void func_8007FF68(void) {
     s32 temp_v0;
     s32 temp_v0_4;
     s32 var_s1;
-    void *temp_v0_2;
-    void *temp_v0_3;
-
+    PlayerRecord *player;
+    AttachedCamera *camera;
     temp_v0 = func_8007AAA0();
     var_s1 = 0;
     if (temp_v0 > 0) {
         do {
-            temp_v0_2 = func_800A6688(var_s1 & 0xFFFF);
-            temp_v0_3 = func_800A424C(temp_v0_2);
+            player = func_800A6688(var_s1 & 0xFFFF);
+            camera = func_800A424C(player);
             var_s1 += 1;
-            ((struct Func_8007FF68_View0_Shared8007FF68 *)temp_v0_3)->field_88 = 0;
-            ((struct Func_8007FF68_View1_Shared8007FF68 *)temp_v0_2)->field_140 = 0;
+            camera->view.fixed = 0;
+            player->matrix.fixed = 0;
         } while ((var_s1 & 0xFFFF) < temp_v0);
     }
     temp_v0_4 = func_800821C0();
@@ -278,7 +277,6 @@ INCLUDE_ASM("span_1000", func_80080910);
 #include "span_1000/code_8007EBA0.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_800A27D0.h"
-s32 func_800A42A4(struct Unknown800A42A4 *arg0);
 void func_80080AA8(s32 layer, ViewMatrix *views, u16 *perspNorms)
 {
     s32 lastPlayer;

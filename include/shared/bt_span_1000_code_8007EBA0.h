@@ -20,18 +20,6 @@ extern void func_8007FF68(void);
 
 
 
-struct Func_8007FF68_View0_Shared8007FF68;
-struct Func_8007FF68_View1_Shared8007FF68;
-struct Func_8007FF68_View0_Shared8007FF68 {
-    char pad_0[0x88];
-    s32 field_88;
-};
-struct Func_8007FF68_View1_Shared8007FF68 {
-    char pad_0[0x140];
-    s32 field_140;
-};
-
-
 extern Gfx *D_801B6C00;
 
 

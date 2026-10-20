@@ -1,5 +1,6 @@
 #include "include_asm.h"
 #include "shared/bt_unit.h"
+#include "shared/bt_player.h"
 
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
@@ -63,28 +64,23 @@ INCLUDE_ASM("span_1000", func_800A31C0);
 
 
 
-void func_800A3D30(void *arg0) {
-    func_800A3D30_S1_Shared800A3D30 *ptr;
+void func_800A3D30(PlayerRecord *player) {
+    Vec3f **offsets;
     s32 var_v0;
-    void *temp_s0;
     CombatUnit *unit;
-
-    ptr = arg0;
-    unit = func_800A03B8(ptr->unk20);
+    unit = func_800A03B8(player->selectedUnit);
     if (unit->visible != 0) {
-        if (ptr->unk44 == 1) {
+        if (player->soundMode == 1) {
             var_v0 = func_8007AAA0();
-            temp_s0 = (var_v0 >= 3) ? (FuncA3D30Table_Shared800A3D30 *)&D_80126140 + 1 : (FuncA3D30Table_Shared800A3D30 *)&D_80126140;
+            offsets = (var_v0 >= 3) ? D_80126140[1] : D_80126140[0];
         } else {
             var_v0 = func_8007AAA0();
-            temp_s0 = (var_v0 >= 3) ? (FuncA3D30Table_Shared800A3D30 *)&D_80126128 + 1 : (FuncA3D30Table_Shared800A3D30 *)&D_80126128;
+            offsets = (var_v0 >= 3) ? D_80126128[1] : D_80126128[0];
         }
-        func_80078680(ptr->data, ((FuncA3D30Table_Shared800A3D30 *)temp_s0)->value[unit->kind]);
-        temp_s0 = ptr->data;
-        func_80078634(temp_s0, unit->effect);
+        func_80078680(&player->camera, offsets[unit->kind]);
+        func_80078634(&player->camera, unit->effect);
     }
 }
-
 INCLUDE_ASM("span_1000", func_800A3DE0);
 #include "shared/bt_span_1000_code_800A27D0.h"
 #include "shared/bt_types.h"
@@ -92,23 +88,10 @@ INCLUDE_ASM("span_1000", func_800A3DE0);
 #include "shared/bt_callback_word.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 
-struct Unknown800A424C;
-
-
-
-/* func_800A424C -- the address of the member at 0x048.
- *
- * No load: the cartridge adds 0x48 to the argument and returns it, which is a pointer into the
- * object rather than anything read out of it. What lives at 0x48 is unknown, so the member is
- * named for its offset and left an opaque byte run.
- */
-
-
-
-void *func_800A424C(struct Unknown800A424C *self) {
-    return self->member;
+/* func_800A424C -- the camera a player record carries (no load: the argument plus 0x48). */
+AttachedCamera *func_800A424C(PlayerRecord *player) {
+    return &player->camera;
 }
-
 struct A;
 
 
@@ -127,15 +110,8 @@ unsigned short func_800A4254(A *a) {
     return r;
 }
 
-struct Unknown800A42A4;
-
-
-
-/* func_800A42A4 -- returns the word at offset 0xF4 of its argument. */
-
-
-s32 func_800A42A4(struct Unknown800A42A4 *arg0) {
-    return arg0->value;
+s32 func_800A42A4(PlayerRecord *player) {
+    return player->value0F4;
 }
 
 s32 func_800A42B0(s32 arg0) {

@@ -7,11 +7,6 @@ s32 func_800A27D0();
 s32 func_800A2A44();
 s32 func_800A2C38();
 
-struct Unknown800A424C {
-    unsigned char unk_000[0x48];
-    unsigned char member[4];
-};
-
 typedef struct A A;
 struct A {
     char pad[0xB0];
@@ -19,11 +14,6 @@ struct A {
     char pad2[4];
     float b8;
 };
-struct Unknown800A42A4 {
-    u8 padding[0xF4];
-    s32 value;
-};
-
 struct Unknown800A42BC {
     int unk_000[4];
     int value;

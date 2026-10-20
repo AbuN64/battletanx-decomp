@@ -1,4 +1,5 @@
 #include "include_asm.h"
+#include "shared/bt_span_1000_code_8008B1F0.h"
 
 INCLUDE_ASM("span_1000", func_800A1170);
 #include "shared/bt_common_types_d507c48987bb.h"
@@ -53,15 +54,15 @@ INCLUDE_ASM("span_1000", func_800A2DC0);
 
 /* extern */
 
-void func_800A2EA4(func_800A2EA4_S2_Shared800A2EA4 *arg0, s32 arg1, u32 arg2, s32 arg3, func_800A2EA4_S1_Shared800A2EA4 *arg4) {
+void func_800A2EA4(EffectKind1B *arg0, s32 arg1, u32 arg2, s32 arg3, PositionReport *arg4) {
     switch (arg2) {                                 /* irregular */
     case 0:
         func_800A27D0(arg0, arg1, arg3, arg4);
         return;
     case 2:
-        arg4->unk0 = 1;
-        arg4->unk8 = (f32) arg0->unk20;
-        arg4->unk4 = (f32) arg0->unk1C;
+        arg4->valid = 1;
+        arg4->x = arg0->point.x;
+        arg4->z = arg0->point.z;
         return;
     case 3:
         func_800A2A44(arg0, 0, arg3, 0);

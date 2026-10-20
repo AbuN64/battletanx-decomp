@@ -1,4 +1,5 @@
 #include "include_asm.h"
+#include "shared/bt_span_1000_code_8008B1F0.h"
 
 #include "shared/bt_span_1000_code_800F29F0.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
@@ -65,8 +66,8 @@ void func_800F2478(EffectKind17 *effect, void *sender, u32 event, s32 *index, vo
 #include "span_1000/code_800A6864.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_8008F4EC.h"
-int func_800F2614(struct N *arg0, s32 *arg1) {
-    if (arg0->unk24 >= 0x10) {
+int func_800F2614(EffectKind18 *arg0, s32 *arg1) {
+    if (arg0->frame >= 0x10) {
         *arg1 = 2;
     }
 }
