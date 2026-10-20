@@ -111,7 +111,13 @@ void func_800933B8(SequenceEffect *effect)
     }
 }
 
-INCLUDE_ASM("span_1000", func_80093410);
+void func_80093410(SequenceEffect *effect)
+{
+    if (effect->step < effect->stepCount - 1) {
+        func_8008B89C();
+        func_80093F3C(effect);
+    }
+}
 INCLUDE_ASM("span_1000", func_8009345C);
 INCLUDE_ASM("span_1000", func_80093590);
 INCLUDE_ASM("span_1000", func_80093744);
