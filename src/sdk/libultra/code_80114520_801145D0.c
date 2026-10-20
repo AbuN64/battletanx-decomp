@@ -1,11 +1,11 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_80114520.h"
-/* func_801145D0 -- eight-bit CRC over 0x20 bytes plus one all-zero flush byte, using the
+/* __osContDataCrc -- eight-bit CRC over 0x20 bytes plus one all-zero flush byte, using the
  * polynomial 0x85. The store widths in the cartridge fix the types: the running value and the
  * polynomial term are single bytes, the byte counter and the bit counter are words.
  */
-unsigned char func_801145D0(unsigned char *data) {
+unsigned char __osContDataCrc(unsigned char *data) {
     unsigned char crc;
     unsigned char poly;
     int i;

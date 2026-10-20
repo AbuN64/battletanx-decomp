@@ -6,13 +6,13 @@
 #include "sdk/libultra.h"
 /* Shuts down the active view and returns the final teardown result. */
 
-int func_80110CA0(void *arg0) {
+int osContStartQuery(void *arg0) {
     int ret;
 
     ret = 0;
     __osSiGetAccess();
     if (D_803C4DC0 != 0) {
-        func_801112A8(0);
+        __osPackRequestData(0);
         ret = __osSiRawStartDma(1, D_803C4D80);
         osRecvMesg(arg0, 0, 1);
     }

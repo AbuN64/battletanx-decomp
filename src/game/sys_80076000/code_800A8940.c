@@ -25,7 +25,7 @@ s32 func_800A8940(void) {
         while (osGetTime() < 0x2000000) {
         }
     }
-    func_80110FE0(D_802DF360, &pattern, D_802DF390);
+    osContInit(D_802DF360, &pattern, D_802DF390);
     bzero(D_802E17B8, 0x18);
     bzero(D_802E17D8, 0x18);
     for (i = 0; i < 4; i++) {
@@ -141,9 +141,9 @@ s32 func_800A90E0(void)
     osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
     while (osRecvMesg(D_802DF360, 0, 0) == 0) {
     }
-    func_80110CA0(D_802DF360);
+    osContStartQuery(D_802DF360);
     osRecvMesg(D_802DF360, 0, 1);
-    func_80110D24(D_802DF390);
+    osContGetQuery(D_802DF390);
     for (i = 0; i < 4; i++) {
         D_802DF540[i] = -1;
         D_802DF550[i] = -1;

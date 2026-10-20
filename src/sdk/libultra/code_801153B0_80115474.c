@@ -55,7 +55,7 @@ int func_80115474(Ctx *ctx, Header *src, Header *dst) {
         if (ret != 0) {
             return ret;
         }
-        ret = func_80114190(ctx->unk_4, ctx->unk_8, 0, work);
+        ret = __osContRamWrite(ctx->unk_4, ctx->unk_8, 0, work);
         if (ret != 0) {
             return ret;
         }
@@ -63,11 +63,11 @@ int func_80115474(Ctx *ctx, Header *src, Header *dst) {
         for (i = 1; i < 0x20; i++) {
             work[i] = ~work[i];
         }
-        ret = func_80113E10(ctx->unk_4, ctx->unk_8, 0, work, 0);
+        ret = __osContRamRead(ctx->unk_4, ctx->unk_8, 0, work, 0);
         if (ret != 0) {
             return ret;
         }
-        ret = func_80114190(ctx->unk_4, ctx->unk_8, 0, read);
+        ret = __osContRamWrite(ctx->unk_4, ctx->unk_8, 0, read);
         if (ret != 0) {
             return ret;
         }
@@ -85,7 +85,7 @@ int func_80115474(Ctx *ctx, Header *src, Header *dst) {
             if (ret != 0) {
                 return ret;
             }
-            ret = func_80114190(ctx->unk_4, ctx->unk_8, 0, work);
+            ret = __osContRamWrite(ctx->unk_4, ctx->unk_8, 0, work);
             if (ret != 0) {
                 return ret;
             }
@@ -114,12 +114,12 @@ int func_80115474(Ctx *ctx, Header *src, Header *dst) {
     cmds[2] = 4;
     cmds[3] = 6;
     for (i = 0; i < 4; i++) {
-        ret = func_80113E10(ctx->unk_4, ctx->unk_8, cmds[i], dst, 1);
+        ret = __osContRamRead(ctx->unk_4, ctx->unk_8, cmds[i], dst, 1);
         if (ret != 0) {
             return ret;
         }
     }
-    ret = func_80114190(ctx->unk_4, ctx->unk_8, 1, work);
+    ret = __osContRamWrite(ctx->unk_4, ctx->unk_8, 1, work);
     if (ret != 0) {
         return ret;
     }
@@ -141,9 +141,9 @@ int func_80115474(Ctx *ctx, Header *src, Header *dst) {
 /* NOTE: byte-identical only when compiled at -O1.
  *
  * func_8011588C -- reprobes a display device: it first flushes any pending change, then walks the
- * mode list {1,3,4,6} from index 1 asking func_80114190 to set each mode until func_8011540C
+ * mode list {1,3,4,6} from index 1 asking __osContRamWrite to set each mode until func_8011540C
  * reports the target's own width and height back, returning 10 if no mode fits, and finally asks
- * func_80113E10 to tear down every mode it tried except the one that stuck. The lhu loads fix the
+ * __osContRamRead to tear down every mode it tried except the one that stuck. The lhu loads fix the
  * mode list and the two readback values as unsigned halfwords and the lbu/sb at 0x65 fixes the
  * dirty flag as one byte.
  */
@@ -173,7 +173,7 @@ int func_8011588C(Ctx *obj, Header *target) {
     modes[2] = 4;
     modes[3] = 6;
     for (i = 1; i < 4; i++) {
-        result = func_80114190(obj->unk_4, obj->unk_8, modes[i], target);
+        result = __osContRamWrite(obj->unk_4, obj->unk_8, modes[i], target);
         if (result != 0) {
             return result;
         }
@@ -187,7 +187,7 @@ int func_8011588C(Ctx *obj, Header *target) {
     }
     for (j = 0; j < 4; j++) {
         if (j != i) {
-            result = func_80113E10(obj->unk_4, obj->unk_8, modes[j], target, 1);
+            result = __osContRamRead(obj->unk_4, obj->unk_8, modes[j], target, 1);
             if (result != 0) {
                 return result;
             }

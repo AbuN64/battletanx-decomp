@@ -1185,14 +1185,14 @@ extern void *D_802E17A0;
 extern s32 D_8000030C;
 extern void osCreateMesgQueue(void *queue, void *messages, s32 count);
 extern void osSetEventMesg(s32 event, void *queue, s32 message);
-extern s32 func_80110FE0(void *queue, u8 *pattern, OSContStatus *status);
+extern s32 osContInit(void *queue, u8 *pattern, OSContStatus *status);
 extern s32 func_80113C40(void *queue, OSPfs *pfs, s32 channel);
 extern s32 func_80116C70(void *queue, OSPfs *pfs, s32 channel);
 extern void func_800A8C88(void *arg);
 s32 func_800A8940(void);
 
-extern s32 func_80110CA0(void *queue);
-extern void func_80110D24(OSContStatus *status);
+extern s32 osContStartQuery(void *queue);
+extern void osContGetQuery(OSContStatus *status);
 
 extern f32 D_80071100;
 

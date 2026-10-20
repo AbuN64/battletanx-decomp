@@ -9,7 +9,7 @@ extern unsigned char D_803C4DC0;
 
 extern int D_803C4D80[];
 
-extern void func_801112A8(int);
+extern void __osPackRequestData(int);
 
 #pragma once
 
@@ -42,9 +42,9 @@ extern int func_8011609C(Ctx *ctx);
 
 extern int osGetCount(void);
 
-extern int func_80114190(int a, int b, int mode, unsigned char *buf);
+extern int __osContRamWrite(int a, int b, int mode, unsigned char *buf);
 
-extern int func_80113E10(int a, int b, unsigned short page, void *buf, int mode);
+extern int __osContRamRead(int a, int b, unsigned short page, void *buf, int mode);
 
 extern void func_8011540C(Header *h, unsigned short *a, unsigned short *b);
 

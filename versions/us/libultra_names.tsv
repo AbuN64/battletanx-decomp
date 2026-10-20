@@ -94,3 +94,27 @@ vram	name	evidence_class	evidence
 0x8011D190	sqrtf	SEM	func_8011D190.s: sqrt.s f0,f12; jr ra
 0x80124350	__divdi3	SEM	64-bit signed divide: negates a negative numerator and a negative denominator, flipping the result sign for each (nor of the sign word), then the __udivmoddi4 body
 0x80124940	__moddi3	SEM	64-bit signed remainder: the result sign follows only the numerator (sign word set once, the denominator negation leaves it), then the __udivmoddi4 body, remainder returned
+0x801131A0	__ull_rshift	SEM	ll.c: dsrlv of the two 64-bit halves (a0:a1 >> a2:a3), first of the ten ll.c helpers in their source order
+0x801131CC	__ull_rem	SEM	ll.c: ddivu with the zero-divisor break, returns mfhi
+0x80113208	__ull_div	SEM	ll.c: ddivu with the zero-divisor break, returns mflo; osInitialize and osContInit scale clock counts with it
+0x80113244	__ll_lshift	SEM	ll.c: dsllv of the 64-bit pair
+0x80113270	__ll_rem	SEM	ll.c: ddiv with the zero-divisor break, returns mfhi
+0x801132AC	__ll_div	SEM	ll.c: ddiv with the zero-divisor and -1 overflow checks, returns mflo
+0x80113308	__ll_mul	SEM	ll.c: dmultu of the 64-bit pair, returns mflo; osInitialize and osContInit call it
+0x80113338	__ull_divremi	SEM	ll.c: lh of the 16-bit divisor, ddivu quotient and remainder stored through the two result pointers
+0x80113398	__ll_mod	SEM	ll.c: ddiv remainder then the sign fix (adds the divisor when the signs differ)
+0x80113434	__ll_rshift	SEM	ll.c: dsrav of the 64-bit pair
+0x80110CA0	osContStartQuery	CALL	__osSiGetAccess, __osPackRequestData (801112A8) unless the last command was a status request, __osSiRawStartDma write then read of __osContPifRam (D_803C4D80), osRecvMesg, __osSiRelAccess
+0x80110D24	osContGetQuery	CALL	0x28 bytes: __osContGetInitData (801111D8) of the pattern into the caller status array
+0x80110D80	osContStartReadData	CALL	__osSiGetAccess, __osPackReadData (80110EEC) unless the last command was a button read, __osSiRawStartDma write then read, osRecvMesg, __osSiRelAccess
+0x80110E44	osContGetReadData	SEM	unpacks each channel of __osContPifRam (D_803C4D80) into the OSContPad array (button, stick_x, stick_y, errno); no calls
+0x80110EEC	__osPackReadData	SEM	fills __osContPifRam (D_803C4D80) with one CONT_CMD_READ_BUTTON block per channel (D_auto_803C4DBC is __osMaxControllers)
+0x80110FE0	osContInit	CALL	waits until 0.5 s after boot (osGetTime, __ull_div/__ll_mul, osCreateMesgQueue + osSetTimer + osRecvMesg), __osPackRequestData, __osSiRawStartDma, __osContGetInitData, __osSiCreateAccessQueue
+0x801111D8	__osContGetInitData	SEM	walks __osContPifRam (D_803C4D80) channel blocks into the OSContStatus array and the pattern bit mask
+0x801112A8	__osPackRequestData	SEM	fills __osContPifRam (D_803C4D80) with one CONT_CMD_REQUEST_STATUS block per channel up to __osMaxControllers (D_auto_803C4DBC)
+0x80113E10	__osContRamRead	CALL	__osSiGetAccess, __osPackRamReadData (80114014), __osSiRawStartDma, osRecvMesg, __osContDataCrc (801145D0) check of the 32 bytes, retry, __osSiRelAccess; every pfs function calls it
+0x80114014	__osPackRamReadData	CALL	fills the pfs PIF block for CONT_CMD_READ_MEMPACK with __osContAddressCrc (80114520) of the address
+0x80114190	__osContRamWrite	CALL	__osSiGetAccess, __osPackRamWriteData (801143AC), __osContDataCrc (801145D0) of the data, __osSiRawStartDma, osRecvMesg, __osSiRelAccess
+0x801143AC	__osPackRamWriteData	CALL	fills the pfs PIF block for CONT_CMD_WRITE_MEMPACK with __osContAddressCrc (80114520) of the address and the 32 data bytes
+0x80114520	__osContAddressCrc	SEM	the 5-bit CRC over the 11-bit mempack address (shift/xor 0x15 loop); called by both pack functions
+0x801145D0	__osContDataCrc	SEM	the 8-bit CRC over 32 data bytes (shift/xor 0x85 loop); __osContRamRead checks it, __osContRamWrite sends it
