@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800F45C8_H
-#define UNBAKE_SPAN_1000_CODE_800F45C8_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800F45C8_H
+#define SHARED_BT_SPAN_1000_CODE_800F45C8_H
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_menu_render.h"
 extern void func_800F5128(void);

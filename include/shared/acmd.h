@@ -1,7 +1,7 @@
 /* Independently reconstructed eight-byte audio command storage, MIT.
  * Encoding provenance is recorded in abi.h. */
-#ifndef UNBAKE_SHARED_ACMD_H
-#define UNBAKE_SHARED_ACMD_H
+#ifndef SHARED_ACMD_H
+#define SHARED_ACMD_H
 typedef struct {
     unsigned int w0;
     unsigned int w1;

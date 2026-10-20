@@ -8,15 +8,3 @@ check:
     - apt-get install -y --no-install-recommends make
   script:
     - sh ci/run check
-
-audit:
-  image: python:3.13-slim@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f
-  rules:
-    - if: $CI_PIPELINE_SOURCE != "schedule"
-  variables:
-    GIT_DEPTH: "0"
-  before_script:
-    - apt-get update
-    - apt-get install -y --no-install-recommends git
-  script:
-    - CI_BASE="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-$CI_COMMIT_BEFORE_SHA}" sh ci/run audit

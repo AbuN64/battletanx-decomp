@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800ABFD0_H
-#define UNBAKE_SPAN_1000_CODE_800ABFD0_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800ABFD0_H
+#define SHARED_BT_SPAN_1000_CODE_800ABFD0_H
 #include "shared/bt_types.h"
 #include "shared/bt_menu_render.h"
 extern void func_800AC2D0(void);

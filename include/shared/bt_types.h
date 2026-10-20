@@ -1,5 +1,5 @@
-#ifndef UNBAKE_TYPES_H
-#define UNBAKE_TYPES_H
+#ifndef SHARED_BT_TYPES_H
+#define SHARED_BT_TYPES_H
 typedef signed char s8;
 typedef unsigned char u8;
 typedef signed short s16;

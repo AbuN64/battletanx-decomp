@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800F29F0_H
-#define UNBAKE_SPAN_1000_CODE_800F29F0_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800F29F0_H
+#define SHARED_BT_SPAN_1000_CODE_800F29F0_H
 #include "shared/bt_types.h"
 extern void func_800F3014(signed char arg0, signed char arg1, signed char arg2, signed char arg3, unsigned char arg4, unsigned char arg5, int arg6, int arg7);
 

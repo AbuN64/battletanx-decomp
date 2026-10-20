@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800A9FC4_H
-#define UNBAKE_SPAN_1000_CODE_800A9FC4_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800A9FC4_H
+#define SHARED_BT_SPAN_1000_CODE_800A9FC4_H
 #include "shared/bt_types.h"
 #include "shared/bt_gfx.h"
 struct func_800AA280_S1_Shared800AA280;

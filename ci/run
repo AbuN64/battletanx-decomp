@@ -1,32 +1,16 @@
 #!/bin/sh
-# Generated file. The one CI entry point: sh ci/run STAGE. The forge files only call it.
-#   check   the committed tree: the generated files are present and `unbake sync --check` would not change them
-#   audit   the source rules a change adds (CI_BASE: the revision it is compared with)
+# Generated file. The one CI entry point: sh ci/run check. The forge files only call it.
+# The repository builds and verifies with make alone: `make check` builds every version ROM and checks its SHA-1,
+# which needs the cartridge dumps a CI runner does not have, so CI checks the committed tree (`make check CHECK=tree`).
 set -eu
 cd "$(dirname "$0")/.."
-WHEEL=https://github.com/AbuN64/cake-unbake-64/releases/download/v0.5.27/unbake-0.5.27-py3-none-any.whl
-
-base() {
-    b=${CI_BASE:-}
-    case "$b" in ""|*0000000000000000000000000000000000000000) b=4b825dc642cb6eb9a060e54bf8d69288fbee4904 ;; esac
-    git cat-file -e "$b^{tree}" 2>/dev/null || b=HEAD
-    echo "$b"
-}
 
 case "${1:-}" in
 check)
-    pip install "$WHEEL" "splat64[mips]==0.50.0" "spimdisasm==1.42.4"
-    host=$(mktemp -d)
-    unbake host --write "$host/host.toml"
-    export UNBAKE_HOST="$host/host.toml"
     make check CHECK=tree
     ;;
-audit)
-    pip install "$WHEEL"
-    unbake audit --against "$(base)"
-    ;;
 *)
-    echo "usage: sh ci/run check | audit" >&2
+    echo "usage: sh ci/run check" >&2
     exit 2
     ;;
 esac

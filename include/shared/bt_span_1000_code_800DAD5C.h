@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800DAD5C_H
-#define UNBAKE_SPAN_1000_CODE_800DAD5C_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800DAD5C_H
+#define SHARED_BT_SPAN_1000_CODE_800DAD5C_H
 #include "shared/bt_types.h"
 extern void func_800DDA00(void);
 

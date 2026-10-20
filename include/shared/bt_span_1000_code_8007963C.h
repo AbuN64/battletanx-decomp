@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_8007963C_H
-#define UNBAKE_SPAN_1000_CODE_8007963C_H
+#ifndef SHARED_BT_SPAN_1000_CODE_8007963C_H
+#define SHARED_BT_SPAN_1000_CODE_8007963C_H
 #include "shared/bt_types.h"
 #include "shared/bt_menu_render.h"
 

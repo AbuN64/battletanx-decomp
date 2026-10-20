@@ -1,5 +1,5 @@
-#ifndef UNBAKE_COMMON_TYPES_D507C48987BB_H
-#define UNBAKE_COMMON_TYPES_D507C48987BB_H
+#ifndef SHARED_BT_COMMON_TYPES_D507C48987BB_H
+#define SHARED_BT_COMMON_TYPES_D507C48987BB_H
 struct QueryResult;
 
 struct QueryResult { int unused[2]; int kind; void *object; };

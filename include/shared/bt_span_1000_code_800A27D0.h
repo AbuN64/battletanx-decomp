@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800A27D0_H
-#define UNBAKE_SPAN_1000_CODE_800A27D0_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800A27D0_H
+#define SHARED_BT_SPAN_1000_CODE_800A27D0_H
 #include "shared/bt_types.h"
 #include "shared/bt_callback_control.h"
 #include "shared/bt_callback_word.h"

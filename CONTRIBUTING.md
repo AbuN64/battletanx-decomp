@@ -1,11 +1,27 @@
 # Contributing to BattleTanx
 
-You need GNU Make, curl, tar, sha256sum, the MIPS binutils and, only for toolchains that assemble with it, n64link or armips.
-Tool commands default to conventional names. Put other paths in `local.mk`.
+## Build
 
-Place your own big-endian cartridge dumps at these paths:
+You need GNU Make, curl, tar, sha256sum, python3, cpp, the MIPS binutils (`mips-linux-gnu-as`, `-ld`, `-objcopy`)
+and splat:
+
+```sh
+python3 -m pip install "splat64[mips]==0.50.0" "spimdisasm==1.42.4"
+```
+
+Put your own big-endian cartridge dumps at these paths:
 
 - `roms/baserom.us.z64`
 
-`make check` builds every version and verifies each ROM's SHA-1.
-The compilers are downloaded into `tools/` and checked against their pinned hashes.
+```sh
+make
+```
+
+`make` (the same as `make check`) splits each dump into `asm/<version>/` with splat the first time (`make extract`
+does it again), then builds every version and verifies each ROM's SHA-1. The compilers and n64link are downloaded
+into `tools/` and checked against their pinned SHA-256 hashes. Tool commands default to conventional names; put
+other paths in `local.mk`.
+
+## Pull requests
+
+Run `make` before opening a pull request; every version must still match.

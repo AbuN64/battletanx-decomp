@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_8008F248_H
-#define UNBAKE_SPAN_1000_CODE_8008F248_H
+#ifndef SHARED_BT_SPAN_1000_CODE_8008F248_H
+#define SHARED_BT_SPAN_1000_CODE_8008F248_H
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 #include "shared/bt_unit.h"

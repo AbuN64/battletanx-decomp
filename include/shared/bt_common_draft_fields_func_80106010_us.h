@@ -1,5 +1,5 @@
-#ifndef UNBAKE_DRAFT_FIELDS_FUNC_80106010_US_H
-#define UNBAKE_DRAFT_FIELDS_FUNC_80106010_US_H
+#ifndef SHARED_BT_COMMON_DRAFT_FIELDS_FUNC_80106010_US_H
+#define SHARED_BT_COMMON_DRAFT_FIELDS_FUNC_80106010_US_H
 /* Measured 1-byte access at 0x18; storage view, complete object unknown. */
 /* Measured 4-byte access at 4; storage view, complete object unknown. */
 /* Measured 1-byte access at 0x98; storage view, complete object unknown. */

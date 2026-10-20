@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_8007A470_H
-#define UNBAKE_SPAN_1000_CODE_8007A470_H
+#ifndef SHARED_BT_SPAN_1000_CODE_8007A470_H
+#define SHARED_BT_SPAN_1000_CODE_8007A470_H
 #include "shared/bt_types.h"
 #include "sdk/libultra.h"
 

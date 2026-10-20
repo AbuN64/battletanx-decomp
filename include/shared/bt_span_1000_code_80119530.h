@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_80119530_H
-#define UNBAKE_SPAN_1000_CODE_80119530_H
+#ifndef SHARED_BT_SPAN_1000_CODE_80119530_H
+#define SHARED_BT_SPAN_1000_CODE_80119530_H
 #include "shared/bt_types.h"
 #include "shared/bt_callback_state.h"
 extern int func_80119568(int arg0);

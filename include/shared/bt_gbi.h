@@ -25,8 +25,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-#ifndef UNBAKE_GBI_H
-#define UNBAKE_GBI_H
+#ifndef SHARED_BT_GBI_H
+#define SHARED_BT_GBI_H
 
 /* use fast3d by default */
 #if !defined(F3D_GBI) && !defined(F3DEX_GBI) && !defined(F3DEX_GBI_2)
@@ -1669,5 +1669,5 @@
     _GBI_CMD(pkt, _SHIFTL(4, 24, 8) | _SHIFTL((first) * 2, 16, 8) | \
         _SHIFTL(((count) << 10) | ((count) * sizeof(FrameVertex) - 1), 0, 16), \
         (u32)(vertices) - 0x80000000U)
-#endif /* UNBAKE_GBI_H */
+#endif /* SHARED_BT_GBI_H */
 

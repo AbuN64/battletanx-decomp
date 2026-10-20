@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_80077930_H
-#define UNBAKE_SPAN_1000_CODE_80077930_H
+#ifndef SHARED_BT_SPAN_1000_CODE_80077930_H
+#define SHARED_BT_SPAN_1000_CODE_80077930_H
 #include "shared/bt_types.h"
 extern void func_80077A38(int arg0);
 

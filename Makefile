@@ -1,7 +1,8 @@
 # BattleTanx: matching build.
 # make check             builds every version ROM from the committed sources and verifies its SHA-1.
-# make check CHECK=tree  verifies only that the committed generated files are present and current (no ROMs needed).
+# make check CHECK=tree  verifies only that the committed generated files are present (no ROMs needed).
 # make extract           splits every baserom into asm/<version>/ with splat; a data file's section is its stand-in's.
+#                        A build extracts a version that has no asm/<version>/ yet on its own.
 # Tool commands default to conventional names; put local paths in local.mk.
 SHELL := /bin/sh
 .SUFFIXES:
@@ -46,7 +47,6 @@ TOOLCHAIN_gcc_2_8_1_sn64 ?= tools/gcc-2.8.1-sn64/.stamp
 CC_ido_7_1 ?= tools/ido-7.1/cc
 AS_ido_7_1 ?= tools/ido-7.1/as1
 TOOLCHAIN_ido_7_1 ?= tools/ido-7.1/.stamp
-UNBAKE ?= unbake
 VMACRO_us := VERSION_US
 SHA1_us := 535860d941738ac1210c20a9b80114fea0e0ff17
 ROM0_us := 0
@@ -59,19 +59,19 @@ DEFINES = -D$(VMACRO_$(call ver,$*))
 INCLUDES = -Iinclude -I$(dir $<)
 ASINC = -Iasm/$(call ver,$*)
 TC := gcc_2_7_2_kmc
-CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 ASFLAGS := -march=vr4300 -mabi=32 -EB --no-pad-sections -mips3 -G0
 
 # One recipe per toolchain in use; a path picks its toolchain and flags below.
 define COMPILE_gcc_2_7_2_kmc
-$(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
+$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
 $(Q)$(CC_gcc_2_7_2_kmc) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
 $(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
 $(Q)$(N64LINK) asn64 --as $(AS_gcc_2_7_2_kmc) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@
 endef
 define COMPILE_gcc_2_8_1_sn64
-$(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
+$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
 $(Q)$(CC_gcc_2_8_1_sn64) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
 $(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
 $(Q)sed -i -E 's/^([ \t]*\.word[ \t]+\.L[0-9]+)[ \t]*$$/\1-0x80000000/' $(@:.o=.s)
@@ -79,240 +79,240 @@ $(Q)$(N64LINK) asn64 --as $(AS_gcc_2_8_1_sn64) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o
 $(Q)$(OBJCOPY) --set-section-flags .rdata=alloc,load,readonly,data,contents $@
 endef
 define COMPILE_ido_7_1
-$(Q)$(CPP) $(CPPFLAGS) -MMD -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
+$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
 $(Q)$(CC_ido_7_1) -Wab,-r4300_mul $(CFLAGS) -c $(@:.o=.i) -o $@
 endef
 # Per-file facts ([file] rows of config.toml): a toolchain and flags for a path or a directory.
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80110CA0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80110CA0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80110CA0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80110CA0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O1
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011C150.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011C150.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011C150.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011C150.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80121F10.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80121F10.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80121F10.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80121F10.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O1
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800768E4.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800768E4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800768E4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800768E4.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80078F60.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80078F60.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80078F60.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80078F60.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007AD2C.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007AD2C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007AD2C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007AD2C.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007C58C.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007C58C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007C58C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007C58C.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007D2A0.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007D2A0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007D2A0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8007D2A0.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80083394.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80083394.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80083394.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80083394.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800863F4.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800863F4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800863F4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800863F4.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80086B48.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80086B48.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80086B48.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80086B48.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80088590.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80088590.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80088590.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80088590.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008ADE0.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008ADE0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008ADE0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008ADE0.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008F040.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008F040.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008F040.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8008F040.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800942A8.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800942A8.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800942A8.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800942A8.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800949B8.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800949B8.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800949B8.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800949B8.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80094C58.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80094C58.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80094C58.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80094C58.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80096784.c.o): TC := gcc_2_8_1_sn64
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80096784.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80096784.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80096784.c.o): CFLAGS := -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mgp32 -mfp64 -mno-fix4300
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80097C24.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80097C24.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80097C24.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_80097C24.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8009E39C.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8009E39C.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8009E39C.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8009E39C.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A42BC.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A42BC.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A42BC.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A42BC.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A4D10.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A4D10.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A4D10.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A4D10.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A76A0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A76A0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A76A0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800A76A0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800AB91C.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800AB91C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800AB91C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800AB91C.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B1520.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B1520.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI -UF3DEX_GBI_2
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B1520.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI -UF3DEX_GBI_2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B1520.c.o): CFLAGS := -mips3 -mgp32 -mfp32 -O2 -G8
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B8750.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B8750.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B8750.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800B8750.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BC448.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BC448.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BC448.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BC448.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BFF68.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BFF68.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BFF68.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800BFF68.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800C3730.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800C3730.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800C3730.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800C3730.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800CE214.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800CE214.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800CE214.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800CE214.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800D1EBC.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800D1EBC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800D1EBC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800D1EBC.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800DF214.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800DF214.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800DF214.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800DF214.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E0B00.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E0B00.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E0B00.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E0B00.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E2ACC.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E2ACC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E2ACC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E2ACC.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E3C18.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E3C18.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E3C18.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E3C18.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6C14.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6C14.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6C14.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6C14.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6CA4.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6CA4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6CA4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E6CA4.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E76D0.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E76D0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E76D0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E76D0.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E867C.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E867C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E867C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E867C.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E86C8.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E86C8.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E86C8.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E86C8.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8740.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8740.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8740.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8740.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8DFC.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8DFC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8DFC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E8DFC.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E92F0.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E92F0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E92F0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E92F0.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9538.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9538.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9538.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9538.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E99D4.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E99D4.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E99D4.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E99D4.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9B9C.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9B9C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9B9C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9B9C.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9DA4.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9DA4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9DA4.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800E9DA4.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800EC3F0.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800EC3F0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800EC3F0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800EC3F0.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F0738.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F0738.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F0738.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F0738.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3490.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3490.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3490.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3490.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3880.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3880.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3880.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_800F3880.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010AA6C.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010AA6C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010AA6C.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010AA6C.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BC08.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BC08.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BC08.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BC08.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BDA0.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BDA0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BDA0.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BDA0.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BEFC.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BEFC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BEFC.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010BEFC.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010DF90.c.o): TC := gcc_2_7_2_kmc
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010DF90.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__UNBAKE_STDARG_GCC -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010DF90.c.o): CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_80076000/code_8010DF90.c.o): CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B8F0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B8F0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B8F0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B8F0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B9E0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B9E0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B9E0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011B9E0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011BDE4.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011BDE4.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011BDE4.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_801121E0/code_8011BDE4.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011C300.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011C300.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011C300.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011C300.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011EBB8.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011EBB8.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011EBB8.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011EBB8.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011ECA4.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011ECA4.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011ECA4.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011ECA4.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011F7F0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011F7F0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011F7F0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/game/sys_8011C210/code_8011F7F0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801145D0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801145D0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801145D0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801145D0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O1
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801147A0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801147A0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801147A0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80114520_801147A0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115474.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115474.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115474.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115474.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O1
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115C80.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115C80.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115C80.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_801153B0_80115C80.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O1
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119530_8011954C.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119530_8011954C.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119530_8011954C.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119530_8011954C.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119CE8.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119CE8.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119CE8.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119CE8.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119F70.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119F70.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119F70.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_80119F70.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_8011A134.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_8011A134.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_8011A134.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80119B60_8011A134.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011B4A0_8011B7BC.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011B4A0_8011B7BC.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011B4A0_8011B7BC.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011B4A0_8011B7BC.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D0D0_8011D0E0.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D0D0_8011D0E0.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D0D0_8011D0E0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D0D0_8011D0E0.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O1
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D1A0_8011D3DC.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D1A0_8011D3DC.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D1A0_8011D3DC.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011D1A0_8011D3DC.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0_8011E564.c.o): TC := ido_7_1
-$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0_8011E564.c.o): CPPFLAGS := -D__UNBAKE_STDARG_IDO -DF3DEX_GBI
+$(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0_8011E564.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_8011E3F0_8011E564.c.o): CFLAGS := -c -G0 -non_shared -mips2 -O2
 # The size each object's .text has in the ROM: a compiler may pad the section past its last function, and a zero tail
 # past that size is cut from the section header before the object links.
@@ -329,10 +329,8 @@ all: check
 ifeq ($(CHECK),tree)
 check:
 	$(Q)for f in Makefile $(NAME).ld include/include_asm.h $(VERSIONS:%=versions/%/splat.yaml); do test -s $$f || { echo "$$f is missing" >&2; exit 1; }; done
-	$(Q)$(UNBAKE) sync --check
 else ifeq ($(CHECK),rom)
-check:
-	+$(Q)$(MAKE) $(VERSIONS:%=build/%/$(NAME).z64); status=$$?; $(UNBAKE) verify $$status
+check: $(VERSIONS:%=build/%/$(NAME).z64)
 else
 $(error CHECK must be rom or tree)
 endif
@@ -420,8 +418,8 @@ extract-%:
 	$(Q)find asm/$*/nonmatchings -name '*.s' -exec sed -i -E $(CODE_SED) {} +
 	$(Q)touch asm/$*/.extracted
 # An object assembles extracted files its source only names through a macro: every object follows the extraction.
-asm/%/.extracted:
-	$(error asm/$*/ is not extracted: run make extract)
+asm/%/.extracted: | roms/baserom.%.z64
+	+$(Q)$(MAKE) --no-print-directory extract-$*
 
 # The link script names every object, so no rule here lists a file.
 $(foreach v,$(VERSIONS),$(eval OBJS_$(v) := $(addprefix build/$(v)/,$(shell $(CPP) -P -undef -D$(VMACRO_$(v)) $(NAME).ld 2>/dev/null | grep -oE '[[:alnum:]_./+-]+[.]o' | sort -u))))
@@ -440,6 +438,9 @@ build/%.s.o: $$(call src,$$*).s $$(text_size_changed) | $(STAMPS)
 build/%.bin.o: asm/%.bin
 	$(Q)mkdir -p $(@D)
 	$(Q)$(OBJCOPY) -I binary -O elf32-tradbigmips -B mips $< $@
+# splat writes a binary piece while it extracts the version.
+asm/%.bin: | asm/$$(call ver,$$*)/.extracted
+	$(Q)test -f $@ || { echo "$@ is missing: run make extract-$(call ver,$*)" >&2; exit 1; }
 
 # The whole ROM links once per version, from build/<version>/, so object paths in the script stay short.
 build/%/link.ld: $(NAME).ld
@@ -451,8 +452,9 @@ build/%/link.ld: $(NAME).ld
 build/%/undefined_syms.ld: versions/%/symbol_addrs.txt build/%/undefined_syms_auto.txt build/%/undefined_funcs_auto.txt asm/%/.extracted $$(wildcard versions/$$*/aliases.txt)
 	$(Q)sed -nE 's/^([A-Za-z_.][A-Za-z0-9_.$$]*)[[:space:]]*=[[:space:]]*(0x[0-9A-Fa-f]+);.*/PROVIDE(\1 = \2);/p' $^ > $@
 	$(Q)grep -rhoE --include='*.s' '[A-Za-z_.]*auto_[0-9A-F]{8}\b' asm/$* | sort -u | sed -E 's/^([A-Za-z_.]*auto_(.*))$$/PROVIDE(\1 = 0x\2);/' >> $@
-build/%/undefined_syms_auto.txt build/%/undefined_funcs_auto.txt:
-	$(error $@ is missing: run make extract)
+# splat writes these while it extracts the version.
+build/%/undefined_syms_auto.txt build/%/undefined_funcs_auto.txt: | asm/%/.extracted
+	$(Q)test -f $@ || { echo "$@ is missing: run make extract-$*" >&2; exit 1; }
 build/%/$(NAME).elf: $$(OBJS_$$*) build/%/link.ld build/%/undefined_syms.ld
 	$(Q)cd build/$* && $(LD) -T link.ld -o $(NAME).elf
 build/%/$(NAME).bin: build/%/$(NAME).elf
@@ -460,7 +462,7 @@ build/%/$(NAME).bin: build/%/$(NAME).elf
 build/%/$(NAME).z64: build/%/$(NAME).bin roms/baserom.%.z64
 	$(Q){ head -c $(ROM0_$*) roms/baserom.$*.z64; cat $<; } > $@
 	$(Q)truncate -s $$(wc -c < roms/baserom.$*.z64) $@
-	$(Q)test "$$(sha1sum < $@ | cut -d' ' -f1)" = $(SHA1_$*)
+	$(Q)test "$$(sha1sum < $@ | cut -d' ' -f1)" = $(SHA1_$*) || { echo "$@: SHA-1 is not $(SHA1_$*)" >&2; exit 1; }
 
 tools/n64link/.stamp:
 	$(Q)mkdir -p tools/n64link && curl -fsSL https://github.com/AbuN64/mas-n64/releases/download/v0.2.0/n64link-v0.2.0-linux-x86_64.tar.gz -o tools/n64link.tar.gz && echo '061d7bc69f21228c7029f4f530cd980bab3a35749751a43f2823d03d95be4ef7  tools/n64link.tar.gz' | sha256sum -c - >/dev/null && tar -xzf tools/n64link.tar.gz -C tools/n64link --strip-components=1 n64link-v0.2.0-linux-x86_64/n64link && rm -f tools/n64link.tar.gz && cd tools/n64link && printf '%s\n' '583e544840d04123fa7e26c7416316ffe410139351e07cd3395d4bd5ec609c3c  n64link' | sha256sum -c - >/dev/null && touch .stamp

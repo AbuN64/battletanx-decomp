@@ -5,7 +5,7 @@
  * The flag field of aSetVolume intentionally masks 16 bits before shifting,
  * matching the legacy builder contract, including bits that overlap the opcode.
  * SPDX-License-Identifier: MIT
- * Copyright (c) 2026 AbuCakeUnbake64 contributors
+ * Copyright (c) 2026 battletanx-decomp contributors
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -16,8 +16,8 @@
  * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE SOFTWARE.
  * Include the project's canonical Acmd type before expanding these builders.
  */
-#ifndef UNBAKE_ABI_H
-#define UNBAKE_ABI_H
+#ifndef SHARED_BT_ABI_H
+#define SHARED_BT_ABI_H
 #ifndef _SHIFTL
 #define _SHIFTL(v, s, w) (((unsigned int)(v) & (0xFFFFFFFFU >> (32 - (w)))) << (s))
 #endif

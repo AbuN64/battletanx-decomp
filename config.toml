@@ -5,7 +5,6 @@ toolchain = "gcc-2.7.2-kmc"
 cppflags = ["-DF3DEX_GBI"]
 asflags = ["-G0"]
 readme_map = "us"
-readme_map_link = "https://itsmo.me/attic/cake-unbake/"
 libraries = ["src/sdk/"]
 
 [version.us]

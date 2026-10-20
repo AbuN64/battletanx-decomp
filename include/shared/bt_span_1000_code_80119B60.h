@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_80119B60_H
-#define UNBAKE_SPAN_1000_CODE_80119B60_H
+#ifndef SHARED_BT_SPAN_1000_CODE_80119B60_H
+#define SHARED_BT_SPAN_1000_CODE_80119B60_H
 #include "shared/bt_types.h"
 extern void func_8011AB74(void);
 

@@ -1,5 +1,5 @@
-#ifndef UNBAKE_SPAN_1000_CODE_800A6864_H
-#define UNBAKE_SPAN_1000_CODE_800A6864_H
+#ifndef SHARED_BT_SPAN_1000_CODE_800A6864_H
+#define SHARED_BT_SPAN_1000_CODE_800A6864_H
 #include "shared/bt_types.h"
 extern int func_800A68F0(void);
 
