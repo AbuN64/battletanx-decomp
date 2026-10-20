@@ -51,25 +51,25 @@ toolchain = "ido-7.1"
 [file."src/game/sys_80076000/code_800E99D4.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_801121E0/code_8011B8F0.c"]
+[file."src/sdk/libultra/code_8011B8F0.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_801121E0/code_8011B9E0.c"]
+[file."src/sdk/libultra/code_8011B9E0.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_801121E0/code_8011BDE4.c"]
+[file."src/sdk/libultra/code_8011BDE4.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_8011C210/code_8011C300.c"]
+[file."src/sdk/libultra/code_8011C300.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_8011C210/code_8011EBB8.c"]
+[file."src/sdk/libultra/code_8011EBB8.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_8011C210/code_8011ECA4.c"]
+[file."src/sdk/libultra/code_8011ECA4.c"]
 toolchain = "ido-7.1"
 
-[file."src/game/sys_8011C210/code_8011F7F0.c"]
+[file."src/sdk/libultra/code_8011F7F0.c"]
 toolchain = "ido-7.1"
 
 [file."src/sdk/libultra/code_80110CA0.c"]
