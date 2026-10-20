@@ -164,7 +164,6 @@ backward_bytes:
     return destination;
 }
 #else
-INCLUDE_ASM("span_1000", bcopy);
 #endif
 #include "shared/bt_span_1000_code_801106A0.h"
 

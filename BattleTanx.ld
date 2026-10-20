@@ -1218,6 +1218,8 @@ SECTIONS
         src/sdk/libultra/code_80110480.c.o(.data.D_8011048C);
         src/sdk/libultra/code_80110490.c.o(.text);
         src/sdk/libultra/code_80110490.c.o(.rodata .rdata);
+        src/sdk/libultra/bcopy.s.o(.text);
+        src/sdk/libultra/bcopy.s.o(.rodata .rdata);
         src/sdk/libultra/code_801106A0.c.o(.text);
         src/sdk/libultra/code_801106A0.c.o(.rodata .rdata);
         src/sdk/libultra/code_80110C00.c.o(.text);
@@ -1236,6 +1238,8 @@ SECTIONS
         src/sdk/libultra/code_80111510.c.o(.rodata .rdata);
         src/sdk/libultra/code_80111540.c.o(.text);
         src/sdk/libultra/code_80111540.c.o(.rodata .rdata);
+        src/sdk/libultra/__osException.s.o(.text);
+        src/sdk/libultra/__osException.s.o(.rodata .rdata);
         src/sdk/libultra/code_80111690.c.o(.text);
         src/sdk/libultra/code_80111690.c.o(.rodata .rdata);
         src/sdk/libultra/__osEnqueueAndYield.s.o(.text);
@@ -2226,6 +2230,7 @@ SECTIONS
         src/span_1000/8010E158.c.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80110480.c.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80110490.c.o(.bss .sbss COMMON);
+        src/sdk/libultra/bcopy.s.o(.bss .sbss COMMON);
         src/sdk/libultra/code_801106A0.c.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80110C00.c.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80110CA0.c.o(.bss .sbss COMMON);
@@ -2235,6 +2240,7 @@ SECTIONS
         src/sdk/libm/code_801113A0.c.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80111510.c.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80111540.c.o(.bss .sbss COMMON);
+        src/sdk/libultra/__osException.s.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80111690.c.o(.bss .sbss COMMON);
         src/sdk/libultra/__osEnqueueAndYield.s.o(.bss .sbss COMMON);
         src/sdk/libultra/code_80111DBC.c.o(.bss .sbss COMMON);

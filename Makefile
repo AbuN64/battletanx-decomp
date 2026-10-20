@@ -58,30 +58,27 @@ src = $(patsubst $(call ver,$1)/%,%,$1)
 DEFINES = -D$(VMACRO_$(call ver,$*))
 INCLUDES = -Iinclude -I$(dir $<)
 ASINC = -Iasm/$(call ver,$*)
+# Every version macro for the assembler, 1 for the version built and 0 for the others: library assembly keeps the
+# lines its versions disagree on in `.if VERSION_A || VERSION_B` blocks
+ASDEFS = $(foreach w,$(VERSIONS),--defsym $(VMACRO_$(w))=$(if $(filter $(w),$(call ver,$*)),1,0))
 TC := gcc_2_7_2_kmc
 CPPFLAGS := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
 CFLAGS := -G0 -mips3 -mgp32 -mfp32 -O2
 ASFLAGS := -march=vr4300 -mabi=32 -EB --no-pad-sections -mips3 -G0
 
 # One recipe per toolchain in use; a path picks its toolchain and flags below.
-define COMPILE_gcc_2_7_2_kmc
-$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
-$(Q)$(CC_gcc_2_7_2_kmc) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
-$(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
-$(Q)$(N64LINK) asn64 --as $(AS_gcc_2_7_2_kmc) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@
+define PREPROCESS_gcc_2_7_2_kmc
+$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.i.ok=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.ok=.new)
 endef
-define COMPILE_gcc_2_8_1_sn64
-$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
-$(Q)$(CC_gcc_2_8_1_sn64) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s)
-$(Q)$(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s))
-$(Q)sed -i -E 's/^([ \t]*\.word[ \t]+\.L[0-9]+)[ \t]*$$/\1-0x80000000/' $(@:.o=.s)
-$(Q)$(N64LINK) asn64 --as $(AS_gcc_2_8_1_sn64) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@
-$(Q)$(OBJCOPY) --set-section-flags .rdata=alloc,load,readonly,data,contents $@
+COMPILE_gcc_2_7_2_kmc = { [ ! -f $(@:.o=.s) ] || mv -f $(@:.o=.s) $(@:.o=.s.prev); } && $(CC_gcc_2_7_2_kmc) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s) && $(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s),true) && if [ -z "$(filter-out %.i.ok,$?)" ] && [ -f $@ ] && [ -f $(@:.o=.s.prev) ] && [ "x$(file <$@.textsize)" = "x$(TEXTSIZE)" ] && cmp -s $(@:.o=.s) $(@:.o=.s.prev); then rm -f $(@:.o=.s.prev) && touch $@ && : > $@.same; else rm -f $(@:.o=.s.prev) && $(N64LINK) asn64 --as $(AS_gcc_2_7_2_kmc) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@; fi
+define PREPROCESS_gcc_2_8_1_sn64
+$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.i.ok=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.ok=.new)
 endef
-define COMPILE_ido_7_1
-$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.o=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.o=.i)
-$(Q)$(CC_ido_7_1) -Wab,-r4300_mul $(CFLAGS) -c $(@:.o=.i) -o $@
+COMPILE_gcc_2_8_1_sn64 = { [ ! -f $(@:.o=.s) ] || mv -f $(@:.o=.s) $(@:.o=.s.prev); } && $(CC_gcc_2_8_1_sn64) -quiet $(CFLAGS) $(@:.o=.i) -o $(@:.o=.s) && $(if $(NOALIGN),python3 -I -c "$$STRIP_ALIGN" $(@:.o=.s),true) && sed -i -E 's/^([ \t]*\.word[ \t]+\.L[0-9]+)[ \t]*$$/\1-0x80000000/' $(@:.o=.s) && if [ -z "$(filter-out %.i.ok,$?)" ] && [ -f $@ ] && [ -f $(@:.o=.s.prev) ] && [ "x$(file <$@.textsize)" = "x$(TEXTSIZE)" ] && cmp -s $(@:.o=.s) $(@:.o=.s.prev); then rm -f $(@:.o=.s.prev) && touch $@ && : > $@.same; else rm -f $(@:.o=.s.prev) && $(N64LINK) asn64 --as $(AS_gcc_2_8_1_sn64) $(ASFLAGS) $(ASINC) $(@:.o=.s) -o $@ && $(OBJCOPY) --set-section-flags .rdata=alloc,load,readonly,data,contents $@; fi
+define PREPROCESS_ido_7_1
+$(Q)$(CPP) $(CPPFLAGS) -MMD -MP -MF $(@:.i.ok=.d) -MT $@ $(DEFINES) $(INCLUDES) $< > $(@:.ok=.new)
 endef
+COMPILE_ido_7_1 = $(CC_ido_7_1) -Wab,-r4300_mul $(CFLAGS) -c $(@:.o=.i) -o $@
 # Per-file facts ([file] rows of config.toml): a toolchain and flags for a path or a directory.
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80110CA0.c.o): TC := ido_7_1
 $(foreach v,$(VERSIONS),build/$(v)/src/sdk/libultra/code_80110CA0.c.o): CPPFLAGS := -D__STDARG_IDO -DF3DEX_GBI
@@ -425,14 +422,23 @@ asm/%/.extracted: | roms/baserom.%.z64
 $(foreach v,$(VERSIONS),$(eval OBJS_$(v) := $(addprefix build/$(v)/,$(shell $(CPP) -P -undef -D$(VMACRO_$(v)) $(NAME).ld 2>/dev/null | grep -oE '[[:alnum:]_./+-]+[.]o' | sort -u))))
 -include $(foreach v,$(VERSIONS),$(OBJS_$(v):.o=.d))
 
-build/%.o: $$(call src,$$*) asm/$$(call ver,$$*)/.extracted $$(text_size_changed) | $(STAMPS)
+# An object follows the text its source preprocesses to, not the time its headers were written: the .i is replaced only
+# when its bytes change, so a header edit that leaves a source's text alone (a comment, a part another version reads)
+# preprocesses that source again and compiles nothing. The stamp (.i.ok) carries the header times; the object compiles
+# when its .i is newer than it or another input (the extraction, the text size) changed, else it is only touched.
+build/%.i.ok: $$(call src,$$*) | $(STAMPS)
 	$(Q)mkdir -p $(@D)
-	$(COMPILE_$(TC))
-	$(Q)$(if $(TEXTSIZE),$(TRIM_TEXT) $@ $(TEXTSIZE))
-	$(Q)printf '%s\n' '$(TEXTSIZE)' > $@.textsize
+	$(PREPROCESS_$(TC))
+	$(Q)if cmp -s $(@:.ok=.new) $(@:.ok=); then rm -f $(@:.ok=.new); else mv -f $(@:.ok=.new) $(@:.ok=); fi
+	$(Q)touch $@
+build/%.o: build/%.i.ok asm/$$(call ver,$$*)/.extracted $$(text_size_changed) | $(STAMPS)
+	$(Q)if [ -z "$(filter-out %.i.ok,$?)" ] && [ "x$(file <$@.textsize)" = "x$(TEXTSIZE)" ] && [ -f $@ ] && \
+	[ $(@:.o=.i) -ot $@ ]; then touch $@; \
+	else $(COMPILE_$(TC)) && if [ -f $@.same ]; then rm -f $@.same; else $(if $(TEXTSIZE),$(TRIM_TEXT) $@ $(TEXTSIZE),true) && \
+	printf '%s\n' '$(TEXTSIZE)' > $@.textsize; fi; fi
 build/%.s.o: $$(call src,$$*).s $$(text_size_changed) | $(STAMPS)
 	$(Q)mkdir -p $(@D)
-	$(Q)$(AS) $(ASFLAGS) $(ASINC) -Iinclude $< -o $@
+	$(Q)$(AS) $(ASFLAGS) $(ASDEFS) $(ASINC) -Iinclude $< -o $@
 	$(Q)$(if $(TEXTSIZE),$(TRIM_TEXT) $@ $(TEXTSIZE))
 	$(Q)printf '%s\n' '$(TEXTSIZE)' > $@.textsize
 build/%.bin.o: asm/%.bin
