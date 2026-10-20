@@ -331,7 +331,8 @@ check:
 	$(Q)for f in Makefile $(NAME).ld include/include_asm.h $(VERSIONS:%=versions/%/splat.yaml); do test -s $$f || { echo "$$f is missing" >&2; exit 1; }; done
 	$(Q)$(UNBAKE) sync --check
 else ifeq ($(CHECK),rom)
-check: $(VERSIONS:%=build/%/$(NAME).z64)
+check:
+	+$(Q)$(MAKE) $(VERSIONS:%=build/%/$(NAME).z64); status=$$?; $(UNBAKE) verify $$status
 else
 $(error CHECK must be rom or tree)
 endif
@@ -344,8 +345,9 @@ DATA_SED := -e '/^\.section /d' -e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8
 # is: the assembler would expand or re-encode it. So is a 64-bit load, store or divide with no symbol operand: under
 # the 32-bit ABI the assembler expands it into several instructions; one with a %lo(symbol) operand keeps the
 # relocation on the word, whose low half the link fills. A `b` is spelled as the branch its word is: an
-# assembler may encode `b` as either beq or bgez.
-CODE_SED := -e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*).*/\* handwritten instruction \*/$$@\1.word 0x\2@' \
+# assembler may encode `b` as either beq or bgez. A handwritten line that carries a relocation (%hi, %lo, %gp_rel)
+# keeps its symbol: as a .word the link has no operand to fill, and the %lo of a lui/addiu pair is left unpaired.
+CODE_SED := -e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*)[^%]*/\* handwritten instruction \*/$$@\1.word 0x\2@' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{4})[0-9A-F]{4} \*/\s*)(ld|sd|ldl|ldr|sdl|sdr|lld|scd)\s[^%]*%lo\(([A-Za-z0-9_.]+)\).*@\1.reloc ., R_MIPS_LO16, \4\n    .word 0x\20000@' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} ([0-9A-F]{8}) \*/\s*)(ld|sd|ldl|ldr|sdl|sdr|lld|scd|ddiv|ddivu)\s[^%]*$$@\1.word 0x\2@' \
 	-e 's@^(\s*/\* [0-9A-F]+ [0-9A-F]{8} 1000[0-9A-F]{4} \*/\s*)b(\s+)@\1beq\2$$zero, $$zero, @' \

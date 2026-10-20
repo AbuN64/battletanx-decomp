@@ -81,4 +81,3 @@ void func_80113460(void *matrix_arg, f32 eye_x, f32 eye_y, f32 eye_z,
 INCLUDE_ASM("span_1000", func_80113460);
 #endif
 INCLUDE_ASM("span_1000", func_80113718);
-INCLUDE_ASM("span_1000", func_80113790);
