@@ -83,32 +83,7 @@ s32 func_800D1F20(s32 row, s32 count1, s32 count2, s32 count3, s32 count4, s32 *
 }
 
 INCLUDE_ASM("span_1000", func_800D20E4);
-#ifdef NON_MATCHING
-#include "game/sys_80076000.h"
-#include "shared/bt_menu_render.h"
-#include "shared/bt_types.h"
-s32 func_8011CC84(s8 *, s32 *, s32);
-extern s32 D_80073D70;
-extern s8 D_80073D84;
-
-void func_800D39A4(s32 arg0, s32 arg1) {
-    s8 sp10;
-
-    func_8010555C(0xFA, 0x1E, 0x1E, 0xFF);
-    func_8010698C(&D_8037A174);
-    func_801054E0(2);
-    func_8011CC84(&sp10, &D_80073D70, arg1);
-    func_8010552C(0x49, 0x50);
-    func_80105A50(&D_8037A174, &sp10, 0, 0x140);
-    func_8010555C(0xFF, 0xFF, 0xFF, 0xFF);
-    if (arg0 >= 0x2E) {
-        func_8010552C(0x2E, 0x6E);
-        func_80105A50(&D_8037A174, &D_80073D84, 0, 0x140);
-    }
-}
-#else
 INCLUDE_ASM("span_1000", func_800D39A4);
-#endif
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -153,132 +128,10 @@ void func_800D3CD4(void) {
     func_80105584(&D_8037A174, &D_80073DB0);
 }
 
-#ifdef NON_MATCHING
-#include "game/sys_80076000.h"
-#include "shared/bt_menu_render.h"
-#include "shared/bt_types.h"
-s32 func_8011CC84(s32 *, s32 *);
-extern s32 D_80073DBC;
-extern s32 D_80073DD0;
-extern s32 D_80073DE4;
-extern s32 D_80073E00;
-extern s32 D_80073E20;
-extern s32 D_80073E3C;
-extern s32 D_80073E50;
-extern s32 D_80073E68;
-extern s32 D_80073E84;
-extern s32 D_80073EA0;
-extern s32 D_80073EBC;
-extern s32 D_80073ED4;
-
-void func_800D3D10(u32 arg0) {
-    s32 sp10;
-    s32 *var_a1;
-
-    switch (arg0) {
-    case 0:
-        var_a1 = &D_80073DBC;
-        break;
-    case 1:
-        var_a1 = &D_80073DD0;
-        break;
-    case 2:
-        var_a1 = &D_80073DE4;
-        break;
-    case 3:
-        var_a1 = &D_80073E00;
-        break;
-    case 4:
-        var_a1 = &D_80073E20;
-        break;
-    case 5:
-        var_a1 = &D_80073E3C;
-        break;
-    case 6:
-        var_a1 = &D_80073E50;
-        break;
-    case 7:
-        var_a1 = &D_80073E68;
-        break;
-    case 8:
-        var_a1 = &D_80073E84;
-        break;
-    case 9:
-        var_a1 = &D_80073EA0;
-        break;
-    case 10:
-    case 11:
-    case 12:
-    case 13:
-        var_a1 = &D_80073EBC;
-        break;
-    default:
-        var_a1 = &D_80073ED4;
-        break;
-    }
-    func_8011CC84(&sp10, var_a1);
-    func_8010552C(0x2E, 0x56);
-    func_80105584(&D_8037A174, &sp10);
-}
-#else
 INCLUDE_ASM("span_1000", func_800D3D10);
-#endif
 INCLUDE_ASM("span_1000", func_800D3E28);
 INCLUDE_ASM("span_1000", func_800D4408);
-#ifdef NON_MATCHING
-#include "shared/bt_span_1000_code_80094704.h"
-#include "shared/bt_types.h"
-s32 *func_80096768(u8);
-extern s32 D_803282A0;
-extern s32 D_803282A8;
-extern u8 D_803283B8;
-
-int func_800D4410(s32 arg0, s32 arg1, s32 *arg2, s32 *arg3) {
-    s32 *var_a2;
-    s32 *var_a3;
-    s32 *var_s2;
-    s32 var_a0;
-    s32 var_a1;
-    s32 var_s1;
-    u8 *var_s0;
-    u8 temp_v0;
-    void *temp_t0;
-
-    var_a0 = arg0;
-    var_a1 = arg1;
-    var_a2 = arg2;
-    var_a3 = arg3;
-    var_s1 = 0;
-    var_s0 = &D_803283B8;
-    var_s2 = &D_803282A8;
-    do {
-        temp_v0 = func_80096760(var_a0, var_a1, var_a2, var_a3);
-        *var_s0 = temp_v0;
-        *(&D_803282A0 + var_s1) = temp_v0;
-        var_a3 = var_s2;
-        var_a2 = func_80096768(*var_s0);
-        temp_t0 = var_a2 + 0x40;
-loop_2:
-        var_a0 = var_a2[2];
-        var_a1 = var_a2[3];
-        var_a3[0] = var_a2[0];
-        var_a3[1] = (s32) var_a2[1];
-        var_a3[2] = var_a0;
-        var_a3[3] = var_a1;
-        var_a2 += 0x10;
-        var_a3 += 0x10;
-        if (var_a2 != temp_t0) {
-            goto loop_2;
-        }
-        *var_a3 = *var_a2;
-        var_s0 += 1;
-        var_s1 += 1;
-        var_s2 += 0x44;
-    } while (var_s1 < 4);
-}
-#else
 INCLUDE_ASM("span_1000", func_800D4410);
-#endif
 INCLUDE_ASM("span_1000", func_800D44CC);
 INCLUDE_ASM("span_1000", func_800D455C);
 INCLUDE_ASM("span_1000", func_800D6060);

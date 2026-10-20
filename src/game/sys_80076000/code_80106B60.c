@@ -85,59 +85,7 @@ void func_80107704(void) {
 
 INCLUDE_ASM("span_1000", func_8010770C);
 INCLUDE_ASM("span_1000", func_80107754);
-#ifdef NON_MATCHING
-#include "shared/bt_common_types_d507c48987bb.h"
-#include "shared/bt_span_1000_code_80091A60.h"
-#include "shared/bt_span_1000_code_80107168.h"
-#include "shared/bt_types.h"
-extern s32 D_803B8240;
-extern s32 D_803B8248;
-extern s32 D_803B824A;
-extern s32 D_803B8250;
-
-void func_80107A14(QueryBox *arg0, s32 arg1, QueryResult **arg2, s32 *arg3) {
-    s32 sp10;
-    QueryResult **var_s3;
-    s16 temp_v0;
-    s32 temp_s0;
-    s32 var_s1;
-    s32 var_s2;
-    s32 var_v0;
-
-    var_s3 = arg2;
-    var_s2 = 0;
-    var_s1 = D_803B8240;
-    if ((s16) D_803B8240 != -1) {
-loop_2:
-        temp_s0 = (s16) var_s1 * 0x28;
-        if (*(&D_803B8248 + temp_s0) & arg1) {
-            var_v0 = var_s1 << 0x10;
-            if (func_8010A8A8(arg0, &D_803B8254[(s16) var_s1].box, &sp10) & 0xFF) {
-                var_s2 += 1;
-                *var_s3 = *(&D_803B8250 + temp_s0);
-                var_s3 += 4;
-                if (var_s2 < 0x20) {
-                    goto block_5;
-                }
-            } else {
-                goto block_6;
-            }
-        } else {
-block_5:
-            var_v0 = var_s1 << 0x10;
-block_6:
-            temp_v0 = *(&D_803B824A + ((var_v0 >> 0x10) * 0x28));
-            var_s1 = (s32) temp_v0;
-            if (temp_v0 != -1) {
-                goto loop_2;
-            }
-        }
-    }
-    *arg3 = var_s2;
-}
-#else
 INCLUDE_ASM("span_1000", func_80107A14);
-#endif
 INCLUDE_ASM("span_1000", func_80107B44);
 INCLUDE_ASM("span_1000", func_80107F14);
 INCLUDE_ASM("span_1000", func_8010823C);
@@ -340,49 +288,7 @@ void func_80109364(QueryRecord *record, s32 minZ, s32 maxZ, s32 minX, s32 maxX)
     record->box.values[0] &= 0xFFF0;
 }
 
-#ifdef NON_MATCHING
-#include "shared/bt_common_types_d507c48987bb.h"
-#include "shared/bt_span_1000_code_800F29F0.h"
-#include "shared/bt_span_1000_code_80107168.h"
-#include "shared/bt_types.h"
-int func_80109498(s16 arg0, s16 arg1, QueryBox *arg2) {
-    f32 sp10;
-    f32 sp14;
-    f32 temp_fs0;
-    f32 temp_fs1;
-    f32 temp_fs2;
-    f32 temp_fv0;
-    s32 var_v0;
-
-    temp_fs2 = (f32) (arg0 - arg2->values[1]);
-    temp_fs1 = (f32) (arg1 - arg2->values[2]);
-    if ((u16) arg2->values[0] & 1) {
-        sp14 = temp_fs2;
-        sp10 = temp_fs1;
-    } else {
-        temp_fs0 = func_800F3AE0((s32) (u16) arg2->values[8]);
-        temp_fv0 = func_800F3B40((s32) (u16) arg2->values[8]);
-        sp10 = (temp_fs0 * temp_fs2) + (temp_fv0 * temp_fs1);
-        sp14 = (temp_fv0 * temp_fs2) + (-temp_fs0 * temp_fs1);
-    }
-    var_v0 = 0;
-    if (!(sp14 < (f32) arg2->values[3])) {
-        var_v0 = 0;
-        if (!((f32) arg2->values[4] < sp14)) {
-            var_v0 = 0;
-            if (!(sp10 < (f32) arg2->values[5])) {
-                var_v0 = 0;
-                if (!((f32) arg2->values[6] < sp10)) {
-                    var_v0 = 1;
-                }
-            }
-        }
-    }
-    return var_v0;
-}
-#else
 INCLUDE_ASM("span_1000", func_80109498);
-#endif
 INCLUDE_ASM("span_1000", func_801095D0);
 INCLUDE_ASM("span_1000", func_8010A474);
 #include "shared/bt_types.h"

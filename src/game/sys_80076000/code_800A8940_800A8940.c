@@ -201,39 +201,7 @@ void func_800A93C8(void)
     }
 }
 
-#ifdef NON_MATCHING
-#include "game/sys_80076000.h"
-#include "shared/bt_types.h"
-extern s32 D_80126714;
-extern s32 D_802DF550;
-
-s32 func_800A942C(void) {
-    s32 *var_v1;
-    s32 temp_v0;
-    s32 var_a0;
-    s32 var_a1;
-
-    var_a0 = 0;
-    var_a1 = 0;
-    if (D_80126714 > 0) {
-        var_v1 = &D_802DF550;
-loop_2:
-        temp_v0 = *var_v1;
-        if (temp_v0 == -1) {
-            var_a0 += 1;
-            var_v1 += 4;
-            if (var_a0 < D_80126714) {
-                goto loop_2;
-            }
-        } else {
-            var_a1 = temp_v0 + 1;
-        }
-    }
-    return var_a1;
-}
-#else
 INCLUDE_ASM("span_1000", func_800A942C);
-#endif
 #include "game/sys_80076000.h"
 #include "game/sys_801121E0.h"
 #include "span_1000/code_80077930.h"
@@ -276,24 +244,6 @@ s32 func_800A9AB0(s32 channel)
     return status;
 }
 
-#ifdef NON_MATCHING
-#include "shared/bt_types.h"
-int func_800A9B44(s32 arg0) {
-    s32 var_a1;
-    u8 *var_v1;
-    u8 temp_v0;
-
-    var_a1 = 0;
-    var_v1 = arg0 + 4;
-    do {
-        temp_v0 = *var_v1;
-        var_v1 += 1;
-        var_a1 += temp_v0;
-    } while ((s32) var_v1 < (arg0 + 0x100));
-    return var_a1;
-}
-#else
 INCLUDE_ASM("span_1000", func_800A9B44);
-#endif
 INCLUDE_ASM("span_1000", func_800A9B70);
 INCLUDE_DATA("span_1000", D_800A9C14);
