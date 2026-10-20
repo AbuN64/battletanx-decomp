@@ -33,7 +33,7 @@ extern int func_800A42B0(int arg0);
 extern void func_800A3D30(void *arg0);
 
 
-extern void func_800A4A64(int arg0, void * arg1, int arg2, int arg3);
+extern void func_800A4A64(int arg0, float *arg1, int arg2, int arg3);
 
 
 

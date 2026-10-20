@@ -2,6 +2,10 @@
 #define BT_PLAYER_H
 #include "shared/bt_gfx.h"
 #include "shared/bt_camera.h"
+typedef struct PlayerPoint {
+    f32 z, x;
+} PlayerPoint;
+
 /* Four 0x348-byte player records; initialized by the player setup routine. */
 typedef struct PlayerRecord {
     s16 unitIds[5];
@@ -36,9 +40,9 @@ typedef struct PlayerRecord {
     u16 objectiveId;
     s16 linkedId;
     u16 killCount;
-    u8 team, chainActive;
-    f32 z, x;
-    void *group;
+    u8 team, pointCount;
+    PlayerPoint points[1];
+    s32 pointId;
     u8 value1BC, value1BD, value1BE, soundClass;
     u32 controlFlags[5];
     u8 reserved1D4[0x30];
