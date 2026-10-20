@@ -1,4 +1,5 @@
 #include "include_asm.h"
+#include "shared/bt_unit.h"
 
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
@@ -45,26 +46,26 @@ void func_80097B7C(void) {
     s32 temp_a0_2;
     s32 temp_a0_3;
     s32 var_s1;
-    func_80097B7C_S1_Shared80097B7C *temp_v0;
+    CombatUnit *unit;
 
     var_s1 = 0;
     do {
-        temp_v0 = func_800A03B8((s16)var_s1);
-        if (temp_v0->unk1 != 0) {
-            temp_a0 = temp_v0->unk458;
+        unit = func_800A03B8((s16)var_s1);
+        if (unit->visible != 0) {
+            temp_a0 = unit->value458;
             if (temp_a0 != -1) {
                 func_800798C0(temp_a0);
-                temp_v0->unk458 = -1;
+                unit->value458 = -1;
             }
-            temp_a0_2 = temp_v0->unk45C;
+            temp_a0_2 = unit->value45C;
             if (temp_a0_2 != -1) {
                 func_800798C0(temp_a0_2);
-                temp_v0->unk45C = -1;
+                unit->value45C = -1;
             }
-            temp_a0_3 = temp_v0->unk4F0;
+            temp_a0_3 = unit->value4F0;
             if (temp_a0_3 != -1) {
                 func_800798C0(temp_a0_3);
-                temp_v0->unk4F0 = -1;
+                unit->value4F0 = -1;
             }
         }
         var_s1 += 1;
