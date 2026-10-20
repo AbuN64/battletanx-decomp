@@ -241,6 +241,24 @@ typedef struct EffectKind12 {
     s8 value1C;
     s8 value1D;
 } EffectKind12;
+typedef struct EffectKind1F {
+    EffectHeader header;
+    s32 value0C;
+    f32 value10;
+    f32 value14;
+} EffectKind1F;
+typedef struct EffectKind20 {
+    EffectHeader header;
+    s8 value0C;
+    s8 value0D;
+    s8 value0E;
+    s8 value0F;
+    u8 value10;
+    u8 value11;
+    s32 value14;
+    s32 value18;
+    s32 value1C;
+} EffectKind20;
 typedef struct EffectKind1D {
     EffectHeader header;
     PointZX center;
