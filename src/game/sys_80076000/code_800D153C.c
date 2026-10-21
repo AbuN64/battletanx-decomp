@@ -63,7 +63,11 @@ void func_800D171C(void) {
     func_80105584(&D_8037A174, &D_80073CDC);
 }
 
-INCLUDE_ASM("span_1000", func_800D176C);
+void func_800D176C(s32 value) {
+    func_8010555C(0xFF, 0xFF, 0xFF, 0xFF);
+    func_8010552C(0x10C, 0x6A);
+    func_80105688(&D_8037A174, value);
+}
 #include "shared/bt_menu_render.h"
 #include "game/sys_80076000.h"
 

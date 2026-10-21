@@ -24,6 +24,7 @@ extern s32 D_801502E0;
 extern s32 func_8007A3D8(s32);
 
 extern s32 func_80079C20(s32);
+extern void func_80079B08();
 
 extern void func_8011B9A0(void *seqp, s16 volume);
 

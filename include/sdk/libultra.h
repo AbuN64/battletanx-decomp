@@ -6,6 +6,7 @@
 #pragma once
 
 extern unsigned char D_803C4DC0;
+extern float sqrtf(float);
 
 extern int D_803C4D80[];
 

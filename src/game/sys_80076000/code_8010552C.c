@@ -30,5 +30,31 @@ void func_80105584(int *context, void *text)
     }
 }
 
-INCLUDE_ASM("span_1000", func_801055D4);
-INCLUDE_ASM("span_1000", func_80105688);
+void func_801055D4(void *context, s32 unused, s64 value) {
+    u8 digit;
+
+    if (value < 0) {
+        value = -value;
+    }
+    D_803B75A0 = -1;
+    do {
+        digit = value % 10 + '0';
+        func_80106010(context, digit);
+        value /= 10;
+    } while (value != 0);
+    D_803B75A0 = 1;
+}
+void func_80105688(void **displayList, s64 value) {
+    if (value < 0) {
+        value = -value;
+    }
+    D_803B75A0 = -1;
+    D_803B75A9 = 1;
+    do {
+        u8 ch = value % 10 + '0';
+        func_8010647C(displayList, ch);
+        value /= 10;
+    } while (value != 0);
+    D_803B75A0 = 1;
+    D_803B75A9 = 0;
+}

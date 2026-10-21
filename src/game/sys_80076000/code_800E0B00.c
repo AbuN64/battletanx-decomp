@@ -93,7 +93,9 @@ f32 func_800E0BC4(f32 *offset)
     return x + z * D_8007442C / D_80074430;
 }
 
-INCLUDE_ASM("span_1000", func_800E0C44);
+f32 func_800E0C44(f32 *offset) {
+    return sqrtf(offset[1] * offset[1] + offset[0] * offset[0]);
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 static inline f32 approx_horizontal_length(f32 *v) {
