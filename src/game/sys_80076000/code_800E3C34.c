@@ -80,7 +80,27 @@ void func_800E4494(CombatUnit *unit)
     }
 }
 
-INCLUDE_ASM("span_1000", func_800E44EC);
+void func_800E44EC(Unknown800E44EC_raw0 *arg0, Unknown800E44EC_raw1 *arg1) {
+    u16 temp_v1;
+    u8 var_a0;
+    Unknown800E44EC_raw2 *temp_v0;
+
+    if ((arg0->value98) != 0) {
+        func_800983E0(arg1, 0x2710, (arg1->value04), 0);
+        var_a0 = (arg1->value04);
+        goto block_4;
+    }
+    if ((arg1->value98) != 0) {
+        func_800983E0(arg0, 0x2710, (arg0->value04), 0);
+        var_a0 = (arg0->value04);
+block_4:
+        temp_v0 = func_800A6688(var_a0);
+        temp_v1 = (temp_v0->value1AC);
+        if (temp_v1 < 0x2710U) {
+            (temp_v0->value1AC) = (u16) (temp_v1 + 1);
+        }
+    }
+}
 void func_800E4584(Unknown800E4584_1 *first, Unknown800E4584_1 *second)
 {
     Unknown800A5D5C *record;

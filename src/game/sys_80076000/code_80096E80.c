@@ -20,7 +20,31 @@ void func_80096E80(f32 x, f32 y, u16 flags, u32 shape, AreaBox *box, f32 scale)
 
 INCLUDE_ASM("span_1000", func_80096FC8);
 INCLUDE_ASM("span_1000", func_80097038);
-INCLUDE_ASM("span_1000", func_80097B04);
+#include "shared/bt_menu_render.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_80097B04(Unknown80097B04_raw0 *arg0) {
+    s32 temp_a0;
+    s32 temp_a0_2;
+    s32 temp_a0_3;
+
+    temp_a0 = (arg0->value458);
+    if (temp_a0 != -1) {
+        func_800798C0(temp_a0);
+        (arg0->value458) = -1;
+    }
+    temp_a0_2 = (arg0->value45C);
+    if (temp_a0_2 != -1) {
+        func_800798C0(temp_a0_2);
+        (arg0->value45C) = -1;
+    }
+    temp_a0_3 = (arg0->value4F0);
+    if (temp_a0_3 != -1) {
+        func_800798C0(temp_a0_3);
+        (arg0->value4F0) = -1;
+    }
+}
 #include "shared/bt_span_1000_code_80097038.h"
 #include "shared/bt_types.h"
 

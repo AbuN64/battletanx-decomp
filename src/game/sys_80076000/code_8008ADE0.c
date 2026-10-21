@@ -120,8 +120,32 @@ INCLUDE_ASM("span_1000", func_8008C6F0);
 INCLUDE_ASM("span_1000", func_8008C8D0);
 INCLUDE_ASM("span_1000", func_8008C9E4);
 INCLUDE_ASM("span_1000", func_8008CDB0);
-INCLUDE_ASM("span_1000", func_8008CE74);
-INCLUDE_ASM("span_1000", func_8008CE9C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8008CE74(Unknown8008CE9C *effect, Unknown8010DAA0_1 *contact, s32 unused, s32 *result)
+{
+    switch (contact->value08) {
+    case 2:
+    case 0x16:
+        *result = 0;
+        effect->value1C = 0;
+        break;
+    }
+}
+void func_8008CE9C(Unknown8008CE9C *effect, Unknown8010DAA0_1 *contact, s32 event, s32 data, s32 *result)
+{
+    if (event != 0) {
+        return;
+    }
+    switch (contact->value08) {
+    case 2:
+    case 0x16:
+        *result = 0;
+        effect->value1C = 0;
+        break;
+    }
+}
 INCLUDE_ASM("span_1000", func_8008CECC);
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"

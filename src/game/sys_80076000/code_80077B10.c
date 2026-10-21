@@ -26,7 +26,11 @@ void func_80078680(AttachedCamera *camera, Vec3f *offset) {
 
 void func_800786B0(Unknown800786B0 *record, s32 value) { record->value10 = value; record->value14 = 0; func_80077E94(record); }
 INCLUDE_ASM("span_1000", func_800786D4);
-INCLUDE_ASM("span_1000", func_800786F4);
+void func_800786F4(Unknown800786F4_raw2 *arg0, Unknown800786F4_raw1 *arg1, f32 arg2, f32 arg3, Unknown800786F4_raw0 *arg4) {
+    (arg4->value00) = (f32) ((arg1->value00) + (arg2 * (arg0->value48)) + (arg3 * (arg0->value4C)));
+    (arg4->value04) = (f32) ((arg1->value04) + (arg2 * (arg0->value58)) + (arg3 * (arg0->value5C)));
+    (arg4->value08) = (f32) ((arg1->value08) + (arg2 * (arg0->value68)) + (arg3 * (arg0->value6C)));
+}
 void func_80078764(Unknown80078764 *camera, f32 eyeX, f32 eyeY, f32 eyeZ, f32 atX, f32 atY, f32 atZ) {
     func_80113460(camera->value48, eyeX, eyeY, eyeZ, atX, atY, atZ, 0.0f, D_800710B4, 0.0f);
     camera->value88 = 0;

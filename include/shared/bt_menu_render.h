@@ -1,3 +1,4 @@
+#include "shared/bt_records.h"
 #ifndef BT_MENU_RENDER_H
 #define BT_MENU_RENDER_H
 #include "shared/bt_types.h"
@@ -32,7 +33,7 @@ void func_801054E0(int);
 void func_8010552C(int, int);
 void func_8010555C(int, int, int, int);
 void func_80105A50(Gfx **, char *, int, int);
-void func_8010698C(Gfx **);
+extern void func_8010698C(Unknown800AB128 **gfxp);
 u64 osGetTime(void);
 
 #endif

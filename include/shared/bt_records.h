@@ -4,6 +4,9 @@
 #include "shared/bt_unit.h"
 
 struct Unknown800786B0;
+struct Unknown800786F4_raw0;
+struct Unknown800786F4_raw1;
+struct Unknown800786F4_raw2;
 struct Unknown80078764;
 struct Unknown80078CF8;
 struct Unknown80078CF8_1;
@@ -49,6 +52,7 @@ struct Unknown80088280_1;
 struct Unknown80088280_2;
 struct Unknown80088280_3;
 struct Unknown80088360;
+struct Unknown8008CE9C;
 struct Unknown8008D660;
 struct Unknown8008E1BC;
 struct Unknown8008E1BC_1;
@@ -71,6 +75,7 @@ struct Unknown80091E98_2;
 struct Unknown80091E98_3;
 struct Unknown8009249C;
 struct Unknown80094704;
+struct Unknown80097B04_raw0;
 struct Unknown8009BB5C;
 struct Unknown8009EDAC;
 struct Unknown8009F100;
@@ -117,6 +122,9 @@ struct Unknown800E3A38;
 struct Unknown800E3A64;
 struct Unknown800E3A64_1;
 struct Unknown800E3A64_2;
+struct Unknown800E44EC_raw0;
+struct Unknown800E44EC_raw1;
+struct Unknown800E44EC_raw2;
 struct Unknown800E4584;
 struct Unknown800E4584_1;
 struct Unknown800E4820;
@@ -174,6 +182,30 @@ typedef struct Unknown800786B0 {
     s32 value18;
     s32 value1C;
 } Unknown800786B0;
+
+typedef struct Unknown800786F4_raw0 {
+    f32 value00;
+    f32 value04;
+    f32 value08;
+} Unknown800786F4_raw0;
+
+typedef struct Unknown800786F4_raw1 {
+    f32 value00;
+    f32 value04;
+    f32 value08;
+} Unknown800786F4_raw1;
+
+typedef struct Unknown800786F4_raw2 {
+    u8 reserved00[0x48];
+    f32 value48;
+    f32 value4C;
+    u8 reserved50[0x8];
+    f32 value58;
+    f32 value5C;
+    u8 reserved60[0x8];
+    f32 value68;
+    f32 value6C;
+} Unknown800786F4_raw2;
 
 typedef struct Unknown80078764 {
     u8 reserved00[0x24];
@@ -497,6 +529,11 @@ typedef struct Unknown80088360 {
     u16 value0A;
 } Unknown80088360;
 
+typedef struct Unknown8008CE9C {
+    u8 reserved00[0x1C];
+    s8 value1C;
+} Unknown8008CE9C;
+
 typedef struct Unknown8008D660 {
     u8 reserved00[0xC];
     f32 value0C;
@@ -684,6 +721,14 @@ typedef struct Unknown80094704 {
     f32 value00;
     f32 value04;
 } Unknown80094704;
+
+typedef struct Unknown80097B04_raw0 {
+    u8 reserved00[0x458];
+    s32 value458;
+    s32 value45C;
+    u8 reserved460[0x90];
+    s32 value4F0;
+} Unknown80097B04_raw0;
 
 typedef struct Unknown8009BB5C {
     u8 reserved00[0x4];
@@ -1013,6 +1058,26 @@ typedef struct Unknown800E3A64_2 {
     struct Unknown800E3A64 *value10;
     s32 value14;
 } Unknown800E3A64_2;
+
+typedef struct Unknown800E44EC_raw0 {
+    u8 reserved00[0x4];
+    u8 value04;
+    u8 reserved05[0x93];
+    s32 value98;
+} Unknown800E44EC_raw0;
+
+typedef struct Unknown800E44EC_raw1 {
+    u8 reserved00[0x4];
+    u8 value04;
+    u8 reserved05[0x93];
+    s32 value98;
+} Unknown800E44EC_raw1;
+
+typedef struct Unknown800E44EC_raw2 {
+    u8 reserved00[0x1AC];
+    u16 value1AC;
+    u8 reserved1AE[0x2];
+} Unknown800E44EC_raw2;
 
 typedef struct Unknown800E4584 {
     s32 value00;

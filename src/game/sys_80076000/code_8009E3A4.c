@@ -42,6 +42,18 @@ void func_8009F544(Unknown8009F544 *contact)
 }
 INCLUDE_ASM("span_1000", func_8009F5BC);
 INCLUDE_ASM("span_1000", func_8009F5E0);
-INCLUDE_ASM("span_1000", func_8009F8EC);
+#include "shared/bt_gbi.h"
+
+void func_8009F8EC(Unknown8009F100 *t, f32 x, f32 y)
+{
+    if (t->value3E0 < x) {
+        t->value3E0 += x;
+        t->value3E0 = ((t->value3E0) < (x) ? (t->value3E0) : (x));
+    }
+    if (t->value3E4 < y) {
+        t->value3E4 += y;
+        t->value3E4 = ((t->value3E4) < (y) ? (t->value3E4) : (y));
+    }
+}
 INCLUDE_ASM("span_1000", func_8009F958);
 INCLUDE_ASM("span_1000", func_8009FA70);

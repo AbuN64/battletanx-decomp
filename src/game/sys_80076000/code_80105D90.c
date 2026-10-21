@@ -50,4 +50,24 @@ void func_80105D90(void *context, u8 *text, s32 lineCount, s32 lineHeight, s32 l
 INCLUDE_ASM("span_1000", func_80105F24);
 INCLUDE_ASM("span_1000", func_80106010);
 INCLUDE_ASM("span_1000", func_8010647C);
-INCLUDE_ASM("span_1000", func_8010698C);
+#include "shared/bt_menu_render.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8010698C(Unknown800AB128 **gfxp)
+{
+    Unknown800AB128 *gfx = *gfxp;
+
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xE7000000);            command->value04 = (0);            });           
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA001402);            command->value04 = (0);            });           
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA000602);            command->value04 = (0x40);            });        
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA000402);            command->value04 = (0x20);            });        
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xB900031D);            command->value04 = (0x504240);            });    
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xFC119623);            command->value04 = (0xFF2FFFFF);            });  
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBB000001);            command->value04 = (0x10001000);            });  
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA001301);            command->value04 = (0);            });           
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA001001);            command->value04 = (0);            });           
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA001102);            command->value04 = (0);            });           
+    ({                                     Unknown800AB128 *command = (gfx)++;        command->value00 = (0xBA000E02);            command->value04 = (0);            });           
+    *gfxp = gfx;
+}
