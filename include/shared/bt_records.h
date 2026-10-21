@@ -1,11 +1,13 @@
 #ifndef SHARED_BT_RECORDS_H
 #define SHARED_BT_RECORDS_H
 #include "shared/bt_types.h"
+#include "shared/bt_unit.h"
 
 struct Unknown800786B0;
 struct Unknown80078764;
 struct Unknown80078CF8;
 struct Unknown80078CF8_1;
+struct Unknown8007902C;
 struct Unknown8007E41C;
 struct Unknown8007E41C_1;
 struct Unknown8007E694;
@@ -21,6 +23,10 @@ struct Unknown8008488C_1;
 struct Unknown80086F3C;
 struct Unknown80086F3C_1;
 struct Unknown80086F3C_2;
+struct Unknown800874F4;
+struct Unknown800874F4_1;
+struct Unknown80087634;
+struct Unknown80087634_1;
 struct Unknown80087798;
 struct Unknown80087798_1;
 struct Unknown80087798_2;
@@ -49,6 +55,7 @@ struct Unknown8008E1BC_1;
 struct Unknown8008FB1C;
 struct Unknown8008FC9C;
 struct Unknown8008FC9C_1;
+struct Unknown800908CC;
 struct Unknown800908F0;
 struct Unknown80090A0C;
 struct Unknown80090A0C_1;
@@ -66,11 +73,15 @@ struct Unknown8009249C;
 struct Unknown80094704;
 struct Unknown8009BB5C;
 struct Unknown8009EDAC;
+struct Unknown8009F100;
+struct Unknown8009F100_1;
+struct Unknown8009F100_2;
 struct Unknown8009F34C;
 struct Unknown8009F34C_1;
 struct Unknown8009F544;
 struct Unknown8009FC0C;
 struct Unknown8009FCD0;
+struct Unknown800A0134;
 struct Unknown800A0908;
 struct Unknown800A0908_1;
 struct Unknown800A0AD4;
@@ -113,8 +124,12 @@ struct Unknown800E4D2C;
 struct Unknown800E4D44;
 struct Unknown800E9854;
 struct Unknown800E99E0;
+struct Unknown800E9A00;
+struct Unknown800ECC1C;
 struct Unknown800ED358;
 struct Unknown800ED358_1;
+struct Unknown800ED8C0;
+struct Unknown800ED8C0_1;
 struct Unknown800EFCA8;
 struct Unknown800EFCA8_1;
 struct Unknown800EFCD0;
@@ -128,17 +143,24 @@ struct Unknown800F1670;
 struct Unknown800F1DC4;
 struct Unknown800F1DC4_1;
 struct Unknown800F1E74;
+struct Unknown800F2E50;
 struct Unknown800F30C8;
 struct Unknown800F3234;
 struct Unknown800F46C8;
 struct Unknown80105290;
 struct Unknown8010770C;
+struct Unknown80107F14;
+struct Unknown80107F14_1;
+struct Unknown80107F14_2;
 struct Unknown80108E74;
 struct Unknown80108E74_1;
 struct Unknown8010B740;
 struct Unknown8010B740_1;
 struct Unknown8010CAE8;
 struct Unknown8010D388;
+struct Unknown8010DAA0;
+struct Unknown8010DAA0_1;
+struct Unknown8010DAA0_2;
 struct Unknown8010DD78;
 struct Unknown8010DD78_1;
 struct Unknown8010DED4;
@@ -181,6 +203,21 @@ typedef struct Unknown80078CF8_1 {
     u8 reserved00[0x4];
     s32 value04;
 } Unknown80078CF8_1;
+
+typedef struct Unknown8007902C {
+    u8 reserved00[0x1E8];
+    s32 value1E8;
+    u8 reserved1EC[0x2];
+    u16 value1EE;
+    u16 value1F0;
+    u16 value1F2;
+    u16 value1F4;
+    u8 reserved1F6[0x2];
+    s32 value1F8;
+    s32 value1FC;
+    s32 value200;
+    s32 value204;
+} Unknown8007902C;
 
 typedef struct Unknown8007E41C {
     u8 reserved00[0x4];
@@ -296,16 +333,40 @@ typedef struct Unknown80086F3C_2 {
     struct Unknown80086F3C_1 *value28;
 } Unknown80086F3C_2;
 
+typedef struct Unknown80087798_1 {
+    s32 value00;
+    s32 value04;
+} Unknown80087798_1;
+
+typedef struct Unknown800874F4 {
+    u8 reserved00[0x1028];
+    Unknown80087798_1 value1028[600];
+} Unknown800874F4;
+
+typedef struct Unknown800874F4_1 {
+    u8 reserved00[0x14];
+    struct Unknown80087798 *value14;
+    u8 reserved18[0x10];
+    struct Unknown800874F4 *value28;
+} Unknown800874F4_1;
+
+typedef struct Unknown80087634 {
+    u8 reserved00[0xC];
+    Unknown80087798_1 value0C[450];
+} Unknown80087634;
+
+typedef struct Unknown80087634_1 {
+    u8 reserved00[0xC];
+    struct Unknown80087D30_3 *value0C;
+    u8 reserved10[0x18];
+    struct Unknown80087634 *value28;
+} Unknown80087634_1;
+
 typedef struct Unknown80087798 {
     u8 value00;
     u8 value01;
     u16 value02;
 } Unknown80087798;
-
-typedef struct Unknown80087798_1 {
-    s32 value00;
-    s32 value04;
-} Unknown80087798_1;
 
 typedef struct Unknown80087798_2 {
     u8 reserved00[0xE20];
@@ -496,6 +557,12 @@ typedef struct Unknown8008FC9C_1 {
     s32 value44;
 } Unknown8008FC9C_1;
 
+typedef struct Unknown800908CC {
+    u8 reserved00[0xC];
+    s32 value0C;
+    s32 value10;
+} Unknown800908CC;
+
 typedef struct Unknown800908F0 {
     u8 reserved00[0xC];
     s32 value0C;
@@ -630,6 +697,23 @@ typedef struct Unknown8009EDAC {
     void *value0C;
 } Unknown8009EDAC;
 
+typedef struct Unknown8009F100 {
+    u8 reserved00[0x3E0];
+    f32 value3E0;
+    f32 value3E4;
+} Unknown8009F100;
+
+typedef struct Unknown8009F100_1 {
+    u8 reserved00[0xC];
+    struct Unknown8009F100 *value0C;
+} Unknown8009F100_1;
+
+typedef struct Unknown8009F100_2 {
+    u8 reserved00[0x8];
+    s32 value08;
+    s32 value0C;
+} Unknown8009F100_2;
+
 typedef struct Unknown8009F34C {
     u8 reserved00[0x1C];
     s32 value1C;
@@ -658,6 +742,14 @@ typedef struct Unknown8009FCD0 {
     f32 value14;
     f32 value18;
 } Unknown8009FCD0;
+
+typedef struct Unknown800A0134 {
+    u8 reserved00[0x280];
+    s32 value280;
+    s32 value284;
+    u16 value288;
+    u8 reserved28A[0x2];
+} Unknown800A0134;
 
 typedef struct Unknown800A0908 {
     u8 reserved00[0x10];
@@ -976,6 +1068,31 @@ typedef struct Unknown800E99E0 {
     s32 value44;
 } Unknown800E99E0;
 
+typedef struct Unknown800E9A00 {
+    u8 reserved00[0x4];
+    struct Unknown800E262C *value04;
+    u8 reserved08[0x8];
+    s32 value10;
+    s32 value14;
+    u8 reserved18[0x8];
+    f32 value20[8];
+    s32 value40;
+} Unknown800E9A00;
+
+typedef struct Unknown800ECC1C {
+    u8 reserved00[0xC];
+    f32 value0C;
+    f32 value10;
+    f32 value14;
+    s16 value18;
+    s16 value1A;
+    u8 value1C;
+    u8 reserved1D[0x3];
+    s32 value20;
+    u8 value24;
+    u8 reserved25[0x3];
+} Unknown800ECC1C;
+
 typedef struct Unknown800ED358 {
     u8 reserved00[0xC];
     f32 value0C;
@@ -992,6 +1109,24 @@ typedef struct Unknown800ED358_1 {
     f32 value04;
     f32 value08;
 } Unknown800ED358_1;
+
+typedef struct Unknown800ED8C0 {
+    s32 value00;
+    s32 value04;
+    s32 value08;
+} Unknown800ED8C0;
+
+typedef struct Unknown800ED8C0_1 {
+    u8 reserved00[0xC];
+    u8 value0C;
+    u8 value0D;
+    s16 value0E;
+    s16 value10;
+    s16 value12;
+    u8 value14;
+    u8 reserved15[0x3];
+    Unknown800ED8C0 value18;
+} Unknown800ED8C0_1;
 
 typedef struct Unknown800EFCA8 {
     u8 reserved00[0xC];
@@ -1104,6 +1239,17 @@ typedef struct Unknown800F1E74 {
     u8 reserved27[0x1];
 } Unknown800F1E74;
 
+typedef struct Unknown800F2E50 {
+    u8 reserved00[0xC];
+    s8 value0C;
+    s8 value0D;
+    s8 value0E;
+    u8 value0F;
+    s32 value10;
+    s32 value14;
+    s32 value18;
+} Unknown800F2E50;
+
 typedef struct Unknown800F30C8 {
     u8 reserved00[0xC];
     u8 value0C[6];
@@ -1141,6 +1287,32 @@ typedef struct Unknown80105290 {
 typedef struct Unknown8010770C {
     u8 reserved00[0x28];
 } Unknown8010770C;
+
+typedef struct Unknown80107F14 {
+    u16 value00;
+    s16 value02;
+    s16 value04;
+    u8 reserved06[0x8];
+    s16 value0E;
+} Unknown80107F14;
+
+typedef struct Unknown80107F14_1 {
+    u16 value00;
+    s16 value02;
+    s16 value04;
+    u8 reserved06[0x2];
+    s32 value08;
+    Unknown80107F14 value0C;
+    u8 reserved1C[0x2];
+    s16 value1E[4];
+    u8 reserved26[0x2];
+} Unknown80107F14_1;
+
+typedef struct Unknown80107F14_2 {
+    s32 value00[4];
+    s32 value10[4];
+    s32 value20[4];
+} Unknown80107F14_2;
 
 typedef struct Unknown80108E74 {
     s16 value00;
@@ -1193,6 +1365,34 @@ typedef struct Unknown8010D388 {
     u8 reserved22[0x6];
     f32 value28;
 } Unknown8010D388;
+
+typedef struct Unknown8010DAA0 {
+    s16 value00;
+    s16 value02;
+    s16 value04;
+    s16 value06;
+    s16 value08;
+    s16 value0A;
+    s16 value0C;
+    s16 value0E;
+    s16 value10;
+} Unknown8010DAA0;
+
+typedef struct Unknown8010DAA0_1 {
+    u8 reserved00[0x8];
+    s32 value08;
+} Unknown8010DAA0_1;
+
+typedef struct Unknown8010DAA0_2 {
+    u8 reserved00[0xC];
+    f32 value0C;
+    f32 value10;
+    s32 value14;
+    s32 value18;
+    s32 value1C;
+    u8 reserved20[0x4];
+    s32 value24;
+} Unknown8010DAA0_2;
 
 typedef struct Unknown8010DD78 {
     u8 reserved00[0xC];

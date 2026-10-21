@@ -10,7 +10,11 @@ void func_800E99E0(Unknown800E99E0 *params, s32 value)
     params->value30[params->value44] = value;
     params->value44++;
 }
-INCLUDE_ASM("span_1000", func_800E9A00);
+void func_800E9A00(Unknown800E9A00 *context, f32 value)
+{
+    context->value20[context->value40] = value;
+    context->value40++;
+}
 #include "shared/bt_span_1000_code_800E9200.h"
 #include "shared/bt_types.h"
 

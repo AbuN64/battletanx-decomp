@@ -1,3 +1,4 @@
+#include "shared/bt_records.h"
 #ifndef SHARED_BT_SPAN_1000_CODE_80107168_H
 #define SHARED_BT_SPAN_1000_CODE_80107168_H
 #include "shared/bt_types.h"
@@ -31,7 +32,7 @@ struct QueryBox;
 extern int func_8010A680(struct QueryBox * dst, struct QueryBox * base, struct QueryBox * other);
 
 
-extern int func_80107F14(int arg0, struct QueryBox * arg1, int arg2, void * arg3, void * arg4);
+extern s32 func_80107F14(s32 self, Unknown80107F14 *body, u16 mask, s32 *scratch, s32 *owner);
 
 
 

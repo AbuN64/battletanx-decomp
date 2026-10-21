@@ -1,3 +1,4 @@
+#include "shared/bt_records.h"
 #include "shared/bt_span_1000_code_800EC380.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 #include "shared/bt_unit.h"
@@ -59,7 +60,7 @@ typedef struct DmaRegion {
 extern DmaRegion D_80125550[];
 extern char D_8F147050[];
 extern void func_800765C0(unsigned int a, unsigned int b, unsigned int n);
-extern void func_80076408(unsigned int a, unsigned int b, unsigned int n);
+extern void func_80076408(u32 dest, u8 *source, u32 length);
 extern void func_80076164(unsigned int a, unsigned int b, unsigned int n);
 extern void func_800764F4(u32 address, u8 value, u32 length);
 
@@ -128,7 +129,7 @@ extern s32 func_800E6C80(struct ResetState *);
 
 extern s32 func_800E6FD8(struct ResetState *);
 
-extern void func_800E9A00(void *, f32);
+extern void func_800E9A00(Unknown800E9A00 *context, f32 value);
 extern s32 func_800E7064(s32);
 
 extern s32 func_800E70C4(s32);
@@ -547,7 +548,7 @@ s32 func_80107170(s32);
 
 f32 func_8007B208(s32 *r, s32 value);
 
-s32 func_8010CB4C(s32, s32);
+extern void func_8010CB4C(Unknown8009F34C *record, s32 enabled);
 
 void func_80084CC4(Scene *, s32, void *, void *, s32, s32, f32 *, f32);
 extern f32 D_80071E90;
@@ -882,7 +883,7 @@ void func_8007968C(void);
 void func_8007D998(void);
 void func_800A8EE0(void);
 void func_800760DC(s32 count);
-void func_8007902C(u8 *record);
+extern void func_8007902C(Unknown8007902C *record);
 void func_80076390(u32 address, u8 value);
 void func_80079948(void);
 s32 func_8007C344(s32 mode);
@@ -1211,7 +1212,7 @@ void func_800CA980(void);
 extern u8 D_B04AD7E0[];
 void func_800DADBC(void);
 
-extern void func_800ED8C0(f32 *position, s32 variant);
+extern void func_800ED8C0(Unknown800ED8C0 *position, s32 variant);
 extern void func_800902BC(f32 *position, s32 arg1);
 extern void func_8009F958(void *sender, PointZX *center, f32 radius, f32 damage, u8 owner);
 extern s32 func_80085B4C(s32 soundId, f32 x, f32 z);
@@ -1269,9 +1270,9 @@ s32 func_800E7490(struct ResetState *);
 s32 func_800E7560(struct ResetState *);
 s32 func_800E7628(struct ResetState *);
 s32 func_800E76D0(struct ResetState *);
-int func_800EB71C(struct ResetState * arg0);
-int func_800EB764(struct ResetState * arg0);
-int func_800EB7AC(struct ResetState * arg0);
+extern s32 func_800EB71C(Unknown800E26DC_2 *context);
+extern s32 func_800EB764(Unknown800E26DC_2 *context);
+extern s32 func_800EB7AC(Unknown800E26DC_2 *context);
 
 extern f32 D_800749A0;
 extern f32 D_800749A4;
@@ -1528,7 +1529,7 @@ extern u16 D_801C9050[];
 
 extern s32 func_800A1408(s32 arg0, s32 arg1, s32 arg2, u16 arg3, PointZX *from, PointZX *to, s32 arg6,
                           s32 arg7, s32 arg8);
-extern s32 func_8010DAA0(void *pos, s32 arg1);
+extern s32 func_8010DAA0(Unknown80090A0C_1 *pos, s32 tag);
 
 extern f32 D_800745D0;
 extern f32 func_800E0D54(void *from, void *to);

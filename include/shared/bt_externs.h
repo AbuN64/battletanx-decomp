@@ -8,7 +8,7 @@ extern void func_80113460(f32 mf[4][4], f32 eyeX, f32 eyeY, f32 eyeZ, f32 atX, f
 extern f32 D_800710B4;
 extern void func_800A7744(void *target, s32 value14, s32 zero, s32 value10, u16 flags);
 extern void func_801146A0(s32 source, u32 dest);
-extern s32 func_80087634(Unknown80087798_3 *bank, s32 index, s32 arg2);
+extern s32 func_80087634(Unknown80087634_1 *bank, s32 set, s32 hold);
 extern s16 func_800880B4(Unknown80088280_2 *src, Unknown80088280_3 *dst, s32 index);
 extern void func_800A76A0(void *target, void *vector);
 extern f32 D_80071CDC;
@@ -20,7 +20,7 @@ extern void func_800A51E8(void *owner, s32 key, f32 value);
 extern void func_8009D4DC(void *member);
 extern f32 D_80072C84;
 extern s32 func_800A0218(CombatUnit *unit);
-extern s32 func_800A0134(CombatUnit *unit);
+extern s32 func_800A0134(Unknown800A75EC *entity);
 extern void func_800E4344(CombatUnit *unit, s32 active);
 extern f32 D_80072DEC;
 extern s32 func_80116110(Unknown800A979C_1 *pfs, u16 companyCode, u32 gameCode, u8 *gameName, u8 *extName);
@@ -49,4 +49,9 @@ extern void func_8010BFDC(Unknown8010CAE8 *obj);
 extern void func_8010C450(void *obj);
 extern void func_8010CE24(Unknown8010D388 *line, f32 *pos);
 extern f32 D_800755A0;
+extern s32 func_800874F4(Unknown800874F4_1 *bank, s32 group, s32 hold);
+extern s32 func_8008716C(Unknown800874F4_1 *bank, s32 index, s32 hold);
+extern f32 D_800749F0;
+extern s32 func_8009FEE0(Unknown800A75EC *entity, s32 a, s32 b, u16 c);
+extern s32 D_80138FBC;
 #endif

@@ -89,7 +89,23 @@ INCLUDE_ASM("span_1000", func_800F29EC);
 INCLUDE_ASM("span_1000", func_800F29F0);
 INCLUDE_ASM("span_1000", func_800F2AE4);
 INCLUDE_ASM("span_1000", func_800F2D58);
-INCLUDE_ASM("span_1000", func_800F2E50);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800F2E50(s8 value0C, s8 value0D, s8 value0E, s32 value10, s32 value18)
+{
+    Unknown800F2E50 *effect;
+
+    effect = func_8008AD10(1, 0x19, sizeof(Unknown800F2E50));
+    if (effect != 0) {
+        effect->value0C = value0C;
+        effect->value0D = value0D;
+        effect->value0E = value0E;
+        effect->value10 = value10;
+        effect->value14 = 0;
+        effect->value18 = value18;
+    }
+}
 #include "game/sys_80076000.h"
 void func_800F2ED4(EffectKind19 *effect, s32 *state)
 {

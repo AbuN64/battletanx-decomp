@@ -173,8 +173,64 @@ block_10:
 INCLUDE_ASM("span_1000", func_80087054);
 #endif
 INCLUDE_ASM("span_1000", func_8008716C);
-INCLUDE_ASM("span_1000", func_800874F4);
-INCLUDE_ASM("span_1000", func_80087634);
+s32 func_800874F4(Unknown800874F4_1 *bank, s32 group, s32 hold)
+{
+    Unknown800874F4 *state = bank->value28;
+    s32 refs;
+    s32 i;
+
+    if (group >= 600) {
+        return -1;
+    }
+    refs = state->value1028[group].value00;
+    if (refs == 0) {
+        state->value1028[group].value00 = (hold != 0) ? 2 : 1;
+        for (i = 0; i < bank->value14[group].value00; i++) {
+            if (func_8008716C(bank, bank->value14[group].value02 + i, hold) < 0) {
+                return -1;
+            }
+        }
+        return 0;
+    }
+    if (hold != 0) {
+        state->value1028[group].value00 = refs + 1;
+        for (i = 0; i < bank->value14[group].value00; i++) {
+            if (func_8008716C(bank, bank->value14[group].value02 + i, hold) < 0) {
+                return -1;
+            }
+        }
+    }
+    return 0;
+}
+s32 func_80087634(Unknown80087634_1 *bank, s32 set, s32 hold)
+{
+    Unknown80087634 *state = bank->value28;
+    s32 refs;
+    s32 i;
+
+    if (set >= 450) {
+        return -1;
+    }
+    refs = state->value0C[set].value00;
+    if (refs == 0) {
+        state->value0C[set].value00 = (hold != 0) ? 2 : 1;
+        for (i = 0; i < bank->value0C[set].value00; i++) {
+            if (func_800874F4(bank, bank->value0C[set].value02 + i, hold) < 0) {
+                return -1;
+            }
+        }
+        return 0;
+    }
+    if (hold != 0) {
+        state->value0C[set].value00 = refs + 1;
+        for (i = 0; i < bank->value0C[set].value00; i++) {
+            if (func_800874F4(bank, bank->value0C[set].value02 + i, hold) < 0) {
+                return -1;
+            }
+        }
+    }
+    return 0;
+}
 s32 func_80087798(Unknown80087798_3 *bank, s32 group) {
     Unknown80087798_2 *state = bank->value28;
     s32 i;

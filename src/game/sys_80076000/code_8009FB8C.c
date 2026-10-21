@@ -78,7 +78,31 @@ u16 func_8009FCD0(Unknown8009FCD0 *vec) {
 }
 INCLUDE_ASM("span_1000", func_8009FD94);
 INCLUDE_ASM("span_1000", func_8009FEE0);
-INCLUDE_ASM("span_1000", func_800A0134);
+#include "shared/bt_span_1000_code_8007A470.h"
+#include "shared/bt_span_1000_code_8008011C.h"
+
+s32 func_800A0134(Unknown800A75EC *entity)
+{
+    void *session = func_800821C0();
+    s32 i;
+    s32 j;
+    s32 offset;
+    Unknown800A0134 *point;
+
+    for (i = 0; i < func_8007AAB0(); i++) {
+        j = 0;
+        offset = ((entity->value04 + i) % func_8007AAB0()) * 0x3C;
+        do {
+            point = (Unknown800A0134 *) ((u8 *) session + offset);
+            if (func_8009FEE0(entity, point->value280, point->value284, point->value288) >= 0) {
+                return 1;
+            }
+            j++;
+            offset += 0xC;
+        } while (j < 5);
+    }
+    return -1;
+}
 INCLUDE_ASM("span_1000", func_800A0218);
 INCLUDE_ASM("span_1000", func_800A037C);
 #include "game/sys_80076000.h"

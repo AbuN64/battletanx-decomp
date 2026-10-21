@@ -185,7 +185,12 @@ s32 func_800907CC(s32 arg0, s32 arg1, s32 arg2, u16 arg3, s32 arg4, s32 arg5, s3
     return 0;
 }
 
-INCLUDE_ASM("span_1000", func_800908CC);
+void func_800908CC(Unknown800908CC *effect, void *unused1, void *unused2, Unknown800A0908_1 *report)
+{
+    report->value00 = 1;
+    report->value08 = effect->value0C;
+    report->value04 = effect->value10;
+}
 void func_800908F0(Unknown800908F0 *entity, s32 unused, f32 *target) {
     f32 dx = target[1] - (f32)entity->value0C;
     f32 dz = target[0] - (f32)entity->value10;

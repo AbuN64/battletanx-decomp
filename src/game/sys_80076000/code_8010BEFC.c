@@ -73,4 +73,9 @@ void func_8010CAE8(Unknown8010CAE8 *obj) {
         }
     }
 }
-INCLUDE_ASM("span_1000", func_8010CB4C);
+void func_8010CB4C(Unknown8009F34C *record, s32 enabled)
+{
+    if (enabled == 0) {
+        record->value1C = 0;
+    }
+}

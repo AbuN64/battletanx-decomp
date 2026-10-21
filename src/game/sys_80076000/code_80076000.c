@@ -62,7 +62,26 @@ void func_80076390(u32 address, u8 value)
     func_80076068(address, (func_800760A0(address) & ~(0xFF << shift)) | ((u32)value << shift));
 }
 
-INCLUDE_ASM("span_1000", func_80076408);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_80076408(u32 dest, u8 *source, u32 length)
+{
+    while (length != 0 && (dest & 3) != 0) {
+        func_80076390(dest++, *source++);
+        length--;
+    }
+    while (length >= 4) {
+        func_80076068(dest, (source[0] << 24) | (source[1] << 16) | (source[2] << 8) | source[3]);
+        dest += 4;
+        source += 4;
+        length -= 4;
+    }
+    while (length != 0) {
+        func_80076390(dest++, *source++);
+        length--;
+    }
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076068.h"

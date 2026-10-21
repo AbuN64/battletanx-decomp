@@ -94,7 +94,82 @@ void func_8010770C(s32 index, s32 a, s32 b, s32 c, s32 d) {
 INCLUDE_ASM("span_1000", func_80107754);
 INCLUDE_ASM("span_1000", func_80107A14);
 INCLUDE_ASM("span_1000", func_80107B44);
-INCLUDE_ASM("span_1000", func_80107F14);
+s32 func_80107F14(s32 self, Unknown80107F14 *body, u16 mask, s32 *scratch, s32 *owner)
+{
+    Unknown80107F14_2 cells;
+    s32 baseX;
+    s32 baseZ;
+    Unknown80107F14_1 *other;
+    s32 cellCount;
+    s32 i;
+    s32 j;
+    s32 row;
+    s32 col;
+    s32 layer;
+    s16 id;
+    f32 dx;
+    f32 dz;
+    f32 dist;
+    u8 hit;
+
+    if (self == -1) {
+        return 0;
+    found:
+        *owner = other->value08;
+        return 1;
+    }
+    baseX = body->value02;
+    baseZ = body->value04;
+    cellCount = 0;
+    baseX += D_803B8238;
+    baseZ += D_803B823C;
+    for (i = 0; i < 4; i++) {
+        row = (baseX + D_80142B50[i]) >> 11;
+        col = (baseZ + D_80142B60[i]) >> 11;
+        if (((row >= 20) | (col >= 20)) == 0 && ((row < 0) | (col < 0)) == 0) {
+            for (j = 0; j < i; j++) {
+                if (row == cells.value00[j] && col == cells.value10[j]) {
+                    break;
+                }
+            }
+            cells.value20[cellCount] = i;
+            cells.value00[cellCount] = row;
+            cells.value10[cellCount] = col;
+            cellCount++;
+        }
+    }
+    for (i = 0; i < cellCount + 1; i++) {
+        if (i < cellCount) {
+            layer = cells.value20[i];
+            row = cells.value00[i];
+            col = cells.value10[i];
+            id = D_803B75B0[layer][row][col];
+        } else {
+            id = D_803B8230;
+            layer = 0;
+        }
+        while (id != -1) {
+            other = &D_803B8248[id];
+            if ((other->value00 & mask) && id != self) {
+                dx = body->value02 - other->value0C.value02;
+                dz = body->value04 - other->value0C.value04;
+                dist = sqrtf(dx * dx + dz * dz);
+                if (dist < (f32)(body->value0E + other->value0C.value0E)) {
+                    if (other->value0C.value00 & 0x10) {
+                        hit = func_80109498(other->value0C.value02, other->value0C.value04, body);
+                    } else {
+                        hit = func_8010A8A8(body, &other->value0C, scratch);
+                    }
+                    if (hit) {
+                        goto found;
+                    }
+                }
+            }
+            id = other->value1E[layer & 3];
+        }
+    }
+    return 0;
+}
 INCLUDE_ASM("span_1000", func_8010823C);
 INCLUDE_ASM("span_1000", func_80108538);
 INCLUDE_ASM("span_1000", func_8010874C);

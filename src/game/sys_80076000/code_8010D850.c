@@ -17,7 +17,51 @@ void func_8010D9A0(void) {
 }
 
 INCLUDE_ASM("span_1000", func_8010D9B0);
-INCLUDE_ASM("span_1000", func_8010DAA0);
+#include "span_1000/code_8008F4EC.h"
+#include "shared/bt_span_1000_code_80107168.h"
+#include "shared/bt_span_1000_code_8010BFDC.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+s32 func_8010DAA0(Unknown80090A0C_1 *pos, s32 tag) {
+    Unknown8010DAA0_1 *results[16];
+    Unknown8010DAA0 box;
+    s32 count;
+    s32 i;
+    Unknown8010DAA0_2 *effect;
+
+    box.value02 = pos->value04;
+    box.value04 = pos->value00;
+    box.value06 = -10;
+    box.value0A = -10;
+    box.value08 = 10;
+    box.value0C = 10;
+    box.value0E = 14;
+    box.value10 = 0;
+    if (tag != -1) {
+        if (func_80107A14(&box, 16, results, &count)) {
+            for (i = 0; i < count; i++) {
+                if ((u32)results[i] < 3) {
+                    return -1;
+                }
+                if (results[i]->value08 != 0) {
+                    return -1;
+                }
+            }
+        }
+    }
+    effect = func_8008AD10(0, 0x1D, 0x28);
+    if (effect == 0) {
+        return -1;
+    }
+    effect->value10 = pos->value04;
+    effect->value0C = pos->value00;
+    effect->value1C = 0;
+    effect->value24 = tag;
+    effect->value18 = D_801B4AA8;
+    effect->value14 = func_80106D18(effect, effect->value10, effect->value0C, -10, 10, -10, 10, 0x242, 0);
+    return 0;
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8010BFDC.h"
 void func_8010DC0C(EffectKind1D *effect, s32 *state)

@@ -406,9 +406,34 @@ s32 func_800EB6D4(Unknown800E26DC_2 *context)
     func_800E6FD8(context);
     return -1;
 }
-INCLUDE_ASM("span_1000", func_800EB71C);
-INCLUDE_ASM("span_1000", func_800EB764);
-INCLUDE_ASM("span_1000", func_800EB7AC);
+s32 func_800EB71C(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 3.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    func_800E6FD8(context);
+    return -1;
+}
+s32 func_800EB764(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 1.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    func_800E6FD8(context);
+    return -1;
+}
+s32 func_800EB7AC(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 255.0f);
+    func_800E6FF8(context);
+    func_800E99D4(context);
+    func_800E9A00(context, 1.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    func_800E6FD8(context);
+    func_800E6C5C(context);
+    return -1;
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"

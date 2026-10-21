@@ -37,7 +37,22 @@ void func_80078F70(Scheduler *scheduler) {
 }
 
 INCLUDE_DATA("span_1000", D_800710D4);
-INCLUDE_ASM("span_1000", func_8007902C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8007902C(Unknown8007902C *record)
+{
+    record->value1E8 = 0;
+    record->value1EE = 0;
+    record->value1F0 = 0;
+    record->value1F2 = 1;
+    record->value1F4 = 0;
+    record->value1F8 = 0;
+    record->value1FC = 0;
+    record->value200 = 0;
+    record->value204 = 0;
+    D_801502E0 = 0;
+}
 INCLUDE_ASM("span_1000", func_80079064);
 INCLUDE_ASM("span_1000", func_800790EC);
 INCLUDE_ASM("span_1000", func_800792C8);

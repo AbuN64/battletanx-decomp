@@ -1,7 +1,28 @@
 #include "include_asm.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 
-INCLUDE_ASM("span_1000", func_800ECC1C);
+#include "shared/bt_types.h"
+#include "game/sys_80076000.h"
+#include "span_1000/code_8008F4EC.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800ECC1C(s32 arg0, s32 x, s32 z, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, u8 arg8)
+{
+    Unknown800ECC1C *effect;
+
+    effect = func_8008AD10(0, 0x10, 0x2C);
+    if (effect != 0) {
+        effect->value0C = x;
+        effect->value18 = arg0;
+        effect->value14 = z;
+        effect->value10 = D_800749F0;
+        effect->value1A = func_800EC644() == 0 ? 5 : 0;
+        effect->value1C = 0;
+        effect->value24 = arg8;
+        effect->value20 = func_80106D18(effect, x, z, arg3, arg4, arg5, arg6, 0xF85F, (u16)arg7);
+    }
+}
 INCLUDE_ASM("span_1000", func_800ECD30);
 INCLUDE_ASM("span_1000", func_800ECE4C);
 #include "shared/bt_types.h"
@@ -71,7 +92,25 @@ void func_800ED810(EffectKind10 *arg0, s32 arg1, u32 arg2, s32 arg3, PositionRep
 }
 
 INCLUDE_ASM("span_1000", func_800ED8BC);
-INCLUDE_ASM("span_1000", func_800ED8C0);
+void func_800ED8C0(Unknown800ED8C0 *position, s32 variant) {
+    Unknown800ED8C0_1 *effect;
+    u32 r;
+
+    if (variant == 0x1C) {
+        variant = D_80138FBC;
+        D_80138FBC = (variant + 1) % 13;
+    }
+    effect = func_8008AD10(1, 0x26, 0x24);
+    if (effect != 0) {
+        effect->value0C = variant;
+        effect->value14 = 0;
+        r = (u32)func_8007B268() >> 16;
+        effect->value0E = r;
+        effect->value10 = r;
+        effect->value12 = 0;
+        effect->value18 = *position;
+    }
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 
