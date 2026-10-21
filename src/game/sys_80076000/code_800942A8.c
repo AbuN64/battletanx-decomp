@@ -120,7 +120,24 @@ s32 func_8009453C(f32 *point, f32 *screen, s32 index) {
 }
 
 INCLUDE_DATA("span_1000", D_80072034);
-INCLUDE_ASM("span_1000", func_80094704);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+s32 func_80094704(Unknown80094704 *a, Unknown80094704 *b, Unknown80094704 *point)
+{
+    f32 terms[4];
+    s32 off;
+
+    terms[3] = point->value04 - a->value04;
+    terms[2] = point->value00 - a->value00;
+    terms[1] = b->value00 - a->value00;
+    terms[0] = a->value04 - b->value04;
+    off = 1;
+    if (terms[3] * terms[1] + terms[2] * terms[0] == 0.0f) {
+        off = 0;
+    }
+    return off;
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"

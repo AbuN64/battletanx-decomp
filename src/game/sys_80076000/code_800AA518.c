@@ -89,7 +89,36 @@ void func_800AACCC(u32 table, u16 index, s32 tile)
     }
 }
 
-INCLUDE_ASM("span_1000", func_800AB0A4);
-INCLUDE_ASM("span_1000", func_800AB128);
-INCLUDE_ASM("span_1000", func_800AB15C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800AB0A4(f32 scaleX, f32 scaleY) {
+    Unknown800AB0A4_1 *frame = func_8007F060();
+    Unknown800AB0A4 *source = frame->value28;
+
+    if (source != 0) {
+        f32 width = source->value04 * scaleX;
+        f32 height = source->value06 * scaleY;
+
+        frame->value1A = (s32)width << 6;
+        frame->value1C = (s32)height << 6;
+    }
+}
+void func_800AB128(void)
+{
+    Unknown80078CF8 *record = func_8007F060();
+    Unknown800AB128 *command = record->value04++;
+    command->value00 = 0xE7000000;
+    command->value04 = 0;
+}
+Unknown800AB15C *func_800AB15C(void)
+{
+    Unknown800AB15C_1 *record = func_8007F060();
+
+    if (record->value24 == 0) {
+        record->value24 = record->value04++;
+        return record->value04;
+    }
+    return 0;
+}
 INCLUDE_ASM("span_1000", func_800AB1A0);

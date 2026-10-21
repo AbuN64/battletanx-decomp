@@ -59,5 +59,18 @@ void func_8010C9E8(s32 unused, f32 (*v)[3]) {
     func_800AA328(0, 2, 3);
 }
 
-INCLUDE_ASM("span_1000", func_8010CAE8);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8010CAE8(Unknown8010CAE8 *obj) {
+    void *other = obj;
+
+    if (func_8007DBC4() == 0) {
+        if (obj->value0C < 2) {
+            func_8010BFDC(obj);
+        } else {
+            func_8010C450(other);
+        }
+    }
+}
 INCLUDE_ASM("span_1000", func_8010CB4C);

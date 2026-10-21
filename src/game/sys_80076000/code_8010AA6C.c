@@ -45,5 +45,36 @@ s32 func_8010AA6C(struct PolygonPoint a, struct PolygonPoint b, struct PolygonPo
 
 INCLUDE_RODATA("span_1000", D_800754C0);
 INCLUDE_ASM("span_1000", func_8010AC90);
-INCLUDE_ASM("span_1000", func_8010B740);
+#include "shared/bt_span_1000_code_800F29F0.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8010B740(Unknown8010B740_1 *rect, Unknown8010B740 *out) {
+    Unknown8010B740 corners[4];
+    f32 s;
+    f32 c;
+    s32 first;
+    s32 i;
+
+    s = -func_800F3AE0(rect->value10);
+    c = func_800F3B40(rect->value10);
+    corners[0].value04 = c * rect->value06 - s * rect->value0A + rect->value02;
+    corners[0].value00 = s * rect->value06 + c * rect->value0A + rect->value04;
+    corners[1].value04 = c * rect->value06 - s * rect->value0C + rect->value02;
+    corners[1].value00 = s * rect->value06 + c * rect->value0C + rect->value04;
+    corners[2].value04 = c * rect->value08 - s * rect->value0C + rect->value02;
+    corners[2].value00 = s * rect->value08 + c * rect->value0C + rect->value04;
+    corners[3].value04 = c * rect->value08 - s * rect->value0A + rect->value02;
+    corners[3].value00 = s * rect->value08 + c * rect->value0A + rect->value04;
+    first = 0;
+    for (i = 1; i < 4; i++) {
+        if (corners[i].value04 < corners[first].value04) {
+            first = i;
+        }
+    }
+    for (i = 0; i < 4; i++) {
+        out[i].value04 = corners[(i + first) & 3].value04;
+        out[i].value00 = corners[(i + first) & 3].value00;
+    }
+}
 INCLUDE_ASM("span_1000", func_8010B9C8);

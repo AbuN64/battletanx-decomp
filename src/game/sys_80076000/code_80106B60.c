@@ -83,7 +83,14 @@ void func_80107704(void) {
 
 }
 
-INCLUDE_ASM("span_1000", func_8010770C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8010770C(s32 index, s32 a, s32 b, s32 c, s32 d) {
+    if (index != -1) {
+        func_80109364(&D_803B8254[index], a, b, c, d);
+    }
+}
 INCLUDE_ASM("span_1000", func_80107754);
 INCLUDE_ASM("span_1000", func_80107A14);
 INCLUDE_ASM("span_1000", func_80107B44);
@@ -165,7 +172,22 @@ u8 func_80108B68(QueryBox *body, s32 self, u16 mask, f32 *delta, f32 *out, s32 a
     return hit;
 }
 
-INCLUDE_ASM("span_1000", func_80108E74);
+#include "shared/bt_span_1000_code_800F29F0.h"
+
+void func_80108E74(s32 index, Unknown80108E74_1 *out) {
+    Unknown80108E74 *area = &D_803B8254[index];
+    f32 s = -func_800F3AE0(area->value10);
+    f32 c = func_800F3B40(area->value10);
+
+    out[0].value04 = ((c * (f32)area->value06) - (s * (f32)area->value0A)) + (f32)area->value02;
+    out[0].value00 = (s * (f32)area->value06) + (c * (f32)area->value0A) + (f32)area->value04;
+    out[1].value04 = ((c * (f32)area->value08) - (s * (f32)area->value0A)) + (f32)area->value02;
+    out[1].value00 = (s * (f32)area->value08) + (c * (f32)area->value0A) + (f32)area->value04;
+    out[2].value04 = ((c * (f32)area->value08) - (s * (f32)area->value0C)) + (f32)area->value02;
+    out[2].value00 = (s * (f32)area->value08) + (c * (f32)area->value0C) + (f32)area->value04;
+    out[3].value04 = ((c * (f32)area->value06) - (s * (f32)area->value0C)) + (f32)area->value02;
+    out[3].value00 = (s * (f32)area->value06) + (c * (f32)area->value0C) + (f32)area->value04;
+}
 #include "shared/bt_types.h"
 
 s32 func_80109094(u32 arg0) {

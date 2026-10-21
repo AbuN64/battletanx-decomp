@@ -94,7 +94,21 @@ block_21:
 INCLUDE_ASM("span_1000", func_8009A22C);
 #endif
 INCLUDE_ASM("span_1000", func_8009A354);
-INCLUDE_ASM("span_1000", func_8009BB5C);
+#include "shared/bt_types.h"
+#include "game/sys_80076000.h"
+#include "shared/bt_player.h"
+#include "shared/bt_menu_render.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8009BB5C(Unknown8009BB5C *unit)
+{
+    if (unit->value45C != -1) {
+        func_800798C0(unit->value45C);
+        unit->value45C = -1;
+    }
+    func_800A51E8(func_800A6688(unit->value04), 0x24, 3.0f);
+}
 INCLUDE_ASM("span_1000", func_8009BBC0);
 INCLUDE_ASM("span_1000", func_8009C8C8);
 INCLUDE_ASM("span_1000", func_8009CA6C);

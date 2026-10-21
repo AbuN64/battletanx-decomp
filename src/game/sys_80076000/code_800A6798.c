@@ -223,6 +223,19 @@ void func_800A7550(f32 arg0, f32 arg1, s32 arg2) {
     }
 }
 
-INCLUDE_ASM("span_1000", func_800A75EC);
-INCLUDE_ASM("span_1000", func_800A7614);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800A75EC(void *arg0, Unknown800A75EC_1 *context, void *arg2, s32 *result)
+{
+    if (context->value08 == 0 && context->value0C->value04 == 0) {
+        *result = 9;
+    }
+}
+void func_800A7614(void *arg0, Unknown800A75EC_1 *context, s32 inhibited, void *arg3, s32 *result)
+{
+    if (inhibited == 0 && context->value08 == 0 && context->value0C->value04 == 0) {
+        *result = 9;
+    }
+}
 INCLUDE_DATA("span_1000", D_800A7648);

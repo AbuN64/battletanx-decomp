@@ -82,7 +82,24 @@ INCLUDE_RODATA("span_1000", D_80074630);
 INCLUDE_RODATA("span_1000", D_80074638);
 INCLUDE_RODATA("span_1000", D_8007463C);
 INCLUDE_DATA("span_1000", D_80074644);
-INCLUDE_ASM("span_1000", func_800E2CFC);
+#include "shared/bt_types.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800E2CFC(Unknown800E2CFC *obj, s32 arg1)
+{
+    s32 value;
+
+    if (obj->valueB4 != 0) {
+        if (obj->valueB4 >= 5) {
+            return;
+        }
+        value = obj->valueB8;
+    } else {
+        value = 0;
+    }
+    func_800E2AF0(obj, arg1, value);
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800E0B00.h"
 
@@ -210,8 +227,27 @@ INCLUDE_ASM("span_1000", func_800E360C);
 INCLUDE_ASM("span_1000", func_800E36FC);
 INCLUDE_ASM("span_1000", func_800E377C);
 INCLUDE_ASM("span_1000", func_800E3980);
-INCLUDE_ASM("span_1000", func_800E3A38);
-INCLUDE_ASM("span_1000", func_800E3A64);
+void func_800E3A38(Unknown800E3A38 *command, f32 *first, f32 *second)
+{
+    command->value0C = first[1];
+    command->value08 = first[0];
+    command->value14 = second[1];
+    command->value10 = second[0];
+    command->value00 = 7;
+}
+void func_800E3A64(Unknown800E3A64_2 *out, Unknown800E3A64_1 *owner)
+{
+    Unknown800E3A64 *object = owner->value34C;
+
+    if (object != 0 && object->value08 == 0x1B) {
+        out->value10 = object;
+        out->value14 = object->value04;
+        out->value08[1] = object->value20;
+        out->value08[0] = object->value1C;
+        out->value04 = out->value08;
+        out->value00 = 3;
+    }
+}
 #include "shared/bt_span_1000_code_800E21E4.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_80097038.h"

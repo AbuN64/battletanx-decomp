@@ -103,7 +103,16 @@ void func_8010DCD0(EffectKind1D *arg0, HandlerSender *arg1, s32 arg2, EffectMess
     }
 }
 
-INCLUDE_ASM("span_1000", func_8010DD78);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8010DD78(Unknown8010DD78 *effect, void *unused1, void *unused2,
+                                          Unknown8010DD78_1 *report)
+{
+    report->value00 = 1;
+    report->value08 = effect->value10;
+    report->value04 = effect->value0C;
+}
 #include "span_1000/code_8008F4EC.h"
 
 void func_8010DD94(void) {
@@ -116,4 +125,20 @@ void func_8010DDB4(void) {
 }
 
 INCLUDE_ASM("span_1000", func_8010DDD4);
-INCLUDE_ASM("span_1000", func_8010DED4);
+void func_8010DED4(Unknown80094704 *a, Unknown80094704 *b, Unknown80094704 *c, s32 param, u16 value30, u8 value32) {
+    Unknown8010DED4 *e = func_8008AD10(1, 0x1E, 0x34);
+
+    if (e != 0) {
+        e->value14.value04 = a->value04;
+        e->value14.value00 = a->value00;
+        e->value1C.value04 = b->value04;
+        e->value1C.value00 = b->value00;
+        e->value24.value04 = c->value04;
+        e->value24.value00 = c->value00;
+        e->value2C = param;
+        e->value10 = 0;
+        e->value0C = 0;
+        e->value30 = value30;
+        e->value32 = value32;
+    }
+}

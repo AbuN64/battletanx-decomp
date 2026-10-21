@@ -94,61 +94,29 @@ void func_80086C84(s32 arg0, FrameVertex *arg1, f32 arg2) {
 INCLUDE_ASM("span_1000", func_80086C84);
 #endif
 INCLUDE_ASM("span_1000", func_80086DC0);
-#ifdef NON_MATCHING
-#include "shared/bt_types.h"
-#include "game/sys_8011C210.h"
-extern s32 D_0000936C;
-extern s32 D_00009370;
-extern s32 D_00009374;
-extern s32 D_0000937C;
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
 
-s32 func_80086F3C(struct Slot *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    s32 temp_t0;
-    s32 temp_v1;
-    s32 temp_v1_2;
-    s32 var_a0;
-    s32 var_v0;
-    s32 var_v1;
+s32 func_80086F3C(Unknown80086F3C_2 *owner, s32 key, s32 value, s32 addRef) {
+    Unknown80086F3C_1 *table = owner->value28;
+    s32 i;
 
-    temp_t0 = arg0->unk28;
-    var_a0 = 0;
-    if (*(temp_t0 + &D_0000936C) > 0) {
-        var_v1 = temp_t0;
-loop_2:
-        if (*(var_v1 + &D_00009370) != arg1) {
-            var_a0 += 1;
-            var_v1 += 0x10;
-            if (var_a0 >= *(temp_t0 + &D_0000936C)) {
-                goto block_10;
+    for (i = 0; i < table->value936C; i++) {
+        if (table->value9370[i].value00 == key) {
+            if (addRef != 0) {
+                table->value9370[i].value0C++;
             }
-            goto loop_2;
-        }
-        if (arg3 == 0) {
             return 0;
         }
-        *(var_v1 + &D_0000937C) = *(var_v1 + &D_0000937C) + 1;
-        return 0;
     }
-block_10:
-    temp_v1 = *(temp_t0 + &D_0000936C);
-    if (temp_v1 == 0x100) {
+    if (table->value936C == 256) {
         return -1;
     }
-    if (arg3 != 0) {
-        var_v0 = 2;
-    } else {
-        var_v0 = 1;
-    }
-    *(temp_t0 + (temp_v1 * 0x10) + &D_0000937C) = var_v0;
-    *(temp_t0 + (*(temp_t0 + &D_0000936C) * 0x10) + &D_00009370) = arg1;
-    temp_v1_2 = *(temp_t0 + &D_0000936C);
-    *(temp_t0 + &D_0000936C) = temp_v1_2 + 1;
-    *(temp_t0 + (temp_v1_2 * 0x10) + &D_00009374) = arg2;
+    table->value9370[table->value936C].value0C = addRef ? 2 : 1;
+    table->value9370[table->value936C].value00 = key;
+    table->value9370[table->value936C++].value04 = value;
     return 0;
 }
-#else
-INCLUDE_ASM("span_1000", func_80086F3C);
-#endif
 #ifdef NON_MATCHING
 #include "shared/bt_types.h"
 #include "game/sys_8011C210.h"
@@ -207,11 +175,163 @@ INCLUDE_ASM("span_1000", func_80087054);
 INCLUDE_ASM("span_1000", func_8008716C);
 INCLUDE_ASM("span_1000", func_800874F4);
 INCLUDE_ASM("span_1000", func_80087634);
-INCLUDE_ASM("span_1000", func_80087798);
+s32 func_80087798(Unknown80087798_3 *bank, s32 group) {
+    Unknown80087798_2 *state = bank->value28;
+    s32 i;
+
+    if (group >= 64) {
+        return -1;
+    }
+    if (state->valueE20[group].value00 != 0) {
+        return 0;
+    }
+    state->valueE20[group].value00 = 1;
+    for (i = 0; i < bank->value10[group].value00; i++) {
+        if (func_80087634(bank, bank->value10[group].value02 + i, 0) < 0) {
+            return -1;
+        }
+    }
+    return 0;
+}
 INCLUDE_ASM("span_1000", func_8008785C);
-INCLUDE_ASM("span_1000", func_80087D30);
-INCLUDE_ASM("span_1000", func_80088004);
-INCLUDE_ASM("span_1000", func_8008805C);
+#include "shared/bt_span_1000_code_8007A470.h"
+
+void func_80087D30(Unknown80087D30_6 *ctx, s32 player, u32 *slots) {
+    u32 swap[2][4];
+    Unknown80087D30 *rec;
+    Unknown80087D30_1 *group;
+    Unknown80087D30_1 *groups;
+    Unknown80087D30_2 *node;
+    Unknown80087D30_3 *material;
+    Unknown80087D30_4 *entry;
+    Unknown80087D30_5 *texture;
+    s32 n = 0;
+    s32 i = 0;
+    s32 g;
+    s32 idx;
+    s32 a;
+    s32 b;
+    s32 c;
+
+    for (; i < func_8007AAA0(); i++) {
+        if (slots[i] >= 9) {
+            continue;
+        }
+        idx = slots[i] + 0x30;
+        material = &ctx->value0C[ctx->value00[player].value2DC + idx];
+        entry = &ctx->value14[material->value02];
+        texture = &ctx->value18[entry->value02];
+        swap[1][n] = texture->value00;
+        material = &ctx->value0C[ctx->value00[player].value2DC + 0x3C];
+        entry = &ctx->value14[material->value02];
+        if (entry->value00 != 4) {
+            return;
+        }
+        texture = &ctx->value18[entry->value02 + D_801260A0[i]];
+        swap[0][n++] = texture->value00;
+    }
+    if (n == 0) {
+        return;
+    }
+    for (i = 0; i < n; i++) {
+    }
+    rec = &ctx->value00[player];
+    for (g = 0; g < rec->value27C; g++) {
+        groups = ctx->value04;
+        group = (rec->value280 != -1) ? &groups[g + 1] : &groups[g];
+        for (a = 0; a < group->value00; a++) {
+            node = &ctx->value08[a + group->value02];
+            material = &ctx->value0C[node->value18];
+            for (b = 0; b < material->value00; b++) {
+                entry = &ctx->value14[material->value02 + b];
+                for (c = 0; c < entry->value00; c++) {
+                    texture = &ctx->value18[entry->value02 + c];
+                    for (i = 0; i < n; i++) {
+                        if (texture->value00 == swap[0][i]) {
+                            texture->value00 = swap[1][i];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+s32 func_80088004(Unknown80088004_2 *owner, s32 id) {
+    Unknown80088004_1 *table = owner->value28;
+    s32 i;
+
+    for (i = 0; i < table->value936C; i++) {
+        if (table->value9370[i].value00 == id) {
+            return i;
+        }
+    }
+    return 0;
+}
+s32 func_8008805C(Unknown8008805C_2 *handle, s32 key) {
+    Unknown8008805C_1 *owner = handle->value28;
+    s32 i;
+
+    for (i = 0; i < owner->valueA374; i++) {
+        if (owner->valueA378[i].value00 == key) {
+            return i;
+        }
+    }
+    return 0;
+}
 INCLUDE_ASM("span_1000", func_800880B4);
-INCLUDE_ASM("span_1000", func_80088280);
-INCLUDE_ASM("span_1000", func_80088360);
+s32 func_80088280(Unknown80088280_2 *src, Unknown80088280_3 *dst, s32 index)
+{
+    s32 slot;
+    Unknown80088280 *in;
+    Unknown80088280 *out;
+    s32 i;
+
+    slot = src->value28->value11404++;
+    out = &dst->value574[slot];
+    in = &src->value14[index];
+    out->value00 = in->value00;
+    out->value02 = func_800880B4(src, dst, in->value02);
+    for (i = 1; i < out->value00; i++) {
+        func_800880B4(src, dst, in->value02 + i);
+    }
+    return slot;
+}
+static inline s32 copy_group(Unknown80088280_2 *src, Unknown80088280_3 *dst, s32 index)
+{
+    s32 slot;
+    Unknown80088280 *in;
+    Unknown80088280 *out;
+    s32 i;
+
+    slot = src->value28->value11404++;
+    out = &dst->value574[slot];
+    in = &src->value14[index];
+    out->value00 = in->value00;
+    out->value02 = func_800880B4(src, dst, in->value02);
+    for (i = 1; i < out->value00; i++) {
+        func_800880B4(src, dst, in->value02 + i);
+    }
+    return slot;
+}
+
+s32 func_80088360(Unknown80088280_2 *src, Unknown80088280_3 *dst, s32 index)
+{
+    s32 slot;
+    Unknown80088360 *in;
+    Unknown80088360 *out;
+    s32 i;
+
+    slot = src->value28->value11400++;
+    out = &dst->value570[slot];
+    in = &src->value0C[index];
+    out->value04 = in->value04;
+    out->value06 = in->value06;
+    out->value08 = in->value08;
+    out->value0A = in->value0A;
+    out->value00 = in->value00;
+    out->value02 = copy_group(src, dst, in->value02);
+    for (i = 1; i < out->value00; i++) {
+        copy_group(src, dst, in->value02 + i);
+    }
+    return slot;
+}

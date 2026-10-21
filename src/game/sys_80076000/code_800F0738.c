@@ -146,7 +146,19 @@ s32 func_800F15A0(f32 *pos, s16 value18, s8 value1A, s16 value1C, s32 value20, s
     return 1;
 }
 
-INCLUDE_ASM("span_1000", func_800F1670);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800F1670(Unknown800F1670 *spawn, s32 *state)
+{
+    if (spawn->value2C == 0) {
+        func_800F0FD8(spawn->value0C, spawn->value18, spawn->value1A, spawn->value1C, spawn->value20,
+                      spawn->value24, spawn->value28, 1);
+        *state = 2;
+        return;
+    }
+    spawn->value2C--;
+}
 #include "game/sys_80076000.h"
 void func_800F16E4(EffectKind23 *effect, s32 *state)
 {
@@ -174,5 +186,52 @@ void func_800F1BB4(f32 *origin, u8 byte0, u8 byte1, u8 byte2) {
 }
 
 INCLUDE_ASM("span_1000", func_800F1CA0);
-INCLUDE_ASM("span_1000", func_800F1DC4);
-INCLUDE_ASM("span_1000", func_800F1E74);
+s32 func_800F1DC4(Unknown800F1DC4 *a, Unknown800F1DC4 *b, s32 arg2, s32 arg3, u8 arg4)
+{
+    Unknown800F1DC4_1 *effect = func_8008AD10(1, 0x24, 0x28);
+
+    if (effect == 0) {
+        return -1;
+    }
+    effect->value0C = *a;
+    effect->value18 = *b;
+    effect->value24 = arg2;
+    effect->value25 = arg3;
+    effect->value26 = arg4;
+    return 0;
+}
+#include "shared/bt_span_1000_code_800F29F0.h"
+
+void func_800F1E74(Unknown800F1DC4 *origin) {
+    Unknown800F1DC4 velocity;
+    Unknown800F1E74 *effect;
+    f64 scale;
+    f32 sinPitch;
+    u16 yaw;
+    u16 pitch;
+    s8 red;
+    s8 green;
+    s8 blue;
+    s32 i;
+
+    scale = D_80074DF8;
+    for (i = 1; i < 7; i++) {
+        yaw = func_800F38F4() % 65535;
+        pitch = func_800F38F4() & 0x1FFF;
+        sinPitch = func_800F3AE0(pitch);
+        velocity.value00 = sinPitch * scale * func_800F3AE0(yaw);
+        velocity.value04 = func_800F3B40(pitch) * scale;
+        velocity.value08 = sinPitch * scale * func_800F3B40(yaw);
+        red = (i & 1) ? -6 : 0;
+        green = (i & 2) ? -6 : 0;
+        blue = (i & 4) ? -6 : 0;
+        effect = func_8008AD10(1, 0x24, 0x28);
+        if (effect != 0) {
+            effect->value0C = *origin;
+            effect->value18 = velocity;
+            effect->value24[0] = red;
+            effect->value24[1] = green;
+            effect->value24[2] = blue;
+        }
+    }
+}

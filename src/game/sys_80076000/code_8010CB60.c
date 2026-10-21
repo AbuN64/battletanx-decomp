@@ -41,7 +41,38 @@ s32 func_8010CB60(EffectKind2DParams *params)
     return 0;
 }
 
-INCLUDE_ASM("span_1000", func_8010CC44);
+#include "shared/bt_types.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8010CC44(EffectKind2D *effect) {
+    s32 timer;
+    u16 phase;
+
+    timer = effect->value24;
+    if (timer != -1) {
+        if (timer != 0) {
+            effect->value24 = timer - 1;
+        }
+    }
+    if (effect->value32 > 0) {
+        effect->value32 -= func_800F38F4() & 1;
+        if (effect->value32 < 0) {
+            effect->value32 = 0;
+        }
+    }
+    effect->value34++;
+    effect->value35++;
+    phase = effect->value36 + effect->value38;
+    effect->value36 = phase;
+    if (phase >= 0x100) {
+        effect->value30++;
+        effect->value31++;
+        effect->value30 = effect->value30 % D_80142CD0;
+        effect->value36 = 0;
+        effect->value31 = effect->value31 % D_80142CD0;
+    }
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 void func_8010CD4C(EffectKind2D *quad, f32 *center, f32 corners[4][3]) {
@@ -60,7 +91,30 @@ void func_8010CD4C(EffectKind2D *quad, f32 *center, f32 corners[4][3]) {
 }
 
 INCLUDE_ASM("span_1000", func_8010CE24);
-INCLUDE_ASM("span_1000", func_8010D388);
+void func_8010D388(Unknown8010D388 *line) {
+    f32 pos[3];
+    f32 c;
+    f32 step;
+    f32 s;
+    f32 dx;
+    f32 dz;
+    s32 i;
+
+    i = 0;
+    c = func_800F3B40(line->value18);
+    s = func_800F3AE0(line->value18);
+    step = line->value28 + line->value28;
+    dz = step * -s;
+    dx = step * c;
+    pos[2] = line->value14 - dz * line->value20 / D_800755A0;
+    pos[0] = line->value0C - dx * line->value20 / D_800755A0;
+    pos[1] = line->value10;
+    for (; i < line->value20; i++) {
+        func_8010CE24(line, pos);
+        pos[2] += dz;
+        pos[0] += dx;
+    }
+}
 INCLUDE_ASM("span_1000", func_8010D480);
 INCLUDE_ASM("span_1000", func_8010D59C);
 INCLUDE_DATA("span_1000", D_8010D844);

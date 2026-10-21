@@ -3,34 +3,65 @@
 INCLUDE_ASM("span_1000", func_800E3C34);
 INCLUDE_ASM("span_1000", func_800E3CF0);
 INCLUDE_ASM("span_1000", func_800E3F90);
-#ifdef NON_MATCHING
 #include "shared/bt_types.h"
+#include "game/sys_80076000.h"
 #include "span_1000/code_800E21E4.h"
-void func_800E566C(struct Rec *r);
-void func_800E4094(s16 arg0) {
-    s16 var_s0;
-    s16 var_v0_2;
-    s32 temp_a1;
-    s32 var_v0;
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
 
-    var_s0 = 0;
-    var_v0 = 0 << 0x10;
-    do {
-        temp_a1 = var_v0 >> 0x10;
-        var_v0_2 = var_s0 + 1;
-        if (arg0 != temp_a1) {
-            func_800E566C(func_800E52A0(arg0, temp_a1));
-            var_v0_2 = var_s0 + 1;
+void func_800E4094(s16 unitId) {
+    s16 other;
+
+    for (other = 0; other < 20; other++) {
+        if (unitId != other) {
+            func_800E566C(func_800E52A0(unitId, other));
         }
-        var_s0 = var_v0_2;
-        var_v0 = var_s0 << 0x10;
-    } while (var_v0_2 < 0x14);
+    }
 }
-#else
-INCLUDE_ASM("span_1000", func_800E4094);
-#endif
 INCLUDE_ASM("span_1000", func_800E4104);
-INCLUDE_ASM("span_1000", func_800E4344);
+#include "span_1000/code_80097038.h"
+#include "shared/bt_unit.h"
+static inline s16 find_unit_member_id(CombatUnit *unit) {
+    s16 i;
+    s32 base;
+
+    base = unit->player * 5;
+    for (i = base; i < base + 5; i++) {
+        if (unit == func_800A03B8(i)) {
+            return i;
+        }
+    }
+    return 0xFF;
+}
+static inline void set_unit_mode(CombatUnit *unit, u8 mode) {
+    Unknown800E26DC_2 context;
+    s32 previous;
+
+    previous = unit->value350;
+    unit->value350 = mode;
+    if (mode == 2) {
+        unit->value40A = 0x80;
+        if (previous == 1 && !(unit->flags & 4)) {
+            func_800E9894(&context, find_unit_member_id(unit));
+            func_800EA1FC(&context, 0);
+            func_800EA1B8(context.value10, 0xB);
+        }
+    } else {
+        unit->value40A = 0x10;
+    }
+}
+
+void func_800E4344(CombatUnit *unit, s32 engaged) {
+    if (unit->visible) {
+        if (engaged) {
+            set_unit_mode(unit, 2);
+        } else {
+            set_unit_mode(unit, 1);
+        }
+    } else {
+        set_unit_mode(unit, 0);
+    }
+}
 INCLUDE_ASM("span_1000", func_800E445C);
 #include "game/sys_80076000.h"
 #include "shared/bt_player.h"
@@ -50,7 +81,33 @@ void func_800E4494(CombatUnit *unit)
 }
 
 INCLUDE_ASM("span_1000", func_800E44EC);
-INCLUDE_ASM("span_1000", func_800E4584);
+void func_800E4584(Unknown800E4584_1 *first, Unknown800E4584_1 *second)
+{
+    Unknown800A5D5C *record;
+    u8 entityId;
+    Unknown800E4584 *contact = &second->value9C;
+
+    if (first->value9C.value00 == 8 && first->value9C.value14 == second) {
+        first->value9C.value11 = 1;
+    } else if (contact->value00 == 8 && contact->value14 == first) {
+        contact->value11 = 1;
+    }
+
+    if (first->value98 != 0) {
+        func_800983E0(second, 10000, second->value04, 0);
+        entityId = second->value04;
+    } else if (second->value98 != 0) {
+        func_800983E0(first, 10000, first->value04, 0);
+        entityId = first->value04;
+    } else {
+        return;
+    }
+
+    record = func_800A6688(entityId);
+    if (record->value1AC < 10000) {
+        record->value1AC++;
+    }
+}
 INCLUDE_ASM("span_1000", func_800E4660);
 #include "shared/bt_span_1000_code_800E3BC0.h"
 

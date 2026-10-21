@@ -4,7 +4,19 @@
 INCLUDE_ASM("span_1000", func_800ECC1C);
 INCLUDE_ASM("span_1000", func_800ECD30);
 INCLUDE_ASM("span_1000", func_800ECE4C);
-INCLUDE_ASM("span_1000", func_800ED358);
+#include "shared/bt_types.h"
+#include "game/sys_80076000.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800ED358(Unknown800ED358 *effect, s32 arg1, s32 arg2, Unknown800ED358_1 *report)
+{
+    if (effect->value1C == 0) {
+        report->value00 = 1;
+        report->value08 = effect->value0C;
+        report->value04 = effect->value14;
+    }
+}
 INCLUDE_ASM("span_1000", func_800ED380);
 INCLUDE_ASM("span_1000", func_800ED5C8);
 #include "shared/bt_span_1000_code_800A27D0.h"

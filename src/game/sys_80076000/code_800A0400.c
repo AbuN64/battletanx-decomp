@@ -31,9 +31,44 @@ s32 func_800A052C(ShotEffect *object)
 
 INCLUDE_ASM("span_1000", func_800A05A0);
 INCLUDE_ASM("span_1000", func_800A06F8);
-INCLUDE_ASM("span_1000", func_800A0908);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800A0908(Unknown800A0908 *object, s32 arg1, s32 arg2, Unknown800A0908_1 *report)
+{
+    if (object->value25 == 0) {
+        report->value00 = 1;
+        report->value08 = object->value10;
+        report->value04 = object->value18;
+    }
+}
 INCLUDE_ASM("span_1000", func_800A0930);
-INCLUDE_ASM("span_1000", func_800A0AD4);
+#include "span_1000/code_8008F4EC.h"
+
+void func_800A0AD4(Unknown800A0AD4 *object) {
+    s32 value;
+
+    switch (object->value0C) {
+    case 0:
+        value = D_802D5A5A;
+        break;
+    case 2:
+        value = D_802D5A8E;
+        break;
+    case 1:
+        if (object->value25) {
+            value = D_802D5AC0;
+        } else {
+            value = D_802D5A76;
+        }
+        break;
+    default:
+        value = 0;
+        break;
+    }
+    func_800905D8(value, object->value10, 0, object->value1C, 0, object->value26, 0);
+    func_8008B89C(object);
+}
 #include "game/sys_80076000.h"
 #include "span_1000/code_8008F4EC.h"
 void func_800A0B8C(ShotEffect *effect, s32 arg1, u32 message, s32 arg3, PositionReport *report)

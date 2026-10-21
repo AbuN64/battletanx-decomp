@@ -53,7 +53,35 @@ u16 *func_800DF55C(PathSearchNode *pool, PathSearchNode *record)
     return link;
 }
 
-INCLUDE_ASM("span_1000", func_800DF58C);
+#include "shared/bt_types.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+Unknown800DF58C *func_800DF58C(Unknown800DF58C *pool, u16 *freeHead) {
+    Unknown800DF58C *node;
+    Unknown800DF58C *tail;
+    u16 children;
+    u16 next;
+
+    node = &pool[*freeHead];
+    children = node->value06;
+    next = node->value04;
+    if (children == 0) {
+        *freeHead = next;
+    } else {
+        u16 *link;
+        tail = &pool[children];
+        while (*(link = &tail->value04) != 0) {
+            tail = &pool[*link];
+        }
+        *link = next;
+        *freeHead = children;
+    }
+    node->value01 = 1;
+    node->value06 = 0;
+    node->value04 = 0;
+    return node;
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_path_search.h"
 
@@ -100,7 +128,53 @@ s32 func_800DF60C(PathSearch *tree, u16 id) {
     return removed;
 }
 
-INCLUDE_ASM("span_1000", func_800DF6F4);
+static inline void splice_right_subtree(Unknown800DF6F4_1 *tree, u16 *parentSlot, u16 right, u16 left) {
+    if (right == 0) {
+        *parentSlot = left;
+    } else {
+        Unknown800DF6F4 *node = &tree->value00[right];
+        u16 *slot;
+
+        while (*(slot = &node->value04) != 0) {
+            node = &tree->value00[*slot];
+        }
+        *slot = left;
+        *parentSlot = right;
+    }
+}
+
+u16 func_800DF6F4(Unknown800DF6F4_1 *tree) {
+    u16 dummy;
+    u16 *slot;
+    u16 *parentSlot;
+    Unknown800DF6F4 *node;
+    Unknown800DF6F4 *minNode;
+    u16 index;
+    u16 left;
+    u16 right;
+
+    index = 0;
+    slot = &tree->value11958;
+    dummy = 0;
+    node = 0;
+    parentSlot = &dummy;
+    while (*slot != 0) {
+        parentSlot = slot;
+        node = &tree->value00[*slot];
+        slot = &node->value04;
+    }
+    if (node != 0) {
+        index = *parentSlot;
+        minNode = &tree->value00[index];
+        right = minNode->value06;
+        left = minNode->value04;
+        splice_right_subtree(tree, parentSlot, right, left);
+        minNode->value01 = 1;
+        minNode->value06 = 0;
+        minNode->value04 = 0;
+    }
+    return index;
+}
 INCLUDE_ASM("span_1000", func_800DF7D0);
 INCLUDE_ASM("span_1000", func_800DFA68);
 INCLUDE_ASM("span_1000", func_800E004C);

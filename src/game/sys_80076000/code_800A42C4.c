@@ -29,7 +29,39 @@ void func_800A4368(s32 arg0) {
 }
 
 INCLUDE_ASM("span_1000", func_800A4374);
-INCLUDE_ASM("span_1000", func_800A4500);
+#include "shared/bt_navigation_mesh.h"
+#include "span_1000/code_80097038.h"
+#include "shared/bt_unit.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+static inline CombatUnit *make_unit_active(Unknown800A4500 *squad, CombatUnit *unit, s16 *slot) {
+    unit->primary = 1;
+    unit->flags &= 0x7FFF;
+    squad->value20 = *slot;
+    if (squad->value1A6 == 0 && D_80135834 != 0) {
+        func_800E4344(unit, 0);
+    }
+    return unit;
+}
+
+CombatUnit *func_800A4500(Unknown800A4500 *squad) {
+    CombatUnit *unit;
+    s32 i;
+
+    for (i = 0; i < 5; i++) {
+        unit = func_800A03B8(squad->value00[i]);
+        if (unit->visible & func_800A0218(unit)) {
+            return make_unit_active(squad, unit, &squad->value00[i]);
+        }
+    }
+    for (i = 0; i < 5; i++) {
+        unit = func_800A03B8(squad->value00[i]);
+        if (unit->visible != 0 && func_800A0134(unit) > 0) {
+            return make_unit_active(squad, unit, &squad->value00[i]);
+        }
+    }
+    return 0;
+}
 INCLUDE_ASM("span_1000", func_800A4610);
 INCLUDE_ASM("span_1000", func_800A47AC);
 INCLUDE_ASM("span_1000", func_800A4A00);

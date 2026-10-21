@@ -201,7 +201,23 @@ void func_800A93C8(void)
     }
 }
 
-INCLUDE_ASM("span_1000", func_800A942C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+s32 func_800A942C(void)
+{
+    s32 found;
+    s32 i;
+
+    found = 0;
+    for (i = 0; i < D_80126714; i++) {
+        if (D_802DF550[i] != -1) {
+            found = D_802DF550[i] + 1;
+            break;
+        }
+    }
+    return found;
+}
 #include "game/sys_80076000.h"
 #include "game/sys_801121E0.h"
 #include "span_1000/code_80077930.h"
@@ -226,7 +242,17 @@ s32 func_800A9484(s32 channel)
 INCLUDE_ASM("span_1000", func_800A9564);
 INCLUDE_ASM("span_1000", func_800A95C0);
 INCLUDE_ASM("span_1000", func_800A96CC);
-INCLUDE_ASM("span_1000", func_800A979C);
+s32 func_800A979C(s32 channel, Unknown800A979C *state)
+{
+    s32 status;
+
+    osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
+    channel--;
+    status = func_80116110(&D_802DF3A0[channel], state->value08, state->value04, state->value0E,
+                             state->value0A);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
+    return status;
+}
 INCLUDE_ASM("span_1000", func_800A9850);
 INCLUDE_ASM("span_1000", func_800A9920);
 #include "game/sys_80076000.h"
@@ -245,5 +271,14 @@ s32 func_800A9AB0(s32 channel)
 }
 
 INCLUDE_ASM("span_1000", func_800A9B44);
-INCLUDE_ASM("span_1000", func_800A9B70);
+s32 func_800A9B70(s32 channel, s32 *freeBytes)
+{
+    s32 status;
+
+    osRecvMesg(D_802DF5B0, &D_802E17A0, 1);
+    channel--;
+    status = func_80116A10(&D_802DF3A0[channel], freeBytes);
+    osSendMesg(D_802DF5B0, &D_802E17A0, 0);
+    return status;
+}
 INCLUDE_DATA("span_1000", D_800A9C14);

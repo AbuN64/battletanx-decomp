@@ -14,19 +14,17 @@ s32 func_800EABB0(struct ResetState *context)
     return func_800EA93C(context, &D_80135D80);
 }
 
-#ifdef NON_MATCHING
-#include "game/sys_80076000.h"
-#include "shared/bt_types.h"
-s32 func_800EABFC(s32 arg0) {
-    func_800E6BF0(arg0);
-    func_800E9A00(arg0, 0x3E4CCCCD);
-    func_800E7064(arg0);
-    func_800E99D4(arg0);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+s32 func_800EABFC(Unknown800E26DC_2 *context)
+{
+    func_800E6BF0(context);
+    func_800E9A00(context, 0.2f);
+    func_800E7064(context);
+    func_800E99D4(context);
     return -1;
 }
-#else
-INCLUDE_ASM("span_1000", func_800EABFC);
-#endif
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -95,8 +93,31 @@ s32 func_800EAD9C(struct ResetState *context)
     return -1;
 }
 
-INCLUDE_ASM("span_1000", func_800EAE30);
-INCLUDE_ASM("span_1000", func_800EAEA8);
+s32 func_800EAE30(Unknown800E26DC_2 *context)
+{
+    f32 weight0;
+
+    weight0 = D_800749A8;
+    func_800E9A00(context, weight0);
+    func_800E7560(context);
+    func_800E99D4(context);
+    func_800E9A00(context, weight0);
+    func_800E9A00(context, 0.5f);
+    func_800E7628(context);
+    func_800E99D4(context);
+    return -1;
+}
+s32 func_800EAEA8(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 0.0f);
+    func_800E7560(context);
+    func_800E99D4(context);
+    func_800E9A00(context, 0.1f);
+    func_800E9A00(context, 0.25f);
+    func_800E7628(context);
+    func_800E99D4(context);
+    return -1;
+}
 #include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"
 #include "game/sys_80076000.h"
@@ -113,7 +134,15 @@ s32 func_800EAF14(struct ResetState *context)
     return -1;
 }
 
-INCLUDE_ASM("span_1000", func_800EAF6C);
+s32 func_800EAF6C(Unknown800E26DC_2 *context)
+{
+    func_800E7458(context);
+    func_800E9A00(context, 0.75f);
+    func_800E9A00(context, 0.9f);
+    func_800E7628(context);
+    func_800E99D4(context);
+    return -1;
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -204,7 +233,13 @@ void func_800EB1C0(s32 arg0) {
     func_800EA93C(arg0, &D_801362A8);
 }
 
-INCLUDE_ASM("span_1000", func_800EB1E8);
+s32 func_800EB1E8(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 1.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    return -1;
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -331,7 +366,16 @@ void func_800EB5C0(s32 arg0) {
     func_800EA93C(arg0, &D_801366A8);
 }
 
-INCLUDE_ASM("span_1000", func_800EB5E8);
+s32 func_800EB5E8(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 0.5f);
+    func_800E7320(context);
+    func_800E99D4(context);
+    func_800E7360(context);
+    func_800E7380(context);
+    func_800E6BBC(context);
+    return -1;
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"
 
@@ -354,7 +398,14 @@ void func_800EB69C(s32 arg0) {
     func_800EA93C(arg0, &D_80136774);
 }
 
-INCLUDE_ASM("span_1000", func_800EB6D4);
+s32 func_800EB6D4(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 2.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    func_800E6FD8(context);
+    return -1;
+}
 INCLUDE_ASM("span_1000", func_800EB71C);
 INCLUDE_ASM("span_1000", func_800EB764);
 INCLUDE_ASM("span_1000", func_800EB7AC);
@@ -382,7 +433,14 @@ void func_800EB888(s32 arg0) {
     func_800EA93C(arg0, &D_80136A90);
 }
 
-INCLUDE_ASM("span_1000", func_800EB8B0);
+s32 func_800EB8B0(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 3.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    func_800E6FD8(context);
+    return -1;
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"
 
@@ -441,25 +499,14 @@ void func_800EBA48(s32 arg0) {
     func_800EA93C(arg0, &D_80136ED8);
 }
 
-#ifdef NON_MATCHING
-#include "game/sys_80076000.h"
-#include "shared/bt_types.h"
-s32 func_800EBA70(s32 arg0)
+s32 func_800EBA70(Unknown800E26DC_2 *context)
 {
-  int new_var2;
-  s32 new_var;
-  new_var = arg0;
-  func_800E9A00(new_var, new_var2);
-  new_var2 = 0x40400000;
-  func_800E6FF8(new_var);
-  func_800E99D4(new_var ^ 0);
-  new_var2 = 1;
-  func_800E6C5C(new_var);
-  return -new_var2;
+    func_800E9A00(context, 3.0f);
+    func_800E6FF8(context);
+    func_800E99D4(context);
+    func_800E6C5C(context);
+    return -1;
 }
-#else
-INCLUDE_ASM("span_1000", func_800EBA70);
-#endif
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"
@@ -646,7 +693,15 @@ void func_800EBF28(s32 arg0) {
     func_800EA93C(arg0, &D_8013755C);
 }
 
-INCLUDE_ASM("span_1000", func_800EBF50);
+s32 func_800EBF50(Unknown800E26DC_2 *context)
+{
+    func_800E70B0(context);
+    func_800E9A00(context, 2.0f);
+    func_800E9A00(context, 10.0f);
+    func_800E70DC(context);
+    func_800E99D4(context);
+    return -1;
+}
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"
 
@@ -716,7 +771,14 @@ s32 func_800EC128(struct ResetState *context)
 }
 
 INCLUDE_ASM("span_1000", func_800EC17C);
-INCLUDE_ASM("span_1000", func_800EC1D0);
+s32 func_800EC1D0(Unknown800E26DC_2 *context)
+{
+    func_800E9A00(context, 1.0f);
+    func_800E6C14(context);
+    func_800E99D4(context);
+    func_800E6FD8(context);
+    return -1;
+}
 INCLUDE_ASM("span_1000", func_800EC218);
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"

@@ -17,23 +17,249 @@ INCLUDE_ASM("span_1000", func_8007E18C);
 INCLUDE_ASM("span_1000", func_8007E1E4);
 INCLUDE_ASM("span_1000", func_8007E248);
 INCLUDE_ASM("span_1000", func_8007E320);
-INCLUDE_ASM("span_1000", func_8007E41C);
-INCLUDE_ASM("span_1000", func_8007E4F4);
+#include "shared/bt_types.h"
+#include "game/sys_80076000.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+u32 func_8007E41C(s32 source, u8 flags, u16 perspNorm) {
+    Unknown8007E41C_1 *state = D_801257D0;
+    u32 matrix;
+
+    matrix = 0;
+    if (state->valueE8 < ((Unknown8007E41C *)(state->valueD0 * sizeof(Unknown8007E41C) + (u8 *)state->valueA0))->value04 + 0xC000) {
+        u32 *cmd;
+        u32 *normCmd;
+
+        normCmd = state->valueD8;
+        state->valueD8 = normCmd + 2;
+        normCmd[0] = 0xBC00000E;
+        normCmd[1] = perspNorm;
+        func_801146A0(source, state->valueE8);
+        cmd = state->valueD8;
+        state->valueD8 = cmd + 2;
+        cmd[0] = (flags << 16) | 0x01000040;
+        cmd[1] = state->valueE8 - 0x80000000;
+        matrix = state->valueE8;
+        state->valueE8 = matrix + 0x40;
+    }
+    return matrix;
+}
+u32 func_8007E4F4(u32 source, u8 flags, u16 perspNorm)
+{
+    Unknown8007E41C_1 *state = D_801257D0;
+    u32 matrix = 0;
+
+    if (state->valueE8 < ((Unknown8007E41C *)(state->valueD0 * sizeof(Unknown8007E41C) + (u8 *)state->valueA0))->value04 + 0xC000) {
+        u32 *cmd;
+        u32 *persp;
+
+        persp = state->valueDC;
+        state->valueDC = persp + 2;
+        persp[0] = 0xBC00000E;
+        persp[1] = perspNorm;
+        func_801146A0(source, state->valueE8);
+        cmd = state->valueDC;
+        state->valueDC = cmd + 2;
+        cmd[0] = (flags << 16) | 0x01000040;
+        cmd[1] = state->valueE8 - 0x80000000;
+        matrix = state->valueE8;
+        state->valueE8 = matrix + 0x40;
+    }
+    return matrix;
+}
 INCLUDE_ASM("span_1000", func_8007E5CC);
-INCLUDE_ASM("span_1000", func_8007E694);
-INCLUDE_ASM("span_1000", func_8007E75C);
-INCLUDE_ASM("span_1000", func_8007E824);
+void func_8007E694(Unknown8007E694_1 *matrix, u8 params) {
+    Unknown8007E694 *ctx = D_801257D0;
+    Unknown8007E41C *bank = &ctx->value90[ctx->valueD0];
+    u32 addr = matrix->value40;
+    u32 *cmd;
+
+    if (addr == 0) {
+        if (ctx->valueE8 >= bank->value14 + 0xC000) {
+            return;
+        }
+        func_801146A0(matrix, ctx->valueE8);
+        addr = ctx->valueE8;
+        matrix->value40 = addr;
+        ctx->valueE8 += 0x40;
+    }
+    cmd = ctx->valueDC;
+    ctx->valueDC = cmd + 2;
+    cmd[0] = (params << 16) | 0x01000040;
+    cmd[1] = addr - 0x80000000;
+}
+void func_8007E75C(Unknown8007E75C_1 *source, u8 flags) {
+    Unknown8007E75C *state = D_801257D0;
+    Unknown8007E41C *bank = &state->value90[state->valueD0];
+    u32 matrix = source->value40;
+    u32 *cmd;
+
+    if (matrix == 0) {
+        if (state->valueE8 >= bank->value14 + 0xC000) {
+            return;
+        }
+        func_801146A0(source, state->valueE8);
+        matrix = state->valueE8;
+        source->value40 = matrix;
+        state->valueE8 += 0x40;
+    }
+    cmd = state->valueD8;
+    state->valueD8 = cmd + 2;
+    cmd[0] = (flags << 16) | 0x01000040;
+    cmd[1] = matrix - 0x80000000;
+}
+void func_8007E824(Unknown8007E694_1 *matrix, u8 params) {
+    u32 addr = matrix->value40;
+    Unknown8007E694 *ctx = D_801257D0;
+    Unknown8007E41C *bank = &ctx->value90[ctx->valueD0];
+    u32 *cmd;
+
+    if (addr == 0) {
+        if (ctx->valueE8 >= bank->value14 + 0xC000) {
+            return;
+        }
+        func_801146A0(matrix, ctx->valueE8);
+        addr = ctx->valueE8;
+        matrix->value40 = addr;
+        ctx->valueE8 += 0x40;
+    }
+    cmd = ctx->valueDC;
+    ctx->valueDC = cmd + 2;
+    cmd[0] = (params << 16) | 0x01000040;
+    cmd[1] = addr - 0x80000000;
+}
 INCLUDE_ASM("span_1000", func_8007E8EC);
-INCLUDE_ASM("span_1000", func_8007E9C8);
+void func_8007E9C8(Unknown8007E9C8_1 *proj, u16 perspNorm) {
+    Unknown8007E9C8 *state = D_801257D0;
+    Unknown8007E41C *bank = &state->value90[state->valueD0];
+    u32 matrix = proj->value40;
+    u32 *cmd;
+    u32 *cmd2;
+
+    if (matrix == 0) {
+        if (state->valueE8 >= bank->value14 + 0xC000) {
+            return;
+        }
+        func_801146A0(proj, state->valueE8);
+        matrix = state->valueE8;
+        proj->value40 = matrix;
+        state->valueE8 += 0x40;
+    }
+    cmd = state->valueDC;
+    state->valueDC = cmd + 2;
+    cmd[0] = 0xBC00000E;
+    cmd[1] = perspNorm;
+    cmd2 = state->valueDC;
+    state->valueDC = cmd2 + 2;
+    cmd2[0] = 0x01030040;
+    cmd2[1] = matrix - 0x80000000;
+}
 INCLUDE_ASM("span_1000", func_8007EAA4);
 INCLUDE_ASM("span_1000", func_8007EB04);
 INCLUDE_ASM("span_1000", func_8007EB64);
 INCLUDE_ASM("span_1000", func_8007EBA0);
-INCLUDE_ASM("span_1000", func_8007EBDC);
-INCLUDE_ASM("span_1000", func_8007EC38);
-INCLUDE_ASM("span_1000", func_8007ECE8);
-INCLUDE_ASM("span_1000", func_8007ED98);
-INCLUDE_ASM("span_1000", func_8007EE48);
+void func_8007EBDC(u32 matrix, u8 flags, u16 perspNorm)
+{
+    Unknown8007EBDC *state = D_801257D0;
+    u32 *cmd;
+    u32 *cmd2;
+
+    cmd = state->valueD8;
+    state->valueD8 = cmd + 2;
+    cmd[0] = 0xBC00000E;
+    cmd[1] = perspNorm;
+    cmd2 = state->valueD8;
+    state->valueD8 = cmd2 + 2;
+    cmd2[0] = (flags << 16) | 0x01000040;
+    cmd2[1] = matrix - 0x80000000;
+}
+u32 func_8007EC38(u32 source, u8 flags) {
+    Unknown8007E41C_1 *state = D_801257D0;
+    u32 matrix;
+    u32 cursor;
+
+    cursor = state->valueE8;
+    matrix = 0;
+    if (((Unknown8007E41C *)(state->valueD0 * sizeof(Unknown8007E41C) + (u8 *)state->valueA0))->value04 + 0xC000 > cursor) {
+        u32 *cmd;
+
+        func_801146A0(source, cursor);
+        cmd = state->valueD8;
+        state->valueD8 = cmd + 2;
+        cmd[0] = (flags << 16) | 0x01000040;
+        cmd[1] = state->valueE8 - 0x80000000;
+        matrix = state->valueE8;
+        state->valueE8 = matrix + 0x40;
+    }
+    return matrix;
+}
+u32 func_8007ECE8(s32 source, s32 flags)
+{
+    u32 matrix = 0;
+    u32 cursor;
+    u32 *command;
+    Unknown8007ECE8 *state;
+
+    state = D_801257D0;
+    do {
+        cursor = state->valueE8;
+        if (cursor >= (u32)(((Unknown8007E41C *)((state->valueD0 * sizeof(Unknown8007E41C)) + (u32)state + 0x90))->value14 + 0xC000)) {
+            break;
+        }
+        func_801146A0(source, cursor);
+        command = state->valueDC;
+        state->valueDC = command + 2;
+        command[0] = ((flags & 0xFF) << 16) | 0x01000040;
+        command[1] = state->valueE8 - 0x80000000U;
+        matrix = state->valueE8;
+        state->valueE8 = matrix + 0x40;
+    } while (0);
+    return matrix;
+}
+u32 func_8007ED98(s32 source, s32 flags)
+{
+    u32 matrix = 0;
+    u32 cursor;
+    u32 *command;
+    Unknown8007ECE8 *state;
+
+    state = D_801257D0;
+    do {
+        cursor = state->valueE8;
+        if (cursor >= (u32)(((Unknown8007E41C *)((state->valueD0 * sizeof(Unknown8007E41C)) + (u32)state + 0x90))->value14 + 0xC000)) {
+            break;
+        }
+        func_801146A0(source, cursor);
+        command = state->valueD8;
+        state->valueD8 = command + 2;
+        command[0] = ((flags & 0xFF) << 16) | 0x01000040;
+        command[1] = state->valueE8 - 0x80000000U;
+        matrix = state->valueE8;
+        state->valueE8 = matrix + 0x40;
+    } while (0);
+    return matrix;
+}
+u32 func_8007EE48(u32 source, u8 flags) {
+    Unknown8007E41C_1 *state = D_801257D0;
+    u32 matrix;
+    u32 cursor;
+
+    cursor = state->valueE8;
+    matrix = 0;
+    if (((Unknown8007E41C *)(state->valueD0 * sizeof(Unknown8007E41C) + (u8 *)state->valueA0))->value04 + 0xC000 > cursor) {
+        u32 *cmd;
+
+        func_801146A0(source, cursor);
+        cmd = state->valueDC;
+        state->valueDC = cmd + 2;
+        cmd[0] = (flags << 16) | 0x01000040;
+        cmd[1] = state->valueE8 - 0x80000000;
+        matrix = state->valueE8;
+        state->valueE8 = matrix + 0x40;
+    }
+    return matrix;
+}
 INCLUDE_ASM("span_1000", func_8007EEF8);
 INCLUDE_ASM("span_1000", func_8007EF1C);
 INCLUDE_ASM("span_1000", func_8007EF40);

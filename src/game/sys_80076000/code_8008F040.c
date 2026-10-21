@@ -86,8 +86,51 @@ void func_8008F4EC(f32 *max, f32 *min, FrameVertex *vertices, s32 count) {
 
 INCLUDE_ASM("span_1000", func_8008F5D4);
 INCLUDE_ASM("span_1000", func_8008F6F4);
-INCLUDE_ASM("span_1000", func_8008FB1C);
-INCLUDE_ASM("span_1000", func_8008FC9C);
+#include "shared/bt_types.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8008FB1C(Unknown8008FB1C *d, s32 *state) {
+    u8 flags;
+
+    if (d->value40 & 8) {
+        if (!(func_800F38F4() & 0xF)) {
+            d->value24[0] = -d->value24[0];
+            d->value24[2] = -d->value24[2];
+        }
+    } else {
+        d->value24[1] -= D_80071CDC;
+    }
+    flags = d->value40;
+    d->value0C[0] += d->value24[0];
+    d->value0C[1] += d->value24[1];
+    d->value0C[2] += d->value24[2];
+    if (flags & 2) {
+        d->value40 = flags ^= 4;
+        if (flags & 4) {
+            func_800ED8C0(d->value0C, (flags & 0x10) ? 0x19 : 0x15);
+        }
+    }
+    if ((!(d->value24[1] < 0.0f) || (!(d->value40 & 1) && ((d->value40 & 0xA) || (func_800F38F4() & 7)))) && (d->value0C[1] > 0.0f)) {
+        d->value30[0] += d->value36[0];
+        d->value30[1] += d->value36[1];
+        d->value30[2] += d->value36[2];
+        return;
+    }
+    *state = 2;
+}
+#include "shared/bt_span_1000_code_8008011C.h"
+
+void func_8008FC9C(Unknown8008FC9C_1 *obj) {
+    Unknown8008FC9C xf = D_80071C04;
+    s32 session;
+
+    if (obj->value44 != 0) {
+        session = func_800821C0();
+        func_800A86E4(&xf, obj->value18, obj->value0C, obj->value34, obj->value32, obj->value30);
+        func_80085978(session, obj->value44, &xf, obj->value0C, obj->value3C);
+    }
+}
 INCLUDE_ASM("span_1000", func_8008FD6C);
 #include "game/sys_80076000.h"
 #include "shared/bt_types.h"
@@ -143,7 +186,36 @@ s32 func_800907CC(s32 arg0, s32 arg1, s32 arg2, u16 arg3, s32 arg4, s32 arg5, s3
 }
 
 INCLUDE_ASM("span_1000", func_800908CC);
-INCLUDE_ASM("span_1000", func_800908F0);
-INCLUDE_ASM("span_1000", func_80090A0C);
+void func_800908F0(Unknown800908F0 *entity, s32 unused, f32 *target) {
+    f32 dx = target[1] - (f32)entity->value0C;
+    f32 dz = target[0] - (f32)entity->value10;
+
+    if ((dx != 0.0f) | (dz != 0.0f)) {
+        entity->value1C = 1;
+        if (-dx < 0.0f) {
+            entity->value1E = -func_800F3BE4(-dz / sqrtf(dx * dx + dz * dz));
+        } else {
+            entity->value1E = func_800F3BE4(-dz / sqrtf(dx * dx + dz * dz));
+        }
+    }
+    entity->value1D |= 8;
+    func_8008B89C(entity);
+}
+void func_80090A0C(Unknown80090A0C *mover, s32 unused, Unknown80090A0C_1 *point) {
+    f32 dy = point->value04 - (f32)mover->value0C;
+    f32 dx = point->value00 - (f32)mover->value10;
+    s16 heading;
+
+    if (dy != 0.0f || dx != 0.0f) {
+        mover->value1C = 1;
+        if (-dy < 0.0f) {
+            heading = -func_800F3BE4(-dx / sqrtf(dy * dy + dx * dx));
+        } else {
+            heading = func_800F3BE4(-dx / sqrtf(dy * dy + dx * dx));
+        }
+        mover->value1E = heading;
+    }
+    func_8008B89C(mover);
+}
 INCLUDE_ASM("span_1000", func_80090B1C);
 INCLUDE_ASM("span_1000", func_80090BE0);

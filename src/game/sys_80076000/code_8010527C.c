@@ -8,43 +8,26 @@ void func_8010527C(void) {
     D_801416F0 = 0xFA;
 }
 
-#ifdef NON_MATCHING
-#include "game/sys_80076000.h"
-#include "shared/bt_gfx.h"
 #include "shared/bt_menu_render.h"
-#include "shared/bt_types.h"
-extern s32 D_80142904;
-extern s32 D_80142908;
-extern s32 D_80142909;
-extern s32 D_8014290A;
-extern s32 D_8014290B;
-extern s32 D_8014290C;
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
 
-void func_80105290(Gfx **arg0) {
-    Gfx *sp10;
-    s32 var_s0;
-    s32 var_s1;
-    s32 var_s2;
+void func_80105290(void **gfxp)
+{
+    void *gfx;
+    s32 i;
 
-    var_s2 = 0;
-    var_s0 = 0;
-    var_s1 = 0;
-    sp10 = *arg0;
-    func_8010698C(&sp10);
-    do {
-        if ((u32) (D_801416F0 + var_s1 + 9) < 0x149U) {
-            func_8010555C((s32) *(&D_80142908 + var_s0), (s32) *(&D_80142909 + var_s0), (s32) *(&D_8014290A + var_s0), (s32) *(&D_8014290B + var_s0));
-            func_8010552C(0x32, D_801416F0 + var_s1);
-            func_801054E0(*(&D_80142904 + var_s0));
-            func_80105A50(&sp10, *(&D_8014290C + var_s0), 0, 0x140);
+    gfx = *gfxp;
+    func_8010698C(&gfx);
+    for (i = 0; i < 48; i++) {
+        if ((u32)(D_801416F0 + i * 14 + 9) < 0x149) {
+            func_8010555C(D_80142904[i].value04[0], D_80142904[i].value04[1],
+                                   D_80142904[i].value04[2], D_80142904[i].value04[3]);
+            func_8010552C(50, D_801416F0 + i * 14);
+            func_801054E0(D_80142904[i].value00);
+            func_80105A50(&gfx, D_80142904[i].value08, 0, 320);
         }
-        var_s0 += 0xC;
-        var_s2 += 1;
-        var_s1 += 0xE;
-    } while (var_s2 < 0x30);
-    D_801416F0 -= 1;
-    *arg0 = sp10;
+    }
+    D_801416F0--;
+    *gfxp = gfx;
 }
-#else
-INCLUDE_ASM("span_1000", func_80105290);
-#endif

@@ -1,6 +1,15 @@
 #include "include_asm.h"
 
-INCLUDE_ASM("span_1000", func_800E99E0);
+#include "shared/bt_types.h"
+#include "game/sys_80076000.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800E99E0(Unknown800E99E0 *params, s32 value)
+{
+    params->value30[params->value44] = value;
+    params->value44++;
+}
 INCLUDE_ASM("span_1000", func_800E9A00);
 #include "shared/bt_span_1000_code_800E9200.h"
 #include "shared/bt_types.h"

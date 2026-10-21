@@ -44,10 +44,34 @@ void func_800917D8(int n, E *src, E *dst) {
 }
 
 INCLUDE_ASM("span_1000", func_80091814);
-INCLUDE_ASM("span_1000", func_8009189C);
+#include "game/sys_80076000.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_8009189C(s32 t, Unknown8009189C *start, Unknown8009189C *end, Unknown8009189C *out)
+{
+    out->value00 = start->value00 + (((end->value00 - start->value00) * t) >> 8);
+    out->value02 = start->value02 + (((end->value02 - start->value02) * t) >> 8);
+    out->value04 = start->value04 + (((end->value04 - start->value04) * t) >> 8);
+    out->value0C = start->value0C + (((s32)(end->value0C - start->value0C) * t) >> 8);
+    out->value0D = start->value0D + (((s32)(end->value0D - start->value0D) * t) >> 8);
+    out->value0E = start->value0E + (((s32)(end->value0E - start->value0E) * t) >> 8);
+}
 INCLUDE_ASM("span_1000", func_8009196C);
 INCLUDE_ASM("span_1000", func_80091A60);
-INCLUDE_ASM("span_1000", func_80091CA4);
+Unknown80091CA4 *func_80091CA4(s32 value0C, s32 value10, s32 value14)
+{
+    Unknown80091CA4 *effect;
+
+    effect = func_8008AD10(0, 0x13, sizeof(Unknown80091CA4));
+    if (effect == 0) {
+        return 0;
+    }
+    effect->value0C = value0C;
+    effect->value10 = value10;
+    effect->value14 = value14;
+    return effect;
+}
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_8008011C.h"
 #include "shared/bt_types.h"
@@ -64,11 +88,83 @@ void func_80091D10(Data80135834Ptr *arg0) {
     func_80084CC4(func_800821C0(), arg0->unkC, 0, arg0->unk10, 6, 0, arg0->unk14, D_80071E90);
 }
 
-INCLUDE_ASM("span_1000", func_80091D6C);
-INCLUDE_ASM("span_1000", func_80091E98);
+Unknown80091D6C *func_80091D6C(s32 index, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, u16 flags, u8 value0C)
+{
+    Unknown80091D6C *effect;
+    Unknown80091D6C_3 *context;
+    Unknown80091D6C_2 *slot;
+    Unknown80091D6C_1 *entry;
+
+    effect = func_8008AD10(0, 9, 0x20);
+    if (effect == 0) {
+        return 0;
+    }
+    effect->value0C = value0C;
+    effect->value12 = index;
+    context = func_800821C0();
+    entry = &context->value568[effect->value12];
+    slot = &context->value56C[entry->value52];
+    effect->value14 = func_80106D18(effect, arg1, arg2, arg3, arg4, arg5, arg6, 0x56, flags);
+    {
+        Unknown80091D6C *e = effect;
+        u8 v = slot->value00;
+        e->value0E = 0;
+        e->value10 = 0;
+        e->value1C = 0xA;
+        e->value18 = 0;
+        e->value0D = v;
+        return e;
+    }
+}
+Unknown80091E98_3 *func_80091E98(s32 group, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, u16 arg7,
+                                 s32 flags, u8 arg9) {
+    Unknown80091E98_3 *effect;
+    Unknown80091E98_2 *tables;
+    Unknown80091E98 *groupInfo;
+    Unknown80091E98_1 *set;
+    s16 attr;
+    u8 mode;
+
+    effect = func_8008AD10(0, 5, 0x28);
+    mode = flags;
+    if (effect == 0) {
+        return 0;
+    }
+    effect->value14 = group;
+    tables = func_800821C0();
+    groupInfo = &tables->value568[effect->value14];
+    set = &tables->value56C[groupInfo->value52];
+    effect->value18 = func_80106D18(effect, arg1, arg2, arg3, arg4, arg5, arg6, 0xF85F, arg7);
+    if (flags & 8) {
+        effect->value0D = set->value00 - 2;
+    } else if (flags & 4) {
+        effect->value0D = set->value00 - 1;
+    } else {
+        effect->value0D = set->value00;
+    }
+    attr = (-((mode & 0x20) == 0) & 0x11) | 1;
+    effect->value0E = 0;
+    effect->value10 = 0;
+    effect->value0C = mode;
+    effect->value12 = attr;
+    effect->value24 = 0;
+    effect->value1C = 0;
+    effect->value16 = arg9;
+    return effect;
+}
 INCLUDE_ASM("span_1000", func_8009201C);
 INCLUDE_ASM("span_1000", func_80092408);
-INCLUDE_ASM("span_1000", func_8009249C);
+void func_8009249C(Unknown8009249C *effect)
+{
+    f32 scale;
+
+    scale = D_80071E9C;
+    effect->value06 = (s32)(effect->value06 * scale);
+    effect->value08 = (s32)(effect->value08 * scale);
+    effect->value0A = (s32)(effect->value0A * scale);
+    effect->value0C = (s32)(effect->value0C * scale);
+    effect->value0E = (s32)(effect->value0E * scale);
+}
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_80107168.h"
 /* Scale the query box, collect nearby results, and dispatch their callbacks. */

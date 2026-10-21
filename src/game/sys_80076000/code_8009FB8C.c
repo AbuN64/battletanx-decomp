@@ -33,8 +33,49 @@ u8 func_8009FBE4(CombatUnit *unit) {
     return player->team;
 }
 
-INCLUDE_ASM("span_1000", func_8009FC0C);
-INCLUDE_ASM("span_1000", func_8009FCD0);
+#include "shared/bt_types.h"
+#include "shared/bt_span_1000_code_800F29F0.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+u16 func_8009FC0C(Unknown8009FC0C *unit) {
+    f32 x = unit->value38C;
+    f32 z = unit->value390;
+    f32 length;
+    f32 cosine;
+    u16 angle;
+
+    if (x == 0.0f && z == 0.0f) {
+        return 0;
+    }
+    length = sqrtf(x * x + z * z);
+    cosine = z / length;
+    if (x < 0.0f) {
+        angle = -func_800F3BE4(cosine);
+    } else {
+        angle = func_800F3BE4(cosine);
+    }
+    return angle;
+}
+u16 func_8009FCD0(Unknown8009FCD0 *vec) {
+    f32 x = vec->value14;
+    f32 z = vec->value18;
+    f32 length;
+    f32 cosine;
+    u16 angle;
+
+    if ((x == 0.0f) & (z == 0.0f)) {
+        return 0;
+    }
+    length = sqrtf(x * x + z * z);
+    cosine = z / length;
+    if (x < 0.0f) {
+        angle = -func_800F3BE4(cosine);
+    } else {
+        angle = func_800F3BE4(cosine);
+    }
+    return angle;
+}
 INCLUDE_ASM("span_1000", func_8009FD94);
 INCLUDE_ASM("span_1000", func_8009FEE0);
 INCLUDE_ASM("span_1000", func_800A0134);

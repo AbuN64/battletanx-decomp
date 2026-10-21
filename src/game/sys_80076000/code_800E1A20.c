@@ -15,7 +15,33 @@ f32 func_800E1ED0(void) {
 
 INCLUDE_ASM("span_1000", func_800E1EE0);
 INCLUDE_ASM("span_1000", func_800E1F14);
-INCLUDE_ASM("span_1000", func_800E2058);
+#include "shared/bt_span_1000_code_800E0B00.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800E2058(Unknown800E2058_1 *unit, f32 *point)
+{
+    Unknown800E2058 *goal = &unit->value334;
+    f32 delta[2];
+    f32 scale;
+
+    if (point == 0) {
+        if (unit->valueA4 == 0) {
+            return;
+        }
+        delta[1] = unit->valueA4[1] - unit->value24;
+        delta[0] = unit->valueA4[0] - unit->value2C;
+        scale = D_800744F8 / func_800E0BC4(delta);
+        goal->value04 = unit->valueA4[1] + delta[1] * scale;
+        goal->value00 = unit->valueA4[0] + delta[0] * scale;
+    } else {
+        goal->value04 = point[1];
+        goal->value00 = point[0];
+    }
+    goal->value10 = 0;
+    goal->value15 = 1;
+    goal->value14 = 1;
+}
 INCLUDE_ASM("span_1000", func_800E2110);
 #include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8007A470.h"
@@ -48,46 +74,55 @@ s32 func_800E2620(CombatUnit *unit) {
     return value;
 }
 
-INCLUDE_ASM("span_1000", func_800E262C);
-#ifdef NON_MATCHING
-#include "shared/bt_types.h"
+s32 func_800E262C(Unknown800E262C *member)
+{
+    return ((member->value14 >> 5) ^ 1) & 1;
+}
 #include "span_1000/code_80097038.h"
-#include "span_1000/code_800E5328.h"
-int func_800E2640(struct Rec *arg0) {
-    s16 temp_v0;
-    s16 temp_v0_2;
-    s16 var_s1;
-    s32 temp_s0;
-    s32 temp_v1_2;
-    s32 var_v0;
-    u8 temp_v1;
 
-    temp_v1 = arg0->b;
-    temp_v0 = temp_v1 * 5;
-    var_s1 = temp_v0;
-    temp_v1_2 = temp_v0 + 5;
-    if (temp_v0 < temp_v1_2) {
-        var_v0 = temp_v1 * 0x50000;
-loop_2:
-        temp_s0 = var_v0 >> 0x10;
-        temp_v0_2 = var_s1 + 1;
-        if (arg0 == func_800A03B8(temp_s0)) {
-            return temp_s0;
+s32 func_800E2640(Unknown800E2640 *unit) {
+    s16 i;
+    s32 start;
+
+    start = unit->value04 * 5;
+    for (i = start; i < start + 5; i++) {
+        if (unit == func_800A03B8(i)) {
+            return i;
         }
-        var_s1 = temp_v0_2;
-        var_v0 = var_s1 << 0x10;
-        if (temp_v0_2 >= temp_v1_2) {
-            /* Duplicate return node #6. Try simplifying control flow for better match */
-            return 0xFF;
-        }
-        goto loop_2;
     }
     return 0xFF;
 }
-#else
-INCLUDE_ASM("span_1000", func_800E2640);
-#endif
-INCLUDE_ASM("span_1000", func_800E26DC);
+static inline s16 find_unit_member_id(CombatUnit *unit) {
+    s16 i;
+
+    s32 base;
+
+    base = unit->player * 5;
+    for (i = base; i < base + 5; i++) {
+        if (unit == func_800A03B8(i)) {
+            return i;
+        }
+    }
+    return 0xFF;
+}
+
+void func_800E26DC(CombatUnit *unit, u8 mode) {
+    Unknown800E26DC_2 context;
+    s32 previous;
+
+    previous = unit->value350;
+    unit->value350 = mode;
+    if (mode == 2) {
+        unit->value40A = 0x80;
+        if (previous == 1 && !(unit->flags & 4)) {
+            func_800E9894(&context, find_unit_member_id(unit));
+            func_800EA1FC(&context, 0);
+            func_800EA1B8(context.value10, 0xB);
+        }
+    } else {
+        unit->value40A = 0x10;
+    }
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800E0B00.h"

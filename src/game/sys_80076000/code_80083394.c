@@ -345,7 +345,38 @@ s32 func_80084778(Scene *scene, f32 (*quad)[2])
     return mask;
 }
 
-INCLUDE_ASM("span_1000", func_8008488C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+u8 func_8008488C(Unknown8008488C_1 *table, f32 x, f32 y, f32 radius) {
+    u8 mask = 0;
+    s32 count = func_8007AAA0();
+    s32 i;
+    s32 j;
+
+    for (i = 0; i < count; i++) {
+        Unknown8008488C *point;
+
+        j = 0;
+        point = &table->value584[i];
+        for (; j < 4; j++) {
+            f32 dx = point->value24 - x;
+            f32 dy = point->value20 - y;
+            s32 inRange = 0;
+
+            if (dx * dx + dy * dy < D_801C9174) {
+                inRange = 1;
+            }
+            if (inRange) {
+                if (func_800941E0(x, y, radius, point) == 0) {
+                    mask |= 1 << i;
+                }
+                break;
+            }
+        }
+    }
+    return mask;
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"

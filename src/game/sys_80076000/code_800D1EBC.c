@@ -83,7 +83,26 @@ s32 func_800D1F20(s32 row, s32 count1, s32 count2, s32 count3, s32 count4, s32 *
 }
 
 INCLUDE_ASM("span_1000", func_800D20E4);
-INCLUDE_ASM("span_1000", func_800D39A4);
+#include "shared/bt_menu_render.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800D39A4(s32 level, s32 value)
+{
+    char buffer[64];
+
+    func_8010555C(0xFA, 0x1E, 0x1E, 0xFF);
+    func_8010698C(&D_8037A174);
+    func_801054E0(2);
+    func_8011CC84(buffer, D_80073D70, value);
+    func_8010552C(0x49, 0x50);
+    func_80105A50(&D_8037A174, buffer, 0, 0x140);
+    func_8010555C(0xFF, 0xFF, 0xFF, 0xFF);
+    if (level >= 0x2E) {
+        func_8010552C(0x2E, 0x6E);
+        func_80105A50(&D_8037A174, D_80073D84, 0, 0x140);
+    }
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
@@ -108,7 +127,28 @@ s32 func_800D3AC4(s32 value, s32 arg1, s32 arg2, s32 *exact, s32 *offset) {
     return 8;
 }
 
-INCLUDE_ASM("span_1000", func_800D3B2C);
+void func_800D3B2C(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
+{
+    char title[32];
+    char value[16];
+    char line[32];
+
+    func_8010555C(0xFA, 0x1E, 0x1E, 0xFF);
+    func_80102050(0x1C, 0x17, 0, 1);
+    func_8010316C();
+    func_8010555C(0xFF, 0, 0, 0xFF);
+    func_8010698C(&D_8037A174);
+    func_801054E0(2);
+    func_8011CC84(title, D_80073D90);
+    func_8010552C(0x49, 0x1E);
+    func_80105A50(&D_8037A174, title, 0, 0x140);
+    func_8010555C(0xFF, 0xFF, 0xFF, 0xFF);
+    func_801054E0(4);
+    func_800DD310(arg0, arg1, arg2, arg3, D_80134E64, value);
+    func_8011CC84(line, D_80073C80, value);
+    func_8010552C(0, 0xBE);
+    func_80105A50(&D_8037A174, line, 0, 0x140);
+}
 #include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"

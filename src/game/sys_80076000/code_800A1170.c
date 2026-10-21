@@ -18,11 +18,33 @@ s32 func_800A12E4(f32 x, f32 y, s32 sizeIndex)
     return !func_80107A14(&box, 16, results, &count);
 }
 
-INCLUDE_ASM("span_1000", func_800A137C);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+static inline void build_box(AreaBox *box, f32 x, f32 y, f32 half)
+{
+    func_80109268(box, x, y, -half, half, -half, half, 0);
+}
+
+s32 func_800A137C(f32 x, f32 y, s32 unused2, s32 unused3, s32 sizeIndex)
+{
+    void *results[16];
+    AreaBox box;
+    s32 count;
+    f32 half;
+
+    half = D_80126038[sizeIndex] * D_80072C84;
+    build_box(&box, x, y, half);
+    return !func_80107A14(&box, 16, results, &count);
+}
 INCLUDE_ASM("span_1000", func_800A1408);
 INCLUDE_ASM("span_1000", func_800A16C0);
 INCLUDE_ASM("span_1000", func_800A27D0);
-INCLUDE_ASM("span_1000", func_800A2A28);
+void func_800A2A28(Unknown800A2A28 *object, s32 arg1, s32 arg2, Unknown800A2A28_1 *report)
+{
+    report->value00 = 1;
+    report->value08 = object->value20;
+    report->value04 = object->value1C;
+}
 INCLUDE_ASM("span_1000", func_800A2A44);
 INCLUDE_ASM("span_1000", func_800A2C38);
 INCLUDE_ASM("span_1000", func_800A2DC0);

@@ -19,7 +19,22 @@ void func_800F45C8(void)
     func_80114970(&D_8035BC80, &D_8035BCC4, 37.0f, 4.0f / 3.0f, D_80074F7C, D_80074F80, D_80074F84);
 }
 
-INCLUDE_ASM("span_1000", func_800F46C8);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800F46C8(Unknown800F46C8 *extents, Vec3f *center, Vec3f *corners) {
+    f32 cosine = func_800F3B40(0);
+    f32 offsetZ = extents->value28 * -func_800F3AE0(0);
+    f32 halfHeight = extents->value2C;
+    f32 offsetX = extents->value28 * cosine;
+
+    corners[0].z = corners[3].z = center->z + offsetZ;
+    corners[0].x = corners[3].x = center->x + offsetX;
+    corners[1].z = corners[2].z = center->z - offsetZ;
+    corners[1].x = corners[2].x = center->x - offsetX;
+    corners[0].y = corners[1].y = center->y - halfHeight;
+    corners[2].y = corners[3].y = center->y + halfHeight;
+}
 INCLUDE_ASM("span_1000", func_800F4794);
 INCLUDE_ASM("span_1000", func_800F4DFC);
 INCLUDE_ASM("span_1000", func_800F4F60);

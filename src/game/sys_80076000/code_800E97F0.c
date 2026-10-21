@@ -18,5 +18,12 @@ f32 *func_800E9820(struct ResetState *context, s32 parameter)
     return 0;
 }
 
-INCLUDE_ASM("span_1000", func_800E9854);
+#include "shared/bt_types.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+f32 func_800E9854(Unknown800E9854 *store, u8 index)
+{
+    return store->value10C[index];
+}
 INCLUDE_ASM("span_1000", func_800E986C);

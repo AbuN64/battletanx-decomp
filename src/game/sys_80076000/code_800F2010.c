@@ -131,6 +131,78 @@ void func_800F3014(s8 arg0, s8 arg1, s8 arg2, s8 arg3, u8 arg4, u8 arg5, s32 arg
     }
 }
 
-INCLUDE_ASM("span_1000", func_800F30C8);
-INCLUDE_ASM("span_1000", func_800F3234);
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+void func_800F30C8(Unknown800F30C8 *effect, s32 *state) {
+    Unknown800F30C8 *next;
+    s32 mode;
+
+    if (++effect->value18 < effect->value14) {
+        return;
+    }
+    *state = 2;
+    mode = effect->value1C;
+    switch (mode) {
+    case 0:
+        return;
+    case 1: {
+        u8 a = effect->value0C[3];
+        u8 b = effect->value0C[4];
+        u8 c = effect->value0C[5];
+        u8 d = effect->value0C[0];
+        u8 e = effect->value0C[1];
+        u8 g = effect->value0C[2];
+        s32 duration = effect->value14;
+
+        next = func_8008AD10(1, 0x20, 0x20);
+        if (next == 0) {
+            return;
+        }
+        next->value0C[0] = a;
+        next->value0C[1] = b;
+        next->value0C[2] = c;
+        next->value0C[3] = d;
+        next->value0C[4] = e;
+        next->value0C[5] = g;
+        next->value14 = duration;
+        next->value18 = 0;
+        next->value1C = mode;
+        break;
+    }
+    case 2: {
+        u8 r = func_800F38F4();
+        u8 g = func_800F38F4();
+        u8 b = func_800F38F4();
+        u8 a = effect->value0C[3];
+        u8 c = effect->value0C[4];
+        u8 d = effect->value0C[5];
+        s32 duration = effect->value14;
+        s32 nextMode = effect->value1C;
+
+        next = func_8008AD10(1, 0x20, 0x20);
+        if (next == 0) {
+            return;
+        }
+        next->value0C[0] = a;
+        next->value0C[1] = c;
+        next->value0C[2] = d;
+        next->value0C[3] = r;
+        next->value0C[4] = g;
+        next->value0C[5] = b;
+        next->value14 = duration;
+        next->value18 = 0;
+        next->value1C = nextMode;
+        break;
+    }
+    }
+}
+void func_800F3234(Unknown800F3234 *fade) {
+    s32 elapsed = fade->value18;
+    s32 duration = fade->value14;
+
+    func_8007D430((u8)(fade->value0C + ((fade->value0F - fade->value0C) * elapsed) / duration),
+                  (u8)(fade->value0D + ((fade->value10 - fade->value0D) * elapsed) / duration),
+                  (u8)(fade->value0E + ((fade->value11 - fade->value0E) * elapsed) / duration));
+}
 INCLUDE_ASM("span_1000", func_800F3344);

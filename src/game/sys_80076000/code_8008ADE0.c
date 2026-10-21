@@ -141,7 +141,36 @@ s32 func_8008CED0(void)
 
 INCLUDE_ASM("span_1000", func_8008CF40);
 INCLUDE_ASM("span_1000", func_8008D588);
-INCLUDE_ASM("span_1000", func_8008D660);
+#include "span_1000/code_8008F4EC.h"
+#include "shared/bt_records.h"
+#include "shared/bt_externs.h"
+
+s32 func_8008D660(f32 *pos, f32 *pairA, f32 *pairB, s16 value28, u8 value2D,
+                                u8 value2C, u16 value2E, u16 value30, s32 value34, u8 value32)
+{
+    Unknown8008D660 *effect;
+
+    effect = func_8008AD10(1, 2, sizeof(Unknown8008D660));
+    if (effect == 0) {
+        return -1;
+    }
+    effect->value32 = value32;
+    effect->value2E = value2E;
+    effect->value30 = value30;
+    effect->value0C = pos[0];
+    effect->value10 = pos[1];
+    effect->value14 = pos[2];
+    effect->value1C = pairA[1];
+    effect->value18 = pairA[0];
+    effect->value24 = pairB[1];
+    effect->value20 = pairB[0];
+    effect->value2C = value2C;
+    effect->value28 = value28;
+    effect->value2A = 0x70;
+    effect->value2D = value2D;
+    effect->value34 = value34;
+    return 0;
+}
 INCLUDE_ASM("span_1000", func_8008D768);
 INCLUDE_ASM("span_1000", func_8008DDCC);
 #include "shared/bt_span_1000_code_8008B1F0.h"
@@ -212,8 +241,25 @@ EffectKind16 *func_8008DF2C(Vec3f *pos, f32 speed, u16 angle, s8 arg3, u8 arg4, 
     return e;
 }
 
-INCLUDE_ASM("span_1000", func_8008E1BC);
-INCLUDE_ASM("span_1000", func_8008E228);
+void func_8008E1BC(Unknown8008E1BC *record, s32 unused1, s32 unused2, void *target)
+{
+    Unknown8008E1BC_1 matrix;
+
+    func_800A76A0(target, record->value0C);
+    func_800A82B8(target, &matrix, ~(record->value1E * 3) & 0xFFFF);
+    func_800A841C(&matrix, target, record->value1C);
+}
+void func_8008E228(Unknown8008E1BC *record, s32 unused, s32 enabled,
+                                       s32 unused3, void *target)
+{
+    Unknown8008E1BC_1 matrix;
+
+    if (enabled == 1) {
+        func_800A76A0(target, record->value0C);
+        func_800A82B8(target, &matrix, ~(record->value1E * 3) & 0xFFFF);
+        func_800A841C(&matrix, target, record->value1C);
+    }
+}
 INCLUDE_ASM("span_1000", func_8008E29C);
 INCLUDE_ASM("span_1000", func_8008E480);
 INCLUDE_ASM("span_1000", func_8008EBA0);
