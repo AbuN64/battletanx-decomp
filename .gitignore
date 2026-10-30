@@ -1,7 +1,6 @@
 /.env
 /asm/
 /build/
-/.boards/
 /roms/
 /tools/
 /local.mk
