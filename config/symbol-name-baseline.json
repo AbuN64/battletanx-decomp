@@ -1,0 +1,514 @@
+{
+  "schema": 1,
+  "revision": "6b945db370d68a04efa94386ac78ea6757bf06d9",
+  "files": {
+    "include/PR/R4300.h": [
+      {
+        "reason": "__R4300_H__: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          22
+        ]
+      }
+    ],
+    "include/PR/abi.h": [
+      {
+        "reason": "_ABI_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          2
+        ]
+      }
+    ],
+    "include/PR/gbi.h": [
+      {
+        "reason": "__gsSP1Quadrangle_w1f: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          1966
+        ]
+      },
+      {
+        "reason": "__gsSP1Quadrangle_w2f: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          1971
+        ]
+      },
+      {
+        "reason": "__gsSP1Triangle_w1: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          1955
+        ]
+      },
+      {
+        "reason": "__gsSP1Triangle_w1f: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          1957,
+          1977
+        ]
+      },
+      {
+        "reason": "__gsSPLine3D_w1: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          1961
+        ]
+      },
+      {
+        "reason": "__gsSPLine3D_w1f: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          1963,
+          1980
+        ]
+      },
+      {
+        "reason": "_gDPLoadTextureBlock: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          3478
+        ]
+      },
+      {
+        "reason": "_gDPLoadTextureBlockTile: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          3500
+        ]
+      },
+      {
+        "reason": "_gDPLoadTextureBlock_4b: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          3762
+        ]
+      },
+      {
+        "reason": "_gsDPLoadTextureBlock: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          3584
+        ]
+      },
+      {
+        "reason": "_gsDPLoadTextureBlockTile: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          3607
+        ]
+      },
+      {
+        "reason": "_gsDPLoadTextureBlock_4b: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          3860
+        ]
+      }
+    ],
+    "include/PR/gu.h": [
+      {
+        "reason": "_GU_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          2
+        ]
+      }
+    ],
+    "include/PR/libaudio.h": [
+      {
+        "reason": "__LIB_AUDIO__: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          30
+        ]
+      }
+    ],
+    "include/PR/mbi.h": [
+      {
+        "reason": "_MBI_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          2
+        ]
+      },
+      {
+        "reason": "_SHIFT: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          52
+        ]
+      },
+      {
+        "reason": "_SHIFTL: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          47
+        ]
+      },
+      {
+        "reason": "_SHIFTR: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          49
+        ]
+      }
+    ],
+    "include/PR/os.h": [
+      {
+        "reason": "_OS_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_ai.h": [
+      {
+        "reason": "_OS_AI_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_cache.h": [
+      {
+        "reason": "_OS_CACHE_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_cont.h": [
+      {
+        "reason": "_OS_CONT_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_convert.h": [
+      {
+        "reason": "_OS_CONVERT_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_debug.h": [
+      {
+        "reason": "_OS_DEBUG_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_eeprom.h": [
+      {
+        "reason": "_OS_EEPROM_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_error.h": [
+      {
+        "reason": "_OS_ERROR_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_exception.h": [
+      {
+        "reason": "_OS_EXCEPTION_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_flash.h": [
+      {
+        "reason": "_OS_FLASH_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          10
+        ]
+      }
+    ],
+    "include/PR/os_gbpak.h": [
+      {
+        "reason": "_OS_GBPAK_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          11
+        ]
+      }
+    ],
+    "include/PR/os_gio.h": [
+      {
+        "reason": "_OS_GIO_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_host.h": [
+      {
+        "reason": "_OS_HOST_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_libc.h": [
+      {
+        "reason": "_OS_LIBC_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_message.h": [
+      {
+        "reason": "_OS_MESSAGE_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_motor.h": [
+      {
+        "reason": "_OS_MOTOR_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          11
+        ]
+      }
+    ],
+    "include/PR/os_pfs.h": [
+      {
+        "reason": "_OS_PFS_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_pi.h": [
+      {
+        "reason": "_OS_PI_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_rdp.h": [
+      {
+        "reason": "_OS_RDP_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_reg.h": [
+      {
+        "reason": "_OS_REG_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_rsp.h": [
+      {
+        "reason": "_OS_RSP_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_si.h": [
+      {
+        "reason": "_OS_SI_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_system.h": [
+      {
+        "reason": "_OS_SYSTEM_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_thread.h": [
+      {
+        "reason": "_OS_THREAD_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      },
+      {
+        "reason": "__OSfp: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          56
+        ]
+      }
+    ],
+    "include/PR/os_time.h": [
+      {
+        "reason": "_OS_TIME_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_tlb.h": [
+      {
+        "reason": "_OS_TLB_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_version.h": [
+      {
+        "reason": "_OS_VERSION_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          11
+        ]
+      }
+    ],
+    "include/PR/os_vi.h": [
+      {
+        "reason": "_OS_VI_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      }
+    ],
+    "include/PR/os_voice.h": [
+      {
+        "reason": "_OS_VOICE_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          11
+        ]
+      },
+      {
+        "reason": "__channel: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          29
+        ]
+      },
+      {
+        "reason": "__mode: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          30
+        ]
+      },
+      {
+        "reason": "__mq: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          28
+        ]
+      }
+    ],
+    "include/PR/ramrom.h": [
+      {
+        "reason": "_RAMROM_H: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          2
+        ]
+      },
+      {
+        "reason": "__RamRomDestroy: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          110
+        ]
+      },
+      {
+        "reason": "__RamRomInit: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          109
+        ]
+      }
+    ],
+    "include/PR/rcp.h": [
+      {
+        "reason": "_RCP_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          2
+        ]
+      }
+    ],
+    "include/PR/region.h": [
+      {
+        "reason": "_REGION_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          31
+        ]
+      },
+      {
+        "reason": "_Region_s: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          87
+        ]
+      }
+    ],
+    "include/PR/rmon.h": [
+      {
+        "reason": "_RMON_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          22
+        ]
+      }
+    ],
+    "include/PR/sp.h": [
+      {
+        "reason": "_SP_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          24
+        ]
+      }
+    ],
+    "include/PR/sptask.h": [
+      {
+        "reason": "_SPTASK_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          22
+        ]
+      }
+    ],
+    "include/PR/ucode.h": [
+      {
+        "reason": "_UCODE_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          22
+        ]
+      }
+    ],
+    "include/PR/ultraerror.h": [
+      {
+        "reason": "__ULTRAERROR_H__: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          30
+        ]
+      }
+    ],
+    "include/PR/ultralog.h": [
+      {
+        "reason": "__log__: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          30
+        ]
+      }
+    ],
+    "include/PR/ultratypes.h": [
+      {
+        "reason": "_SIZE_T: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          61
+        ]
+      },
+      {
+        "reason": "_SIZE_T_DEF: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          62
+        ]
+      },
+      {
+        "reason": "_ULTRATYPES_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          2
+        ]
+      }
+    ],
+    "include/ultra64.h": [
+      {
+        "reason": "_ULTRA64_H_: reserved identifier (elf-gcc, coff-mingw, macho-clang, android-clang, msvc)",
+        "lines": [
+          23
+        ]
+      }
+    ]
+  }
+}
