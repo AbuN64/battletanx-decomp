@@ -6,7 +6,7 @@ You need GNU Make, curl, tar, sha256sum, python3, cpp, the MIPS binutils (`mips-
 and splat:
 
 ```sh
-python3 -m pip install "splat64[mips]==0.50.0" "spimdisasm==1.42.4"
+python3 -m pip install -r requirements.txt
 ```
 
 Put your own big-endian cartridge dumps at these paths:

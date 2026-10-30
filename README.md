@@ -2,7 +2,7 @@
 
 A matching decompilation of *BattleTanx* for the Nintendo 64.
 
-> **This repository contains no game content.** You must supply a legally acquired cartridge dump. Builds are verified against its SHA256.
+> **This repository contains no game content.** You must supply a legally acquired cartridge dump. Builds are verified against its SHA-1.
 
 ## Progress
 
