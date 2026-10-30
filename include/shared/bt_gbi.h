@@ -1364,187 +1364,187 @@
 
 #define _GBI_V3(a,b,c,f) ((f) == 0 ? (a) : (f) == 1 ? (b) : (c))
 #define gI_(v) ((unsigned int)(v))
-#define gF_(v, w, s) _SHIFTL(v, s, w)
-#ifndef _SHIFTL
-#define _SHIFTL(v, s, w) (((unsigned int)(v) & (0xFFFFFFFFU >> (32 - (w)))) << (s))
+#define gF_(v, w, s) BT_SHIFTL(v, s, w)
+#ifndef BT_SHIFTL
+#define BT_SHIFTL(v, s, w) (((unsigned int)(v) & (0xFFFFFFFFU >> (32 - (w)))) << (s))
 #endif
 /* Single evaluation of pkt, as in traditional GBI command builders. */
 #define _GBI_CMD(pkt, a, b) { Gfx *_gbi = (Gfx *)(pkt); _gbi->words.w0 = (a); _gbi->words.w1 = (b); }
 
 #if defined(F3DEX_GBI_2)
 #define gSPSetOtherMode(pkt, cmd, sft, len, data) \
-    _GBI_CMD(pkt, _SHIFTL(cmd, 24, 8) | _SHIFTL(32 - (sft) - (len), 8, 8) | _SHIFTL((len) - 1, 0, 8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(cmd, 24, 8) | BT_SHIFTL(32 - (sft) - (len), 8, 8) | BT_SHIFTL((len) - 1, 0, 8), (unsigned int)(data))
 #define gsSPSetOtherMode(cmd, sft, len, data) \
-    { { _SHIFTL(cmd, 24, 8) | _SHIFTL(32 - (sft) - (len), 8, 8) | _SHIFTL((len) - 1, 0, 8), (unsigned int)(data) } }
+    { { BT_SHIFTL(cmd, 24, 8) | BT_SHIFTL(32 - (sft) - (len), 8, 8) | BT_SHIFTL((len) - 1, 0, 8), (unsigned int)(data) } }
 #define gSPMatrix(pkt, mtx, param) \
-    _GBI_CMD(pkt, _SHIFTL(G_MTX, 24, 8) | _SHIFTL(7, 19, 5) | _SHIFTL((param) ^ G_MTX_PUSH, 0, 8), (unsigned int)(mtx))
+    _GBI_CMD(pkt, BT_SHIFTL(G_MTX, 24, 8) | BT_SHIFTL(7, 19, 5) | BT_SHIFTL((param) ^ G_MTX_PUSH, 0, 8), (unsigned int)(mtx))
 #define gsSPMatrix(mtx, param) \
-    { { _SHIFTL(G_MTX, 24, 8) | _SHIFTL(7, 19, 5) | _SHIFTL((param) ^ G_MTX_PUSH, 0, 8), (unsigned int)(mtx) } }
+    { { BT_SHIFTL(G_MTX, 24, 8) | BT_SHIFTL(7, 19, 5) | BT_SHIFTL((param) ^ G_MTX_PUSH, 0, 8), (unsigned int)(mtx) } }
 #define gSPPopMatrixN(pkt, param, n) \
-    _GBI_CMD(pkt, _SHIFTL(G_POPMTX, 24, 8) | _SHIFTL(7, 19, 5) | 2, (unsigned int)(n) * 64)
+    _GBI_CMD(pkt, BT_SHIFTL(G_POPMTX, 24, 8) | BT_SHIFTL(7, 19, 5) | 2, (unsigned int)(n) * 64)
 #define gsSPPopMatrixN(param, n) \
-    { { _SHIFTL(G_POPMTX, 24, 8) | _SHIFTL(7, 19, 5) | 2, (unsigned int)(n) * 64 } }
+    { { BT_SHIFTL(G_POPMTX, 24, 8) | BT_SHIFTL(7, 19, 5) | 2, (unsigned int)(n) * 64 } }
 #define gSPMoveWord(pkt, index, offset, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_MOVEWORD, 24, 8) | _SHIFTL(index, 16, 8) | _SHIFTL(offset, 0, 16), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_MOVEWORD, 24, 8) | BT_SHIFTL(index, 16, 8) | BT_SHIFTL(offset, 0, 16), (unsigned int)(data))
 #define gsSPMoveWord(index, offset, data) \
-    { { _SHIFTL(G_MOVEWORD, 24, 8) | _SHIFTL(index, 16, 8) | _SHIFTL(offset, 0, 16), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_MOVEWORD, 24, 8) | BT_SHIFTL(index, 16, 8) | BT_SHIFTL(offset, 0, 16), (unsigned int)(data) } }
 #define gSPMoveMem(pkt, index, offset, size, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_MOVEMEM, 24, 8) | _SHIFTL(((size) - 1) / 8, 19, 5) | _SHIFTL((offset) / 8, 8, 8) | _SHIFTL(index, 0, 8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_MOVEMEM, 24, 8) | BT_SHIFTL(((size) - 1) / 8, 19, 5) | BT_SHIFTL((offset) / 8, 8, 8) | BT_SHIFTL(index, 0, 8), (unsigned int)(data))
 #define gsSPMoveMem(index, offset, size, data) \
-    { { _SHIFTL(G_MOVEMEM, 24, 8) | _SHIFTL(((size) - 1) / 8, 19, 5) | _SHIFTL((offset) / 8, 8, 8) | _SHIFTL(index, 0, 8), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_MOVEMEM, 24, 8) | BT_SHIFTL(((size) - 1) / 8, 19, 5) | BT_SHIFTL((offset) / 8, 8, 8) | BT_SHIFTL(index, 0, 8), (unsigned int)(data) } }
 #define gSPGeometryMode(pkt, clear, set) \
-    _GBI_CMD(pkt, _SHIFTL(G_GEOMETRYMODE, 24, 8) | _SHIFTL(~(clear), 0, 24), (unsigned int)(set))
+    _GBI_CMD(pkt, BT_SHIFTL(G_GEOMETRYMODE, 24, 8) | BT_SHIFTL(~(clear), 0, 24), (unsigned int)(set))
 #define gsSPGeometryMode(clear, set) \
-    { { _SHIFTL(G_GEOMETRYMODE, 24, 8) | _SHIFTL(~(clear), 0, 24), (unsigned int)(set) } }
+    { { BT_SHIFTL(G_GEOMETRYMODE, 24, 8) | BT_SHIFTL(~(clear), 0, 24), (unsigned int)(set) } }
 #define gSPTexture(pkt, s, t, level, tile, on) \
-    _GBI_CMD(pkt, _SHIFTL(G_TEXTURE, 24, 8) | _SHIFTL(level, 11, 3) | _SHIFTL(tile, 8, 3) | _SHIFTL(on, 1, 7), _SHIFTL(s, 16, 16) | _SHIFTL(t, 0, 16))
+    _GBI_CMD(pkt, BT_SHIFTL(G_TEXTURE, 24, 8) | BT_SHIFTL(level, 11, 3) | BT_SHIFTL(tile, 8, 3) | BT_SHIFTL(on, 1, 7), BT_SHIFTL(s, 16, 16) | BT_SHIFTL(t, 0, 16))
 #define gsSPTexture(s, t, level, tile, on) \
-    { { _SHIFTL(G_TEXTURE, 24, 8) | _SHIFTL(level, 11, 3) | _SHIFTL(tile, 8, 3) | _SHIFTL(on, 1, 7), _SHIFTL(s, 16, 16) | _SHIFTL(t, 0, 16) } }
+    { { BT_SHIFTL(G_TEXTURE, 24, 8) | BT_SHIFTL(level, 11, 3) | BT_SHIFTL(tile, 8, 3) | BT_SHIFTL(on, 1, 7), BT_SHIFTL(s, 16, 16) | BT_SHIFTL(t, 0, 16) } }
 #define gSPVertex(pkt, v, n, v0) \
-    _GBI_CMD(pkt, _SHIFTL(G_VTX, 24, 8) | _SHIFTL(n, 12, 8) | _SHIFTL((v0) + (n), 1, 7), (unsigned int)(v))
+    _GBI_CMD(pkt, BT_SHIFTL(G_VTX, 24, 8) | BT_SHIFTL(n, 12, 8) | BT_SHIFTL((v0) + (n), 1, 7), (unsigned int)(v))
 #define gsSPVertex(v, n, v0) \
-    { { _SHIFTL(G_VTX, 24, 8) | _SHIFTL(n, 12, 8) | _SHIFTL((v0) + (n), 1, 7), (unsigned int)(v) } }
+    { { BT_SHIFTL(G_VTX, 24, 8) | BT_SHIFTL(n, 12, 8) | BT_SHIFTL((v0) + (n), 1, 7), (unsigned int)(v) } }
 #define gSP1Triangle(pkt, v0, v1, v2, flag) \
-    _GBI_CMD(pkt, _SHIFTL(G_TRI1, 24, 8) | _SHIFTL(_GBI_V3(v0,v1,v2,flag) * 2, 16, 8) | _SHIFTL(_GBI_V3(v1,v2,v0,flag) * 2, 8, 8) | _SHIFTL(_GBI_V3(v2,v0,v1,flag) * 2, 0, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_TRI1, 24, 8) | BT_SHIFTL(_GBI_V3(v0,v1,v2,flag) * 2, 16, 8) | BT_SHIFTL(_GBI_V3(v1,v2,v0,flag) * 2, 8, 8) | BT_SHIFTL(_GBI_V3(v2,v0,v1,flag) * 2, 0, 8), 0)
 #define gsSP1Triangle(v0, v1, v2, flag) \
-    { { _SHIFTL(G_TRI1, 24, 8) | _SHIFTL(_GBI_V3(v0,v1,v2,flag) * 2, 16, 8) | _SHIFTL(_GBI_V3(v1,v2,v0,flag) * 2, 8, 8) | _SHIFTL(_GBI_V3(v2,v0,v1,flag) * 2, 0, 8), 0 } }
+    { { BT_SHIFTL(G_TRI1, 24, 8) | BT_SHIFTL(_GBI_V3(v0,v1,v2,flag) * 2, 16, 8) | BT_SHIFTL(_GBI_V3(v1,v2,v0,flag) * 2, 8, 8) | BT_SHIFTL(_GBI_V3(v2,v0,v1,flag) * 2, 0, 8), 0 } }
 #define gSP2Triangles(pkt, v00, v01, v02, flag0, v10, v11, v12, flag1) \
-    _GBI_CMD(pkt, _SHIFTL(G_TRI2, 24, 8) | _SHIFTL(_GBI_V3(v00,v01,v02,flag0) * 2, 16, 8) | _SHIFTL(_GBI_V3(v01,v02,v00,flag0) * 2, 8, 8) | _SHIFTL(_GBI_V3(v02,v00,v01,flag0) * 2, 0, 8), _SHIFTL(_GBI_V3(v10,v11,v12,flag1) * 2, 16, 8) | _SHIFTL(_GBI_V3(v11,v12,v10,flag1) * 2, 8, 8) | _SHIFTL(_GBI_V3(v12,v10,v11,flag1) * 2, 0, 8))
+    _GBI_CMD(pkt, BT_SHIFTL(G_TRI2, 24, 8) | BT_SHIFTL(_GBI_V3(v00,v01,v02,flag0) * 2, 16, 8) | BT_SHIFTL(_GBI_V3(v01,v02,v00,flag0) * 2, 8, 8) | BT_SHIFTL(_GBI_V3(v02,v00,v01,flag0) * 2, 0, 8), BT_SHIFTL(_GBI_V3(v10,v11,v12,flag1) * 2, 16, 8) | BT_SHIFTL(_GBI_V3(v11,v12,v10,flag1) * 2, 8, 8) | BT_SHIFTL(_GBI_V3(v12,v10,v11,flag1) * 2, 0, 8))
 #define gsSP2Triangles(v00, v01, v02, flag0, v10, v11, v12, flag1) \
-    { { _SHIFTL(G_TRI2, 24, 8) | _SHIFTL(_GBI_V3(v00,v01,v02,flag0) * 2, 16, 8) | _SHIFTL(_GBI_V3(v01,v02,v00,flag0) * 2, 8, 8) | _SHIFTL(_GBI_V3(v02,v00,v01,flag0) * 2, 0, 8), _SHIFTL(_GBI_V3(v10,v11,v12,flag1) * 2, 16, 8) | _SHIFTL(_GBI_V3(v11,v12,v10,flag1) * 2, 8, 8) | _SHIFTL(_GBI_V3(v12,v10,v11,flag1) * 2, 0, 8) } }
+    { { BT_SHIFTL(G_TRI2, 24, 8) | BT_SHIFTL(_GBI_V3(v00,v01,v02,flag0) * 2, 16, 8) | BT_SHIFTL(_GBI_V3(v01,v02,v00,flag0) * 2, 8, 8) | BT_SHIFTL(_GBI_V3(v02,v00,v01,flag0) * 2, 0, 8), BT_SHIFTL(_GBI_V3(v10,v11,v12,flag1) * 2, 16, 8) | BT_SHIFTL(_GBI_V3(v11,v12,v10,flag1) * 2, 8, 8) | BT_SHIFTL(_GBI_V3(v12,v10,v11,flag1) * 2, 0, 8) } }
 #define gSPModifyVertex(pkt, v, where, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_MODIFYVTX, 24, 8) | _SHIFTL(where, 16, 8) | _SHIFTL((v) * 2, 0, 16), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_MODIFYVTX, 24, 8) | BT_SHIFTL(where, 16, 8) | BT_SHIFTL((v) * 2, 0, 16), (unsigned int)(data))
 #define gsSPModifyVertex(v, where, data) \
-    { { _SHIFTL(G_MODIFYVTX, 24, 8) | _SHIFTL(where, 16, 8) | _SHIFTL((v) * 2, 0, 16), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_MODIFYVTX, 24, 8) | BT_SHIFTL(where, 16, 8) | BT_SHIFTL((v) * 2, 0, 16), (unsigned int)(data) } }
 #else
-#define gSPSetOtherMode(pkt, cmd, sft, len, data) _GBI_CMD(pkt, _SHIFTL(cmd,24,8) | _SHIFTL(sft,8,8) | _SHIFTL(len,0,8), (unsigned int)(data))
-#define gsSPSetOtherMode(cmd, sft, len, data) {{ _SHIFTL(cmd,24,8) | _SHIFTL(sft,8,8) | _SHIFTL(len,0,8), (unsigned int)(data) }}
-#define gSPMatrix(pkt, mtx, param) _GBI_CMD(pkt, _SHIFTL(G_MTX,24,8) | _SHIFTL(param,16,8) | 64, (unsigned int)(mtx))
-#define gsSPMatrix(mtx, param) {{ _SHIFTL(G_MTX,24,8) | _SHIFTL(param,16,8) | 64, (unsigned int)(mtx) }}
-#define gSPMoveWord(pkt, index, offset, data) _GBI_CMD(pkt, _SHIFTL(G_MOVEWORD,24,8) | _SHIFTL(offset,8,16) | _SHIFTL(index,0,8), (unsigned int)(data))
-#define gsSPMoveWord(index, offset, data) {{ _SHIFTL(G_MOVEWORD,24,8) | _SHIFTL(offset,8,16) | _SHIFTL(index,0,8), (unsigned int)(data) }}
-#define gSPSetGeometryMode(pkt, mode) _GBI_CMD(pkt, _SHIFTL(G_SETGEOMETRYMODE,24,8), (unsigned int)(mode))
-#define gSPClearGeometryMode(pkt, mode) _GBI_CMD(pkt, _SHIFTL(G_CLEARGEOMETRYMODE,24,8), (unsigned int)(mode))
-#define gsSPSetGeometryMode(mode) {{ _SHIFTL(G_SETGEOMETRYMODE,24,8), (unsigned int)(mode) }}
-#define gsSPClearGeometryMode(mode) {{ _SHIFTL(G_CLEARGEOMETRYMODE,24,8), (unsigned int)(mode) }}
+#define gSPSetOtherMode(pkt, cmd, sft, len, data) _GBI_CMD(pkt, BT_SHIFTL(cmd,24,8) | BT_SHIFTL(sft,8,8) | BT_SHIFTL(len,0,8), (unsigned int)(data))
+#define gsSPSetOtherMode(cmd, sft, len, data) {{ BT_SHIFTL(cmd,24,8) | BT_SHIFTL(sft,8,8) | BT_SHIFTL(len,0,8), (unsigned int)(data) }}
+#define gSPMatrix(pkt, mtx, param) _GBI_CMD(pkt, BT_SHIFTL(G_MTX,24,8) | BT_SHIFTL(param,16,8) | 64, (unsigned int)(mtx))
+#define gsSPMatrix(mtx, param) {{ BT_SHIFTL(G_MTX,24,8) | BT_SHIFTL(param,16,8) | 64, (unsigned int)(mtx) }}
+#define gSPMoveWord(pkt, index, offset, data) _GBI_CMD(pkt, BT_SHIFTL(G_MOVEWORD,24,8) | BT_SHIFTL(offset,8,16) | BT_SHIFTL(index,0,8), (unsigned int)(data))
+#define gsSPMoveWord(index, offset, data) {{ BT_SHIFTL(G_MOVEWORD,24,8) | BT_SHIFTL(offset,8,16) | BT_SHIFTL(index,0,8), (unsigned int)(data) }}
+#define gSPSetGeometryMode(pkt, mode) _GBI_CMD(pkt, BT_SHIFTL(G_SETGEOMETRYMODE,24,8), (unsigned int)(mode))
+#define gSPClearGeometryMode(pkt, mode) _GBI_CMD(pkt, BT_SHIFTL(G_CLEARGEOMETRYMODE,24,8), (unsigned int)(mode))
+#define gsSPSetGeometryMode(mode) {{ BT_SHIFTL(G_SETGEOMETRYMODE,24,8), (unsigned int)(mode) }}
+#define gsSPClearGeometryMode(mode) {{ BT_SHIFTL(G_CLEARGEOMETRYMODE,24,8), (unsigned int)(mode) }}
 #endif
 #define gDPPipeSync(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_RDPPIPESYNC, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_RDPPIPESYNC, 24, 8), 0)
 #define gsDPPipeSync() \
-    { { _SHIFTL(G_RDPPIPESYNC, 24, 8), 0 } }
+    { { BT_SHIFTL(G_RDPPIPESYNC, 24, 8), 0 } }
 #define gDPLoadSync(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_RDPLOADSYNC, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_RDPLOADSYNC, 24, 8), 0)
 #define gsDPLoadSync() \
-    { { _SHIFTL(G_RDPLOADSYNC, 24, 8), 0 } }
+    { { BT_SHIFTL(G_RDPLOADSYNC, 24, 8), 0 } }
 #define gDPTileSync(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_RDPTILESYNC, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_RDPTILESYNC, 24, 8), 0)
 #define gsDPTileSync() \
-    { { _SHIFTL(G_RDPTILESYNC, 24, 8), 0 } }
+    { { BT_SHIFTL(G_RDPTILESYNC, 24, 8), 0 } }
 #define gDPFullSync(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_RDPFULLSYNC, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_RDPFULLSYNC, 24, 8), 0)
 #define gsDPFullSync() \
-    { { _SHIFTL(G_RDPFULLSYNC, 24, 8), 0 } }
+    { { BT_SHIFTL(G_RDPFULLSYNC, 24, 8), 0 } }
 #define gDPNoOp(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_NOOP, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_NOOP, 24, 8), 0)
 #define gsDPNoOp() \
-    { { _SHIFTL(G_NOOP, 24, 8), 0 } }
+    { { BT_SHIFTL(G_NOOP, 24, 8), 0 } }
 #define gSPEndDisplayList(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_ENDDL, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_ENDDL, 24, 8), 0)
 #define gsSPEndDisplayList() \
-    { { _SHIFTL(G_ENDDL, 24, 8), 0 } }
+    { { BT_SHIFTL(G_ENDDL, 24, 8), 0 } }
 #define gSPNoOp(pkt) \
-    _GBI_CMD(pkt, _SHIFTL(G_SPNOOP, 24, 8), 0)
+    _GBI_CMD(pkt, BT_SHIFTL(G_SPNOOP, 24, 8), 0)
 #define gsSPNoOp() \
-    { { _SHIFTL(G_SPNOOP, 24, 8), 0 } }
+    { { BT_SHIFTL(G_SPNOOP, 24, 8), 0 } }
 #define gDPSetFillColor(pkt, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETFILLCOLOR, 24, 8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETFILLCOLOR, 24, 8), (unsigned int)(data))
 #define gsDPSetFillColor(data) \
-    { { _SHIFTL(G_SETFILLCOLOR, 24, 8), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_SETFILLCOLOR, 24, 8), (unsigned int)(data) } }
 #define gDPSetDepthImage(pkt, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETZIMG, 24, 8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETZIMG, 24, 8), (unsigned int)(data))
 #define gsDPSetDepthImage(data) \
-    { { _SHIFTL(G_SETZIMG, 24, 8), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_SETZIMG, 24, 8), (unsigned int)(data) } }
 #define gDPHalf1(pkt, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_RDPHALF_1, 24, 8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_RDPHALF_1, 24, 8), (unsigned int)(data))
 #define gsDPHalf1(data) \
-    { { _SHIFTL(G_RDPHALF_1, 24, 8), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_RDPHALF_1, 24, 8), (unsigned int)(data) } }
 #define gDPHalf2(pkt, data) \
-    _GBI_CMD(pkt, _SHIFTL(G_RDPHALF_2, 24, 8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(G_RDPHALF_2, 24, 8), (unsigned int)(data))
 #define gsDPHalf2(data) \
-    { { _SHIFTL(G_RDPHALF_2, 24, 8), (unsigned int)(data) } }
+    { { BT_SHIFTL(G_RDPHALF_2, 24, 8), (unsigned int)(data) } }
 #define gDPSetPrimColor(pkt, m, l, r, g, b, a) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETPRIMCOLOR, 24, 8) | _SHIFTL(m, 8, 8) | _SHIFTL(l, 0, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETPRIMCOLOR, 24, 8) | BT_SHIFTL(m, 8, 8) | BT_SHIFTL(l, 0, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8))
 #define gsDPSetPrimColor(m, l, r, g, b, a) \
-    { { _SHIFTL(G_SETPRIMCOLOR, 24, 8) | _SHIFTL(m, 8, 8) | _SHIFTL(l, 0, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8) } }
+    { { BT_SHIFTL(G_SETPRIMCOLOR, 24, 8) | BT_SHIFTL(m, 8, 8) | BT_SHIFTL(l, 0, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8) } }
 #define gDPSetEnvColor(pkt, r, g, b, a) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETENVCOLOR, 24, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETENVCOLOR, 24, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8))
 #define gsDPSetEnvColor(r, g, b, a) \
-    { { _SHIFTL(G_SETENVCOLOR, 24, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8) } }
+    { { BT_SHIFTL(G_SETENVCOLOR, 24, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8) } }
 #define gDPSetFogColor(pkt, r, g, b, a) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETFOGCOLOR, 24, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETFOGCOLOR, 24, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8))
 #define gsDPSetFogColor(r, g, b, a) \
-    { { _SHIFTL(G_SETFOGCOLOR, 24, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8) } }
+    { { BT_SHIFTL(G_SETFOGCOLOR, 24, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8) } }
 #define gDPSetBlendColor(pkt, r, g, b, a) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETBLENDCOLOR, 24, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETBLENDCOLOR, 24, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8))
 #define gsDPSetBlendColor(r, g, b, a) \
-    { { _SHIFTL(G_SETBLENDCOLOR, 24, 8), _SHIFTL(r, 24, 8) | _SHIFTL(g, 16, 8) | _SHIFTL(b, 8, 8) | _SHIFTL(a, 0, 8) } }
+    { { BT_SHIFTL(G_SETBLENDCOLOR, 24, 8), BT_SHIFTL(r, 24, 8) | BT_SHIFTL(g, 16, 8) | BT_SHIFTL(b, 8, 8) | BT_SHIFTL(a, 0, 8) } }
 #define gDPSetColorImage(pkt, fmt, siz, width, img) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETCIMG, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) | _SHIFTL((width) - 1, 0, 12), (unsigned int)(img))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETCIMG, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) | BT_SHIFTL((width) - 1, 0, 12), (unsigned int)(img))
 #define gsDPSetColorImage(fmt, siz, width, img) \
-    { { _SHIFTL(G_SETCIMG, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) | _SHIFTL((width) - 1, 0, 12), (unsigned int)(img) } }
+    { { BT_SHIFTL(G_SETCIMG, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) | BT_SHIFTL((width) - 1, 0, 12), (unsigned int)(img) } }
 #define gDPSetTextureImage(pkt, fmt, siz, width, img) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETTIMG, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) | _SHIFTL((width) - 1, 0, 12), (unsigned int)(img))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETTIMG, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) | BT_SHIFTL((width) - 1, 0, 12), (unsigned int)(img))
 #define gsDPSetTextureImage(fmt, siz, width, img) \
-    { { _SHIFTL(G_SETTIMG, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) | _SHIFTL((width) - 1, 0, 12), (unsigned int)(img) } }
+    { { BT_SHIFTL(G_SETTIMG, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) | BT_SHIFTL((width) - 1, 0, 12), (unsigned int)(img) } }
 #define gDPFillRectangle(pkt, ulx, uly, lrx, lry) \
-    _GBI_CMD(pkt, _SHIFTL(G_FILLRECT, 24, 8) | _SHIFTL(lrx, 14, 10) | _SHIFTL(lry, 2, 10), _SHIFTL(ulx, 14, 10) | _SHIFTL(uly, 2, 10))
+    _GBI_CMD(pkt, BT_SHIFTL(G_FILLRECT, 24, 8) | BT_SHIFTL(lrx, 14, 10) | BT_SHIFTL(lry, 2, 10), BT_SHIFTL(ulx, 14, 10) | BT_SHIFTL(uly, 2, 10))
 #define gsDPFillRectangle(ulx, uly, lrx, lry) \
-    { { _SHIFTL(G_FILLRECT, 24, 8) | _SHIFTL(lrx, 14, 10) | _SHIFTL(lry, 2, 10), _SHIFTL(ulx, 14, 10) | _SHIFTL(uly, 2, 10) } }
+    { { BT_SHIFTL(G_FILLRECT, 24, 8) | BT_SHIFTL(lrx, 14, 10) | BT_SHIFTL(lry, 2, 10), BT_SHIFTL(ulx, 14, 10) | BT_SHIFTL(uly, 2, 10) } }
 #define gDPSetScissorFrac(pkt, mode, ulx, uly, lrx, lry) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETSCISSOR, 24, 8) | _SHIFTL(ulx, 12, 12) | _SHIFTL(uly, 0, 12), _SHIFTL(mode, 24, 2) | _SHIFTL(lrx, 12, 12) | _SHIFTL(lry, 0, 12))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETSCISSOR, 24, 8) | BT_SHIFTL(ulx, 12, 12) | BT_SHIFTL(uly, 0, 12), BT_SHIFTL(mode, 24, 2) | BT_SHIFTL(lrx, 12, 12) | BT_SHIFTL(lry, 0, 12))
 #define gsDPSetScissorFrac(mode, ulx, uly, lrx, lry) \
-    { { _SHIFTL(G_SETSCISSOR, 24, 8) | _SHIFTL(ulx, 12, 12) | _SHIFTL(uly, 0, 12), _SHIFTL(mode, 24, 2) | _SHIFTL(lrx, 12, 12) | _SHIFTL(lry, 0, 12) } }
+    { { BT_SHIFTL(G_SETSCISSOR, 24, 8) | BT_SHIFTL(ulx, 12, 12) | BT_SHIFTL(uly, 0, 12), BT_SHIFTL(mode, 24, 2) | BT_SHIFTL(lrx, 12, 12) | BT_SHIFTL(lry, 0, 12) } }
 #define gDPSetTile(pkt, fmt, siz, line, tmem, tile, palette, cmt, maskt, shiftt, cms, masks, shifts) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETTILE, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) | _SHIFTL(line, 9, 9) | _SHIFTL(tmem, 0, 9), _SHIFTL(tile, 24, 3) | _SHIFTL(palette, 20, 4) | _SHIFTL(cmt, 18, 2) | _SHIFTL(maskt, 14, 4) | _SHIFTL(shiftt, 10, 4) | _SHIFTL(cms, 8, 2) | _SHIFTL(masks, 4, 4) | _SHIFTL(shifts, 0, 4))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETTILE, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) | BT_SHIFTL(line, 9, 9) | BT_SHIFTL(tmem, 0, 9), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(palette, 20, 4) | BT_SHIFTL(cmt, 18, 2) | BT_SHIFTL(maskt, 14, 4) | BT_SHIFTL(shiftt, 10, 4) | BT_SHIFTL(cms, 8, 2) | BT_SHIFTL(masks, 4, 4) | BT_SHIFTL(shifts, 0, 4))
 #define gsDPSetTile(fmt, siz, line, tmem, tile, palette, cmt, maskt, shiftt, cms, masks, shifts) \
-    { { _SHIFTL(G_SETTILE, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) | _SHIFTL(line, 9, 9) | _SHIFTL(tmem, 0, 9), _SHIFTL(tile, 24, 3) | _SHIFTL(palette, 20, 4) | _SHIFTL(cmt, 18, 2) | _SHIFTL(maskt, 14, 4) | _SHIFTL(shiftt, 10, 4) | _SHIFTL(cms, 8, 2) | _SHIFTL(masks, 4, 4) | _SHIFTL(shifts, 0, 4) } }
+    { { BT_SHIFTL(G_SETTILE, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) | BT_SHIFTL(line, 9, 9) | BT_SHIFTL(tmem, 0, 9), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(palette, 20, 4) | BT_SHIFTL(cmt, 18, 2) | BT_SHIFTL(maskt, 14, 4) | BT_SHIFTL(shiftt, 10, 4) | BT_SHIFTL(cms, 8, 2) | BT_SHIFTL(masks, 4, 4) | BT_SHIFTL(shifts, 0, 4) } }
 #define gDPSetTileSize(pkt, tile, uls, ult, lrs, lrt) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETTILESIZE, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETTILESIZE, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(lrs, 12, 12) | BT_SHIFTL(lrt, 0, 12))
 #define gsDPSetTileSize(tile, uls, ult, lrs, lrt) \
-    { { _SHIFTL(G_SETTILESIZE, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12) } }
+    { { BT_SHIFTL(G_SETTILESIZE, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(lrs, 12, 12) | BT_SHIFTL(lrt, 0, 12) } }
 #define gDPLoadTile(pkt, tile, uls, ult, lrs, lrt) \
-    _GBI_CMD(pkt, _SHIFTL(G_LOADTILE, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12))
+    _GBI_CMD(pkt, BT_SHIFTL(G_LOADTILE, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(lrs, 12, 12) | BT_SHIFTL(lrt, 0, 12))
 #define gsDPLoadTile(tile, uls, ult, lrs, lrt) \
-    { { _SHIFTL(G_LOADTILE, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12) } }
+    { { BT_SHIFTL(G_LOADTILE, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(lrs, 12, 12) | BT_SHIFTL(lrt, 0, 12) } }
 #define gDPLoadBlock(pkt, tile, uls, ult, lrs, dxt) \
-    _GBI_CMD(pkt, _SHIFTL(G_LOADBLOCK, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(MIN(lrs, G_TX_LDBLK_MAX_TXL), 12, 12) | _SHIFTL(dxt, 0, 12))
+    _GBI_CMD(pkt, BT_SHIFTL(G_LOADBLOCK, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(MIN(lrs, G_TX_LDBLK_MAX_TXL), 12, 12) | BT_SHIFTL(dxt, 0, 12))
 #define gsDPLoadBlock(tile, uls, ult, lrs, dxt) \
-    { { _SHIFTL(G_LOADBLOCK, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12), _SHIFTL(tile, 24, 3) | _SHIFTL(MIN(lrs, G_TX_LDBLK_MAX_TXL), 12, 12) | _SHIFTL(dxt, 0, 12) } }
+    { { BT_SHIFTL(G_LOADBLOCK, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(MIN(lrs, G_TX_LDBLK_MAX_TXL), 12, 12) | BT_SHIFTL(dxt, 0, 12) } }
 #define gDPLoadTLUTCmd(pkt, tile, count) \
-    _GBI_CMD(pkt, _SHIFTL(G_LOADTLUT, 24, 8), _SHIFTL(tile, 24, 3) | _SHIFTL(count, 14, 10))
+    _GBI_CMD(pkt, BT_SHIFTL(G_LOADTLUT, 24, 8), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(count, 14, 10))
 #define gsDPLoadTLUTCmd(tile, count) \
-    { { _SHIFTL(G_LOADTLUT, 24, 8), _SHIFTL(tile, 24, 3) | _SHIFTL(count, 14, 10) } }
+    { { BT_SHIFTL(G_LOADTLUT, 24, 8), BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(count, 14, 10) } }
 #define gDPSetPrimDepth(pkt, z, dz) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETPRIMDEPTH, 24, 8), _SHIFTL(z, 16, 16) | _SHIFTL(dz, 0, 16))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETPRIMDEPTH, 24, 8), BT_SHIFTL(z, 16, 16) | BT_SHIFTL(dz, 0, 16))
 #define gsDPSetPrimDepth(z, dz) \
-    { { _SHIFTL(G_SETPRIMDEPTH, 24, 8), _SHIFTL(z, 16, 16) | _SHIFTL(dz, 0, 16) } }
+    { { BT_SHIFTL(G_SETPRIMDEPTH, 24, 8), BT_SHIFTL(z, 16, 16) | BT_SHIFTL(dz, 0, 16) } }
 #define gDPSetCombineLERP(pkt, a0, b0, c0, d0, Aa0, Ab0, Ac0, Ad0, a1, b1, c1, d1, Aa1, Ab1, Ac1, Ad1) \
-    _GBI_CMD(pkt, _SHIFTL(G_SETCOMBINE, 24, 8) | _SHIFTL(G_CCMUX_##a0, 20, 4) | _SHIFTL(G_CCMUX_##c0, 15, 5) | _SHIFTL(G_ACMUX_##Aa0, 12, 3) | _SHIFTL(G_ACMUX_##Ac0, 9, 3) | _SHIFTL(G_CCMUX_##a1, 5, 4) | _SHIFTL(G_CCMUX_##c1, 0, 5), _SHIFTL(G_CCMUX_##b0, 28, 4) | _SHIFTL(G_CCMUX_##b1, 24, 4) | _SHIFTL(G_ACMUX_##Aa1, 21, 3) | _SHIFTL(G_ACMUX_##Ac1, 18, 3) | _SHIFTL(G_CCMUX_##d0, 15, 3) | _SHIFTL(G_ACMUX_##Ab0, 12, 3) | _SHIFTL(G_ACMUX_##Ad0, 9, 3) | _SHIFTL(G_CCMUX_##d1, 6, 3) | _SHIFTL(G_ACMUX_##Ab1, 3, 3) | _SHIFTL(G_ACMUX_##Ad1, 0, 3))
+    _GBI_CMD(pkt, BT_SHIFTL(G_SETCOMBINE, 24, 8) | BT_SHIFTL(G_CCMUX_##a0, 20, 4) | BT_SHIFTL(G_CCMUX_##c0, 15, 5) | BT_SHIFTL(G_ACMUX_##Aa0, 12, 3) | BT_SHIFTL(G_ACMUX_##Ac0, 9, 3) | BT_SHIFTL(G_CCMUX_##a1, 5, 4) | BT_SHIFTL(G_CCMUX_##c1, 0, 5), BT_SHIFTL(G_CCMUX_##b0, 28, 4) | BT_SHIFTL(G_CCMUX_##b1, 24, 4) | BT_SHIFTL(G_ACMUX_##Aa1, 21, 3) | BT_SHIFTL(G_ACMUX_##Ac1, 18, 3) | BT_SHIFTL(G_CCMUX_##d0, 15, 3) | BT_SHIFTL(G_ACMUX_##Ab0, 12, 3) | BT_SHIFTL(G_ACMUX_##Ad0, 9, 3) | BT_SHIFTL(G_CCMUX_##d1, 6, 3) | BT_SHIFTL(G_ACMUX_##Ab1, 3, 3) | BT_SHIFTL(G_ACMUX_##Ad1, 0, 3))
 #define gsDPSetCombineLERP(a0, b0, c0, d0, Aa0, Ab0, Ac0, Ad0, a1, b1, c1, d1, Aa1, Ab1, Ac1, Ad1) \
-    { { _SHIFTL(G_SETCOMBINE, 24, 8) | _SHIFTL(G_CCMUX_##a0, 20, 4) | _SHIFTL(G_CCMUX_##c0, 15, 5) | _SHIFTL(G_ACMUX_##Aa0, 12, 3) | _SHIFTL(G_ACMUX_##Ac0, 9, 3) | _SHIFTL(G_CCMUX_##a1, 5, 4) | _SHIFTL(G_CCMUX_##c1, 0, 5), _SHIFTL(G_CCMUX_##b0, 28, 4) | _SHIFTL(G_CCMUX_##b1, 24, 4) | _SHIFTL(G_ACMUX_##Aa1, 21, 3) | _SHIFTL(G_ACMUX_##Ac1, 18, 3) | _SHIFTL(G_CCMUX_##d0, 15, 3) | _SHIFTL(G_ACMUX_##Ab0, 12, 3) | _SHIFTL(G_ACMUX_##Ad0, 9, 3) | _SHIFTL(G_CCMUX_##d1, 6, 3) | _SHIFTL(G_ACMUX_##Ab1, 3, 3) | _SHIFTL(G_ACMUX_##Ad1, 0, 3) } }
+    { { BT_SHIFTL(G_SETCOMBINE, 24, 8) | BT_SHIFTL(G_CCMUX_##a0, 20, 4) | BT_SHIFTL(G_CCMUX_##c0, 15, 5) | BT_SHIFTL(G_ACMUX_##Aa0, 12, 3) | BT_SHIFTL(G_ACMUX_##Ac0, 9, 3) | BT_SHIFTL(G_CCMUX_##a1, 5, 4) | BT_SHIFTL(G_CCMUX_##c1, 0, 5), BT_SHIFTL(G_CCMUX_##b0, 28, 4) | BT_SHIFTL(G_CCMUX_##b1, 24, 4) | BT_SHIFTL(G_ACMUX_##Aa1, 21, 3) | BT_SHIFTL(G_ACMUX_##Ac1, 18, 3) | BT_SHIFTL(G_CCMUX_##d0, 15, 3) | BT_SHIFTL(G_ACMUX_##Ab0, 12, 3) | BT_SHIFTL(G_ACMUX_##Ad0, 9, 3) | BT_SHIFTL(G_CCMUX_##d1, 6, 3) | BT_SHIFTL(G_ACMUX_##Ab1, 3, 3) | BT_SHIFTL(G_ACMUX_##Ad1, 0, 3) } }
 #define gSPDisplayList(pkt, dl) \
-    _GBI_CMD(pkt, _SHIFTL(G_DL, 24, 8) | _SHIFTL(G_DL_PUSH, 16, 8), (unsigned int)(dl))
+    _GBI_CMD(pkt, BT_SHIFTL(G_DL, 24, 8) | BT_SHIFTL(G_DL_PUSH, 16, 8), (unsigned int)(dl))
 #define gsSPDisplayList(dl) \
-    { { _SHIFTL(G_DL, 24, 8) | _SHIFTL(G_DL_PUSH, 16, 8), (unsigned int)(dl) } }
+    { { BT_SHIFTL(G_DL, 24, 8) | BT_SHIFTL(G_DL_PUSH, 16, 8), (unsigned int)(dl) } }
 #define gSPBranchList(pkt, dl) \
-    _GBI_CMD(pkt, _SHIFTL(G_DL, 24, 8) | _SHIFTL(G_DL_NOPUSH, 16, 8), (unsigned int)(dl))
+    _GBI_CMD(pkt, BT_SHIFTL(G_DL, 24, 8) | BT_SHIFTL(G_DL_NOPUSH, 16, 8), (unsigned int)(dl))
 #define gsSPBranchList(dl) \
-    { { _SHIFTL(G_DL, 24, 8) | _SHIFTL(G_DL_NOPUSH, 16, 8), (unsigned int)(dl) } }
+    { { BT_SHIFTL(G_DL, 24, 8) | BT_SHIFTL(G_DL_NOPUSH, 16, 8), (unsigned int)(dl) } }
 
-#define gDPTexRect(pkt, ulx, uly, lrx, lry, tile) _GBI_CMD(pkt, _SHIFTL(G_TEXRECT,24,8) | _SHIFTL(lrx,12,12) | _SHIFTL(lry,0,12), _SHIFTL(tile,24,3) | _SHIFTL(ulx,12,12) | _SHIFTL(uly,0,12))
-#define gsDPTexRect(ulx, uly, lrx, lry, tile) {{ _SHIFTL(G_TEXRECT,24,8) | _SHIFTL(lrx,12,12) | _SHIFTL(lry,0,12), _SHIFTL(tile,24,3) | _SHIFTL(ulx,12,12) | _SHIFTL(uly,0,12) }}
-#define gSPTextureRectangle(pkt, ulx, uly, lrx, lry, tile, s, t, dsdx, dtdy) { gDPTexRect(pkt, ulx, uly, lrx, lry, tile); gDPHalf1(pkt, _SHIFTL(s,16,16) | _SHIFTL(t,0,16)); gDPHalf2(pkt, _SHIFTL(dsdx,16,16) | _SHIFTL(dtdy,0,16)); }
-#define gsSPTextureRectangle(ulx, uly, lrx, lry, tile, s, t, dsdx, dtdy) gsDPTexRect(ulx, uly, lrx, lry, tile), gsDPHalf1(_SHIFTL(s,16,16) | _SHIFTL(t,0,16)), gsDPHalf2(_SHIFTL(dsdx,16,16) | _SHIFTL(dtdy,0,16))
+#define gDPTexRect(pkt, ulx, uly, lrx, lry, tile) _GBI_CMD(pkt, BT_SHIFTL(G_TEXRECT,24,8) | BT_SHIFTL(lrx,12,12) | BT_SHIFTL(lry,0,12), BT_SHIFTL(tile,24,3) | BT_SHIFTL(ulx,12,12) | BT_SHIFTL(uly,0,12))
+#define gsDPTexRect(ulx, uly, lrx, lry, tile) {{ BT_SHIFTL(G_TEXRECT,24,8) | BT_SHIFTL(lrx,12,12) | BT_SHIFTL(lry,0,12), BT_SHIFTL(tile,24,3) | BT_SHIFTL(ulx,12,12) | BT_SHIFTL(uly,0,12) }}
+#define gSPTextureRectangle(pkt, ulx, uly, lrx, lry, tile, s, t, dsdx, dtdy) { gDPTexRect(pkt, ulx, uly, lrx, lry, tile); gDPHalf1(pkt, BT_SHIFTL(s,16,16) | BT_SHIFTL(t,0,16)); gDPHalf2(pkt, BT_SHIFTL(dsdx,16,16) | BT_SHIFTL(dtdy,0,16)); }
+#define gsSPTextureRectangle(ulx, uly, lrx, lry, tile, s, t, dsdx, dtdy) gsDPTexRect(ulx, uly, lrx, lry, tile), gsDPHalf1(BT_SHIFTL(s,16,16) | BT_SHIFTL(t,0,16)), gsDPHalf2(BT_SHIFTL(dsdx,16,16) | BT_SHIFTL(dtdy,0,16))
 #define gDPSetScissor(pkt, mode, ulx, uly, lrx, lry) gDPSetScissorFrac(pkt, mode, (int)((float)(ulx) * 4.0F), (int)((float)(uly) * 4.0F), (int)((float)(lrx) * 4.0F), (int)((float)(lry) * 4.0F))
 #define gsDPSetScissor(mode, ulx, uly, lrx, lry) gsDPSetScissorFrac(mode, (int)((float)(ulx) * 4.0F), (int)((float)(uly) * 4.0F), (int)((float)(lrx) * 4.0F), (int)((float)(lry) * 4.0F))
 #define gDPSetRenderMode(pkt, c1, c2) gSPSetOtherMode(pkt, G_SETOTHERMODE_L, G_MDSFT_RENDERMODE, 29, (c1) | (c2))
@@ -1602,21 +1602,21 @@
 #define gSetImage(pkt, cmd, fmt, siz, width, i)                                                       \
     {                                                                                                 \
         Gfx *_g = (Gfx *)(pkt);                                                                       \
-        _g->words.w0 = _SHIFTL(cmd, 24, 8) | _SHIFTL(fmt, 21, 3) | _SHIFTL(siz, 19, 2) |             \
-                       _SHIFTL((width)-1, 0, 12);                                                     \
+        _g->words.w0 = BT_SHIFTL(cmd, 24, 8) | BT_SHIFTL(fmt, 21, 3) | BT_SHIFTL(siz, 19, 2) |             \
+                       BT_SHIFTL((width)-1, 0, 12);                                                     \
         _g->words.w1 = (unsigned int)(i);                                                             \
     }
 #define gDPNoParam(pkt, cmd)                                                                          \
     {                                                                                                 \
         Gfx *_g = (Gfx *)(pkt);                                                                       \
-        _g->words.w0 = _SHIFTL(cmd, 24, 8);                                                           \
+        _g->words.w0 = BT_SHIFTL(cmd, 24, 8);                                                           \
         _g->words.w1 = 0;                                                                             \
     }
 #define gDPLoadTileGeneric(pkt, c, tile, uls, ult, lrs, lrt)                                          \
     {                                                                                                 \
         Gfx *_g = (Gfx *)(pkt);                                                                       \
-        _g->words.w0 = _SHIFTL(c, 24, 8) | _SHIFTL(uls, 12, 12) | _SHIFTL(ult, 0, 12);                \
-        _g->words.w1 = _SHIFTL(tile, 24, 3) | _SHIFTL(lrs, 12, 12) | _SHIFTL(lrt, 0, 12);            \
+        _g->words.w0 = BT_SHIFTL(c, 24, 8) | BT_SHIFTL(uls, 12, 12) | BT_SHIFTL(ult, 0, 12);                \
+        _g->words.w1 = BT_SHIFTL(tile, 24, 3) | BT_SHIFTL(lrs, 12, 12) | BT_SHIFTL(lrt, 0, 12);            \
     }
 #define gDPLoadTLUT_pal16(pkt, pal, dram)                                                             \
     {                                                                                                 \
@@ -1659,15 +1659,15 @@
 
 /* F3D other-mode field encoding for command streams using the older microcode. */
 #define gSPSetOtherModeF3D(pkt, cmd, sft, len, data) \
-    _GBI_CMD(pkt, _SHIFTL(cmd,24,8) | _SHIFTL(sft,8,8) | _SHIFTL(len,0,8), (unsigned int)(data))
+    _GBI_CMD(pkt, BT_SHIFTL(cmd,24,8) | BT_SHIFTL(sft,8,8) | BT_SHIFTL(len,0,8), (unsigned int)(data))
 
 /* Fast3D display-list termination, independent of the active microcode API. */
-#define gSPEndDisplayListF3D(pkt) _GBI_CMD(pkt, _SHIFTL(0xB8, 24, 8), 0)
+#define gSPEndDisplayListF3D(pkt) _GBI_CMD(pkt, BT_SHIFTL(0xB8, 24, 8), 0)
 
 /* Vertex DMA encoding used by the first-generation extended microcode. */
 #define gSPVertexF3DEX(pkt, vertices, count, first) \
-    _GBI_CMD(pkt, _SHIFTL(4, 24, 8) | _SHIFTL((first) * 2, 16, 8) | \
-        _SHIFTL(((count) << 10) | ((count) * sizeof(FrameVertex) - 1), 0, 16), \
+    _GBI_CMD(pkt, BT_SHIFTL(4, 24, 8) | BT_SHIFTL((first) * 2, 16, 8) | \
+        BT_SHIFTL(((count) << 10) | ((count) * sizeof(FrameVertex) - 1), 0, 16), \
         (u32)(vertices) - 0x80000000U)
 #endif /* SHARED_BT_GBI_H */
 

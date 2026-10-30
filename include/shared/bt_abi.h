@@ -18,42 +18,42 @@
  */
 #ifndef SHARED_BT_ABI_H
 #define SHARED_BT_ABI_H
-#ifndef _SHIFTL
-#define _SHIFTL(v, s, w) (((unsigned int)(v) & (0xFFFFFFFFU >> (32 - (w)))) << (s))
+#ifndef BT_SHIFTL
+#define BT_SHIFTL(v, s, w) (((unsigned int)(v) & (0xFFFFFFFFU >> (32 - (w)))) << (s))
 #endif
 
 #define aADPCMdec(pkt, f, s) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(1,24,8) | _SHIFTL(f,16,8); _a->words.w1 = (unsigned int)(s); }
+    _a->words.w0 = BT_SHIFTL(1,24,8) | BT_SHIFTL(f,16,8); _a->words.w1 = (unsigned int)(s); }
 #define aClearBuffer(pkt, d, c) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(2,24,8) | _SHIFTL(d,0,24); _a->words.w1 = (unsigned int)(c); }
+    _a->words.w0 = BT_SHIFTL(2,24,8) | BT_SHIFTL(d,0,24); _a->words.w1 = (unsigned int)(c); }
 #define aEnvMixer(pkt, f, s) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(3,24,8) | _SHIFTL(f,16,8); _a->words.w1 = (unsigned int)(s); }
+    _a->words.w0 = BT_SHIFTL(3,24,8) | BT_SHIFTL(f,16,8); _a->words.w1 = (unsigned int)(s); }
 #define aLoadBuffer(pkt, s) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(4,24,8); _a->words.w1 = (unsigned int)(s); }
+    _a->words.w0 = BT_SHIFTL(4,24,8); _a->words.w1 = (unsigned int)(s); }
 #define aResample(pkt, f, p, s) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(5,24,8) | _SHIFTL(f,16,8) | _SHIFTL(p,0,16); _a->words.w1 = (unsigned int)(s); }
+    _a->words.w0 = BT_SHIFTL(5,24,8) | BT_SHIFTL(f,16,8) | BT_SHIFTL(p,0,16); _a->words.w1 = (unsigned int)(s); }
 #define aSaveBuffer(pkt, s) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(6,24,8); _a->words.w1 = (unsigned int)(s); }
+    _a->words.w0 = BT_SHIFTL(6,24,8); _a->words.w1 = (unsigned int)(s); }
 #define aSegment(pkt, seg, base) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(7,24,8); _a->words.w1 = _SHIFTL(seg,24,8) | _SHIFTL(base,0,24); }
+    _a->words.w0 = BT_SHIFTL(7,24,8); _a->words.w1 = BT_SHIFTL(seg,24,8) | BT_SHIFTL(base,0,24); }
 #define aSetBuffer(pkt, f, i, o, c) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(8,24,8) | _SHIFTL(f,16,8) | _SHIFTL(i,0,16); \
-    _a->words.w1 = _SHIFTL(o,16,16) | _SHIFTL(c,0,16); }
+    _a->words.w0 = BT_SHIFTL(8,24,8) | BT_SHIFTL(f,16,8) | BT_SHIFTL(i,0,16); \
+    _a->words.w1 = BT_SHIFTL(o,16,16) | BT_SHIFTL(c,0,16); }
 #define aSetVolume(pkt, f, v, t, r) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(9,24,8) | _SHIFTL(f,16,16) | _SHIFTL(v,0,16); \
-    _a->words.w1 = _SHIFTL(t,16,16) | _SHIFTL(r,0,16); }
+    _a->words.w0 = BT_SHIFTL(9,24,8) | BT_SHIFTL(f,16,16) | BT_SHIFTL(v,0,16); \
+    _a->words.w1 = BT_SHIFTL(t,16,16) | BT_SHIFTL(r,0,16); }
 #define aDMEMMove(pkt, i, o, c) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(10,24,8) | _SHIFTL(i,0,24); \
-    _a->words.w1 = _SHIFTL(o,16,16) | _SHIFTL(c,0,16); }
+    _a->words.w0 = BT_SHIFTL(10,24,8) | BT_SHIFTL(i,0,24); \
+    _a->words.w1 = BT_SHIFTL(o,16,16) | BT_SHIFTL(c,0,16); }
 #define aLoadADPCM(pkt, c, d) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(11,24,8) | _SHIFTL(c,0,24); _a->words.w1 = (unsigned int)(d); }
+    _a->words.w0 = BT_SHIFTL(11,24,8) | BT_SHIFTL(c,0,24); _a->words.w1 = (unsigned int)(d); }
 #define aMix(pkt, f, g, i, o) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(12,24,8) | _SHIFTL(f,16,8) | _SHIFTL(g,0,16); \
-    _a->words.w1 = _SHIFTL(i,16,16) | _SHIFTL(o,0,16); }
+    _a->words.w0 = BT_SHIFTL(12,24,8) | BT_SHIFTL(f,16,8) | BT_SHIFTL(g,0,16); \
+    _a->words.w1 = BT_SHIFTL(i,16,16) | BT_SHIFTL(o,0,16); }
 #define aInterleave(pkt, l, r) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(13,24,8); _a->words.w1 = _SHIFTL(l,16,16) | _SHIFTL(r,0,16); }
+    _a->words.w0 = BT_SHIFTL(13,24,8); _a->words.w1 = BT_SHIFTL(l,16,16) | BT_SHIFTL(r,0,16); }
 #define aPoleFilter(pkt, f, g, s) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(14,24,8) | _SHIFTL(f,16,8) | _SHIFTL(g,0,16); _a->words.w1 = (unsigned int)(s); }
+    _a->words.w0 = BT_SHIFTL(14,24,8) | BT_SHIFTL(f,16,8) | BT_SHIFTL(g,0,16); _a->words.w1 = (unsigned int)(s); }
 #define aSetLoop(pkt, a) { Acmd *_a = (Acmd *)(pkt); \
-    _a->words.w0 = _SHIFTL(15,24,8); _a->words.w1 = (unsigned int)(a); }
+    _a->words.w0 = BT_SHIFTL(15,24,8); _a->words.w1 = (unsigned int)(a); }
 #endif
