@@ -6,7 +6,7 @@ TOOLCHAIN := gcc_2_7_2_kmc
 NM_DEFINE :=
 LABEL := [A-Za-z_.]*auto_
 ASFLAGS := -march=vr4300 -mabi=32 -EB --no-pad-sections -mips3 -G0
-AS_CPPFLAGS := -D_LANGUAGE_ASSEMBLY -Dmips -D_MIPS_SIM_ABI32=1 -D_MIPS_SIM=1 -DF3DEX_GBI
+AS_CPPFLAGS := -D_LANGUAGE_ASSEMBLY -Dmips -D_MIPS_SIM_ABI32=1 -D_MIPS_SIM=1 -D_LANGUAGE_C -DF3DEX_GBI
 # The tools and toolchains: a variable local.mk sets wins.
 ifneq ($(filter default undefined,$(origin ABUMAS)),)
 ABUMAS := tools/abumas/abumas
@@ -35,11 +35,11 @@ TOOLCHAIN_gcc_2_8_1_sn64 ?= tools/gcc-2.8.1-sn64/.stamp
 CC_ido_7_1 ?= tools/ido-7.1/cc
 AS_ido_7_1 ?= tools/ido-7.1/as1
 TOOLCHAIN_ido_7_1 ?= tools/ido-7.1/.stamp
-CPPFLAGS_gcc_2_7_2_kmc := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
+CPPFLAGS_gcc_2_7_2_kmc := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -D_LANGUAGE_C -DF3DEX_GBI
 CFLAGS_gcc_2_7_2_kmc := -G0 -mips3 -mgp32 -mfp32 -O2
-CPPFLAGS_gcc_2_8_1_sn64 := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -DF3DEX_GBI
+CPPFLAGS_gcc_2_8_1_sn64 := -P -undef -nostdinc -D_LANGUAGE_C -D__GNUC__=2 -D__STDARG_GCC -D_LANGUAGE_C -DF3DEX_GBI
 CFLAGS_gcc_2_8_1_sn64 := -G0 -mips3 -O2 -mgas -meb -mcpu=VR4300 -mhard-float -mgp32 -mfp64 -mno-fix4300
-CPPFLAGS_ido_7_1 := -D__STDARG_IDO -DF3DEX_GBI
+CPPFLAGS_ido_7_1 := -D__STDARG_IDO -D_LANGUAGE_C -DF3DEX_GBI
 CFLAGS_ido_7_1 := -c -G0 -non_shared -mips2 -O2
 STAMPS := tools/abumas/.stamp $(TOOLCHAIN_gcc_2_7_2_kmc) $(TOOLCHAIN_gcc_2_8_1_sn64) $(TOOLCHAIN_ido_7_1)
 # The program of each toolchain in use (PASS runs a helper of MKTOOLS).

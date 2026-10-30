@@ -28,7 +28,7 @@ EffectKind0A *func_800DD970(f32 *pos, s32 arg)
 }
 
 #include "shared/bt_span_1000_code_800DAD5C.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800D455C.h"
 
 /* func_800DD970 allocates 32 bytes, clears completion, copies two
@@ -50,7 +50,6 @@ void func_800DDA00(void) {
 }
 
 INCLUDE_ASM("span_1000", func_800DDA08);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_800E0B00.h"
 u32 func_800DDB94(void)
@@ -79,7 +78,6 @@ void func_800DDBCC(void)
     }
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 

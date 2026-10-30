@@ -2,7 +2,7 @@
 
 #ifdef NON_MATCHING
 #include "shared/bt_span_1000_code_801106A0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 /* Canonical first argument is the O32 source-address word. Fast paths use
  * measured byte/halfword/word buffer elements only after alignment checks;

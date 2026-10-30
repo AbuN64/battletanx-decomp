@@ -1,6 +1,6 @@
 #ifndef BT_ROM_ASSETS_H
 #define BT_ROM_ASSETS_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 /* Paired ROM ranges initialized together in the asset table. */
 typedef struct RomAsset {
     const u8 *start, *end;

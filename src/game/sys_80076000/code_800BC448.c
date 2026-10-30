@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800ABFD0.h"
 #include "shared/bt_gfx.h"
 #include "shared/bt_menu_render.h"

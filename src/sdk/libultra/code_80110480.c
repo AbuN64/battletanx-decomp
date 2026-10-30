@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern s32 D_A4500004;
 
 int osAiGetLength(void) {

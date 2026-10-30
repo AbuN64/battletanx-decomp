@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_EXTERNS_H
 #define SHARED_BT_EXTERNS_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 s32 func_80076CA8(s32);
 extern void func_80113460(f32 mf[4][4], f32 eyeX, f32 eyeY, f32 eyeZ, f32 atX, f32 atY, f32 atZ,

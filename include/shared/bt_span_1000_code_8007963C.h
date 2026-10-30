@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8007963C_H
 #define SHARED_BT_SPAN_1000_CODE_8007963C_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_menu_render.h"
 
 
@@ -47,7 +47,7 @@ extern void func_80079A5C(int a, float b);
 
 
 
-extern void func_800799C0(int arg0);
+extern void func_800799C0(s32 arg0);
 
 
 extern void func_80079EFC(void);

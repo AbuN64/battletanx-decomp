@@ -18,7 +18,7 @@ f32 *func_800E9820(struct ResetState *context, s32 parameter)
     return 0;
 }
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
 

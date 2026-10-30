@@ -82,7 +82,7 @@ INCLUDE_RODATA("span_1000", D_80074630);
 INCLUDE_RODATA("span_1000", D_80074638);
 INCLUDE_RODATA("span_1000", D_8007463C);
 INCLUDE_DATA("span_1000", D_80074644);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
 
@@ -130,7 +130,6 @@ s32 func_800E2D40(void *arg)
 INCLUDE_ASM("span_1000", func_800E2DE8);
 INCLUDE_ASM("span_1000", func_800E30F8);
 #include "shared/bt_span_1000_code_800E21E4.h"
-#include "shared/bt_types.h"
 #include "shared/bt_unit.h"
 #include "span_1000/code_800E21E4.h"
 #include "span_1000/code_80097038.h"
@@ -249,7 +248,6 @@ void func_800E3A64(Unknown800E3A64_2 *out, Unknown800E3A64_1 *owner)
     }
 }
 #include "shared/bt_span_1000_code_800E21E4.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_80097038.h"
 #include "span_1000/code_800E21E4.h"
 

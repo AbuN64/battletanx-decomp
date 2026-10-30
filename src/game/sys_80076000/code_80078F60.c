@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_80078E30.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_80078E30.h"
 #include "game/sys_80076000.h"
 
@@ -57,7 +57,6 @@ INCLUDE_ASM("span_1000", func_80079064);
 INCLUDE_ASM("span_1000", func_800790EC);
 INCLUDE_ASM("span_1000", func_800792C8);
 #include "shared/bt_span_1000_code_80078E30.h"
-#include "shared/bt_types.h"
 
 
 
@@ -106,7 +105,6 @@ void func_800793D0(Scheduler *scheduler) {
     func_80079530(scheduler);
 }
 INCLUDE_ASM("span_1000", func_80079474);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 

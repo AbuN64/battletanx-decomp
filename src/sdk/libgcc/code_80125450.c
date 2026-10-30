@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
+#include <ultra64.h>
 s32 __cmpdi2(s32 arg0, u32 arg1, s32 arg2, u32 arg3) {
     s32 var_v0;
 

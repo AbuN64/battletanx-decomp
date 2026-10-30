@@ -1,0 +1,7 @@
+Source of include/PR/*.h and include/ultra64.h
+  Open reconstruction: decompals/ultralib (https://github.com/decompals/ultralib), include/PR and include/ultra64.h,
+  commit e24c836796df4bf520ff8b11a5c9d2cea3a66cbd (2026-04-19). Files keep their SGI names, paths and macro names.
+  Nothing was copied from the leaked SDK.
+Deviation from the ultralib text
+  ultratypes.h: u32 is unsigned int and s32 is int (ultralib: unsigned long / long). The matched BattleTanx
+  objects (code_80083394) only compile to the shipped code with int-sized s32; vu32/vs32 stay long.

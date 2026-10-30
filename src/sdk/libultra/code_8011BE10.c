@@ -4,10 +4,9 @@ INCLUDE_ASM("span_1000", func_8011BE10);
 #ifdef NON_MATCHING
 #include "shared/bt_span_1000_code_8011BD50.h"
 #include "shared/bt_span_1000_code_80121F10.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_80077930.h"
 int __osSiDeviceBusy();
-s32 osWritebackDCache(s32 *, s32);
 extern u32 D_A4800000;
 extern s32 D_A4800004;
 extern s32 D_A4800010;

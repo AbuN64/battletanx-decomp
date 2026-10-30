@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "span_1000/code_800A27D0.h"
 #include "shared/bt_records.h"
@@ -26,7 +26,6 @@ void func_800A52AC(PlayerRecord *owner, char *text0, char *text1, f32 seconds) {
 INCLUDE_ASM("span_1000", func_800A5348);
 INCLUDE_ASM("span_1000", func_800A5784);
 #include "shared/bt_span_1000_code_800A5050.h"
-#include "shared/bt_types.h"
 
 
 

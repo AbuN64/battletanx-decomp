@@ -3,7 +3,7 @@
 INCLUDE_ASM("span_1000", func_800C5B90);
 INCLUDE_ASM("span_1000", func_800C5C60);
 INCLUDE_ASM("span_1000", func_800C7D74);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 extern s32 func_80096920(s32 controller, s32 repeat);
 extern void func_800C80E0(void);
@@ -86,7 +86,6 @@ INCLUDE_ASM("span_1000", func_800C8204);
 INCLUDE_ASM("span_1000", func_800C8210);
 INCLUDE_ASM("span_1000", func_800C83D4);
 #include "game/sys_80076000.h"
-#include "shared/bt_gbi.h"
 #include "shared/bt_menu_render.h"
 static inline void draw_frame(f32 *value)
 {
@@ -101,7 +100,7 @@ static inline void draw_frame(f32 *value)
     cmd = D_803276D4;
     dl = D_803276D0 + D_803276D8 * 0x2200;
     D_803276D4 = cmd + 1;
-    gSPEndDisplayListF3D(cmd);
+    gSPEndDisplayList(cmd);
     func_8007EEF8(dl);
     next = D_803276D8 + 1;
     mask = -(next < 3);
@@ -134,7 +133,6 @@ s32 func_800CA398(void) {
 
 INCLUDE_ASM("span_1000", func_800CA5BC);
 INCLUDE_ASM("span_1000", func_800CA8C0);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
 void func_80077930(s32 arg0, s32 arg1, s32 arg2);
@@ -159,7 +157,6 @@ void func_800CA980(void)
 
 INCLUDE_ASM("span_1000", func_800CAA04);
 INCLUDE_ASM("span_1000", func_800CBDBC);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 #include "span_1000/code_800ABFD0.h"

@@ -27,7 +27,7 @@ void func_800F0234(EffectKind21 *effect)
 
 INCLUDE_ASM("span_1000", func_800F0294);
 INCLUDE_ASM("span_1000", func_800F03B4);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "span_1000/code_8008F4EC.h"
 #include "shared/bt_records.h"

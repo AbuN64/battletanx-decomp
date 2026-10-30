@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 
@@ -21,7 +21,6 @@ float func_800DDC68(void) {
 }
 
 #include "shared/bt_span_1000_code_800DAD5C.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800DDA08.h"
 #include "shared/bt_span_1000_code_800D1AD0.h"
 #include "game/sys_80076000.h"
@@ -94,7 +93,6 @@ u16 func_800DE280(U16HistoryQueue *queue) {
 INCLUDE_ASM("span_1000", func_800DE2FC);
 INCLUDE_ASM("span_1000", func_800DE3EC);
 INCLUDE_ASM("span_1000", func_800DE664);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_ai_team.h"
 #include "shared/bt_span_1000_code_8007A470.h"

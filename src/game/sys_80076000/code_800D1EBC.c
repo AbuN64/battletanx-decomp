@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 void func_800D1EBC(u32 kind) {
     switch (kind) {
@@ -24,7 +24,6 @@ void func_800D1EBC(u32 kind) {
 
 INCLUDE_RODATA("span_1000", D_80073D34);
 INCLUDE_DATA("span_1000", D_80073D44);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 static inline s32 row_section(s32 row, s32 first, s32 header, s32 base, s32 *isFirst, s32 *offset, s32 section) {
     *isFirst = row == first;
@@ -103,7 +102,6 @@ void func_800D39A4(s32 level, s32 value)
         func_80105A50(&D_8037A174, D_80073D84, 0, 0x140);
     }
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -149,7 +147,6 @@ void func_800D3B2C(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     func_8010552C(0, 0xBE);
     func_80105A50(&D_8037A174, line, 0, 0x140);
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
 void func_800D3C84(s32 value)
@@ -175,7 +172,6 @@ INCLUDE_ASM("span_1000", func_800D4410);
 INCLUDE_ASM("span_1000", func_800D44CC);
 INCLUDE_ASM("span_1000", func_800D455C);
 INCLUDE_ASM("span_1000", func_800D6060);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 static inline u8 find_slot(s32 player, s32 n) {
     u8 i;
@@ -224,7 +220,6 @@ void func_800D6274(s32 player, s32 n, u32 value) {
 
 INCLUDE_ASM("span_1000", func_800D64CC);
 INCLUDE_ASM("span_1000", func_800D68C8);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -237,7 +232,6 @@ void func_800D68D0(void) {
 }
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 void func_80077930(s32 arg0, s32 arg1, s32 arg2);
 
 
@@ -276,7 +270,6 @@ INCLUDE_ASM("span_1000", func_800D6BC0);
 INCLUDE_ASM("span_1000", func_800D89F4);
 INCLUDE_ASM("span_1000", func_800D8C20);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 
 
 

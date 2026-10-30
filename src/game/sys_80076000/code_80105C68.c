@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 void func_80105C68(void *context, u8 *text, s32 lineCount, s32 lineHeight, s32 maxChars)
 {

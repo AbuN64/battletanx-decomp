@@ -37,7 +37,7 @@ s32 func_800A8940(void) {
     }
     D_80126714 = 0;
     for (i = 0; i < 4; i++) {
-        if (((pattern >> i) & 1) && !(D_802DF390[i].errnum & 8) && (D_802DF390[i].type & 4)
+        if (((pattern >> i) & 1) && !(D_802DF390[i].errno & 8) && (D_802DF390[i].type & 4)
             && (D_802DF390[i].type & 1)) {
             D_802E17A8[D_80126714] = i;
             if (D_802DF390[i].status & 1) {
@@ -62,7 +62,7 @@ s32 func_800A8940(void) {
 }
 
 INCLUDE_ASM("span_1000", func_800A8C88);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "game/sys_801121E0.h"
 void func_800A8E9C(void)
@@ -71,7 +71,6 @@ void func_800A8E9C(void)
     osSendMesg(D_802DF5D0, &message, 0);
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -80,7 +79,6 @@ void func_800A8ECC(void) {
 }
 
 INCLUDE_ASM("span_1000", func_800A8EE0);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800A8940.h"
 void func_800A8EF8(s32 slot, s32 value, s32 param, s32 period)
@@ -95,7 +93,6 @@ void func_800A8EF8(s32 slot, s32 value, s32 param, s32 period)
     }
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_80077930.h"
 #include "game/sys_801121E0.h"
@@ -151,7 +148,7 @@ s32 func_800A90E0(void)
     }
     D_80126714 = 0;
     for (i = 0; i < 4; i++) {
-        if (!(D_802DF390[i].errnum & 8) && (D_802DF390[i].type & 4) && (D_802DF390[i].type & 1)) {
+        if (!(D_802DF390[i].errno & 8) && (D_802DF390[i].type & 4) && (D_802DF390[i].type & 1)) {
             D_802E17A8[D_80126714] = i;
             if (D_802DF390[i].status & 1) {
                 result = func_80116C70(D_802DF360, &D_802DF3A0[i], i);
@@ -175,7 +172,6 @@ s32 func_800A90E0(void)
     return D_80126714;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 s32 func_800A933C(void)
 {

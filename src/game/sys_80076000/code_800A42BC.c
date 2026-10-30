@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800A27D0.h"
 
 struct Unknown800A42BC;

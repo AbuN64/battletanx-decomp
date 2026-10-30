@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_80076068_H
 #define SHARED_BT_SPAN_1000_CODE_80076068_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
 extern void func_8007627C(unsigned int src, unsigned int dst, unsigned int n);

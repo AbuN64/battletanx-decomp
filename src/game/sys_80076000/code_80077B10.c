@@ -20,7 +20,7 @@ void func_80078680(AttachedCamera *camera, Vec3f *offset) {
     func_80077E94(camera);
 }
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
 

@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_80094704_H
 #define SHARED_BT_SPAN_1000_CODE_80094704_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern int func_80096760();
 
 
@@ -21,7 +21,7 @@ typedef struct ButtonState {
     u8 reserved2[2];
     s32 buttons;
 } ButtonState;
-extern ButtonState *func_80096784(int arg0);
+extern ButtonState *func_80096784(s32 arg0);
 
 
 

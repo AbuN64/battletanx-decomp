@@ -88,7 +88,7 @@ void func_800D1824(void) {
 
 #include "shared/bt_menu_render.h"
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_gfx.h"
 
 void func_800D1874(void) {
@@ -110,7 +110,6 @@ void func_800D1930(s32 value) {
 }
 
 #include "shared/bt_menu_render.h"
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -120,7 +119,6 @@ void func_800D1998(s32 value) {
     func_80105688(&D_8037A174, value);
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
 void func_800D1A00(s32 ticks) {

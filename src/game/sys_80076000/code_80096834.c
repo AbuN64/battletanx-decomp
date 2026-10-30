@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_80094704.h"
 int func_80096834(s32 arg0) {
     return (D_802E17D8[D_802E17A8[arg0]].buttons & 0xF) == 0xF;

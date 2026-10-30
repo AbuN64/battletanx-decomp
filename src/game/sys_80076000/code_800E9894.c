@@ -4,7 +4,7 @@
 #include "shared/bt_player.h"
 #include "shared/bt_span_1000_code_800E9200.h"
 #include "shared/bt_span_1000_code_800E9B9C.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
 

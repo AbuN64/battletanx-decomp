@@ -53,7 +53,7 @@ u16 *func_800DF55C(PathSearchNode *pool, PathSearchNode *record)
     return link;
 }
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
 
@@ -179,7 +179,6 @@ INCLUDE_ASM("span_1000", func_800DF7D0);
 INCLUDE_ASM("span_1000", func_800DFA68);
 INCLUDE_ASM("span_1000", func_800E004C);
 INCLUDE_ASM("span_1000", func_800E031C);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 void func_800E055C(s16 arg0) {
@@ -195,7 +194,6 @@ INCLUDE_ASM("span_1000", func_800E05A4);
 INCLUDE_ASM("span_1000", func_800E0790);
 INCLUDE_ASM("span_1000", func_800E0870);
 INCLUDE_ASM("span_1000", func_800E0954);
-#include "shared/bt_types.h"
 #include "span_1000/code_800E0B00.h"
 #include "game/sys_80076000.h"
 void func_800E097C(s32 arg0) {

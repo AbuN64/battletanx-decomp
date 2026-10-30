@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800EC380_H
 #define SHARED_BT_SPAN_1000_CODE_800EC380_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
 

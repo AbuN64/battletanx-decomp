@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_80076068.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 int func_80076000(void) {
     s32 temp_v0;
 
@@ -27,7 +27,6 @@ INCLUDE_ASM("span_1000", func_80076124);
 INCLUDE_ASM("span_1000", func_80076164);
 INCLUDE_ASM("span_1000", func_80076240);
 #include "shared/bt_span_1000_code_80076068.h"
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 /* func_8007627C -- copies n bytes between two byte-addressed spaces, a byte at a time until the source is word-aligned, then a word at a time split into four byte stores, then the tail. */
 
@@ -82,7 +81,6 @@ void func_80076408(u32 dest, u8 *source, u32 length)
         length--;
     }
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076068.h"
 void func_800764F4(u32 address, u8 value, u32 length) {
@@ -105,13 +103,12 @@ void func_800764F4(u32 address, u8 value, u32 length) {
     }
 }
 
-void func_800765C0(u32 dst, u32 src, u32 size) {
+void func_800765C0(u32 dst, u32 src, unsigned int size) {
     while (size--) {
         func_80076390(dst++, func_80076124(src++));
     }
 }
 
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_80076068.h"
 #include "game/sys_80076000.h"
 

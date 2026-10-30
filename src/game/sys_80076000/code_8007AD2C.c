@@ -6,7 +6,7 @@
 #include "shared/bt_span_1000_code_8007A470.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 #include "shared/bt_span_1000_code_8010BFDC.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 void func_8007AD2C(void) {
     u64 now;
@@ -57,7 +57,6 @@ s32 func_8007B1EC(f32 arg0) {
 INCLUDE_RODATA("span_1000", D_800710FC);
 INCLUDE_RODATA("span_1000", D_80071100);
 INCLUDE_DATA("span_1000", D_80071104);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 f32 func_8007B208(s32 *r, s32 value) {

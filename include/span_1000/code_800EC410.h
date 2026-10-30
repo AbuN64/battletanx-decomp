@@ -1,4 +1,4 @@
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #pragma once
 
 s32 func_800ECE4C();

@@ -1,6 +1,6 @@
 #ifndef BT_UNIT_H
 #define BT_UNIT_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_gfx.h"
 #include "span_1000/code_80097038.h"
 /* Shared record in the twenty-entry unit pool. */

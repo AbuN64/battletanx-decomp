@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_80119530.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/audio_callbacks.h"
 #include "shared/bt_callback_state.h"
 #include "sdk/libultra.h"

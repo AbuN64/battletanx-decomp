@@ -1,6 +1,6 @@
 #ifndef BT_PATH_SEARCH_H
 #define BT_PATH_SEARCH_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 typedef struct PathSearchNode {
     u8 active, closed;
     u16 parent, left, right;

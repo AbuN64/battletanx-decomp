@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 const char *func_800863F4(u32 level) {
     switch (level) {
@@ -66,7 +66,6 @@ const char *func_800863F4(u32 level) {
 
 INCLUDE_DATA("span_1000", D_800716D8);
 INCLUDE_ASM("span_1000", func_800865E0);
-#include "shared/bt_types.h"
 #include "span_1000/code_8007A470.h"
 #include "game/sys_80076000.h"
 s16 func_80086AE8(void)

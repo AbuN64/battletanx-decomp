@@ -3,7 +3,7 @@
 
 #include "shared/bt_span_1000_code_800F29F0.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 void func_800F2010(EffectKind20 *arg0, s32 *arg1) {
@@ -16,7 +16,6 @@ void func_800F2010(EffectKind20 *arg0, s32 *arg1) {
 INCLUDE_ASM("span_1000", func_800F2044);
 #include "shared/audio_callbacks.h"
 #include "shared/bt_callback_state.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800F01D0.h"
 #include "game/sys_80076000.h"
 
@@ -62,7 +61,6 @@ void func_800F2478(EffectKind17 *effect, void *sender, u32 event, s32 *index, vo
     }
 }
 
-#include "shared/bt_types.h"
 #include "span_1000/code_800A6864.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_8008F4EC.h"
@@ -117,7 +115,6 @@ void func_800F2ED4(EffectKind19 *effect, s32 *state)
 
 INCLUDE_ASM("span_1000", func_800F2EFC);
 #include "shared/bt_span_1000_code_800F29F0.h"
-#include "shared/bt_types.h"
 
 
 

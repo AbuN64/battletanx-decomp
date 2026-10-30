@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_8011F7F0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_8011C210.h"
 
 struct CallbackRecord;

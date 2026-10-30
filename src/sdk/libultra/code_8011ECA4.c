@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_8011EB90.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "sdk/libultra.h"
 #include "game/sys_8011C210.h"
 

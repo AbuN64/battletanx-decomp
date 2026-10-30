@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_80119B60.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "sdk/libultra.h"
 
 struct Heap;

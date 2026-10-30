@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 s32 func_800E9880(s32 arg0, s32 arg1)
 {
   int new_var2;

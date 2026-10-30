@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8007A470_H
 #define SHARED_BT_SPAN_1000_CODE_8007A470_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "sdk/libultra.h"
 
 
@@ -10,25 +10,25 @@
 extern float D_801B4AB4;
 
 
-extern int func_8007AAE4(void);
+extern s32 func_8007AAE4(void);
 
 
 extern int D_80134E5C;
 
 
-extern int func_8007AAA0(void);
+extern s32 func_8007AAA0(void);
 
 
 extern void func_8007C298(void);
 
 
-extern int func_8007AAB0(void);
+extern s32 func_8007AAB0(void);
 
 
 extern int func_8007AAC0(void);
 
 
-extern int func_8007B1DC();
+extern s32 func_8007B1DC();
 
 
 extern int func_8007C33C(void);
@@ -76,7 +76,6 @@ typedef struct AudioFrameInfo {
     AudioTask task;
     AudioDoneMessage message;
 } AudioFrameInfo;
-extern s32 osAiSetNextBuffer(void *address, s32 length);
 
 #endif
 

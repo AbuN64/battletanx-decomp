@@ -2,9 +2,8 @@
 
 #include "game/sys_80076000.h"
 #include "span_1000/code_80077930.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 void func_8011C1A4(s32 arg0);
-void osStopThread(void * arg0);
 static inline AudioFrameInfo *audio_message_frame(void *received)
 {
     AudioDoneMessage *message = received;

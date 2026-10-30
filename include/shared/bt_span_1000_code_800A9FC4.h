@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800A9FC4_H
 #define SHARED_BT_SPAN_1000_CODE_800A9FC4_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_gfx.h"
 
 
@@ -31,10 +31,10 @@ extern void func_800ABFA0(void);
 
 
 
-extern void func_800AA328(int arg0, int arg1, int arg2);
+extern void func_800AA328(s32 arg0, s32 arg1, s32 arg2);
 
 
-extern void func_800AA280(int arg0, int arg1, int arg2);
+extern void func_800AA280(s32 arg0, s32 arg1, s32 arg2);
 
 
 extern void func_800AB200(void);

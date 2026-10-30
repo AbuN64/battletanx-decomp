@@ -6,7 +6,6 @@
 #pragma once
 
 extern unsigned char D_803C4DC0;
-extern float sqrtf(float);
 
 extern int D_803C4D80[];
 
@@ -41,7 +40,6 @@ struct Header {
 
 extern int func_8011609C(Ctx *ctx);
 
-extern int osGetCount(void);
 
 extern int __osContRamWrite(int a, int b, int mode, unsigned char *buf);
 
@@ -188,7 +186,7 @@ extern void func_80120390(void);
 
 extern void func_80120360(void);
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #pragma once
 
 typedef struct ListNode ListNode;

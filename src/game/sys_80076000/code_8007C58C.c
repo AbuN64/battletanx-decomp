@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800ABFD0.h"
 s32 func_8007C58C(s32 state) {
@@ -51,7 +51,6 @@ INCLUDE_RODATA("span_1000", D_80071340);
 INCLUDE_RODATA("span_1000", D_80071348);
 INCLUDE_RODATA("span_1000", D_80071350);
 INCLUDE_ASM("span_1000", func_8007C678);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -61,7 +60,6 @@ void func_8007C6C4(void) {
 
 #ifdef NON_MATCHING
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_8007A470.h"
 s32 func_8007C6D8(void) {
     s32 var_v0;
@@ -77,7 +75,6 @@ s32 func_8007C6D8(void) {
 #else
 INCLUDE_ASM("span_1000", func_8007C6D8);
 #endif
-#include "shared/bt_types.h"
 #include "span_1000/code_8007A470.h"
 #include "span_1000/code_800A51E8.h"
 s32 func_8007C700(void)
@@ -91,7 +88,6 @@ s32 func_8007C700(void)
     return 0;
 }
 
-#include "shared/bt_types.h"
 #include "span_1000/code_8007A470.h"
 #include "shared/bt_span_1000_code_8007C700.h"
 #include "game/sys_80076000.h"

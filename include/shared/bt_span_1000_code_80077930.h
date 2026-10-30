@@ -1,7 +1,7 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_80077930_H
 #define SHARED_BT_SPAN_1000_CODE_80077930_H
-#include "shared/bt_types.h"
-extern void func_80077A38(int arg0);
+#include <ultra64.h>
+extern void func_80077A38(s32 arg0);
 
 
 extern s32 func_80077AD0();

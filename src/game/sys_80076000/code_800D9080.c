@@ -3,7 +3,7 @@
 INCLUDE_ASM("span_1000", func_800D9080);
 INCLUDE_ASM("span_1000", func_800D9134);
 INCLUDE_ASM("span_1000", func_800DA9B4);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "span_1000/code_800ABFD0.h"
 s32 func_800DAC4C(void)
@@ -47,7 +47,6 @@ s32 func_800DAC4C(void)
 }
 
 INCLUDE_ASM("span_1000", func_800DAD5C);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800DAD60(void) {
     s32 i;
@@ -80,9 +79,7 @@ void func_800DADBC(void)
 
 INCLUDE_ASM("span_1000", func_800DAE30);
 #include "game/sys_80076000.h"
-#include "shared/bt_gbi.h"
 #include "shared/bt_menu_render.h"
-#include "shared/bt_types.h"
 void func_80077930(s32 arg0, s32 arg1, s32 arg2);
 static inline s32 load_rom_span(u8 *start, u8 *end, u8 *dst) {
     s32 size = end - start;
@@ -107,7 +104,7 @@ s32 func_800DC93C(void) {
         D_803276D4 = D_803276D0 + D_803276D8 * 0x2200;
         func_800DAE30(D_803276D8);
         cmd = D_803276D4++;
-        gSPEndDisplayListF3D(cmd);
+        gSPEndDisplayList(cmd);
         func_8007EEF8(D_803276D0 + D_803276D8 * 0x2200);
         D_803276D8 = (D_803276D8 + 1 < 3) ? D_803276D8 + 1 : 0;
         func_8007968C();
@@ -117,7 +114,6 @@ s32 func_800DC93C(void) {
 }
 
 INCLUDE_ASM("span_1000", func_800DCA7C);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_800ABFD0.h"
 s32 func_800DCCC0(void) {
@@ -229,7 +225,6 @@ s32 func_800DCCC0(void) {
     return buttons & 0x20;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -252,7 +247,6 @@ void func_800DCFCC(u32 arg0, u8 *arg1) {
 }
 
 INCLUDE_ASM("span_1000", func_800DD0DC);
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800D1AD0.h"
 #include "game/sys_80076000.h"
 

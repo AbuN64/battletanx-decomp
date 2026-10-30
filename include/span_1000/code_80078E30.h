@@ -1,4 +1,4 @@
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #pragma once
 
 extern u8 D_8014E0D0[];

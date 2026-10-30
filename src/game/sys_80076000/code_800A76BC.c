@@ -4,7 +4,7 @@ INCLUDE_ASM("span_1000", func_800A76BC);
 INCLUDE_ASM("span_1000", func_800A7744);
 INCLUDE_ASM("span_1000", func_800A77D4);
 #include "shared/bt_span_1000_code_800F29F0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 void func_800A7800(f32 matrix[4][4], u16 yaw, u16 pitch, u16 roll) {
     f32 sinRoll = func_800F3AE0(roll);
@@ -25,7 +25,6 @@ void func_800A7800(f32 matrix[4][4], u16 yaw, u16 pitch, u16 roll) {
     matrix[2][2] = cosRoll * cosPitch;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800A7964(f32 m[4][4], f32 *angles) {
     f32 rz = angles[2] * D_80126700;

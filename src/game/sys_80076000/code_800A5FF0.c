@@ -5,7 +5,7 @@ INCLUDE_ASM("span_1000", func_800A6688);
 #include "game/sys_80076000.h"
 #include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_800A5050.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800A51E8.h"
 
               /* size 0x0 */

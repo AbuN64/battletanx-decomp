@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076000.h"
 #include "shared/bt_span_1000_code_80076068.h"
@@ -95,7 +95,6 @@ void func_800769B0(void) {
 INCLUDE_DATA("span_1000", D_80071068);
 INCLUDE_ASM("span_1000", func_80076BF0);
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
 int func_80076CA8(u8 *arg0) {
     u8 *var_v1;
 
@@ -111,7 +110,6 @@ int func_80076CA8(u8 *arg0) {
 INCLUDE_ASM("span_1000", func_80076CA8);
 #endif
 #include "shared/bt_span_1000_code_80076000.h"
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 int func_80076CC8(void) {
     s32 temp_s0;
@@ -158,7 +156,6 @@ s32 func_80076DA4(s32 arg0, s32 arg1) {
 }
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076000.h"
-#include "shared/bt_types.h"
 s32 func_80076E34(s32 arg0) {
     s32 temp_s1;
     s32 var_s0;
@@ -175,7 +172,6 @@ s32 func_80076E34(s32 arg0) {
 #ifdef NON_MATCHING
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076000.h"
-#include "shared/bt_types.h"
 s32 func_80076E9C(s32 arg0, u32 arg1, u32 arg2) {
     s32 temp_s4;
     s32 temp_v0;
@@ -211,7 +207,6 @@ loop_2:
 #else
 INCLUDE_ASM("span_1000", func_80076E9C);
 #endif
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076000.h"
 s32 func_80076F60(s32 port, u32 source, u32 length) {
@@ -242,7 +237,6 @@ s32 func_80076F60(s32 port, u32 source, u32 length) {
 
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_80076000.h"
-#include "shared/bt_types.h"
 int func_80077028(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_s0;
     s32 temp_s0_2;

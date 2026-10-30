@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_801121E0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 int func_800795B0(void) {

@@ -5,7 +5,7 @@ INCLUDE_ASM("span_1000", func_800E1A84);
 INCLUDE_ASM("span_1000", func_800E1C00);
 INCLUDE_ASM("span_1000", func_800E1D34);
 INCLUDE_ASM("span_1000", func_800E1D40);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 
@@ -43,7 +43,6 @@ void func_800E2058(Unknown800E2058_1 *unit, f32 *point)
     goal->value14 = 1;
 }
 INCLUDE_ASM("span_1000", func_800E2110);
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 #include "game/sys_80076000.h"
 
@@ -54,7 +53,6 @@ f32 func_800E21B4(void) {
 
 INCLUDE_ASM("span_1000", func_800E21E4);
 #include "shared/audio_callbacks.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800E21E4.h"
 #include "shared/bt_unit.h"
 
@@ -123,7 +121,6 @@ void func_800E26DC(CombatUnit *unit, u8 mode) {
         unit->value40A = 0x10;
     }
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800E0B00.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
@@ -155,7 +152,6 @@ u16 func_800E2820(f32 *from, f32 *to)
     return heading;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 s32 func_800E289C(s32 from, s32 to) {
     to -= from;

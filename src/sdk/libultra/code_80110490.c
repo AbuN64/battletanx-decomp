@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern u32 D_80145DA8;
 extern s32 D_A4500008;
 extern s32 D_A4500010;

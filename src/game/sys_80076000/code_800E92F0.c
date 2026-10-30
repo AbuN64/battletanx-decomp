@@ -13,7 +13,7 @@ INCLUDE_RODATA("span_1000", D_8007486C);
 INCLUDE_RODATA("span_1000", D_80074870);
 INCLUDE_RODATA("span_1000", D_80074878);
 INCLUDE_ASM("span_1000", func_800E9318);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 float func_800E9458(void) {

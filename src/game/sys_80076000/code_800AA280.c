@@ -1,9 +1,9 @@
 #include "include_asm.h"
 
 #include "shared/bt_triangle.h"
-#include "shared/bt_abi.h"
+#include <PR/abi.h>
 #include "shared/bt_span_1000_code_800A9FC4.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
 
@@ -15,8 +15,6 @@
 /* Original packets use the classic F3DEX command encoding. */
 #undef F3DEX_GBI_2
 
-#include "shared/bt_n64sdk.h"
-#include "shared/bt_gbi.h"
 #include "shared/bt_span_1000_code_8007EBA0.h"
 
 

@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
 void func_80077930(s32 arg0, s32 arg1, s32 arg2);

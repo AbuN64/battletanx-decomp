@@ -1,7 +1,7 @@
 #include "include_asm.h"
 #include "shared/bt_unit.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 void func_80096E80(f32 x, f32 y, u16 flags, u32 shape, AreaBox *box, f32 scale)
 {
@@ -46,7 +46,6 @@ void func_80097B04(Unknown80097B04_raw0 *arg0) {
     }
 }
 #include "shared/bt_span_1000_code_80097038.h"
-#include "shared/bt_types.h"
 
 
 

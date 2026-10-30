@@ -1,16 +1,16 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8008011C_H
 #define SHARED_BT_SPAN_1000_CODE_8008011C_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_800824E4.h"
 
 
-extern void func_80081A40(int arg0);
+extern void func_80081A40(s32 arg0);
 
 
-extern int func_80081AC0(void);
+extern s32 func_80081AC0(void);
 
 
-extern int func_80081A30(void);
+extern s32 func_80081A30(void);
 
 
 extern Scene *func_800821C0(void);

@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8007C700_H
 #define SHARED_BT_SPAN_1000_CODE_8007C700_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern void func_8007E140(void *arg0);
 
 

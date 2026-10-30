@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 
@@ -18,7 +18,6 @@ INCLUDE_ASM("span_1000", func_800C1B54);
 INCLUDE_ASM("span_1000", func_800C2050);
 INCLUDE_ASM("span_1000", func_800C224C);
 #include "game/sys_80076000.h"
-#include "shared/bt_gbi.h"
 #include "shared/bt_menu_render.h"
 s32 func_800C3534(void)
 {
@@ -40,7 +39,7 @@ s32 func_800C3534(void)
         cmd = D_803276D4;
         dl = D_803276D0 + D_803276D8 * 0x2200;
         D_803276D4 = cmd + 1;
-        gSPEndDisplayListF3D(cmd);
+        gSPEndDisplayList(cmd);
         func_8007EEF8(dl);
         next = D_803276D8 + 1;
         mask = -(next < 3);
@@ -68,7 +67,6 @@ s32 func_800C3534(void)
     return 0xB;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_800ABFD0.h"
 s32 func_800C36E8(void) {

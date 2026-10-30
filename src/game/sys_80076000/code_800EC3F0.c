@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 
@@ -76,7 +76,6 @@ s32 func_800EC410(void) {
 INCLUDE_RODATA("span_1000", D_800749E0);
 INCLUDE_DATA("span_1000", D_800749E4);
 INCLUDE_DATA("span_1000", D_800749E8);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -140,7 +139,6 @@ u8 func_800EC738(s32 kind)
     return 0;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800EC7A8(f32 out[4][4], s32 offset) {
     s32 i;
@@ -180,7 +178,6 @@ void func_800EC7A8(f32 out[4][4], s32 offset) {
 }
 
 INCLUDE_ASM("span_1000", func_800EC8C4);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -202,7 +199,6 @@ void *func_800ECB68(s32 index)
     return result;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 

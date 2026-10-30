@@ -9,7 +9,7 @@ INCLUDE_ASM("span_1000", func_8007720C);
 INCLUDE_ASM("span_1000", func_80077620);
 INCLUDE_ASM("span_1000", func_80077924);
 #include "shared/bt_span_1000_code_80077930.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 struct InitArgs;
 
@@ -41,7 +41,6 @@ void func_800779CC(s32 arg0) {
 }
 
 #include "shared/bt_span_1000_code_80077930.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_80077930.h"
 
 

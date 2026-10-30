@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800E5328_H
 #define SHARED_BT_SPAN_1000_CODE_800E5328_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_common_types_d507c48987bb.h"
 
 
@@ -20,13 +20,13 @@
 
 
 
-extern int func_800E6FA8(void);
+extern s32 func_800E6FA8(void);
 
 
 
 
 
-extern int func_800E6FA0(void);
+extern s32 func_800E6FA0(void);
 
 
 
@@ -35,7 +35,7 @@ extern int func_800E6FA0(void);
 
 
 
-extern int func_800E6A70(void);
+extern s32 func_800E6A70(void);
 
 
 

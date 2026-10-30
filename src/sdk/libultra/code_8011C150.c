@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_8011C150.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "sdk/libultra.h"
 #include "shared/bt_span_1000_code_8011D6D0.h"
 

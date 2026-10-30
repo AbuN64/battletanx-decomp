@@ -33,7 +33,7 @@ u8 func_8009FBE4(CombatUnit *unit) {
     return player->team;
 }
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_800F29F0.h"
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"

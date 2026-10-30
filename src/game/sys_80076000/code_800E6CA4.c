@@ -2,7 +2,7 @@
 #include "shared/bt_unit.h"
 
 #include "shared/bt_span_1000_code_800E5328.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_800E0B00.h"
 
 
@@ -58,7 +58,6 @@ INCLUDE_RODATA("span_1000", D_8007470C);
 INCLUDE_ASM("span_1000", func_800E6D58);
 #include "shared/bt_span_1000_code_800E5328.h"
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"
 
 s32 func_800E6FA0(void) {
@@ -75,7 +74,6 @@ s32 func_800E6FB0(struct ResetState *arg0) {
 }
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 
 s32 func_800E6FD8(struct ResetState *context) {
     func_800E9E5C(context);
@@ -89,7 +87,6 @@ INCLUDE_ASM("span_1000", func_800E70C4);
 INCLUDE_ASM("span_1000", func_800E70DC);
 INCLUDE_ASM("span_1000", func_800E7168);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"
 
 s32 func_800E72FC(struct ResetState *arg0) {
@@ -98,7 +95,6 @@ s32 func_800E72FC(struct ResetState *arg0) {
 }
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"
 
 s32 func_800E7320(struct ResetState *arg0) {
@@ -120,7 +116,6 @@ INCLUDE_ASM("span_1000", func_800E7380);
 INCLUDE_ASM("span_1000", func_800E7394);
 INCLUDE_ASM("span_1000", func_800E73A4);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800E9538.h"
 #include "shared/bt_unit.h"
 #include "shared/bt_span_1000_code_8007A470.h"

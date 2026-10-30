@@ -1,9 +1,9 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800A5050_H
 #define SHARED_BT_SPAN_1000_CODE_800A5050_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
-extern int func_800A66B0(int arg0, int arg1, int arg2, signed int * arg3);
+extern s32 func_800A66B0(s32 arg0, s32 arg1, s32 arg2, s32 * arg3);
 
 
 extern void func_800A66C0(void);

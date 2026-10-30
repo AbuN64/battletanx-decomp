@@ -1,11 +1,11 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8007EBA0_H
 #define SHARED_BT_SPAN_1000_CODE_8007EBA0_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_gfx.h"
 extern void *func_8007F030(void);
 
 
-extern int func_8008001C(int arg0, int arg1, int arg2, int arg3, unsigned char arg4);
+extern s32 func_8008001C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, unsigned char arg4);
 
 
 extern u8 D_801B4C00[];

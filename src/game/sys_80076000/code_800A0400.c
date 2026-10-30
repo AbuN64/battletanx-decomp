@@ -2,7 +2,7 @@
 
 INCLUDE_ASM("span_1000", func_800A0400);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 void func_800A04F0(Obj80137A3C *arg0, s32 *arg1) {
     s32 temp_a0;
 

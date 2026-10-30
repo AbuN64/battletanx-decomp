@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_80091A60.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_player.h"
 #include "shared/bt_span_1000_code_8008011C.h"
@@ -138,7 +138,6 @@ s32 func_80094704(Unknown80094704 *a, Unknown80094704 *b, Unknown80094704 *point
     }
     return off;
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 

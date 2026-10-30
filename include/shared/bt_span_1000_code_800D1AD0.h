@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800D1AD0_H
 #define SHARED_BT_SPAN_1000_CODE_800D1AD0_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 /* The queue retains consumed entries until a later write needs their slots. */
 typedef struct U16HistoryQueue {

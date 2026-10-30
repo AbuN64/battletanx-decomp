@@ -22,7 +22,7 @@ INCLUDE_RODATA("span_1000", D_80074810);
 INCLUDE_RODATA("span_1000", D_80074814);
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 void func_800E8768(DmaRegion *arg0) {
     func_8007B208(arg0->flags + 0x198, func_8007B1DC());

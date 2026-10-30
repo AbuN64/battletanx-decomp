@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_gfx.h"
 
 #include "shared/bt_menu_render.h"
@@ -64,7 +64,6 @@ void func_800C3730(Gfx **list) {
 }
 
 INCLUDE_DATA("span_1000", D_80073594);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
 
@@ -106,7 +105,6 @@ void func_800C3F00(void) {
 INCLUDE_ASM("span_1000", func_800C4090);
 INCLUDE_ASM("span_1000", func_800C4254);
 INCLUDE_ASM("span_1000", func_800C4AE0);
-#include "shared/bt_types.h"
 #include "span_1000/code_800ABFD0.h"
 #include "game/sys_80076000.h"
 

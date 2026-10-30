@@ -42,7 +42,7 @@ s32 func_8009412C(f32 x, f32 z, ViewCone *probe)
 }
 
 #include "shared/bt_span_1000_code_80091A60.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 s32 func_800941E0(f32 x, f32 y, f32 r, SceneView *c) {

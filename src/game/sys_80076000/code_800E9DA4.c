@@ -51,7 +51,7 @@ INCLUDE_ASM("span_1000", func_800EA1B8);
 #include "game/sys_80076000.h"
 #include "shared/bt_callback_queue.h"
 #include "shared/bt_span_1000_code_800E9B9C.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800EA1FC.h"
 
 void func_800EA1EC(s32 *arg0) {

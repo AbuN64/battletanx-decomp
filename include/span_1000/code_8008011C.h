@@ -1,4 +1,4 @@
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_800824E4.h"
 #pragma once
 

@@ -2,7 +2,7 @@
 
 #include "shared/bt_span_1000_code_800DAD5C.h"
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
 

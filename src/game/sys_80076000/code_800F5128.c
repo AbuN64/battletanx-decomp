@@ -43,7 +43,7 @@ void func_800F5178(void) {
 }
 
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800F45C8.h"
 extern u32 D_8035DBF8;
 
@@ -125,7 +125,6 @@ INCLUDE_ASM("span_1000", func_800F5264);
 INCLUDE_ASM("span_1000", func_800F53B8);
 INCLUDE_ASM("span_1000", func_800F5610);
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
 #include "span_1000/code_800F45C8.h"
 int func_800F5850(u32 arg0) {
     s32 temp_v1;
@@ -148,7 +147,6 @@ int func_800F5850(u32 arg0) {
 INCLUDE_ASM("span_1000", func_800F5850);
 #endif
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
 #include "span_1000/code_800F45C8.h"
 int func_800F58A0(u32 arg0) {
     s32 temp_v1;
@@ -172,7 +170,6 @@ INCLUDE_ASM("span_1000", func_800F58A0);
 #endif
 #ifdef NON_MATCHING
 #include "shared/bt_span_1000_code_800F45C8.h"
-#include "shared/bt_types.h"
 extern u8 *D_803620FC;
 extern s32 D_80362104;
 extern u32 D_80362108;

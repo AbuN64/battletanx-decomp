@@ -1,6 +1,6 @@
 #ifndef CALLBACK_STATE_H
 #define CALLBACK_STATE_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 /* func_800F2120 stores a word at offset 0x18. */
 typedef struct CallbackState {
     u8 reserved[0x18];

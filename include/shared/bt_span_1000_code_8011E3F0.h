@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8011E3F0_H
 #define SHARED_BT_SPAN_1000_CODE_8011E3F0_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 struct func_8011E564_S1_Shared8011E564;
 typedef struct func_8011E564_S1_Shared8011E564 func_8011E564_S1_Shared8011E564;

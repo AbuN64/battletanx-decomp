@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_8008F248_H
 #define SHARED_BT_SPAN_1000_CODE_8008F248_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_8008B1F0.h"
 #include "shared/bt_unit.h"
 
@@ -8,7 +8,7 @@
 extern int func_80090F10(void);
 
 
-extern int func_800907CC(int arg0, int arg1, int arg2, unsigned short arg3, int arg4, int arg5, int arg6, int arg7, signed char arg8);
+extern s32 func_800907CC(s32 arg0, s32 arg1, s32 arg2, unsigned short arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7, signed char arg8);
 
 
 
@@ -54,5 +54,5 @@ struct HandlerSender {
     s32 unk8;
     CombatUnit *unit;
 };
-extern void func_800916B8(HandlerEffect *arg0, HandlerSender *arg1, int arg2, void *arg3, HandlerReply *arg4);
+extern void func_800916B8(HandlerEffect *arg0, HandlerSender *arg1, s32 arg2, void *arg3, HandlerReply *arg4);
 #endif

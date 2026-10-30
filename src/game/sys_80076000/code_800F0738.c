@@ -97,7 +97,7 @@ void func_800F0CF0(EffectKind21 *effect, void *sender, u32 message, void *input,
     }
 }
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 void func_800F0DE0(EffectKind0C *effect, s32 *state)
 {
@@ -170,7 +170,6 @@ void func_800F16E4(EffectKind23 *effect, s32 *state)
 
 INCLUDE_ASM("span_1000", func_800F1708);
 INCLUDE_ASM("span_1000", func_800F195C);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800F1BB4(f32 *origin, u8 byte0, u8 byte1, u8 byte2) {
     f32 range = D_80074DE0;

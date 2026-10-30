@@ -188,7 +188,7 @@ unsorted:
 
 INCLUDE_DATA("span_1000", D_800714E8);
 #include "shared/bt_span_1000_code_800824E4.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 #include "span_1000/code_8007EBA0.h"
@@ -377,7 +377,6 @@ u8 func_8008488C(Unknown8008488C_1 *table, f32 x, f32 y, f32 radius) {
     }
     return mask;
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 void func_800849B0(Scene *level, s32 arg1, void *arg2, s32 arg3, s32 arg4, u8 mask) {
@@ -415,7 +414,6 @@ void func_80084CC4(Scene *scene, s32 model, void *matrix, void *anchor, s32 laye
 }
 
 INCLUDE_ASM("span_1000", func_80084DF4);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 void func_80084F4C(void *table, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6,
@@ -425,7 +423,6 @@ void func_80084F4C(void *table, s32 a1, s32 a2, s32 a3, s32 a4, s32 a5, s32 a6,
 
 INCLUDE_ASM("span_1000", func_80084F90);
 #include "shared/bt_gfx.h"
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_80085290(Gfx *list, s32 count, s32 offset) {
     s32 i;
@@ -455,9 +452,6 @@ void func_800852E0(Gfx *commands, s32 count, s32 offset) {
 /* Original packets use the classic F3DEX command encoding. */
 #undef F3DEX_GBI_2
 
-#include "shared/bt_n64sdk.h"
-#include "shared/bt_gbi.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800824E4.h"
 
 
@@ -545,7 +539,6 @@ INCLUDE_ASM("span_1000", func_80085C68);
 INCLUDE_ASM("span_1000", func_80085D84);
 INCLUDE_ASM("span_1000", func_80085DE4);
 INCLUDE_ASM("span_1000", func_80085E18);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800862B4(void)
 {

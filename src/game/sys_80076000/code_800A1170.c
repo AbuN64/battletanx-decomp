@@ -4,7 +4,7 @@
 INCLUDE_ASM("span_1000", func_800A1170);
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_80107168.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 s32 func_800A12E4(f32 x, f32 y, s32 sizeIndex)
@@ -49,7 +49,6 @@ INCLUDE_ASM("span_1000", func_800A2A44);
 INCLUDE_ASM("span_1000", func_800A2C38);
 INCLUDE_ASM("span_1000", func_800A2DC0);
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
 
 
 

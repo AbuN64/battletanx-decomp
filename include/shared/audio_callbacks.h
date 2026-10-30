@@ -3,5 +3,5 @@
  * no driver structure definitions or Nintendo SDK header text are included. */
 #ifndef SHARED_AUDIO_CALLBACKS_H
 #define SHARED_AUDIO_CALLBACKS_H
-#include "shared/acmd.h"
+#include <PR/abi.h>
 #endif

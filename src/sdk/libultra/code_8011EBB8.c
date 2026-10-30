@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 double func_8011EBB8(f64 arg0, s32 *arg2) {
     f64 var_fv0;
     f64 var_fv1;

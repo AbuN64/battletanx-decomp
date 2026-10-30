@@ -1,11 +1,6 @@
 #ifndef SHARED_BT_GFX_H
 #define SHARED_BT_GFX_H
-#include "shared/bt_types.h"
-
-typedef union Gfx {
-    struct { u32 w0; u32 w1; } words;
-    u64 force_structure_alignment;
-} Gfx;
+#include <ultra64.h>
 
 typedef struct FrameVertex {
     s16 ob[3];

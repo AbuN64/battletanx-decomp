@@ -1,6 +1,6 @@
 #ifndef BATTLETANX_CALLBACK_QUEUE_H
 #define BATTLETANX_CALLBACK_QUEUE_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 /* EA1FC loads the callback at +4; EA1B8 loads payload at +12.
  * Both select this table by an entry kind. Queue entries have stride 8. */
 struct CallbackDescriptor {

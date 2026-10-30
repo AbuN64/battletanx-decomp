@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_RECORDS_H
 #define SHARED_BT_RECORDS_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_unit.h"
 
 struct Unknown800786B0;

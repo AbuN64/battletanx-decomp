@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_80076000.h"
-#include "shared/bt_gbi.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_8007EBA0.h"
 void func_800A9CC4(void)
 {
@@ -18,7 +18,7 @@ void func_800A9CC4(void)
         first = frame->firstVertex;
         frame->overlay = command + 1;
         vertices = frame->vertices;
-        gSPVertexF3DEX(command, &vertices[first], count, 0);
+        gSPVertex(command, OS_K0_TO_PHYSICAL(&vertices[first]), count, 0);
     }
 }
 

@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 INCLUDE_ASM("span_1000", func_8009E3A4);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
@@ -42,7 +42,6 @@ void func_8009F544(Unknown8009F544 *contact)
 }
 INCLUDE_ASM("span_1000", func_8009F5BC);
 INCLUDE_ASM("span_1000", func_8009F5E0);
-#include "shared/bt_gbi.h"
 
 void func_8009F8EC(Unknown8009F100 *t, f32 x, f32 y)
 {

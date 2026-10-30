@@ -6,7 +6,7 @@
 #include "sdk/libultra.h"
 /* Shuts down the active view and returns the final teardown result. */
 
-int osContStartQuery(void *arg0) {
+s32 osContStartQuery(OSMesgQueue *mq) {
     int ret;
 
     ret = 0;
@@ -14,7 +14,7 @@ int osContStartQuery(void *arg0) {
     if (D_803C4DC0 != 0) {
         __osPackRequestData(0);
         ret = __osSiRawStartDma(1, D_803C4D80);
-        osRecvMesg(arg0, 0, 1);
+        osRecvMesg(mq, 0, 1);
     }
     ret = __osSiRawStartDma(0, D_803C4D80);
     D_803C4DC0 = 0;

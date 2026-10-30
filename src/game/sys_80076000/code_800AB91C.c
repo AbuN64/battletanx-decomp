@@ -2,7 +2,7 @@
 
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800A9FC4.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800AA098.h"
 
 struct M;
@@ -18,7 +18,7 @@ void func_800AB93C(void) {
 /* func_800AB95C -- selects one of five modes, taking the mode's value from a five-entry table as the current value, and returns the mode that was set before. */
 
 
-int func_800AB95C(unsigned int a) {
+s32 func_800AB95C(u32 a) {
     int old = D_803275F0.mode;
     switch (a) {
     case 0: D_803275F0.mode = 0; D_803275F0.cur = D_803275F0.tbl[0]; break;
@@ -35,7 +35,6 @@ INCLUDE_ASM("span_1000", func_800AB9FC);
 INCLUDE_ASM("span_1000", func_800ABAB8);
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800A9FC4.h"
-#include "shared/bt_types.h"
 
 void func_800ABF1C(void) {
     func_800796F0(0x26, 0);
@@ -61,7 +60,6 @@ void func_800ABFA0(void) {
 INCLUDE_ASM("span_1000", func_800ABFA8);
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
-#include "shared/bt_types.h"
 
 void func_800ABFD0(void) {
     func_800F4DFC(&D_803276D4, 0, 0, 0x140, 0xF0, 0, 0, 0, 0xFF);
@@ -74,7 +72,6 @@ void func_800ABFD0(void) {
 
 INCLUDE_ASM("span_1000", func_800AC070);
 INCLUDE_ASM("span_1000", func_800AC2C8);
-#include "shared/bt_types.h"
 #include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_800ABFD0.h"
 #include "span_1000/code_800ABFD0.h"

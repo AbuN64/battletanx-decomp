@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 s32 func_8008ADE0(s32 arg0) {
     switch (arg0) {
     case 2:
@@ -103,7 +103,6 @@ INCLUDE_ASM("span_1000", func_8008B9E8);
 INCLUDE_ASM("span_1000", func_8008C09C);
 #include "shared/bt_span_1000_code_8008B1F0.h"
 #include "shared/audio_callbacks.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_8008B48C.h"
 
 
@@ -147,7 +146,6 @@ void func_8008CE9C(Unknown8008CE9C *effect, Unknown8010DAA0_1 *contact, s32 even
     }
 }
 INCLUDE_ASM("span_1000", func_8008CECC);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8008011C.h"
 s32 func_8008CED0(void)

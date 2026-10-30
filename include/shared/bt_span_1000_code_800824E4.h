@@ -1,11 +1,11 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800824E4_H
 #define SHARED_BT_SPAN_1000_CODE_800824E4_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_gfx.h"
 extern void func_80085468(void);
 
 
-extern void func_80085330(void * arg0, int arg1);
+extern void func_80085330(void * arg0, s32 arg1);
 
 
 extern void func_80085460(void);

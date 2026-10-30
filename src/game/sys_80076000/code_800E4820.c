@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "span_1000/code_80097038.h"
 #include "shared/bt_player.h"
@@ -37,7 +37,6 @@ void func_800E4820(u16 slot)
     }
 }
 INCLUDE_ASM("span_1000", func_800E493C);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 
@@ -62,7 +61,6 @@ void func_800E4D2C(Unknown800E4D2C *fields)
     fields->value26 = 0;
     fields->value50 = 0;
 }
-#include "shared/bt_bt_gbi.h"
 
 void func_800E4D44(Unknown800E4D44 *lists, s16 id)
 {

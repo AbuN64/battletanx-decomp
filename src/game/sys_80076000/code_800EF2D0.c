@@ -5,7 +5,7 @@ INCLUDE_ASM("span_1000", func_800EF380);
 INCLUDE_ASM("span_1000", func_800EF440);
 INCLUDE_ASM("span_1000", func_800EF984);
 INCLUDE_ASM("span_1000", func_800EFAD8);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"

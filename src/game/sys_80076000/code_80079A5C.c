@@ -2,7 +2,7 @@
 
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007963C.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_8007963C.h"
 #include "span_1000/code_80077930.h"
 /* func_80079A5C -- unless the handle is -1, sets it and then the float value on the object D_80150380 holds. */

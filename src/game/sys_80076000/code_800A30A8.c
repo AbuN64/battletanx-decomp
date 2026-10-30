@@ -2,7 +2,7 @@
 #include "shared/bt_unit.h"
 #include "shared/bt_player.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 void func_800A30A8(void)
@@ -25,7 +25,6 @@ void func_800A30A8(void)
 
 INCLUDE_ASM("span_1000", func_800A31C0);
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
 
 
 
@@ -83,7 +82,6 @@ void func_800A3D30(PlayerRecord *player) {
 }
 INCLUDE_ASM("span_1000", func_800A3DE0);
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800A27D0.h"
 #include "shared/bt_callback_word.h"
 #include "shared/bt_span_1000_code_800F29F0.h"

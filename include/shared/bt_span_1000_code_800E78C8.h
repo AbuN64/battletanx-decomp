@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800E78C8_H
 #define SHARED_BT_SPAN_1000_CODE_800E78C8_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern float func_800E791C(void);
 
 

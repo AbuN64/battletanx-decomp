@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_8008F248.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_8008F4EC.h"
 
 struct Unknown800917C4;
@@ -74,7 +74,6 @@ Unknown80091CA4 *func_80091CA4(s32 value0C, s32 value10, s32 value14)
 }
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_8008011C.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800E0B00.h"
 #include "game/sys_80076000.h"
 /* func_80091D04 -- stores 2 through its second argument and returns 2. */
@@ -168,7 +167,6 @@ void func_8009249C(Unknown8009249C *effect)
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_80107168.h"
 /* Scale the query box, collect nearby results, and dispatch their callbacks. */
-#include "shared/bt_types.h"
 void func_80092534(QueryObject *object) {
     QueryWork work;
     int i;
@@ -195,7 +193,6 @@ void func_80092534(QueryObject *object) {
 INCLUDE_ASM("span_1000", func_80092734);
 INCLUDE_ASM("span_1000", func_80093080);
 INCLUDE_ASM("span_1000", func_80093338);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "span_1000/code_8008F4EC.h"
 void func_800933B8(SequenceEffect *effect)

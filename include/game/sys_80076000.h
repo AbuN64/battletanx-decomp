@@ -8,7 +8,7 @@ struct CombatUnit;
 #ifndef GAME_SYS_80076000_H
 #define GAME_SYS_80076000_H
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_800A8940.h"
 #include "shared/bt_span_1000_code_8007C700.h"
 #include "shared/bt_span_1000_code_800A9FC4.h"
@@ -59,7 +59,7 @@ typedef struct DmaRegion {
 } DmaRegion;
 extern DmaRegion D_80125550[];
 extern char D_8F147050[];
-extern void func_800765C0(unsigned int a, unsigned int b, unsigned int n);
+extern void func_800765C0(u32 a, u32 b, unsigned int n);
 extern void func_80076408(u32 dest, u8 *source, u32 length);
 extern void func_80076164(unsigned int a, unsigned int b, unsigned int n);
 extern void func_800764F4(u32 address, u8 value, u32 length);
@@ -97,7 +97,6 @@ extern s32 D_802DF570[];
 
 extern TextureTable D_8013227C[];
 
-extern void osViSetSpecialFeatures(s32);
 
 extern void func_800799D0(s32 id, s16 volume);
 
@@ -441,7 +440,7 @@ extern f32 D_80074F18;
 
 int func_800E3470(struct CombatUnit *unit);
 
-int func_80079D58();
+s32 func_80079D58();
 
 f32 func_800E9318();
 extern f32 D_8007486C;
@@ -515,7 +514,6 @@ extern s32 D_80073C94;
 
 extern s32 D_80073C8C;
 
-s32 osInitialize();
 extern s32 D_801499F0;
 
 extern s8 D_800731B0;
@@ -1024,7 +1022,6 @@ void func_800A9DA8(u8 color[4]);
 
 void func_800A9EE0(u8 color[4]);
 
-typedef signed long long s64;
 extern void func_80105688(void **displayList, s64 value);
 void func_800D1998(s32 value);
 
@@ -1071,7 +1068,6 @@ s32 func_800A12E4(f32 x, f32 y, s32 sizeIndex);
 
 void func_80085290(Gfx *list, s32 count, s32 offset);
 
-extern void bcopy(const void *src, void *dst, s32 size);
 extern s16 D_80125800;
 extern u8 D_80125802;
 extern Gfx D_801C2F40[2][0x400];
@@ -1185,16 +1181,11 @@ extern void *D_802DF5E8[];
 extern u8 D_802DF5F0[];
 extern void *D_802E17A0;
 extern s32 D_8000030C;
-extern void osCreateMesgQueue(void *queue, void *messages, s32 count);
-extern void osSetEventMesg(s32 event, void *queue, s32 message);
-extern s32 osContInit(void *queue, u8 *pattern, OSContStatus *status);
 extern s32 func_80113C40(void *queue, OSPfs *pfs, s32 channel);
 extern s32 func_80116C70(void *queue, OSPfs *pfs, s32 channel);
 extern void func_800A8C88(void *arg);
 s32 func_800A8940(void);
 
-extern s32 osContStartQuery(void *queue);
-extern void osContGetQuery(OSContStatus *status);
 
 extern f32 D_80071100;
 
@@ -1418,7 +1409,6 @@ extern s32 D_80125C40;
 
 extern s32 D_802D5BC0[][3][100][2];
 
-s32 osAiGetLength();
 extern s32 D_80125778;
 void func_8007A758(AudioFrameInfo *frame);
 
@@ -1523,7 +1513,7 @@ extern s32 func_801137F0(OSPfs *pfs);
 extern u32 D_801B4AA0;
 
 extern void func_80080C60(s32 bucket, void *matrices, u16 *indices);
-extern void *memcpy(void *dest, const void *source, u32 size);
+extern void *memcpy(void *dest, const void *source, unsigned int size);
 extern ViewMatrix D_801C9058[];
 extern u16 D_801C9050[];
 

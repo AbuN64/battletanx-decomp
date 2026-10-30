@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
@@ -16,7 +16,6 @@ void func_800E9A00(Unknown800E9A00 *context, f32 value)
     context->value40++;
 }
 #include "shared/bt_span_1000_code_800E9200.h"
-#include "shared/bt_types.h"
 
               /* size 0x0 */
 

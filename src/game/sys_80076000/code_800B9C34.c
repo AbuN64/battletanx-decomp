@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 s32 func_800B9C34(s32 arg0, s16 arg1) {
     s32 temp_v0;

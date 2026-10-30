@@ -1,9 +1,8 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8007EBA0.h"
-#include "shared/bt_gbi.h"
 #include "shared/bt_gfx.h"
 void func_800A9DA8(u8 color[4])
 {

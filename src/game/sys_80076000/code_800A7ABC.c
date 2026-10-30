@@ -1,7 +1,7 @@
 #include "include_asm.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 void func_800A7ABC(f32 m[4][4], f32 x, f32 y, f32 z, f32 degrees) {
     f32 angle = degrees * D_80126704;
@@ -41,7 +41,6 @@ void func_800A7C7C(f32 matrix[4][4], f32 v[3], f32 out[3])
 }
 
 #include "shared/bt_span_1000_code_800A7ABC.h"
-#include "shared/bt_types.h"
 
 
 
@@ -72,7 +71,6 @@ void func_800A7D10(f32 m[4][4], Vec3f *in, Vec3f *out) {
     out->z = (f32) ((in->x * m[0][2]) + (in->y * m[1][2]) + (in->z * m[2][2]) + m[3][2]);
 }
 INCLUDE_ASM("span_1000", func_800A7DBC);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 void func_800A7ECC(f32 src[4][4], f32 dst[4][4], f32 scale) {
     s32 i;
@@ -90,7 +88,6 @@ void func_800A7ECC(f32 src[4][4], f32 dst[4][4], f32 scale) {
 
 INCLUDE_ASM("span_1000", func_800A7F3C);
 INCLUDE_ASM("span_1000", func_800A7FC0);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 static inline void set_identity(f32 matrix[4][4]) {
     s32 row;
@@ -135,7 +132,6 @@ void func_800A8034(f32 src[4][4], f32 view[4][4], f32 eye[3], f32 at[3]) {
 
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800A7ABC.h"
-#include "shared/bt_types.h"
 /* func_800A81F0 -- transposes the 3x3 part of a 4-float-row matrix into another. */
 
 void func_800A81F0(float src[][4], float dst[][4]) {

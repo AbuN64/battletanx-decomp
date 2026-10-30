@@ -1,6 +1,6 @@
 #ifndef BT_AI_TEAM_H
 #define BT_AI_TEAM_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_unit.h"
 #include "shared/bt_player.h"
 typedef struct AiGroup {

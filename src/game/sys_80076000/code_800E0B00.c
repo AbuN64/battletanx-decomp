@@ -3,7 +3,7 @@
 
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "shared/bt_span_1000_code_800E0B00.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 
 
@@ -72,7 +72,6 @@ INCLUDE_RODATA("span_1000", D_800744B0);
 INCLUDE_RODATA("span_1000", D_800744B4);
 INCLUDE_RODATA("span_1000", D_800744B8);
 INCLUDE_DATA("span_1000", D_800744C8);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800E0B00.h"
 f32 func_800E0BC4(f32 *offset)
@@ -96,7 +95,6 @@ f32 func_800E0BC4(f32 *offset)
 f32 func_800E0C44(f32 *offset) {
     return sqrtf(offset[1] * offset[1] + offset[0] * offset[0]);
 }
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 static inline f32 approx_horizontal_length(f32 *v) {
     f32 a = v[1];
@@ -131,7 +129,6 @@ f32 func_800E0C8C(f32 *a, f32 *b) {
 }
 
 INCLUDE_ASM("span_1000", func_800E0D54);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 u16 func_800E0E1C(u16 index) {
     u16 group = index / 3;
@@ -154,7 +151,6 @@ s32 func_800E0EA8(struct PolygonPoint *a, struct PolygonPoint *origin, struct Po
 
 INCLUDE_ASM("span_1000", func_800E0EFC);
 #include "shared/bt_span_1000_code_80091A60.h"
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 s32 func_800E1098(struct PolygonPoint *arg0, struct PolygonPoint *arg1) {
     s32 var_v0;
@@ -215,7 +211,6 @@ void func_800E18B0(u16 corner, struct PolygonPoint **start, struct PolygonPoint 
 INCLUDE_ASM("span_1000", func_800E19B8);
 INCLUDE_ASM("span_1000", func_800E19DC);
 #include "shared/audio_callbacks.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800E0B00.h"
 
 

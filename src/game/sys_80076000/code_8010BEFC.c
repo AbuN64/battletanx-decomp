@@ -35,7 +35,7 @@ void func_8010BEFC(EffectKind2B *effect, s32 *result)
 INCLUDE_DATA("span_1000", D_80075520);
 INCLUDE_ASM("span_1000", func_8010BFDC);
 INCLUDE_ASM("span_1000", func_8010C450);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800A9FC4.h"
 

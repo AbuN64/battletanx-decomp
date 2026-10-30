@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_80078E30_H
 #define SHARED_BT_SPAN_1000_CODE_80078E30_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern unsigned char *func_80078F60(void);
 
 

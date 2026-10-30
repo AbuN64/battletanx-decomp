@@ -41,7 +41,7 @@ s32 func_8010CB60(EffectKind2DParams *params)
     return 0;
 }
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
 

@@ -4,7 +4,7 @@
 #include "shared/bt_span_1000_code_8008F248.h"
 
 INCLUDE_ASM("span_1000", func_8010D850);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 
@@ -84,7 +84,6 @@ void func_8010DC0C(EffectKind1D *effect, s32 *state)
 }
 
 #include "shared/bt_span_1000_code_8010BFDC.h"
-#include "shared/bt_types.h"
 
 
 

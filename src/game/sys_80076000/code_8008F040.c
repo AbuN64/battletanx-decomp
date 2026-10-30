@@ -86,7 +86,7 @@ void func_8008F4EC(f32 *max, f32 *min, FrameVertex *vertices, s32 count) {
 
 INCLUDE_ASM("span_1000", func_8008F5D4);
 INCLUDE_ASM("span_1000", func_8008F6F4);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_records.h"
 #include "shared/bt_externs.h"
 
@@ -133,7 +133,6 @@ void func_8008FC9C(Unknown8008FC9C_1 *obj) {
 }
 INCLUDE_ASM("span_1000", func_8008FD6C);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 
 void func_800902BC(f32 *arg0, s32 count) {
@@ -157,7 +156,6 @@ INCLUDE_ASM("span_1000", func_80090428);
 INCLUDE_ASM("span_1000", func_800905D8);
 #include "shared/bt_span_1000_code_8008F248.h"
 #include "shared/audio_callbacks.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8008B1F0.h"
 #include "span_1000/code_8008F4EC.h"
 

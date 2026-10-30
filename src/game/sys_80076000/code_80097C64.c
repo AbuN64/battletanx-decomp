@@ -12,7 +12,7 @@ INCLUDE_ASM("span_1000", func_80099D90);
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 #include "shared/bt_span_1000_code_8010BFDC.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_span_1000_code_80094704.h"
 void func_8009A22C(ButtonBinding *arg0, u32 arg1) {
     u32 temp_v1;
@@ -94,7 +94,6 @@ block_21:
 INCLUDE_ASM("span_1000", func_8009A22C);
 #endif
 INCLUDE_ASM("span_1000", func_8009A354);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_player.h"
 #include "shared/bt_menu_render.h"

@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_80119B60_H
 #define SHARED_BT_SPAN_1000_CODE_80119B60_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern void func_8011AB74(void);
 
 

@@ -3,7 +3,7 @@
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_8008F248.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_80077930.h"
 #include "span_1000/code_8008F4EC.h"
 
@@ -42,7 +42,6 @@ void func_80091108(struct PolygonPoint *origin, struct PolygonPoint *out) {
 INCLUDE_ASM("span_1000", func_800911A0);
 INCLUDE_ASM("span_1000", func_800913AC);
 #include "shared/bt_span_1000_code_8008F248.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_8008F4EC.h"
 
 

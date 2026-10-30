@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "span_1000/code_800E9538.h"
 
 s32 func_800E6C80(struct ResetState *arg0) {

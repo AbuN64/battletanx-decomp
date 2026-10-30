@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 void func_80086B48(u8 *arg0, f32 arg1) {
     f32 t;
@@ -38,7 +38,6 @@ INCLUDE_RODATA("span_1000", D_800716F8);
 INCLUDE_DATA("span_1000", D_800716FC);
 INCLUDE_RODATA("span_1000", D_80071700);
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_800F29F0.h"
 extern f32 D_800716F8;
 extern f32 D_800716FC;
@@ -118,7 +117,6 @@ s32 func_80086F3C(Unknown80086F3C_2 *owner, s32 key, s32 value, s32 addRef) {
     return 0;
 }
 #ifdef NON_MATCHING
-#include "shared/bt_types.h"
 #include "game/sys_8011C210.h"
 extern s32 D_0000A374;
 extern s32 D_0000A378;

@@ -38,7 +38,7 @@ void func_80106B60(s32 width, s32 height)
 INCLUDE_ASM("span_1000", func_80106C9C);
 INCLUDE_ASM("span_1000", func_80106CCC);
 #include "shared/bt_span_1000_code_8010527C.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 
 /* func_80106D00 -- returns -1.
  *
@@ -64,7 +64,6 @@ s32 func_80106D10(void) {
 
 INCLUDE_ASM("span_1000", func_80106D18);
 INCLUDE_ASM("span_1000", func_80106F94);
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_80107168.h"
 
               /* size 0x0 */
@@ -263,7 +262,6 @@ void func_80108E74(s32 index, Unknown80108E74_1 *out) {
     out[3].value04 = ((c * (f32)area->value06) - (s * (f32)area->value0C)) + (f32)area->value02;
     out[3].value00 = (s * (f32)area->value06) + (c * (f32)area->value0C) + (f32)area->value04;
 }
-#include "shared/bt_types.h"
 
 s32 func_80109094(u32 arg0) {
     u32 rest = arg0;
@@ -351,7 +349,6 @@ s32 func_80109094(u32 arg0) {
 
 INCLUDE_ASM("span_1000", func_80109268);
 #include "shared/bt_span_1000_code_80107168.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_80107B44.h"
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "game/sys_80076000.h"
@@ -388,7 +385,6 @@ void func_80109364(QueryRecord *record, s32 minZ, s32 maxZ, s32 minX, s32 maxX)
 INCLUDE_ASM("span_1000", func_80109498);
 INCLUDE_ASM("span_1000", func_801095D0);
 INCLUDE_ASM("span_1000", func_8010A474);
-#include "shared/bt_types.h"
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_80107168.h"
 #include "shared/bt_span_1000_code_800F29F0.h"

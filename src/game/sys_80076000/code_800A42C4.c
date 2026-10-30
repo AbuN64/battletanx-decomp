@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_callback_word.h"
 #include "game/sys_80076000.h"
 #include "shared/bt_player.h"
@@ -22,7 +22,6 @@ void func_800A42D0(PlayerRecord *player, s32 unused, CombatUnit *unit)
 }
 
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
 #include "shared/bt_callback_control.h"
 void func_800A4368(s32 arg0) {
     ((CallbackControl *)arg0)->value = 0xFF;
@@ -66,7 +65,6 @@ INCLUDE_ASM("span_1000", func_800A4610);
 INCLUDE_ASM("span_1000", func_800A47AC);
 INCLUDE_ASM("span_1000", func_800A4A00);
 #include "shared/bt_span_1000_code_800A27D0.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_8007A470.h"
 #include "span_1000/code_8007EBA0.h"
 #include "span_1000/code_800A27D0.h"

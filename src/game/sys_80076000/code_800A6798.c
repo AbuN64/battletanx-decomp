@@ -3,7 +3,7 @@
 #include "shared/bt_player.h"
 
 INCLUDE_ASM("span_1000", func_800A6798);
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 
 
@@ -25,7 +25,6 @@ void *func_800A68C0(s32 index)
 }
 
 INCLUDE_ASM("span_1000", func_800A68DC);
-#include "shared/bt_types.h"
 #include "shared/audio_callbacks.h"
 #include "shared/bt_span_1000_code_800A6864.h"
 #include "shared/bt_span_1000_code_8008F248.h"
@@ -71,7 +70,6 @@ INCLUDE_ASM("span_1000", func_800A6958);
 INCLUDE_ASM("span_1000", func_800A6AB4);
 INCLUDE_ASM("span_1000", func_800A6BE0);
 #include "shared/bt_span_1000_code_800A6864.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_800A6864.h"
 
 struct L;
@@ -106,7 +104,6 @@ int func_800A70BC(EffectKind15 *arg0) {
 
 INCLUDE_ASM("span_1000", func_800A70E0);
 #include "shared/bt_span_1000_code_800A6864.h"
-#include "shared/bt_types.h"
 #include "shared/bt_span_1000_code_80091A60.h"
 #include "span_1000/code_800A6864.h"
 #include "sdk/libultra.h"
@@ -149,7 +146,6 @@ INCLUDE_ASM("span_1000", func_800A739C);
 INCLUDE_ASM("span_1000", func_800A7418);
 #include "game/sys_80076000.h"
 #include "shared/bt_span_1000_code_800A6864.h"
-#include "shared/bt_types.h"
 #include "span_1000/code_8007EBA0.h"
 #include "span_1000/code_8008F4EC.h"
 

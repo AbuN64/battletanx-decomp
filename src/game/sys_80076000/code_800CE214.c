@@ -1,6 +1,6 @@
 #include "include_asm.h"
 
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_80076000.h"
 #include "shared/bt_menu_render.h"
 #include "shared/bt_span_1000_code_8007963C.h"
@@ -93,7 +93,6 @@ INCLUDE_ASM("span_1000", func_800CE4B0);
 INCLUDE_ASM("span_1000", func_800CE554);
 INCLUDE_ASM("span_1000", func_800CEE2C);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 s32 func_800CF374(void) {
     s32 temp_v0;
     s32 temp_v0_2;
@@ -126,7 +125,6 @@ block_5:
 
 #ifdef NON_MATCHING
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 s32 func_800CF454(void) {
     s32 var_a0;
     s32 var_a2;
@@ -164,7 +162,6 @@ INCLUDE_ASM("span_1000", func_800CFEB0);
 INCLUDE_ASM("span_1000", func_800D05DC);
 INCLUDE_ASM("span_1000", func_800D0690);
 INCLUDE_ASM("span_1000", func_800D0828);
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 
@@ -236,7 +233,6 @@ done:
 
 INCLUDE_ASM("span_1000", func_800D0B0C);
 #include "game/sys_80076000.h"
-#include "shared/bt_types.h"
 s32 func_800D0BD4(void) {
     s32 temp_v0;
     s32 temp_v0_2;
@@ -267,7 +263,6 @@ block_5:
     return D_8032815C > 0;
 }
 
-#include "shared/bt_types.h"
 #include "game/sys_80076000.h"
 
 

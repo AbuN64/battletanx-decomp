@@ -3,6 +3,5 @@
 extern unsigned int __osProbeTLB(void *vaddr);
 
 
-extern unsigned int osVirtualToPhysical(void *vaddr);
 
 #endif

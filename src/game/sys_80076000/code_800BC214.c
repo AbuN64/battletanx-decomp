@@ -1,7 +1,7 @@
 #include "include_asm.h"
 
 #include "game/sys_80076000.h"
-#include "shared/bt_gbi.h"
+#include <ultra64.h>
 #include "shared/bt_menu_render.h"
 s32 func_800BC214(void) {
     s32 next;
@@ -26,7 +26,7 @@ s32 func_800BC214(void) {
         cmd = D_803276D4;
         dl = D_803276D0 + D_803276D8 * 0x2200;
         D_803276D4 = cmd + 1;
-        gSPEndDisplayListF3D(cmd);
+        gSPEndDisplayList(cmd);
         func_8007EEF8(dl);
         next = D_803276D8 + 1;
         mask = -(next < 3);

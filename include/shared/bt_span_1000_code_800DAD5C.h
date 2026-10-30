@@ -1,6 +1,6 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800DAD5C_H
 #define SHARED_BT_SPAN_1000_CODE_800DAD5C_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 extern void func_800DDA00(void);
 
 

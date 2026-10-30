@@ -1,13 +1,11 @@
 #include "include_asm.h"
 
 #include "shared/bt_span_1000_code_800ABFD0.h"
-#include "shared/bt_abi.h"
-#include "shared/bt_bt_gbi.h"
+#include <PR/abi.h>
+#include <ultra64.h>
 #include "shared/bt_common_types_d507c48987bb.h"
-#include "shared/bt_types.h"
 #include "shared/bt_gfx.h"
 #include "shared/bt_menu_render.h"
-#include "shared/bt_gbi.h"
 #include "game/sys_80076000.h"
 
 extern u8 D_803276E0;

@@ -2,7 +2,7 @@
 
 #include "shared/bt_common_types_d507c48987bb.h"
 #include "shared/bt_span_1000_code_8011B9E0.h"
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "game/sys_8011C210.h"
 
 struct Command;

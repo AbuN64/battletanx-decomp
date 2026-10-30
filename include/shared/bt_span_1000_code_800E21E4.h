@@ -1,11 +1,11 @@
 #ifndef SHARED_BT_SPAN_1000_CODE_800E21E4_H
 #define SHARED_BT_SPAN_1000_CODE_800E21E4_H
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/bt_unit.h"
-extern int func_800E2620(CombatUnit *unit);
+extern s32 func_800E2620(CombatUnit *unit);
 
 
-extern int func_800E2614(CombatUnit *unit);
+extern s32 func_800E2614(CombatUnit *unit);
 
 
 extern void func_800E3480(int *p);

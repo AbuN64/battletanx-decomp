@@ -1,4 +1,4 @@
-#include "shared/bt_types.h"
+#include <ultra64.h>
 #include "shared/audio_callbacks.h"
 #pragma once
 #include "shared/bt_camera.h"
