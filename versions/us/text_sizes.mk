@@ -1,4 +1,8 @@
 # generated from config.toml; do not edit
+VMACRO_us := VERSION_US
+SHA1_us := 535860d941738ac1210c20a9b80114fea0e0ff17
+ROM0_us := 0
+ROM_SECTIONS_us :=
 build/us/src/game/sys_80076000/code_80076000.c.o: TEXTSIZE := 0x8E4
 build/us/src/game/sys_80076000/code_800768E4.c.o: TEXTSIZE := 0x7B4
 build/us/src/game/sys_80076000/code_80077110.c.o: TEXTSIZE := 0x9F8

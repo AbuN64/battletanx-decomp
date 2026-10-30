@@ -1,0 +1,4 @@
+*.CPP linguist-language=C
+*.H linguist-language=C
+versions/*/symbol_addrs.txt merge=union
+versions/*/aliases.txt merge=union
